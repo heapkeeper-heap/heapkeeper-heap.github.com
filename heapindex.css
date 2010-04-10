@@ -1,0 +1,233 @@
+body, html
+{
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+a
+{
+    text-decoration: none;
+    color: #006;
+}
+
+#subheader
+{
+    background-color: #cc9;
+    border: 1px solid #cc9;
+    margin: 2em 1em 2em 1em;
+    padding: 0.3em;
+    padding-left: 1em;
+}
+
+#subheader > a
+{
+    font-weight: bold;
+    font-size: 18;
+}
+
+#subheader > .index
+{
+    padding-left: 3em;
+    font-weight: bold;
+    font-size: 18;
+}
+
+#subheader + .date
+{
+    margin-left: 1em;
+    color: #006;
+}
+
+#header
+{
+    margin: 0;
+    padding: 0.5em;
+    border-bottom: 10px solid #080;
+    font-family: Arial, sans-serif;
+    color: #006;
+    background-color: #cc9;
+}
+
+.tableofcontents
+{
+    margin-top: 3em;
+}
+
+.sectiontitle
+{
+    display: block;
+    color: #006;
+    background-color: #cc9;
+    border: 1px solid #cc9;
+    margin: 3em 1em 1em 1em;
+    padding: 0.3em;
+    padding-left: 1em;
+    font-weight: bold;
+    font-size: 18;
+}
+
+.flatlist
+{
+    margin-left: 1em;
+}
+
+.postbox
+{
+    display: block;
+    background-color: #eed;
+    border: 1px solid #080;
+    margin: 1em;
+    padding: 0.7em 0 0.7em 0.7em;
+}
+
+.postbox .postbox
+{
+    background-color: #eed;
+    border: none;
+    margin-left: 0.5em;
+    margin-top: 0.3em;
+    margin-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.flatlist td
+{
+    background-color: #eed;
+}
+
+span, td
+{
+}
+
+td
+{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+/* subject */
+
+.subject
+{
+    font-weight: bold;
+}
+
+.subject a:link
+{
+    color: #000;
+    text-decoration: underline;
+}
+
+.subject a:visited
+{
+    color: #666;
+    text-decoration: underline;
+}
+
+.subject a:active
+{
+    color: #666;
+}
+
+.subject .star a:link
+{
+    text-decoration: none;
+}
+
+.subject .star a:visited
+{
+    text-decoration: none;
+}
+
+.subject .star a:active
+{
+    text-decoration: none;
+}
+
+/* index */
+
+.index
+{
+    color: #00a;
+}
+
+.index a:link, .index a:visited, .index a:active,
+{
+    color: #00a;
+}
+
+.post_inactive span, .post_inactive span a
+{
+    color: gray !important;
+}
+
+.post_inactive .subject a
+{
+    font-weight: normal;
+}
+
+/* author, sectiontitle */
+
+.author
+{
+    margin-right: 1em;
+    font-style: italic;
+}
+
+pre
+{
+    margin: 1em;
+}
+
+.button a img
+{
+    text-decoration: none;
+    border: none;
+}
+
+.date
+{
+    color: gray;
+}
+
+.postbody
+{
+    background-color: #fff;
+    border: 1px solid #080;
+    color: #000;
+    font-family: Courier, monospace;
+
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.postbody .meta-text
+{
+    color: #f00;
+}
+
+.postbody .quote-2, .quote-4, .quote-6, .quote-8
+{
+    color: #088;
+}
+
+.postbody .quote-1, .quote-3, .quote-5, .quote-7, .quote-9
+{
+    color: #00f;
+}
+
+.postbody a
+{
+    text-decoration: underline;
+}
+
+.author, .subject, .button, .tags, .index, .parent, .date
+{
+    margin-right: 1em;
+}
