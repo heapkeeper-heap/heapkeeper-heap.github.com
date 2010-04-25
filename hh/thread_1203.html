@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Thread hh/1203</title>
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
+  </head>
+  <body>
+    <h1 id="header">Thread hh/1203</h1>
+
+
+<div class="postbox"><!-- post hh/1203 -->
+<span class="postsummary" id="post_hh/1203">
+<span class="author">Attila Nagy</span>
+<span class="subject">Unhelpful error messages in dl()</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1203.html#post_hh/1203">&lt;hh/1203&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
+<span class="date">(2010-04-24)</span>
+<div class="body">
+<pre class="postbody">When I first tested downloading (`dl()`) in the current _v0.5 branch
+(8dee3e5), its behavior was not what I would have expected.
+I launch Hk and issued a `dl()` command after specifying several heaps
+in the config file. This is what I got:
+
+    &gt;&gt;&gt; dl()
+    Posts cannot be downloaded: no heap specified.
+
+My first reaction was something like "OK, I haven't specified which
+heap to download; then why not download all of them?" But now that
+I've thought about it for a while, maybe this is what should happen,
+but the message could be made more helpful. How about this?
+
+    &gt;&gt;&gt; dl()
+    No default heap specified. Select a heap using 'sh()'.
+
+It is a special case when there is only a single heap specified in the
+config file. The software's ability to handle multiple heaps should
+not hinder those users who don't need it. This could be accomplished
+most easily by examining if there's only one heap, and if yes, make it
+default.
+
+I don't really like the term "heap id hint". Why not call it "default
+heap" or "current heap"? I think it is quite similar to the well-known
+"current directory" concept of modern operating systems.
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/1203 -->
+
+  </body>
+</html>
