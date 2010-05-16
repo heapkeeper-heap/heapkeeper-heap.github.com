@@ -67,9 +67,9 @@ but then its purpose wouldn't be so evident. Maybe we could say that
 &gt; the only acceptable situation is a line that is only whitespace, and
 &gt; nothing else.) See for example this:
 &gt;
-&gt;    #include &lt;stdio&gt;
+&gt;    #include &lt;stdio&gt;
 &gt;
-&gt;    int main() {}
+&gt;    int main() {}
 &gt;
 &gt; If I write this, if we ever do any syntax highlighting, this will show
 &gt; up as two distinct code blocks.
@@ -83,24 +83,24 @@ think about it.)
 <span class="quote"><span class="quote-1">&gt; but then we'd have to include a separator element, e.g. a special "no-op"
 &gt; meta. Like this:
 &gt;
-&gt;    Compare these two examples:&lt;cr&gt;
-&gt;    &lt;cr&gt;
-&gt;    &lt;spc&gt;print 'hello world'&lt;cr&gt;
-&gt;    [sep]&lt;cr&gt;
-&gt;    &lt;spc&gt;print('hello world')&lt;cr&gt;
+&gt;    Compare these two examples:&lt;cr&gt;
+&gt;    &lt;cr&gt;
+&gt;    &lt;spc&gt;print 'hello world'&lt;cr&gt;
+&gt;    [sep]&lt;cr&gt;
+&gt;    &lt;spc&gt;print('hello world')&lt;cr&gt;
 
 </span></span>We would have to include it if we wanted to be able to express
 everything, including your example. I don't think it it important to
 be able to express that. For example, in Sphinx, you would put the two
 code examples into an itemization:
 
-    Compare these two examples:
+    Compare these two examples:
 
-    - ::
+    - ::
 
         print 'hello world'&lt;cr&gt;
 
-    - ::
+    - ::
 
         print('hello world')&lt;cr&gt;
 

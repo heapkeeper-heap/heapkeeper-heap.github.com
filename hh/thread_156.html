@@ -1022,7 +1022,7 @@ ones I don't agree. I accept all the others.
 
 === Link appearance ===
 
-<span class="quote"><span class="quote-2">&gt;&gt;    Please have a look at &lt;&lt;&lt;link </span></span><span class="quote"><span class="quote-2"><a href="http://www.example.com">http://www.example.com</a></span></span><span class="quote"><span class="quote-2"> this site&gt;&gt;&gt;.
+<span class="quote"><span class="quote-2">&gt;&gt;    Please have a look at &lt;&lt;&lt;link </span></span><span class="quote"><span class="quote-2"><a href="http://www.example.com">http://www.example.com</a></span></span><span class="quote"><span class="quote-2"> this site&gt;&gt;&gt;.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Previously we agreed on allowing the &lt;&lt;&lt; and &gt;&gt;&gt; of the meta text only
 &gt; in the beginning of the lines [2]. Have you changed your mind about
@@ -1051,10 +1051,10 @@ inline header link merely jumps to the body of the cite.
 
 </span></span><span class="quote"><span class="quote-1">&gt; I would also like to write emails like this:
 &gt;
-&gt;   Our website [1] should be improved according to them [2].
+&gt;   Our website [1] should be improved according to them [2].
 &gt;
-&gt;   [1] Currently </span></span><span class="quote"><span class="quote-1"><a href="http://hste.uw.hu/heapkeeper/index.html">http://hste.uw.hu/heapkeeper/index.html</a></span></span><span class="quote"><span class="quote-1">
-&gt;   [2] </span></span><span class="quote"><span class="quote-1"><a href="http://www.boring.org">http://www.boring.org</a></span></span><span class="quote"><span class="quote-1">, section "Heapkeeper is boring"
+&gt;   [1] Currently </span></span><span class="quote"><span class="quote-1"><a href="http://hste.uw.hu/heapkeeper/index.html">http://hste.uw.hu/heapkeeper/index.html</a></span></span><span class="quote"><span class="quote-1">
+&gt;   [2] </span></span><span class="quote"><span class="quote-1"><a href="http://www.boring.org">http://www.boring.org</a></span></span><span class="quote"><span class="quote-1">, section "Heapkeeper is boring"
 
 </span></span>Now, if I understand you correctly, you would also like to handle
 those cites that fall into neither of these, namely, the ones which
@@ -1125,30 +1125,30 @@ a signature.
 
 <span class="quote"><span class="quote-2">&gt;&gt; Plaintext:
 &gt;&gt;
-&gt;&gt;    &lt;&lt;&lt;wiki&gt;&gt;&gt;
-&gt;&gt;    == Bacteria ==
+&gt;&gt;    &lt;&lt;&lt;wiki&gt;&gt;&gt;
+&gt;&gt;    == Bacteria ==
 &gt;&gt;
 &gt;&gt; Initial segmenting:
 &gt;&gt;
-&gt;&gt;    Plaintext [&lt;&lt;&lt;wiki&gt;&gt;&gt;\n== Bacteria ==]
+&gt;&gt;    Plaintext [&lt;&lt;&lt;wiki&gt;&gt;&gt;\n== Bacteria ==]
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I don't know how do you think the parser will work, but I would think
 &gt; it never creates that text. It is highly illogical to me that our main
 &gt; text object is the TeX-like paragraph, and everything else is parsed
 &gt; from those. Consider this:
 &gt;
-&gt;    &lt;&lt;&lt;note
+&gt;    &lt;&lt;&lt;note
 &gt;
-&gt;    This is a long note.
+&gt;    This is a long note.
 &gt;
-&gt;    Eh.&gt;&gt;&gt;
+&gt;    Eh.&gt;&gt;&gt;
 &gt;
 &gt; In my opinion we can create the following text objects in first go:
 &gt; - quote blocks
 &gt; - meta text blocks
 &gt; - text blocks
 &gt; - raw blocks (lines that start with whitespace and would be in a text
-&gt;  block otherwise)
+&gt;  block otherwise)
 
 </span></span>In general, I like the idea, but it seems to conflict with the idea of
 modularity. If we hardwire these in the Dissector (in the current
@@ -1181,18 +1181,18 @@ whole body will be parsed!
 <span class="quote"><span class="quote-1">&gt; And here is another one. I write itemizations very frequently. Like
 &gt; these:
 &gt;
-&gt;    Nice animals:
-&gt;    - cat
-&gt;    - dog
-&gt;    - fish
+&gt;    Nice animals:
+&gt;    - cat
+&gt;    - dog
+&gt;    - fish
 &gt;
-&gt;    We could do:
-&gt;    a. this
-&gt;    b. that
+&gt;    We could do:
+&gt;    a. this
+&gt;    b. that
 &gt;
-&gt;    If we choose (a), we have to:
-&gt;    1. start
-&gt;    2. stop
+&gt;    If we choose (a), we have to:
+&gt;    1. start
+&gt;    2. stop
 &gt;
 &gt; We have to find a way to render these. (I haven't found yet.)
 
@@ -1847,15 +1847,15 @@ with the example.
 &gt;
 &gt; First email:
 &gt;
-&gt;    Nice place: [1]
+&gt;    Nice place: [1]
 &gt;
-&gt;    [1] </span></span><span class="quote"><span class="quote-1"><a href="http://nice.place">http://nice.place</a></span></span><span class="quote"><span class="quote-1">
+&gt;    [1] </span></span><span class="quote"><span class="quote-1"><a href="http://nice.place">http://nice.place</a></span></span><span class="quote"><span class="quote-1">
 &gt;
 &gt; Answer:
 &gt;
-&gt;    &gt; Nice place: [1]
+&gt;    &gt; Nice place: [1]
 &gt;
-&gt;    Indeed!
+&gt;    Indeed!
 &gt;
 &gt; How should we display "[1]" be on the post page of the second post?
 &gt; Of course it should be a link to </span></span><span class="quote"><span class="quote-1"><a href="http://nice.place!">http://nice.place!</a></span></span><span class="quote"><span class="quote-1">

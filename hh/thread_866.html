@@ -219,14 +219,14 @@ the current behaviour is the desirable one.
 <div class="body">
 <pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I can still see alternatives to the current method:
 &gt;&gt; - adding a getter function to Generator that defaults to
-&gt;&gt;   `Generator.print_postitem`; then any "post item modifier functions"
-&gt;&gt;   could use this function
+&gt;&gt;   `Generator.print_postitem`; then any "post item modifier functions"
+&gt;&gt;   could use this function
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Heapkeeper. Just for making sure that we are on the same page, the following
 &gt; changes would be done for example to hkgen.Generator.enclose_posts.
 &gt; [...]
-&gt;  -             old_print_fun = postitem.print_fun
-&gt;  +             old_print_fun = self.get_print_fun(postitem)
+&gt;  -             old_print_fun = postitem.print_fun
+&gt;  +             old_print_fun = self.get_print_fun(postitem)
 &gt; [...]
 &gt; Generator.get_print_fun itself would be a trivial function.
 
@@ -239,7 +239,7 @@ the current behaviour is the desirable one.
 </span></span>OK, I will, but not tonight [1].
 
 <span class="quote"><span class="quote-2">&gt;&gt; - adding a `__getattr__` method to `PostItem` that returns
-&gt;&gt;   `Generator.print_postitem` whenever `print_fun` is read
+&gt;&gt;   `Generator.print_postitem` whenever `print_fun` is read
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; This is not good because that would _always_ use
 &gt; hkgen.Generator.print_postitem as the default printer function, while

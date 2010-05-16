@@ -74,15 +74,15 @@ files are text files.
 <pre class="postbody"><span class="quote"><span class="quote-1">&gt; We have a few possibilities to resolve this issue:
 &gt;
 &gt; 1. Convert the non-breaking spaces to normal spaces in all post files
-&gt;   in the repositories, and modify Heapkeeper to do this conversion
-&gt;   when downloading new emails.
+&gt;   in the repositories, and modify Heapkeeper to do this conversion
+&gt;   when downloading new emails.
 &gt; 2. Don't modify the repositories, but modify Heapkeeper to convert the
-&gt;   non-breaking spaces to normal spaces when parsing the post files.
-&gt;   This way the post files will contain the non-breaking spaces, but
-&gt;   the post objects will contain only normal spaces.
+&gt;   non-breaking spaces to normal spaces when parsing the post files.
+&gt;   This way the post files will contain the non-breaking spaces, but
+&gt;   the post objects will contain only normal spaces.
 &gt; 3. Let the post objects contain non-breaking spaces. I should write
-&gt;   post body parsing in a way that it accepts both non-breaking and
-&gt;   normal spaces.
+&gt;   post body parsing in a way that it accepts both non-breaking and
+&gt;   normal spaces.
 
 </span></span>We agreed on option 1 in an IM discussion. We considered how useful
 having nbsp-s in post files would be. This may be important when
@@ -92,6 +92,30 @@ Unicode code point "NARROW NO-BREAK SPACE" (U+202F) has to be used,
 which is absolutely permitted and supported.
 </pre></div>
 </span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1209 -->
+<span class="postsummary" id="post_hh/1209">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1207.html#post_hh/1209">&lt;hh/1209&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1207.html#post_hh/1208">&lt;&uarr;hh/1208&gt;</a></span>
+<span class="date">(2010-05-02)</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; We have a few possibilities to resolve this issue:
+&gt;&gt;
+&gt;&gt; 1. Convert the non-breaking spaces to normal spaces in all post files
+&gt;&gt;    in the repositories, and modify Heapkeeper to do this conversion
+&gt;&gt;    when downloading new emails.
+
+</span></span>I converted the non-breaking space in the Heapkeeper Heap repository
+in commit 72cc683a62.
+
+I modified Heapkeeper as described above in commit a0533e2f10.
+
+<span class="meta-text">[close]</span>
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/1209 -->
 </div><!-- postbox for post hh/1208 -->
 </div><!-- postbox for post hh/1207 -->
 

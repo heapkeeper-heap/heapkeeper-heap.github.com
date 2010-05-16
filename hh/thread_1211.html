@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Thread hh/1211</title>
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
+  </head>
+  <body>
+    <h1 id="header">Thread hh/1211</h1>
+
+
+<div class="postbox"><!-- post hh/1211 -->
+<span class="postsummary" id="post_hh/1211">
+<span class="author">Attila Nagy</span>
+<span class="subject">IMAP downloading generates too long commands</span>
+<span class="tags">[bug]</span>
+<span class="index"><a href="../hh/thread_1211.html#post_hh/1211">&lt;hh/1211&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
+<span class="date">(2010-05-05)</span>
+<div class="body">
+<pre class="postbody">IMAP downloading currently works like this:
+- get a list of all vaild message numbers,
+- compile a list of message numbers above the lower limit
+  (``lower_limit`` parameter),
+- fetch the headers of all messages in this list,
+- compile a list of all new messages,
+- download all new messages in one command.
+
+This has a serious flaw. Thus spoke RFC 2683:
+
+	A client should limit the length of the command lines it generates to
+	approximately 1000 octets (including all quoted strings but not
+ 	including literals).  If the client is unable to group things into
+    ranges so that the command line is within that length, it should
+    split the request into multiple commands.  The client should use
+    literals instead of long quoted strings, in order to keep the command
+    length down.
+
+We are _way_ above this limit, and this is not good. Gmail has been
+gracious so far to cooperate with our long commands, but not all IMAP
+servers are so kind. I've been playing with Dovecot on localhost, and
+I've received this error:
+
+	error: FETCH command error: BAD ['Error in IMAP command FETCH: Too
+long argument.']
+
+The solution would be:
+- assemble the list as we do now,
+- in the first pass, remove individual IDs and replace with ranges
+  whenever possible (e.g. remove all numbers from 1 to 1234, and add
+  "1:1234"),
+- then cut this to chunks that can be sent safely, and send them as
+  individual commands,
+- and finally, unify the results.
+
+Since we do this twice, it may be nice to implement it as a separate function.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1216 -->
+<span class="postsummary" id="post_hh/1216">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1211.html#post_hh/1216">&lt;hh/1216&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1211.html#post_hh/1211">&lt;&uarr;hh/1211&gt;</a></span>
+<span class="date">(2010-05-07)</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; The solution would be:
+&gt; - assemble the list as we do now,
+&gt; - in the first pass, remove individual IDs and replace with ranges
+&gt;   whenever possible (e.g. remove all numbers from 1 to 1234, and add
+&gt;   "1:1234"),
+&gt; - then cut this to chunks that can be sent safely, and send them as
+&gt;   individual commands,
+&gt; - and finally, unify the results.
+
+</span></span>OK.
+
+<span class="quote"><span class="quote-1">&gt; Since we do this twice, it may be nice to implement it as a separate function.
+
+</span></span>Why do we do this twice?
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/1216 -->
+</div><!-- postbox for post hh/1211 -->
+
+  </body>
+</html>

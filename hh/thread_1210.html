@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Thread hh/1210</title>
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
+  </head>
+  <body>
+    <h1 id="header">Thread hh/1210</h1>
+
+
+<div class="postbox"><!-- post hh/1210 -->
+<span class="postsummary" id="post_hh/1210">
+<span class="author">Attila Nagy</span>
+<span class="subject">Heapkeeper attempts SSL connection to plain IMAP servers</span>
+<span class="tags">[bug]</span>
+<span class="index"><a href="../hh/thread_1210.html#post_hh/1210">&lt;hh/1210&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
+<span class="date">(2010-05-05)</span>
+<div class="body">
+<pre class="postbody">Right now, Heapkeeper connects to all IMAP servers via IMAPS,
+regardless of the port number.
+
+I think this should work like this:
+- have an IMAP/IMAPS option,
+- if this is omitted, default to IMAPS for port 993, and IMAP for port 143
+- for any other ports, issue a warning, or maybe silently default to IMAP.
+
+The error message is also quite ugly:
+
+    SSLError: [Errno 1] _ssl.c:480: error:140770FC:SSL
+routines:SSL23_GET_SERVER_HELLO:unknown protocol
+
+at the end of a long stack trace, of course. This should be caught and
+displayed as a more meaningful message, e.g. "Error: trying to connect
+via IMAPS to a non-SSL server."
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1215 -->
+<span class="postsummary" id="post_hh/1215">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1210.html#post_hh/1215">&lt;hh/1215&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1210.html#post_hh/1210">&lt;&uarr;hh/1210&gt;</a></span>
+<span class="date">(2010-05-07)</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I think this should work like this:
+&gt; - have an IMAP/IMAPS option,
+&gt; - if this is omitted, default to IMAPS for port 993, and IMAP for port 143
+&gt; - for any other ports, issue a warning, or maybe silently default to IMAP.
+
+</span></span>OK.
+
+<span class="quote"><span class="quote-1">&gt; This should be caught and displayed as a more meaningful message
+
+</span></span>OK.
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/1215 -->
+</div><!-- postbox for post hh/1210 -->
+
+  </body>
+</html>
