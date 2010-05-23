@@ -1,11 +1,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title>Thread hh/1210</title>
+    <title>Heapkeeper attempts SSL connection to plain IMAP servers</title>
     <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
   <body>
-    <h1 id="header">Thread hh/1210</h1>
+    <h1 id="header">Heapkeeper attempts SSL connection to plain IMAP servers</h1>
 
 
 <div class="postbox"><!-- post hh/1210 -->
@@ -56,6 +56,54 @@ via IMAPS to a non-SSL server."
 </span></span>OK.
 </pre></div>
 </span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1240 -->
+<span class="postsummary" id="post_hh/1240">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1210.html#post_hh/1240">&lt;hh/1240&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1210.html#post_hh/1215">&lt;&uarr;hh/1215&gt;</a></span>
+<span class="date">(2010-05-20)</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I think this should work like this:
+&gt;&gt; - have an IMAP/IMAPS option,
+&gt;&gt; - if this is omitted, default to IMAPS for port 993, and IMAP for port 143
+&gt;&gt; - for any other ports, issue a warning, or maybe silently default to IMAP.
+
+</span></span>I pushed a fix that works like this on the "_imap" branch. The option
+is called "imaps", and it's optional. I also updated the relevant test
+cases. Csabi, would you check if it's OK?
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1249 -->
+<span class="postsummary" id="post_hh/1249">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1210.html#post_hh/1249">&lt;hh/1249&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1210.html#post_hh/1240">&lt;&uarr;hh/1240&gt;</a></span>
+<span class="date">(2010-05-22)</span>
+<div class="body">
+<pre class="postbody">It seems to be OK.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1252 -->
+<span class="postsummary" id="post_hh/1252">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1210.html#post_hh/1252">&lt;hh/1252&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1210.html#post_hh/1249">&lt;&uarr;hh/1249&gt;</a></span>
+<span class="date">(2010-05-23)</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; It seems to be OK.
+
+</span></span><span class="meta-text">[close]</span>
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/1252 -->
+</div><!-- postbox for post hh/1249 -->
+</div><!-- postbox for post hh/1240 -->
 </div><!-- postbox for post hh/1215 -->
 </div><!-- postbox for post hh/1210 -->
 

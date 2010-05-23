@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Management of the online web image of Heapkeeper Heap</title>
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
+  </head>
+  <body>
+    <h1 id="header">Management of the online web image of Heapkeeper Heap</h1>
+
+
+<div class="postbox"><!-- post hh/1231 -->
+<span class="postsummary" id="post_hh/1231">
+<span class="author">Attila Nagy</span>
+<span class="subject">Management of the online web image of Heapkeeper Heap</span>
+<span class="tags">[discussion, hh]</span>
+<span class="index"><a href="../hh/thread_1231.html#post_hh/1231">&lt;hh/1231&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
+<span class="date">(2010-05-18)</span>
+<div class="body">
+<pre class="postbody">Csabi, how do you manage the web archive of this heap? I mean how
+often do you download, do you have a script to automate the procedure
+etc. Maybe we could make it a cron job on a permanently running
+machine?
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1247 -->
+<span class="postsummary" id="post_hh/1247">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1231.html#post_hh/1247">&lt;hh/1247&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1231.html#post_hh/1231">&lt;&uarr;hh/1231&gt;</a></span>
+<span class="date">(2010-05-22)</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Csabi, how do you manage the web archive of this heap? I mean how
+&gt; often do you download,
+
+</span></span>Once a week would be the goal.
+
+<span class="quote"><span class="quote-1">&gt; do you have a script to automate the procedure
+
+</span></span>Yes, but it is semi-automatic. The script downloads the new stuff,
+generates the HTML files and commits the changes to my local
+repositories. Then I read through the changes quickly and push them to
+GitHub if they are OK. Also, it is important to note that I use the
+_bugfix branch of Heapkeeper for this procedure.
+
+<span class="quote"><span class="quote-1">&gt; Maybe we could make it a cron job on a permanently running machine?
+
+</span></span>Maybe we should do that.
+
+I'm more comfortable having a look at the emails before pushing them,
+but if we can rewrite the history in case of a problem, it is OK to do
+the commits and pushes automatically.
+
+As far as I know, "master" branches are unrewritable once pushed to
+GitHub, so in the HH repo [1], we should use another branch, to which
+"master" would be manually fast forwarded.
+
+In the repository of the HH HTML web page [2], we have to use the
+"master" branch, because the web page is generated from that. But I'm
+not that keen on a very clean history there, so it is not a problem.
+
+[1] <a href="http://github.com/hcs42/heapkeeper-heap">http://github.com/hcs42/heapkeeper-heap</a>
+[2] <a href="http://heapkeeper-heap.github.com/index/index.html">http://heapkeeper-heap.github.com/index/index.html</a>
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1253 -->
+<span class="postsummary" id="post_hh/1253">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1231.html#post_hh/1253">&lt;hh/1253&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1231.html#post_hh/1247">&lt;&uarr;hh/1247&gt;</a></span>
+<span class="date">(2010-05-23)</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; As far as I know, "master" branches are unrewritable once pushed to
+&gt; GitHub,
+
+</span></span>They aren't, you just have to be aggressive about it:
+
+    $ git push --force origin master
+
+Found here (and tested on an experimental GitHub repo):
+
+<a href="http://help.github.com/removing-sensitive-data/">http://help.github.com/removing-sensitive-data/</a>
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/1253 -->
+</div><!-- postbox for post hh/1247 -->
+</div><!-- postbox for post hh/1231 -->
+
+  </body>
+</html>

@@ -1,11 +1,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title>Thread hh/1191</title>
+    <title>Development policies, pylint works OK on all Heapkeeper code</title>
     <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
   <body>
-    <h1 id="header">Thread hh/1191</h1>
+    <h1 id="header">Development policies, pylint works OK on all Heapkeeper code</h1>
 
 
 <div class="postbox"><!-- post hh/1191 -->
@@ -121,6 +121,31 @@ because of the one
 [1] <a href="../hh/thread_1037.html#post_hh/1037">heap://hh/1037</a>
 </pre></div>
 </span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1245 -->
+<span class="postsummary" id="post_hh/1245">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="tags">[+hh]</span>
+<span class="index"><a href="../hh/thread_1191.html#post_hh/1245">&lt;hh/1245&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1191.html#post_hh/1191">&lt;&uarr;hh/1191&gt;</a></span>
+<span class="date">(2010-05-21)</span>
+<div class="body">
+<pre class="postbody">OK.
+
+As a side note: I never imagined pylint would be such a CPU-intensive task!
+
+   $ time ../hk-dev-utils/hk_pylint
+
+   real    0m8.322s
+   user    0m8.109s
+   sys     0m0.128s
+
+I have a relatively fast machine, and it takes 8 secs at 100% CPU
+utilization! The test suite takes only ~280 ms.
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/1245 -->
 </div><!-- postbox for post hh/1191 -->
 
   </body>
