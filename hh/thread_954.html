@@ -1,75 +1,78 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>PostDB: walk_cycles method added (2009-10-03 6a610b6)</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">PostDB: walk_cycles method added (2009-10-03 6a610b6)</h1>
 
 
-<div class="post-box"><!-- post hh/954 -->
-<div class="post-summary" id="post-summary-hh-954">
+<div class="postbox"><!-- post hh/954 -->
+<span class="postsummary" id="post_hh/954">
 <span class="author">Attila Nagy</span>
 <span class="subject">PostDB: walk_cycles method added (2009-10-03 6a610b6)</span>
 <span class="tags">[commit]</span>
-<span class="index"><a href="../hh/thread_954.html#post-summary-hh-954">&lt;hh/954&gt;</a></span>
+<span class="index"><a href="../hh/thread_954.html#post_hh/954">&lt;hh/954&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-11-19)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_954.html#post-summary-hh-961">hh/961</a></span>
-<pre class="post-body-content">It may be a bit confusing that there is a `walk_thread` and a
+<div class="body">
+<pre class="postbody">It may be a bit confusing that there is a `walk_thread` and a
 `walk_cycles`, and they don't do the same thing.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/961 -->
-<div class="post-summary" id="post-summary-hh-961">
+<div class="postbox"><!-- post hh/961 -->
+<span class="postsummary" id="post_hh/961">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_954.html#post-summary-hh-961">&lt;hh/961&gt;</a></span>
+<span class="index"><a href="../hh/thread_954.html#post_hh/961">&lt;hh/961&gt;</a></span>
+<span class="parent"><a href="../hh/thread_954.html#post_hh/954">&lt;&uarr;hh/954&gt;</a></span>
 <span class="date">(2009-11-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_954.html#post-summary-hh-954">hh/954</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_954.html#post-summary-hh-966">hh/966</a></span>
-<pre class="post-body-content">What do you mean they don't do the same thing? (Of course they don't,
+<div class="body">
+<pre class="postbody">What do you mean they don't do the same thing? (Of course they don't,
 they are different functions with different names :) )
 PostDB.walk_thread walks over a given thread and yields non-flat post
 items. PostDB.walk_cycle walks over the posts in cycles and yields
 flat post items. Do you expect that they share more common feature?
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/966 -->
-<div class="post-summary" id="post-summary-hh-966">
+<div class="postbox"><!-- post hh/966 -->
+<span class="postsummary" id="post_hh/966">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_954.html#post-summary-hh-966">&lt;hh/966&gt;</a></span>
+<span class="index"><a href="../hh/thread_954.html#post_hh/966">&lt;hh/966&gt;</a></span>
+<span class="parent"><a href="../hh/thread_954.html#post_hh/961">&lt;&uarr;hh/961&gt;</a></span>
 <span class="date">(2009-11-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_954.html#post-summary-hh-961">hh/961</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_954.html#post-summary-hh-969">hh/969</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; PostDB.walk_thread walks over a given thread and yields non-flat post
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; PostDB.walk_thread walks over a given thread and yields non-flat post
 &gt; items. PostDB.walk_cycle walks over the posts in cycles and yields
 &gt; flat post items.
-</span></span>
-How about having one common `walk_postset` with having flat or
+
+</span></span>How about having one common `walk_postset` with having flat or
 non-flat as a parameter? The only difference in the current
 implementation is augmentation, which we agreed to phase out.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/969 -->
-<div class="post-summary" id="post-summary-hh-969">
+<div class="postbox"><!-- post hh/969 -->
+<span class="postsummary" id="post_hh/969">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_954.html#post-summary-hh-969">&lt;hh/969&gt;</a></span>
+<span class="index"><a href="../hh/thread_954.html#post_hh/969">&lt;hh/969&gt;</a></span>
+<span class="parent"><a href="../hh/thread_954.html#post_hh/966">&lt;&uarr;hh/966&gt;</a></span>
 <span class="date">(2009-11-22)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_954.html#post-summary-hh-966">hh/966</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; PostDB.walk_thread walks over a given thread and yields non-flat post
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; PostDB.walk_thread walks over a given thread and yields non-flat post
 &gt;&gt; items. PostDB.walk_cycle walks over the posts in cycles and yields
 &gt;&gt; flat post items.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; How about having one common `walk_postset` with having flat or
 &gt; non-flat as a parameter? The only difference in the current
 &gt; implementation is augmentation, which we agreed to phase out.
-</span></span>
-No, you are wrong about "this is the only difference". Firstly, this
+
+</span></span>No, you are wrong about "this is the only difference". Firstly, this
 is not a difference, and secondly, there are much more difference.
 
 1. The augmentation happens in hkgen, while these function are in
@@ -92,7 +95,8 @@ That said, we could have a function that walks over a flat list of
 posts. That could be walk_postset or walk_postlist. That would also
 have different parameters, because that does not use a thread
 structure.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/969 -->
 </div><!-- postbox for post hh/966 -->
 </div><!-- postbox for post hh/961 -->

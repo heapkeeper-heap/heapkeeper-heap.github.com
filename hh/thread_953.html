@@ -1,47 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>PostDB.walk_thread: tidying (2009-10-04 daaf09a)</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">PostDB.walk_thread: tidying (2009-10-04 daaf09a)</h1>
 
 
-<div class="post-box"><!-- post hh/953 -->
-<div class="post-summary" id="post-summary-hh-953">
+<div class="postbox"><!-- post hh/953 -->
+<span class="postsummary" id="post_hh/953">
 <span class="author">Attila Nagy</span>
 <span class="subject">PostDB.walk_thread: tidying (2009-10-04 daaf09a)</span>
 <span class="tags">[commit]</span>
-<span class="index"><a href="../hh/thread_953.html#post-summary-hh-953">&lt;hh/953&gt;</a></span>
+<span class="index"><a href="../hh/thread_953.html#post_hh/953">&lt;hh/953&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-11-19)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_953.html#post-summary-hh-960">hh/960</a></span>
-<pre class="post-body-content">I don't think that we should try to explain what a generator is in a
+<div class="body">
+<pre class="postbody">I don't think that we should try to explain what a generator is in a
 docstring. I don't think understanding "yield" is too much to expect
 from a Python programmer :)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/960 -->
-<div class="post-summary" id="post-summary-hh-960">
+<div class="postbox"><!-- post hh/960 -->
+<span class="postsummary" id="post_hh/960">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_953.html#post-summary-hh-960">&lt;hh/960&gt;</a></span>
+<span class="index"><a href="../hh/thread_953.html#post_hh/960">&lt;hh/960&gt;</a></span>
+<span class="parent"><a href="../hh/thread_953.html#post_hh/953">&lt;&uarr;hh/953&gt;</a></span>
 <span class="date">(2009-11-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_953.html#post-summary-hh-953">hh/953</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_953.html#post-summary-hh-965">hh/965</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I don't think that we should try to explain what a generator is in a
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I don't think that we should try to explain what a generator is in a
 &gt; docstring. I don't think understanding "yield" is too much to expect
 &gt; from a Python programmer :)
-</span></span>
-This is the change:
 
-<span class="raw-block">    -  **Yields:** |PostItem|
+</span></span>This is the change:
+
+    -  **Yields:** |PostItem|
     +  **Returns:** iterable(|PostItem|)
-</span>
+
 This is my commit message for the change:
 
-<span class="raw-block">    This line:
+    This line:
 
        **Returns:** iterable(|PostItem|)
 
@@ -51,7 +52,7 @@ This is my commit message for the change:
 
     It seems to be better to use "return" and "iterable" instead of a
     totally new conception.
-</span>
+
 I do understand "yield" but still think it is better if the
 docstring says what the function returns and not what it yields.
 Hk code often uses generators as objects: e.g. we create new
@@ -59,24 +60,26 @@ generators based on existing ones. For me it is easier to think about
 these things if I think of the function as returning a generator
 object, as opposed to thinking of the function as yielding something
 at each call.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/965 -->
-<div class="post-summary" id="post-summary-hh-965">
+<div class="postbox"><!-- post hh/965 -->
+<span class="postsummary" id="post_hh/965">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_953.html#post-summary-hh-965">&lt;hh/965&gt;</a></span>
+<span class="index"><a href="../hh/thread_953.html#post_hh/965">&lt;hh/965&gt;</a></span>
+<span class="parent"><a href="../hh/thread_953.html#post_hh/960">&lt;&uarr;hh/960&gt;</a></span>
 <span class="date">(2009-11-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_953.html#post-summary-hh-960">hh/960</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Hk code often uses generators as objects: e.g. we create new
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Hk code often uses generators as objects: e.g. we create new
 &gt; generators based on existing ones. For me it is easier to think about
 &gt; these things if I think of the function as returning a generator
 &gt; object, as opposed to thinking of the function as yielding something
 &gt; at each call.
-</span></span>
-OK, I can accept that.
-</pre></div><!-- post-summary -->
+
+</span></span>OK, I can accept that.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/965 -->
 </div><!-- postbox for post hh/960 -->
 </div><!-- postbox for post hh/953 -->

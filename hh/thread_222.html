@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Closing and reopening threads</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Closing and reopening threads</h1>
 
 
-<div class="post-box"><!-- post hh/222 -->
-<div class="post-summary" id="post-summary-hh-222">
+<div class="postbox"><!-- post hh/222 -->
+<span class="postsummary" id="post_hh/222">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Closing and reopening threads</span>
 <span class="tags">[prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_222.html#post-summary-hh-222">&lt;hh/222&gt;</a></span>
+<span class="index"><a href="../hh/thread_222.html#post_hh/222">&lt;hh/222&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-05-13)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_222.html#post-summary-hh-225">hh/225</a>, <a href="../hh/thread_222.html#post-summary-hh-268">hh/268</a></span>
-<pre class="post-body-content">It would be useful to see which proposals and other threads are open
+<div class="body">
+<pre class="postbody">It would be useful to see which proposals and other threads are open
 that demand attention and which ones are closed. Hereby I propose a
 method which helps us to track this.
 
@@ -27,18 +27,18 @@ of course three. The reasons are that it is easier to write two angle
 brackets, and if I use three opening angle-brackets in the beginning
 of a line by accident, it will become meta text.)
 
-Let's have two meta attributes: &lt;&lt;open&gt;&gt; and &lt;&lt;close&gt;&gt;. If a post
-has an &lt;&lt;open&gt;&gt; attribute, it opens the thread, which means that there
-are questions in that thread that have to be answered or settled. If
-the original poster is satisfied with the answer, he/she posts a post
-that contains a &lt;&lt;close&gt;&gt; attribute, which means of course that the
-thread is closed. It would also be useful to reopen threads, and of
-course close them again. This could be done by posting &lt;&lt;open&gt;&gt; and
-&lt;&lt;close&gt;&gt; attributes again.
+Let's have two meta attributes: [open] and [close]. If a post has an
+[open] attribute, it opens the thread, which means that there are
+questions in that thread that have to be answered or settled. If the
+original poster is satisfied with the answer, he/she posts a post that
+contains a [close] attribute, which means of course that the thread is
+closed. It would also be useful to reopen threads, and of course close
+them again. This could be done by posting [open] and [close]
+attributes again.
 
 The algorithm that determines the state of a thread:
-- o is the number of posts in the thread with &lt;&lt;open&gt;&gt; attribute
-- c is the number of posts in the thread with &lt;&lt;close&gt;&gt; attribute
+- o is the number of posts in the thread with [open] attribute
+- c is the number of posts in the thread with [close] attribute
 1. if o==c==0, the thread is normal.
 2. if o&gt;c, the thread is open.
 3. if o=c, the thread is closed.
@@ -51,51 +51,36 @@ a different section, display them with different colors etc. My
 proposal is not about the customization, and whether it would be
 built-in or not; it is purely about this convention being used on HH
 ASAP.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/225 -->
-<div class="post-summary" id="post-summary-hh-225">
+<div class="postbox"><!-- post hh/225 -->
+<span class="postsummary" id="post_hh/225">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_222.html#post-summary-hh-225">&lt;hh/225&gt;</a></span>
+<span class="index"><a href="../hh/thread_222.html#post_hh/225">&lt;hh/225&gt;</a></span>
+<span class="parent"><a href="../hh/thread_222.html#post_hh/222">&lt;&uarr;hh/222&gt;</a></span>
 <span class="date">(2009-05-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_222.html#post-summary-hh-222">hh/222</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="meta-text">[close]</span>
-
-OK.
+<div class="body">
+<pre class="postbody">OK.
 
 I have also been thinking about such a mechanism, and I like your solution.
-</pre></div><!-- post-summary -->
-</div><!-- postbox for post hh/225 -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/268 -->
-<div class="post-summary" id="post-summary-hh-268">
+<div class="postbox"><!-- post hh/hcs42_8 -->
+<span class="postsummary" id="post_hh/hcs42_8">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_222.html#post-summary-hh-268">&lt;hh/268&gt;</a></span>
-<span class="date">(2009-05-19)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_222.html#post-summary-hh-222">hh/222</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_222.html#post-summary-hh-310">hh/310</a></span>
-<pre class="post-body-content">I think the author should close the thread if there isn't a very
-good reason to do otherwise. The author knows whether xyr question has
-been answered, xyr proposal has been fully discussed or implemented.
-Closing can even wait a several days if it is uncertain whether it can
-be closed.
-</pre></div><!-- post-summary -->
-
-<div class="post-box"><!-- post hh/310 -->
-<div class="post-summary" id="post-summary-hh-310">
-<span class="author">Attila Nagy</span>
-<span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_222.html#post-summary-hh-310">&lt;hh/310&gt;</a></span>
-<span class="date">(2009-05-23)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_222.html#post-summary-hh-268">hh/268</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">OK.
-</pre></div><!-- post-summary -->
-</div><!-- postbox for post hh/310 -->
-</div><!-- postbox for post hh/268 -->
+<span class="index"><a href="../hh/thread_222.html#post_hh/hcs42_8">&lt;hh/hcs42_8&gt;</a></span>
+<span class="parent"><a href="../hh/thread_222.html#post_hh/225">&lt;&uarr;hh/225&gt;</a></span>
+<span class="date">(2010-05-30)</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[close]</span>
+</pre></div>
+</span><!-- postsummary -->
+</div><!-- postbox for post hh/hcs42_8 -->
+</div><!-- postbox for post hh/225 -->
 </div><!-- postbox for post hh/222 -->
 
   </body>

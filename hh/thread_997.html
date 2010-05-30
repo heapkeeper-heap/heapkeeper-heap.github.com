@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Free-text search</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Free-text search</h1>
 
 
-<div class="post-box"><!-- post hh/997 -->
-<div class="post-summary" id="post-summary-hh-997">
+<div class="postbox"><!-- post hh/997 -->
+<span class="postsummary" id="post_hh/997">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Free-text search</span>
 <span class="tags">[feature]</span>
-<span class="index"><a href="../hh/thread_997.html#post-summary-hh-997">&lt;hh/997&gt;</a></span>
+<span class="index"><a href="../hh/thread_997.html#post_hh/997">&lt;hh/997&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-12-23)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_997.html#post-summary-hh-1009">hh/1009</a>, <a href="../hh/thread_997.html#post-summary-hh-1082">hh/1082</a></span>
-<pre class="post-body-content">== Basic idea ==
+<div class="body">
+<pre class="postbody">== Basic idea ==
 
 We should implement a search facility in Heapkeeper. The user would
 give a few words to Hk, and it would find posts that contain all of
@@ -28,12 +28,12 @@ those words.
 I propose to use regular expressions. So if a user searches for the
 following word sequence:
 
-<span class="raw-block">    word1 word2 word3
-</span>
+    word1 word2 word3
+
 the resulted postset would be equal to the result of the following
 program:
 
-<span class="raw-block">    def contains(word):
+    def contains(word):
         """Returns a function that can decide whether a given post
         contains the given word."""
         def f(post):
@@ -46,7 +46,7 @@ program:
     postdb.all().collect(contains("word1")). \
                  collect(contains("word2")). \
                  collect(contains("word3"))
-</span>
+
 (This is not the implementation, this is only the specification :) )
 
 The would could be regular expressions, if the user wants to use them.
@@ -89,44 +89,46 @@ This only concerns the basic features. We could spent an arbitrary
 amount of time with the advanced ones :)
 
 <span class="meta-text">[effort 5]</span>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1009 -->
-<div class="post-summary" id="post-summary-hh-1009">
+<div class="postbox"><!-- post hh/1009 -->
+<span class="postsummary" id="post_hh/1009">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_997.html#post-summary-hh-1009">&lt;hh/1009&gt;</a></span>
+<span class="index"><a href="../hh/thread_997.html#post_hh/1009">&lt;hh/1009&gt;</a></span>
+<span class="parent"><a href="../hh/thread_997.html#post_hh/997">&lt;&uarr;hh/997&gt;</a></span>
 <span class="date">(2009-12-30)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_997.html#post-summary-hh-997">hh/997</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">I made a basic implementation. I plan to rewrite it to conform to what
+<div class="body">
+<pre class="postbody">I made a basic implementation. I plan to rewrite it to conform to what
 I wrote in this thread, but I needed it and it is good enough for now.
 
 <a href="http://github.com/hcs42/heapkeeper/commit/f9be5f57619d4e96fb1a2c145d3ad2149fa2eaa9">http://github.com/hcs42/heapkeeper/commit/f9be5f57619d4e96fb1a2c145d3ad2149fa2eaa9</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/1009 -->
 
-<div class="post-box"><!-- post hh/1082 -->
-<div class="post-summary" id="post-summary-hh-1082">
+<div class="postbox"><!-- post hh/1082 -->
+<span class="postsummary" id="post_hh/1082">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_997.html#post-summary-hh-1082">&lt;hh/1082&gt;</a></span>
+<span class="index"><a href="../hh/thread_997.html#post_hh/1082">&lt;hh/1082&gt;</a></span>
+<span class="parent"><a href="../hh/thread_997.html#post_hh/997">&lt;&uarr;hh/997&gt;</a></span>
 <span class="date">(2010-02-06)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_997.html#post-summary-hh-997">hh/997</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_997.html#post-summary-hh-1087">hh/1087</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; == More specific specification ==
-</span></span>
-<span class="meta-text">[note :))))]</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; == More specific specification ==
+
+</span></span><span class="meta-text">[note :))))]</span>
 
 <span class="quote"><span class="quote-1">&gt; I propose to use regular expressions. So if a user searches for the
 &gt; following word sequence:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     word1 word2 word3
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;     word1 word2 word3
+&gt;
 &gt; the resulted postset would be equal to the result of the following
 &gt; program:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     def contains(word):
+&gt;     def contains(word):
 &gt;         """Returns a function that can decide whether a given post
 &gt;         contains the given word."""
 &gt;         def f(post):
@@ -139,16 +141,16 @@ I wrote in this thread, but I needed it and it is good enough for now.
 &gt;     postdb.all().collect(contains("word1")). \
 &gt;                  collect(contains("word2")). \
 &gt;                  collect(contains("word3"))
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; (This is not the implementation, this is only the specification :) )
-</span></span>
-I like this, but it doesn't work like this yet, so I'll do it.
+
+</span></span>I like this, but it doesn't work like this yet, so I'll do it.
 
 <span class="meta-text">[assign Attis]</span>
 
 <span class="quote"><span class="quote-1">&gt; The would could be regular expressions, if the user wants to use them.
-</span></span>
-<span class="meta-text">[!todo correct: They could]</span>
+
+</span></span><span class="meta-text">[!todo correct: They could]</span>
 
 <span class="quote"><span class="quote-1">&gt; == Advanced features ==
 &gt;
@@ -161,16 +163,16 @@ I like this, but it doesn't work like this yet, so I'll do it.
 &gt; search results if the word is present as a tag/keyword/subject. Or a
 &gt; post will be lower in the results if the expression is present only in
 &gt; a quote.
-</span></span>
-Looks useful! Would you give the tag, keyword and subject matches an
+
+</span></span>Looks useful! Would you give the tag, keyword and subject matches an
 equal weight?
 
 <span class="quote"><span class="quote-1">&gt; === Thread search ===
 &gt;
 &gt; We could also implement "thread search", which would return only one
 &gt; post per thread.
-</span></span>
-This one seems useful, too.
+
+</span></span>This one seems useful, too.
 
 An idea: how about adding a `root()` function to the shell? Or to
 `hklib.PostSet`? It would return a post set which contains the root
@@ -179,34 +181,34 @@ original post set.
 
 Then we could have this feature like this:
 
-<span class="raw-block">    root(grep('dead trees'))
-</span>
+    root(grep('dead trees'))
+
 or
 
-<span class="raw-block">    grep('dead trees').root()
+    grep('dead trees').root()
 
-</span><span class="quote"><span class="quote-1">&gt; === Generation output ===
+<span class="quote"><span class="quote-1">&gt; === Generation output ===
 &gt;
 &gt; We should make a generator that would generate HTML pages with the
 &gt; search results, inlining the relevant posts, highlighting the found
 &gt; expressions, etc.
-</span></span>
-Nice -- but sounds like an awful lot of work. It sounds like this
+
+</span></span>Nice -- but sounds like an awful lot of work. It sounds like this
 would be needed for your next idea, however.
 
 <span class="quote"><span class="quote-1">&gt; === Hkweb integration ===
 &gt;
 &gt; And of course we should have a textbox and a "Search" button on hkweb.
-</span></span>
-Definitely. Together with all the highlighting you mentioned in the
+
+</span></span>Definitely. Together with all the highlighting you mentioned in the
 previous idea.
 
 <span class="quote"><span class="quote-1">&gt; === Vim integration ===
 &gt;
 &gt; We could feed the results into Vim so that Vim could jump between the
 &gt; hits in its usual way (:cnext, :cprev, :clist).
-</span></span>
-Wow. That'd be awesome!
+
+</span></span>Wow. That'd be awesome!
 
 I have to admit I've never used this functions, though.
 
@@ -214,22 +216,23 @@ I have to admit I've never used this functions, though.
 &gt;
 &gt; This only concerns the basic features. We could spent an arbitrary
 &gt; amount of time with the advanced ones :)
-</span></span>
-But ranking and thread search would come quite cheap. And the multi-word
+
+</span></span>But ranking and thread search would come quite cheap. And the multi-word
 lookup feature would also be useful. For example, I would have used it
 today if it were easily available, but I rather used an alternative
 solution instead.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1087 -->
-<div class="post-summary" id="post-summary-hh-1087">
+<div class="postbox"><!-- post hh/1087 -->
+<span class="postsummary" id="post_hh/1087">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_997.html#post-summary-hh-1087">&lt;hh/1087&gt;</a></span>
+<span class="index"><a href="../hh/thread_997.html#post_hh/1087">&lt;hh/1087&gt;</a></span>
+<span class="parent"><a href="../hh/thread_997.html#post_hh/1082">&lt;&uarr;hh/1082&gt;</a></span>
 <span class="date">(2010-02-06)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_997.html#post-summary-hh-1082">hh/1082</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_997.html#post-summary-hh-1146">hh/1146</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; === Ranking ===
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; === Ranking ===
 &gt;&gt;
 &gt;&gt; We could implement ranking so that a post will be higher in the
 &gt;&gt; search results if the word is present as a tag/keyword/subject. Or a
@@ -238,8 +241,8 @@ solution instead.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Looks useful! Would you give the tag, keyword and subject matches an
 &gt; equal weight?
-</span></span>
-I guess.
+
+</span></span>I guess.
 
 <span class="quote"><span class="quote-2">&gt;&gt; === Thread search ===
 &gt;&gt;
@@ -255,13 +258,13 @@ I guess.
 &gt;
 &gt; Then we could have this feature like this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    root(grep('dead trees'))
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;    root(grep('dead trees'))
+&gt;
 &gt; or
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    grep('dead trees').root()
-</span></span></span>
-grep('dead trees').expf().collect.is_root()
+&gt;    grep('dead trees').root()
+
+</span></span>grep('dead trees').expf().collect.is_root()
 
 We can introcude a function it gets used very often.
 
@@ -273,8 +276,8 @@ We can introcude a function it gets used very often.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Nice -- but sounds like an awful lot of work. It sounds like this
 &gt; would be needed for your next idea, however.
-</span></span>
-It is work, but I don't think it's awful lot.
+
+</span></span>It is work, but I don't think it's awful lot.
 
 <span class="quote"><span class="quote-2">&gt;&gt; === Vim integration ===
 &gt;&gt;
@@ -284,95 +287,99 @@ It is work, but I don't think it's awful lot.
 &gt; Wow. That'd be awesome!
 &gt;
 &gt; I have to admit I've never used this functions, though.
-</span></span>
-Have you used :cw or :cope? They use the same error list.
+
+</span></span>Have you used :cw or :cope? They use the same error list.
 
 <span class="quote"><span class="quote-1">&gt; And the multi-word
 &gt; lookup feature would also be useful. For example, I would have used it
 &gt; today if it were easily available, but I rather used an alternative
 &gt; solution instead.
-</span></span>
-You mean easier than
 
-<span class="raw-block">    grep("master branch", grep("hh"))
-</span>
+</span></span>You mean easier than
+
+    grep("master branch", grep("hh"))
+
 It would not be hard to modify grep to accept
 
-<span class="raw-block">    grep("master branch", "hh")
-</span></pre></div><!-- post-summary -->
+    grep("master branch", "hh")
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1146 -->
-<div class="post-summary" id="post-summary-hh-1146">
+<div class="postbox"><!-- post hh/1146 -->
+<span class="postsummary" id="post_hh/1146">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_997.html#post-summary-hh-1146">&lt;hh/1146&gt;</a></span>
+<span class="index"><a href="../hh/thread_997.html#post_hh/1146">&lt;hh/1146&gt;</a></span>
+<span class="parent"><a href="../hh/thread_997.html#post_hh/1087">&lt;&uarr;hh/1087&gt;</a></span>
 <span class="date">(2010-02-11)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_997.html#post-summary-hh-1087">hh/1087</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_997.html#post-summary-hh-1148">hh/1148</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    grep('dead trees').expf().collect.is_root()
-</span></span></span>
-I like how you totally disregard how something works as long as it
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt;    grep('dead trees').expf().collect.is_root()
+
+</span></span>I like how you totally disregard how something works as long as it
 does the work. No, I'm not sarcastic: I really like it. I think it is
 the mathematician within you. Like how the mathematician makes tea. :) [1]
 
 I think this one is incorrect. It should do `expb()` instead of `expf()`
 
-<span class="quote"><span class="quote-1"><span class="raw-block">&gt;    grep("master branch", grep("hh"))
-</span></span></span>
-I like this one a lot. But is it faster or slower than looking for all
+<span class="quote"><span class="quote-1">&gt;    grep("master branch", grep("hh"))
+
+</span></span>I like this one a lot. But is it faster or slower than looking for all
 the strings simultaneously?
 
-[1] <a href="../hh/thread_814.html#post-summary-hh-827">heap://hh/827</a>
-</pre></div><!-- post-summary -->
+[1] <a href="../hh/thread_814.html#post_hh/827">heap://hh/827</a>
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1148 -->
-<div class="post-summary" id="post-summary-hh-1148">
+<div class="postbox"><!-- post hh/1148 -->
+<span class="postsummary" id="post_hh/1148">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_997.html#post-summary-hh-1148">&lt;hh/1148&gt;</a></span>
+<span class="index"><a href="../hh/thread_997.html#post_hh/1148">&lt;hh/1148&gt;</a></span>
+<span class="parent"><a href="../hh/thread_997.html#post_hh/1146">&lt;&uarr;hh/1146&gt;</a></span>
 <span class="date">(2010-02-11)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_997.html#post-summary-hh-1146">hh/1146</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_997.html#post-summary-hh-1149">hh/1149</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;    grep('dead trees').expf().collect.is_root()
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt;    grep('dead trees').expf().collect.is_root()
+</span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I like how you totally disregard how something works as long as it
 &gt; does the work. No, I'm not sarcastic: I really like it. I think it is
 &gt; the mathematician within you. Like how the mathematician makes tea. :) [1]
-</span></span>
-I don't understand why you say that.
+
+</span></span>I don't understand why you say that.
 
 <span class="quote"><span class="quote-1">&gt; I think this one is incorrect. It should do `expb()` instead of `expf()`
-</span></span>
-You are right, mine is buggy.
 
-<span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;    grep("master branch", grep("hh"))
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+</span></span>You are right, mine is buggy.
+
+<span class="quote"><span class="quote-2">&gt;&gt;    grep("master branch", grep("hh"))
+</span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I like this one a lot. But is it faster or slower than looking for all
 &gt; the strings simultaneously?
-</span></span>
-I think it does not make too much of a difference.
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/1149 -->
-<div class="post-summary" id="post-summary-hh-1149">
+</span></span>I think it does not make too much of a difference.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/1149 -->
+<span class="postsummary" id="post_hh/1149">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_997.html#post-summary-hh-1149">&lt;hh/1149&gt;</a></span>
+<span class="index"><a href="../hh/thread_997.html#post_hh/1149">&lt;hh/1149&gt;</a></span>
+<span class="parent"><a href="../hh/thread_997.html#post_hh/1148">&lt;&uarr;hh/1148&gt;</a></span>
 <span class="date">(2010-02-11)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_997.html#post-summary-hh-1148">hh/1148</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3"><span class="raw-block">&gt;&gt;&gt;    grep('dead trees').expf().collect.is_root()
-</span></span></span><span class="quote"><span class="quote-2">&gt;&gt;
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt;    grep('dead trees').expf().collect.is_root()
+</span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; I like how you totally disregard how something works as long as it
 &gt;&gt; does the work. No, I'm not sarcastic: I really like it. I think it is
 &gt;&gt; the mathematician within you. Like how the mathematician makes tea. :) [1]
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I don't understand why you say that.
-</span></span>
-Never mind. It's just that at first sight, this approach seemed to do
+
+</span></span>Never mind. It's just that at first sight, this approach seemed to do
 the work, but highly inefficiently. Which would be the case if you
 would have used `exp()`. But `expb()` makes it efficient.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/1149 -->
 </div><!-- postbox for post hh/1148 -->
 </div><!-- postbox for post hh/1146 -->

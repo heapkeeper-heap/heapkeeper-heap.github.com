@@ -1,27 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Let's provide an option to turn off tracebacks!</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Let's provide an option to turn off tracebacks!</h1>
 
 
-<div class="post-box"><!-- post hh/719 -->
-<div class="post-summary" id="post-summary-hh-719">
+<div class="postbox"><!-- post hh/719 -->
+<span class="postsummary" id="post_hh/719">
 <span class="author">Attila Nagy</span>
 <span class="subject">Let's provide an option to turn off tracebacks!</span>
 <span class="tags">[idea]</span>
-<span class="index"><a href="../hh/thread_719.html#post-summary-hh-719">&lt;hh/719&gt;</a></span>
+<span class="index"><a href="../hh/thread_719.html#post_hh/719">&lt;hh/719&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-10-20)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_719.html#post-summary-hh-726">hh/726</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I've never ever seen a mature product that you customize in the same
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I've never ever seen a mature product that you customize in the same
 &gt;&gt; language that the product is written in. This is a powerful approach --
 &gt;&gt; but might also strike others as a sign of inmaturity of the project.
-</span></span>
-There is one more thing that might strike others as a strong sign of
+
+</span></span>There is one more thing that might strike others as a strong sign of
 immaturity: exceptions. Due to the way we implemented an interactive
 interface in Python, the user is bound to encounter Python tracebacks
 quite often, and these may be confusing to the casual user. Even if
@@ -32,41 +32,42 @@ A page I found [1] says to turn off tracebacks, just set
 `sys.tracebacklimit` to 0.
 
 [1] <a href="http://effbot.org/pyref/sys.tracebacklimit.htm">http://effbot.org/pyref/sys.tracebacklimit.htm</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/726 -->
-<div class="post-summary" id="post-summary-hh-726">
+<div class="postbox"><!-- post hh/726 -->
+<span class="postsummary" id="post_hh/726">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_719.html#post-summary-hh-726">&lt;hh/726&gt;</a></span>
+<span class="index"><a href="../hh/thread_719.html#post_hh/726">&lt;hh/726&gt;</a></span>
+<span class="parent"><a href="../hh/thread_719.html#post_hh/719">&lt;&uarr;hh/719&gt;</a></span>
 <span class="date">(2009-10-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_719.html#post-summary-hh-719">hh/719</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_719.html#post-summary-hh-727">hh/727</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; There is one more thing that might strike others as a strong sign of
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; There is one more thing that might strike others as a strong sign of
 &gt; immaturity: exceptions.
-</span></span>
-True.
+
+</span></span>True.
 
 <span class="quote"><span class="quote-1">&gt; Due to the way we implemented an interactive interface in Python,
 &gt; the user is bound to encounter Python tracebacks quite often,
-</span></span>
-We could catch them if we wanted to. But currently we don't. (The
+
+</span></span>We could catch them if we wanted to. But currently we don't. (The
 project is immature :) )
 
 <span class="quote"><span class="quote-1">&gt; and these may be confusing to the casual user.
-</span></span>
-True.
+
+</span></span>True.
 
 <span class="quote"><span class="quote-1">&gt; Even if the exception message is sensible and helpful, it is lost in
 &gt; the jumble.
-</span></span>
-You don't know in advance which line of the stack trace helps.
+
+</span></span>You don't know in advance which line of the stack trace helps.
 Sometimes it sits in the middle.
 
 <span class="quote"><span class="quote-1">&gt; A page I found [1] says to turn off tracebacks, just set
 &gt; `sys.tracebacklimit` to 0.
-</span></span>
-Interesting.
+
+</span></span>Interesting.
 
 But I don't want to do that. Even if users don't want to see
 exceptions, they are useful for developers if they are sent to them.
@@ -98,17 +99,18 @@ and make an option for this.
 
 [1] I don't like _when_ they are printed, but I like _the fact_ that
 they are printed :)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/727 -->
-<div class="post-summary" id="post-summary-hh-727">
+<div class="postbox"><!-- post hh/727 -->
+<span class="postsummary" id="post_hh/727">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_719.html#post-summary-hh-727">&lt;hh/727&gt;</a></span>
+<span class="index"><a href="../hh/thread_719.html#post_hh/727">&lt;hh/727&gt;</a></span>
+<span class="parent"><a href="../hh/thread_719.html#post_hh/726">&lt;&uarr;hh/726&gt;</a></span>
 <span class="date">(2009-10-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_719.html#post-summary-hh-726">hh/726</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_719.html#post-summary-hh-728">hh/728</a></span>
-<pre class="post-body-content">So, to sum up your opinion: you agree that tracebacks may, and
+<div class="body">
+<pre class="postbody">So, to sum up your opinion: you agree that tracebacks may, and
 probably would be seen is a sign of immaturity, but you find them
 useful, so you want to keep them.
 
@@ -127,36 +129,38 @@ otherwise, the robot would trespass its master's thoughts without
 permission, which a perfect counselor won't do. (Similarly our project
 could start out with the potentially disturbing features switched
 off.)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/728 -->
-<div class="post-summary" id="post-summary-hh-728">
+<div class="postbox"><!-- post hh/728 -->
+<span class="postsummary" id="post_hh/728">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_719.html#post-summary-hh-728">&lt;hh/728&gt;</a></span>
+<span class="index"><a href="../hh/thread_719.html#post_hh/728">&lt;hh/728&gt;</a></span>
+<span class="parent"><a href="../hh/thread_719.html#post_hh/727">&lt;&uarr;hh/727&gt;</a></span>
 <span class="date">(2009-10-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_719.html#post-summary-hh-727">hh/727</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_719.html#post-summary-hh-729">hh/729</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; But how about defaulting to no tracebacks,
-</span></span>
-Do you mean not even the last line of the trace? Could you give me an
-example of what you want to print?
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; But how about defaulting to no tracebacks,
 
-<div class="post-box"><!-- post hh/729 -->
-<div class="post-summary" id="post-summary-hh-729">
+</span></span>Do you mean not even the last line of the trace? Could you give me an
+example of what you want to print?
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/729 -->
+<span class="postsummary" id="post_hh/729">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_719.html#post-summary-hh-729">&lt;hh/729&gt;</a></span>
+<span class="index"><a href="../hh/thread_719.html#post_hh/729">&lt;hh/729&gt;</a></span>
+<span class="parent"><a href="../hh/thread_719.html#post_hh/728">&lt;&uarr;hh/728&gt;</a></span>
 <span class="date">(2009-10-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_719.html#post-summary-hh-728">hh/728</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_719.html#post-summary-hh-730">hh/730</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Do you mean not even the last line of the trace? Could you give me an
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Do you mean not even the last line of the trace? Could you give me an
 &gt; example of what you want to print?
-</span></span>
-An example:
 
-<span class="raw-block">	&gt;&gt;&gt; p('no')
+</span></span>An example:
+
+	&gt;&gt;&gt; p('no')
 	Traceback (most recent call last):
 	  File "&lt;console&gt;", line 1, in &lt;module&gt;
 	  File "/data/lab/hk/heapkeeper/hkshell.py", line 1049, in p
@@ -172,29 +176,31 @@ An example:
 	  File "/data/lab/hk/heapkeeper/hklib.py", line 1156, in post
 		return self.heapid_to_post[heapid]
 	KeyError: 'no'
-</span>
+
 You can see that the output consists of 2 parts: the traceback first,
 then, in one line, the exception message. I think that for most
 users, this last line would be sufficient. So, what the user would see
 without tracebacks enabled:
 
-<span class="raw-block">	&gt;&gt;&gt; p('no')
+	&gt;&gt;&gt; p('no')
 	KeyError: 'no'
-</span>
+
 Though not the best possible error message here, it is not as
 frightening to the uninitiated as the traceback.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/730 -->
-<div class="post-summary" id="post-summary-hh-730">
+<div class="postbox"><!-- post hh/730 -->
+<span class="postsummary" id="post_hh/730">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_719.html#post-summary-hh-730">&lt;hh/730&gt;</a></span>
+<span class="index"><a href="../hh/thread_719.html#post_hh/730">&lt;hh/730&gt;</a></span>
+<span class="parent"><a href="../hh/thread_719.html#post_hh/729">&lt;&uarr;hh/729&gt;</a></span>
 <span class="date">(2009-10-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_719.html#post-summary-hh-729">hh/729</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">OK, go ahead then.
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody">OK, go ahead then.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/730 -->
 </div><!-- postbox for post hh/729 -->
 </div><!-- postbox for post hh/728 -->

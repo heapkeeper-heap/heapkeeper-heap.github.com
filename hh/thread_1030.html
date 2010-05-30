@@ -1,22 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Running hk with different profiles</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Running hk with different profiles</h1>
 
 
-<div class="post-box"><!-- post hh/1030 -->
-<div class="post-summary" id="post-summary-hh-1030">
+<div class="postbox"><!-- post hh/1030 -->
+<span class="postsummary" id="post_hh/1030">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Running hk with different profiles</span>
-<span class="index"><a href="../hh/thread_1030.html#post-summary-hh-1030">&lt;hh/1030&gt;</a></span>
+<span class="index"><a href="../hh/thread_1030.html#post_hh/1030">&lt;hh/1030&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2010-01-16)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_1030.html#post-summary-hh-1106">hh/1106</a></span>
-<pre class="post-body-content">I use a script called 'hk' for invoking Hk with different profiles.
+<div class="body">
+<pre class="postbody">I use a script called 'hk' for invoking Hk with different profiles.
 
 By reading different config files and hkrcs, the script makes it
 easier to try that I did not break anything for other users when
@@ -26,41 +26,41 @@ For example:
 
 Starting Hk without reading any hkrcs:
 
-<span class="raw-block">    $ hk ums-pure
+    $ hk ums-pure
     Importing hkrc...
     Module not found: "hkrc"
 
     &gt;&gt;&gt;
-</span>
+
 Starting hkrc as Attis uses it:
 
-<span class="raw-block">    $ hk ums-attis
+    $ hk ums-attis
     Importing hkrc_attis...
     Importing hkrc_attis OK
 
     &gt;&gt;&gt;
-</span>
+
 Starting my usual hkrc:
 
-<span class="raw-block">    $ hk ums
+    $ hk ums
     Importing hkrc_csabahoch...
     Importing hkrc_csabahoch OK
     Importing local...
     Importing local OK
 
     &gt;&gt;&gt;
-</span>
+
 Starting my sandbox (this is not UMS but a sandbox heap):
 
-<span class="raw-block">    $ hk sb-pure
+    $ hk sb-pure
     Importing hkrc...
     Module not found: "hkrc"
 
     &gt;&gt;&gt;
-</span>
+
 The script itself follows:
 
-<span class="raw-block">    #!/bin/bash
+    #!/bin/bash
 
     function print_help
     {
@@ -112,40 +112,43 @@ The script itself follows:
 
     shift
     python hk.py $args "$@"
-</span></pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1106 -->
-<div class="post-summary" id="post-summary-hh-1106">
+<div class="postbox"><!-- post hh/1106 -->
+<span class="postsummary" id="post_hh/1106">
 <span class="author">Attila Nagy</span>
 <span class="subject">Running hk with different profiles: multiple heaps</span>
-<span class="index"><a href="../hh/thread_1030.html#post-summary-hh-1106">&lt;hh/1106&gt;</a></span>
+<span class="index"><a href="../hh/thread_1030.html#post_hh/1106">&lt;hh/1106&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1030.html#post_hh/1030">&lt;&uarr;hh/1030&gt;</a></span>
 <span class="date">(2010-02-08)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1030.html#post-summary-hh-1030">hh/1030</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_1030.html#post-summary-hh-1109">hh/1109</a></span>
-<pre class="post-body-content">Nice idea and elegant script!
+<div class="body">
+<pre class="postbody">Nice idea and elegant script!
 
 Have you updated it to work with the multiple heaps branch?
 
 Also, do you use multiple sandbox heaps for testing multiple heaps?
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1109 -->
-<div class="post-summary" id="post-summary-hh-1109">
+<div class="postbox"><!-- post hh/1109 -->
+<span class="postsummary" id="post_hh/1109">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1030.html#post-summary-hh-1109">&lt;hh/1109&gt;</a></span>
+<span class="index"><a href="../hh/thread_1030.html#post_hh/1109">&lt;hh/1109&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1030.html#post_hh/1106">&lt;&uarr;hh/1106&gt;</a></span>
 <span class="date">(2010-02-08)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1030.html#post-summary-hh-1106">hh/1106</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Have you updated it to work with the multiple heaps branch?
-</span></span>
-It works with multiple heaps, but only because the "multiple heaps
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Have you updated it to work with the multiple heaps branch?
+
+</span></span>It works with multiple heaps, but only because the "multiple heaps
 commits" config file format is compatible with the old format.
 
 <span class="quote"><span class="quote-1">&gt; Also, do you use multiple sandbox heaps for testing multiple heaps?
-</span></span>
-No, I have only one sandbox heap.
-</pre></div><!-- post-summary -->
+
+</span></span>No, I have only one sandbox heap.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/1109 -->
 </div><!-- postbox for post hh/1106 -->
 </div><!-- postbox for post hh/1030 -->

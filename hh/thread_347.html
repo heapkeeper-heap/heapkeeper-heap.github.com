@@ -1,77 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Preview</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Preview</h1>
 
 
-<div class="post-box"><!-- post hh/347 -->
-<div class="post-summary" id="post-summary-hh-347">
+<div class="postbox"><!-- post hh/347 -->
+<span class="postsummary" id="post_hh/347">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Preview</span>
 <span class="tags">[post syntax, prop]</span>
-<span class="index"><a href="../hh/thread_347.html#post-summary-hh-347">&lt;hh/347&gt;</a></span>
+<span class="index"><a href="../hh/thread_347.html#post_hh/347">&lt;hh/347&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-05-29)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_347.html#post-summary-hh-350">hh/350</a></span>
-<pre class="post-body-content">It would be nice to have a "preview" feature. When you compose a post,
+<div class="body">
+<pre class="postbody">It would be nice to have a "preview" feature. When you compose a post,
 you could say "show me this in HTML". The body parser would parse it
 and the Generator would generate an HTML page. This should be done
 without touching the mail database.
 
 Hkweb could have a service that does this: you paste the body of post
 into a textarea and it shows you a preview of the post page.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/350 -->
-<div class="post-summary" id="post-summary-hh-350">
+<div class="postbox"><!-- post hh/350 -->
+<span class="postsummary" id="post_hh/350">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_347.html#post-summary-hh-350">&lt;hh/350&gt;</a></span>
+<span class="index"><a href="../hh/thread_347.html#post_hh/350">&lt;hh/350&gt;</a></span>
+<span class="parent"><a href="../hh/thread_347.html#post_hh/347">&lt;&uarr;hh/347&gt;</a></span>
 <span class="date">(2009-05-30)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_347.html#post-summary-hh-347">hh/347</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_347.html#post-summary-hh-351">hh/351</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; It would be nice to have a "preview" feature. When you compose a post,
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; It would be nice to have a "preview" feature. When you compose a post,
 &gt; you could say "show me this in HTML". The body parser would parse it
 &gt; and the Generator would generate an HTML page. This should be done
 &gt; without touching the mail database.
-</span></span>
-Yes. With the post syntax getting more complex, this starts to make sense.
+
+</span></span>Yes. With the post syntax getting more complex, this starts to make sense.
 
 <span class="quote"><span class="quote-1">&gt; Hkweb could have a service that does this: you paste the body of post
 &gt; into a textarea and it shows you a preview of the post page.
-</span></span>
-How would you do this in hkshell?
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/351 -->
-<div class="post-summary" id="post-summary-hh-351">
+</span></span>How would you do this in hkshell?
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/351 -->
+<span class="postsummary" id="post_hh/351">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_347.html#post-summary-hh-351">&lt;hh/351&gt;</a></span>
+<span class="index"><a href="../hh/thread_347.html#post_hh/351">&lt;hh/351&gt;</a></span>
+<span class="parent"><a href="../hh/thread_347.html#post_hh/350">&lt;&uarr;hh/350&gt;</a></span>
 <span class="date">(2009-05-30)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_347.html#post-summary-hh-350">hh/350</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_347.html#post-summary-hh-352">hh/352</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Hkweb could have a service that does this: you paste the body of post
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Hkweb could have a service that does this: you paste the body of post
 &gt;&gt; into a textarea and it shows you a preview of the post page.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; How would you do this in hkshell?
-</span></span>
-Do you mean "how would a user use it" or "how would implement it"?
+
+</span></span>Do you mean "how would a user use it" or "how would implement it"?
 I will answer the first question, I guess that was what you meant.
 
 The following example is the answer:
 
-<span class="raw-block">  $ gvim new_mail
+  $ gvim new_mail
   &lt;composing the email&gt;
   $ ./hkshell --configfile NONE \
               --command "gen_preview('new_mail', 'result.html'); q()"
   &lt;opening the created web page in a browser&gt;
   &lt;modifying the email if necessary; regenerating the preview; etc.&gt;
-</span>
+
 Notes:[-]
 - I haven't used a config file because I did not want the post
   database to be loaded.
@@ -80,38 +82,40 @@ Notes:[-]
 - We could even call this functionality from Vim. It would be easy to
   write a Vim-command that orders hkshell to generate the HTML page
   for the currently edited file.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/352 -->
-<div class="post-summary" id="post-summary-hh-352">
+<div class="postbox"><!-- post hh/352 -->
+<span class="postsummary" id="post_hh/352">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_347.html#post-summary-hh-352">&lt;hh/352&gt;</a></span>
+<span class="index"><a href="../hh/thread_347.html#post_hh/352">&lt;hh/352&gt;</a></span>
+<span class="parent"><a href="../hh/thread_347.html#post_hh/351">&lt;&uarr;hh/351&gt;</a></span>
 <span class="date">(2009-05-30)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_347.html#post-summary-hh-351">hh/351</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; Hkweb could have a service that does this: you paste the body of post
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt; Hkweb could have a service that does this: you paste the body of post
 &gt;&gt;&gt; into a textarea and it shows you a preview of the post page.
 </span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; How would you do this in hkshell?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; The following example is the answer:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;   $ gvim new_mail
+&gt;   $ gvim new_mail
 &gt;   &lt;composing the email&gt;
 &gt;   $ ./hkshell --configfile NONE \
 &gt;               --command "gen_preview('new_mail', 'result.html'); q()"
 &gt;   &lt;opening the created web page in a browser&gt;
 &gt;   &lt;modifying the email if necessary; regenerating the preview; etc.&gt;
-</span></span></span>
-Cool! I like your solution.
+
+</span></span>Cool! I like your solution.
 
 <span class="quote"><span class="quote-1">&gt; - We could even call this functionality from Vim. It would be easy to
 &gt;   write a Vim-command that orders hkshell to generate the HTML page
 &gt;   for the currently edited file.
-</span></span>
-Definitely. That'd also be nice.
-</pre></div><!-- post-summary -->
+
+</span></span>Definitely. That'd also be nice.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/352 -->
 </div><!-- postbox for post hh/351 -->
 </div><!-- postbox for post hh/350 -->

@@ -1,41 +1,41 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Hk config file format, ini files</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Hk config file format, ini files</h1>
 
 
-<div class="post-box"><!-- post hh/535 -->
-<div class="post-summary" id="post-summary-hh-535">
+<div class="postbox"><!-- post hh/535 -->
+<span class="postsummary" id="post_hh/535">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Hk config file format, ini files</span>
-<span class="index"><a href="../hh/thread_535.html#post-summary-hh-535">&lt;hh/535&gt;</a></span>
+<span class="index"><a href="../hh/thread_535.html#post_hh/535">&lt;hh/535&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-08-23)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_535.html#post-summary-hh-543">hh/543</a></span>
-<pre class="post-body-content"><span class="meta-text">[open]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[open]</span>
 
 The ini file format is used as a Heapkeeper configuration file.
 
 The problem is that it cannot handle iterations. If you have a look at
 how nicknames are stored, you will see that it is very ugly:
 
-<span class="raw-block">    [nicknames]
+    [nicknames]
     1=Attis nagy.attila.1984@gmail.com
     2=Josh illesjosh@gmail.com
     3=Csabi csaba.hoch@gmail.com
     4=Csabi hoch@inf.elte.hu
-</span>
+
 We should either find a better ini representation, or use another
 format.
 
 The following is an alternative ini format, conceived after looking at
 .git/config:
 
-<span class="raw-block">    [nickname "Attis"]
+    [nickname "Attis"]
     email=nagy.attila.1984@gmail.com
 
     [nickname "Josh"]
@@ -48,19 +48,19 @@ The following is an alternative ini format, conceived after looking at
     [nickname "Csabi 2"]
     email=hoch@inf.elte.hu
     nick=Csabi
-</span>
+
 This format allows us to write things like this:
 
-<span class="raw-block">    [nickname "Csabi"]
+    [nickname "Csabi"]
     email_regexp=hoch@inf.elte.hu
     nick=Csabi
-</span>
+
 == Multiple heaps ==
 
 Do you think that the following representation is good enough for the
 multiple heaps?
 
-<span class="raw-block">    [heap "UMS"]
+    [heap "UMS"]
     host=imap.gmail.com
     port=993
     username=...
@@ -73,26 +73,27 @@ multiple heaps?
     username=...
     password=...
     postdb_dir=...
-</span>
+
 == Conclusion ==
 
 It seems to me that the ini format is OK for us now.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/543 -->
-<div class="post-summary" id="post-summary-hh-543">
+<div class="postbox"><!-- post hh/543 -->
+<span class="postsummary" id="post_hh/543">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_535.html#post-summary-hh-543">&lt;hh/543&gt;</a></span>
+<span class="index"><a href="../hh/thread_535.html#post_hh/543">&lt;hh/543&gt;</a></span>
+<span class="parent"><a href="../hh/thread_535.html#post_hh/535">&lt;&uarr;hh/535&gt;</a></span>
 <span class="date">(2009-08-26)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_535.html#post-summary-hh-535">hh/535</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; == Multiple heaps ==
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; == Multiple heaps ==
 &gt;
 &gt; Do you think that the following representation is good enough for the
 &gt; multiple heaps?
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     [heap "UMS"]
+&gt;     [heap "UMS"]
 &gt;     host=imap.gmail.com
 &gt;     port=993
 &gt;     username=...
@@ -105,15 +106,16 @@ It seems to me that the ini format is OK for us now.
 &gt;     username=...
 &gt;     password=...
 &gt;     postdb_dir=...
-</span></span></span>
-I like this format. I imagined something similar when we decided there'd be multiple heaps.
+
+</span></span>I like this format. I imagined something similar when we decided there'd be multiple heaps.
 
 <span class="quote"><span class="quote-1">&gt; == Conclusion ==
 &gt;
 &gt; It seems to me that the ini format is OK for us now.
-</span></span>
-So it seems. OK.
-</pre></div><!-- post-summary -->
+
+</span></span>So it seems. OK.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/543 -->
 </div><!-- postbox for post hh/535 -->
 

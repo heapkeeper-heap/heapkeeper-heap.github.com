@@ -1,30 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Ownership of history is a delicate matter</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Ownership of history is a delicate matter</h1>
 
 
-<div class="post-box"><!-- post hh/420 -->
-<div class="post-summary" id="post-summary-hh-420">
+<div class="postbox"><!-- post hh/420 -->
+<span class="postsummary" id="post_hh/420">
 <span class="author">Attila Nagy</span>
 <span class="subject">Ownership of history is a delicate matter</span>
 <span class="tags">[git]</span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-420">&lt;hh/420&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/420">&lt;hh/420&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-07-30)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-424">hh/424</a></span>
-<pre class="post-body-content">I ran across this:
+<div class="body">
+<pre class="postbody">I ran across this:
 
 <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/ch05.html">http://www-cs-students.stanford.edu/~blynn/gitmagic/ch05.html</a>
 
 It seems a nice document. It starts explaining Git history manipulation like
 this:
 
-<span class="raw-block">    A consequence of Git’s distributed nature is that history can be edited
+    A consequence of Git’s distributed nature is that history can be edited
     easily.  But if you tamper with the past, take care: only rewrite that part
     of history which you alone possess. Just as nations forever argue over who
     committed what atrocity, if someone else has a clone whose version of
@@ -39,7 +39,7 @@ this:
     public. Git accommodates both viewpoints. Like cloning, branching and
     merging, rewriting history is simply another power Git gives you. It is up
     to you to use it wisely.
-</span>
+
 My thoughts on this:
 - a nice simile
 - all your tree are belong to us [1]
@@ -63,36 +63,37 @@ tree).
 ever used it?
 
 [1] <a href="http://en.wikipedia.org/wiki/All_your_base_are_belong_to_us">http://en.wikipedia.org/wiki/All_your_base_are_belong_to_us</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/424 -->
-<div class="post-summary" id="post-summary-hh-424">
+<div class="postbox"><!-- post hh/424 -->
+<span class="postsummary" id="post_hh/424">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-424">&lt;hh/424&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/424">&lt;hh/424&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/420">&lt;&uarr;hh/420&gt;</a></span>
 <span class="date">(2009-07-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-420">hh/420</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-426">hh/426</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; My thoughts on this:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; My thoughts on this:
 &gt; [...]
 &gt; - if one has bad thoughts about altering the purity of the past (not
 &gt;  out of considering adverse effects, but simply out of knowing it to
 &gt;  be a Bad Thing to Do (TM)), interest in using or developing Heapkeeper
 &gt;  is to be reconsidered
-</span></span>
-:)))))))))))
+
+</span></span>:)))))))))))
 
 <span class="quote"><span class="quote-1">&gt; However, if we choose to alter history now to sort out multiple
 &gt; personality issues may have a compelling effect for the future.
-</span></span>
-By "personality issues", do you mean having 4 committer on the impact graph
+
+</span></span>By "personality issues", do you mean having 4 committer on the impact graph
 instead of 2?
 
 <span class="quote"><span class="quote-1">&gt; If we get caught in a craving for a tidy repository, we'll sooner or later be
 &gt; inclined to clean up the "motorway sections" by rebasing them. Now we could
 &gt; do it.
-</span></span>
-It is not worth rebasing the past. Our efforts are much better spent on the
+
+</span></span>It is not worth rebasing the past. Our efforts are much better spent on the
 program and its documentation. The "personality issue" is a bit different,
 because it will always make us look funny and a bit lame if we don't sort that
 out. But I don't think that about the motorway. Watch out from now on, and
@@ -100,15 +101,15 @@ everything will be fine.
 
 <span class="quote"><span class="quote-1">&gt; Once we have "followers" (either in the quoted or the
 &gt; literal sense), we can't.
-</span></span>
-We don't know for sure we don't have them now ;)
+
+</span></span>We don't know for sure we don't have them now ;)
 
 <span class="quote"><span class="quote-1">&gt; By (hopefully) gaining attention with the launch of the homepage, we, so to
 &gt; say, 'set up us the bomb', so we had better 'make our time' (um, sorry; what
 &gt; I want to say is we should do all our history-changing now while we control
 &gt; all copies of the source tree).
-</span></span>
-I'm not sure that we control in 100% what is on github. But it we do, than
+
+</span></span>I'm not sure that we control in 100% what is on github. But it we do, than
 changing the past before 0.3 is OK. I want to put the news about 0.3 on
 freshmeat, send it to the Sphinx mailing list, tell about this to my
 colleagues, etc.
@@ -116,27 +117,28 @@ colleagues, etc.
 <span class="quote"><span class="quote-1">&gt;
 &gt; `git rebase -i`, that is, interactive rebase, seems very powerful. Have you
 &gt; ever used it?
-</span></span>
-This is awesome! (For people who don't know what this is about: [1])
+
+</span></span>This is awesome! (For people who don't know what this is about: [1])
 
 [1] <a href="http://blog.madism.org/index.php/2007/09/09/138-git-awsome-ness-git-rebase-interactive-?cos=1">http://blog.madism.org/index.php/2007/09/09/138-git-awsome-ness-git-rebase-interactive-?cos=1</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/426 -->
-<div class="post-summary" id="post-summary-hh-426">
+<div class="postbox"><!-- post hh/426 -->
+<span class="postsummary" id="post_hh/426">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-426">&lt;hh/426&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/426">&lt;hh/426&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/424">&lt;&uarr;hh/424&gt;</a></span>
 <span class="date">(2009-07-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-424">hh/424</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-427">hh/427</a>, <a href="../hh/thread_420.html#post-summary-hh-430">hh/430</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; However, if we choose to alter history now to sort out multiple
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; However, if we choose to alter history now to sort out multiple
 &gt;&gt; personality issues may have a compelling effect for the future.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; By "personality issues", do you mean having 4 committer on the impact graph
 &gt; instead of 2?
-</span></span>
-Exactly.
+
+</span></span>Exactly.
 
 <span class="quote"><span class="quote-2">&gt;&gt; If we get caught in a craving for a tidy repository, we'll sooner or later be
 &gt;&gt; inclined to clean up the "motorway sections" by rebasing them. Now we could
@@ -147,15 +149,15 @@ Exactly.
 &gt; because it will always make us look funny and a bit lame if we don't sort that
 &gt; out. But I don't think that about the motorway. Watch out from now on, and
 &gt; everything will be fine.
-</span></span>
-OK. Correct authors, leave motorways. I agree.
+
+</span></span>OK. Correct authors, leave motorways. I agree.
 
 <span class="quote"><span class="quote-2">&gt;&gt; Once we have "followers" (either in the quoted or the
 &gt;&gt; literal sense), we can't.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; We don't know for sure we don't have them now ;)
-</span></span>
-Was this you? [1]
+
+</span></span>Was this you? [1]
 
 <span class="quote"><span class="quote-2">&gt;&gt; By (hopefully) gaining attention with the launch of the homepage, we, so to
 &gt;&gt; say, 'set up us the bomb', so we had better 'make our time' (um, sorry; what
@@ -166,43 +168,45 @@ Was this you? [1]
 &gt; changing the past before 0.3 is OK. I want to put the news about 0.3 on
 &gt; freshmeat, send it to the Sphinx mailing list, tell about this to my
 &gt; colleagues, etc.
-</span></span>
-Do you think we'll be ready for all that with 0.3?
+
+</span></span>Do you think we'll be ready for all that with 0.3?
 
 I remember some official github guide on history editing. I'll go and check
 that one out.
 
 [1] <a href="http://github.com/hcs42/heapkeeper/graphs/clones">http://github.com/hcs42/heapkeeper/graphs/clones</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/427 -->
-<div class="post-summary" id="post-summary-hh-427">
+<div class="postbox"><!-- post hh/427 -->
+<span class="postsummary" id="post_hh/427">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-427">&lt;hh/427&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/427">&lt;hh/427&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/426">&lt;&uarr;hh/426&gt;</a></span>
 <span class="date">(2009-07-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-426">hh/426</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I remember some official github guide on history editing. I'll go and check
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I remember some official github guide on history editing. I'll go and check
 &gt; that one out.
-</span></span>
-This is very probably what we need:
+
+</span></span>This is very probably what we need:
 
 <a href="http://github.com/guides/change-author-details-in-commit-history">http://github.com/guides/change-author-details-in-commit-history</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/427 -->
 
-<div class="post-box"><!-- post hh/430 -->
-<div class="post-summary" id="post-summary-hh-430">
+<div class="postbox"><!-- post hh/430 -->
+<span class="postsummary" id="post_hh/430">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-430">&lt;hh/430&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/430">&lt;hh/430&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/426">&lt;&uarr;hh/426&gt;</a></span>
 <span class="date">(2009-08-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-426">hh/426</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-433">hh/433</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Was this you? [1]
-</span></span>
-Yes.
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Was this you? [1]
+
+</span></span>Yes.
 
 <span class="quote"><span class="quote-2">&gt;&gt; I'm not sure that we control in 100% what is on github. But it we do, than
 &gt;&gt; changing the past before 0.3 is OK. I want to put the news about 0.3 on
@@ -210,14 +214,14 @@ Yes.
 &gt;&gt; colleagues, etc.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Do you think we'll be ready for all that with 0.3?
-</span></span>
-I don't want to do things like this after 0.3 is released. For me
+
+</span></span>I don't want to do things like this after 0.3 is released. For me
 that's like going to public.
 
 <span class="quote"><span class="quote-1">&gt; I remember some official github guide on history editing. I'll go and check
 &gt; that one out.
-</span></span>
-Do that. I haven't found anything, except for this: [2]
+
+</span></span>Do that. I haven't found anything, except for this: [2]
 
 I have also been playing around in a sandbox repo. In the sandbox, I
 tried to rewrite the history and push the new one [3].
@@ -243,7 +247,7 @@ on the download page look as ugly as they are now [5]. We could place
 new commits which would only change the README and whose commit
 message would say something like this:
 
-<span class="raw-block">    Heapkeeper version 0.1
+    Heapkeeper version 0.1
 
     This release is a propotype.
 
@@ -252,7 +256,7 @@ message would say something like this:
     - Downloading emails over IMAP.
     - Storing posts in individual files.
     - Generating threaded index page that contains all posts.
-</span>
+
 What do you say?
 
 == Creating and applying patches ==
@@ -266,7 +270,7 @@ log message and author information.
 
 In my current heapkeeper repository:
 
-<span class="raw-block">    # Create patches for commits since origin/master:
+    # Create patches for commits since origin/master:
     $ git format-patch origin/master
     0001-hklib-don-t-crash-if-nicknames-is-missing.patch
     0002-CodConv-docstrings-for-functions-and-classes.patch
@@ -279,11 +283,11 @@ In my current heapkeeper repository:
     0003-heapindex.css-margin-narrowed.patch
     0004-Tutorial-Using-a-mailing-list-added.patch
     0005-Tutorial-screenshots-recreated.patch
-</span>
+
 In the new heapkeeper repository ($Hk is the old repo; don't bother
 with the "whitespace error"):
 
-<span class="raw-block">    # Applying patch 1
+    # Applying patch 1
     $ git am $Hk/0001-hklib-don-t-crash-if-nicknames-is-missing.patch
     Applying: hklib: don't crash if 'nicknames' is missing
 
@@ -308,7 +312,7 @@ with the "whitespace error"):
     Total 23 (delta 12), reused 0 (delta 0)
     To git@github.com:hcs42/sandbox2.git
        cd4c703..00525f7  master -&gt; master
-</span>
+
 == Further changes ==
 
 - Adding tags in the way I described.
@@ -320,17 +324,18 @@ with the "whitespace error"):
 [3] <a href="http://github.com/hcs42/sandbox/graphs/impact">http://github.com/hcs42/sandbox/graphs/impact</a>
 [4] <a href="http://github.com/hcs42/sandbox2/tree/master">http://github.com/hcs42/sandbox2/tree/master</a>
 [5] <a href="http://github.com/hcs42/heapkeeper/downloads">http://github.com/hcs42/heapkeeper/downloads</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/433 -->
-<div class="post-summary" id="post-summary-hh-433">
+<div class="postbox"><!-- post hh/433 -->
+<span class="postsummary" id="post_hh/433">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-433">&lt;hh/433&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/433">&lt;hh/433&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/430">&lt;&uarr;hh/430&gt;</a></span>
 <span class="date">(2009-08-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-430">hh/430</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-435">hh/435</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; I'm not sure that we control in 100% what is on github. But it we do, than
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt; I'm not sure that we control in 100% what is on github. But it we do, than
 &gt;&gt;&gt; changing the past before 0.3 is OK. I want to put the news about 0.3 on
 &gt;&gt;&gt; freshmeat, send it to the Sphinx mailing list, tell about this to my
 &gt;&gt;&gt; colleagues, etc.
@@ -339,15 +344,15 @@ with the "whitespace error"):
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I don't want to do things like this after 0.3 is released. For me
 &gt; that's like going to public.
-</span></span>
-My question is: once you show all those people what we have, will they
+
+</span></span>My question is: once you show all those people what we have, will they
 see what it is good for?
 
 <span class="quote"><span class="quote-1">&gt; The conclusion is: it seems to me that we have no way of doing what we
 &gt; want to do except for deleting and re-creating the heapkeeper
 &gt; repository.
-</span></span>
-Yes, it seems so. Not that bad solution, though. But do you think it
+
+</span></span>Yes, it seems so. Not that bad solution, though. But do you think it
 is a limitation of github or git? I mean, that we can't just push a
 totally rewritten repository.
 
@@ -361,8 +366,8 @@ totally rewritten repository.
 &gt; branches are lost, but they could have been pushed just as easily if
 &gt; the tidied up repository contained them. We can also use patches to
 &gt; introduce them, see in the next section.
-</span></span>
-Git rules :)
+
+</span></span>Git rules :)
 
 <span class="quote"><span class="quote-1">&gt; The tags are also lost, which made me think that we should not just
 &gt; put them to the same place, because that would cause the descriptions
@@ -370,7 +375,7 @@ Git rules :)
 &gt; new commits which would only change the README and whose commit
 &gt; message would say something like this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    Heapkeeper version 0.1
+&gt;    Heapkeeper version 0.1
 &gt;
 &gt;    This release is a propotype.
 &gt;
@@ -379,10 +384,10 @@ Git rules :)
 &gt;    - Downloading emails over IMAP.
 &gt;    - Storing posts in individual files.
 &gt;    - Generating threaded index page that contains all posts.
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; What do you say?
-</span></span>
-OK. So, we'd hard-reset, edit README, commit, tag and rebase for both
+
+</span></span>OK. So, we'd hard-reset, edit README, commit, tag and rebase for both
 0.1 and 0.2, if I understand correctly.
 
 <span class="quote"><span class="quote-1">&gt; == Creating and applying patches ==
@@ -393,18 +398,18 @@ OK. So, we'd hard-reset, edit README, commit, tag and rebase for both
 &gt; was surprisingly easy: I just had to create a bunch of patches in my
 &gt; old repository and apply them in the new one. The patches even contain
 &gt; log message and author information.
-</span></span>
-I guess then that these are not your average diff-patches, but
+
+</span></span>I guess then that these are not your average diff-patches, but
 something Git-specific.
 
 <span class="quote"><span class="quote-1">&gt; In the new heapkeeper repository ($Hk is the old repo; don't bother
 &gt; with the "whitespace error"):
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    # Applying patch 1
+&gt;    # Applying patch 1
 &gt;    $ git am $Hk/0001-hklib-don-t-crash-if-nicknames-is-missing.patch
 &gt;    Applying: hklib: don't crash if 'nicknames' is missing
-</span></span></span>
-`git-am` means 'apply patches from mailbox'. If there is functionality
+
+</span></span>`git-am` means 'apply patches from mailbox'. If there is functionality
 in git that suggests a particular workflow, this is it. (Some mention
 git is suited for "Linux kernel-style workflow", would this be an
 example? :) )
@@ -415,26 +420,27 @@ example? :) )
 &gt; - Do you want to do something with your 'bodyparsing' and 'minimal'
 &gt;  branches? Or let's just leave them for now and you can use the
 &gt;  patch-technique to introduce them at any time?
-</span></span>
-Do you consider them mature enough for inclusion into the "public"
+
+</span></span>Do you consider them mature enough for inclusion into the "public"
 repo? I think minimal is mature, and also useful. Bodyparsing is
 in early stages, and very probably it'll work quite differently, so if
 you say so, I'll be happy to exclude it until we take on the task more
 seriously.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/435 -->
-<div class="post-summary" id="post-summary-hh-435">
+<div class="postbox"><!-- post hh/435 -->
+<span class="postsummary" id="post_hh/435">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-435">&lt;hh/435&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/435">&lt;hh/435&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/433">&lt;&uarr;hh/433&gt;</a></span>
 <span class="date">(2009-08-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-433">hh/433</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-436">hh/436</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; My question is: once you show all those people what we have, will they
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; My question is: once you show all those people what we have, will they
 &gt; see what it is good for?
-</span></span>
-That's a question for another thread I think.
+
+</span></span>That's a question for another thread I think.
 
 <span class="quote"><span class="quote-2">&gt;&gt; The conclusion is: it seems to me that we have no way of doing what we
 &gt;&gt; want to do except for deleting and re-creating the heapkeeper
@@ -443,8 +449,8 @@ That's a question for another thread I think.
 &gt; Yes, it seems so. Not that bad solution, though. But do you think it
 &gt; is a limitation of github or git? I mean, that we can't just push a
 &gt; totally rewritten repository.
-</span></span>
-I think it's git.
+
+</span></span>I think it's git.
 
 <span class="quote"><span class="quote-2">&gt;&gt; The tags are also lost, which made me think that we should not just
 &gt;&gt; put them to the same place, because that would cause the descriptions
@@ -452,7 +458,7 @@ I think it's git.
 &gt;&gt; new commits which would only change the README and whose commit
 &gt;&gt; message would say something like this:
 &gt;&gt;
-</span></span><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;    Heapkeeper version 0.1
+&gt;&gt;    Heapkeeper version 0.1
 &gt;&gt;
 &gt;&gt;    This release is a propotype.
 &gt;&gt;
@@ -461,13 +467,13 @@ I think it's git.
 &gt;&gt;    - Downloading emails over IMAP.
 &gt;&gt;    - Storing posts in individual files.
 &gt;&gt;    - Generating threaded index page that contains all posts.
-</span></span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt;
 &gt;&gt; What do you say?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; OK. So, we'd hard-reset, edit README, commit, tag and rebase for both
 &gt; 0.1 and 0.2, if I understand correctly.
-</span></span>
-Yes, that is what I thought, but it does not seem to work because of
+
+</span></span>Yes, that is what I thought, but it does not seem to work because of
 the motorway.
 
 <span class="quote"><span class="quote-2">&gt;&gt; == Creating and applying patches ==
@@ -481,8 +487,8 @@ the motorway.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I guess then that these are not your average diff-patches, but
 &gt; something Git-specific.
-</span></span>
-Your guess is correct.
+
+</span></span>Your guess is correct.
 
 <span class="quote"><span class="quote-2">&gt;&gt; == Further changes ==
 &gt;&gt;
@@ -493,30 +499,31 @@ Your guess is correct.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Do you consider them mature enough for inclusion into the "public"
 &gt; repo? I think minimal is mature, and also useful.
-</span></span>
-Why isn't minimal merged into master?
+
+</span></span>Why isn't minimal merged into master?
 
 <span class="quote"><span class="quote-1">&gt; Bodyparsing is in early stages, and very probably it'll work quite
 &gt; differently, so if you say so, I'll be happy to exclude it until we
 &gt; take on the task more seriously.
-</span></span>
-OK.
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/436 -->
-<div class="post-summary" id="post-summary-hh-436">
+</span></span>OK.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/436 -->
+<span class="postsummary" id="post_hh/436">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-436">&lt;hh/436&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/436">&lt;hh/436&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/435">&lt;&uarr;hh/435&gt;</a></span>
 <span class="date">(2009-08-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-435">hh/435</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-437">hh/437</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; My question is: once you show all those people what we have, will they
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; My question is: once you show all those people what we have, will they
 &gt;&gt; see what it is good for?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; That's a question for another thread I think.
-</span></span>
-I'm never afraid to start a thread in another one... though it is
+
+</span></span>I'm never afraid to start a thread in another one... though it is
 laborous to separate them later, especially if the two have been
 running in parallel in several posts. But in another thread, then.
 
@@ -525,40 +532,41 @@ running in parallel in several posts. But in another thread, then.
 &gt;&gt; totally rewritten repository.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I think it's git.
-</span></span>
-A little bit of heartbreak over there.
+
+</span></span>A little bit of heartbreak over there.
 
 <span class="quote"><span class="quote-2">&gt;&gt; So, we'd hard-reset, edit README, commit, tag and rebase for both
 &gt;&gt; 0.1 and 0.2, if I understand correctly.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Yes, that is what I thought, but it does not seem to work because of
 &gt; the motorway.
-</span></span>
-Umm... both the 0.1 and 0.2 tags are on "single sections". Will that
+
+</span></span>Umm... both the 0.1 and 0.2 tags are on "single sections". Will that
 still cause a problem with motorways coming after the tag? I think
 I'll go and experiment with it.
 
 <span class="quote"><span class="quote-3">&gt;&gt;&gt; == Further changes ==
-</span></span>
-<span class="quote"><span class="quote-1">&gt; Why isn't minimal merged into master?
-</span></span>
-That is the middle of the Chaos of May 2009. Minimal is now at a merge
+
+</span></span><span class="quote"><span class="quote-1">&gt; Why isn't minimal merged into master?
+
+</span></span>That is the middle of the Chaos of May 2009. Minimal is now at a merge
 of a merge of a merge and something else and something else
 (literally), and I guess I didn't dare to merge the merge back into
 master. I think the best way to save the minimal branch would be to
 start off from before the chaos and cherry-pick the necessary changes
 to form a new minimal, then throw the old one away.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/437 -->
-<div class="post-summary" id="post-summary-hh-437">
+<div class="postbox"><!-- post hh/437 -->
+<span class="postsummary" id="post_hh/437">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-437">&lt;hh/437&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/437">&lt;hh/437&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/436">&lt;&uarr;hh/436&gt;</a></span>
 <span class="date">(2009-08-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-436">hh/436</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-438">hh/438</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; So, we'd hard-reset, edit README, commit, tag and rebase for both
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt; So, we'd hard-reset, edit README, commit, tag and rebase for both
 &gt;&gt;&gt; 0.1 and 0.2, if I understand correctly.
 </span></span><span class="quote"><span class="quote-2">&gt;&gt; Yes, that is what I thought, but it does not seem to work because of
 &gt;&gt; the motorway.
@@ -566,8 +574,8 @@ to form a new minimal, then throw the old one away.
 &gt; Umm... both the 0.1 and 0.2 tags are on "single sections". Will that
 &gt; still cause a problem with motorways coming after the tag? I think
 &gt; I'll go and experiment with it.
-</span></span>
-I tried it. The problem is the rebase tries to linearize everything,
+
+</span></span>I tried it. The problem is the rebase tries to linearize everything,
 all the motorways that are present in the history back until 0.1/0.2.
 There are also merge conflicts: usually those that conflicted for us
 back then, but it seems that there are other conflicts as well, which
@@ -580,60 +588,64 @@ We have three options:
 2. Try another mechanism, e.g. git filter.
 3. Put back v0.1 and v0.2 tags as they were and do work that actually
    matters :)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/438 -->
-<div class="post-summary" id="post-summary-hh-438">
+<div class="postbox"><!-- post hh/438 -->
+<span class="postsummary" id="post_hh/438">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-438">&lt;hh/438&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/438">&lt;hh/438&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/437">&lt;&uarr;hh/437&gt;</a></span>
 <span class="date">(2009-08-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-437">hh/437</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-449">hh/449</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; We have three options:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; We have three options:
 &gt; 1. Do the linearization.
 &gt; 2. Try another mechanism, e.g. git filter.
 &gt; 3. Put back v0.1 and v0.2 tags as they were and do work that actually
 &gt;   matters :)
-</span></span>
-Option 3 is of course attractive, but learning Git is fun _and_
+
+</span></span>Option 3 is of course attractive, but learning Git is fun _and_
 matters, so I think I'll try and read about rebasing with preserving
 loops.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/449 -->
-<div class="post-summary" id="post-summary-hh-449">
+<div class="postbox"><!-- post hh/449 -->
+<span class="postsummary" id="post_hh/449">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Rewriting history affects our posts</span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-449">&lt;hh/449&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/449">&lt;hh/449&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/438">&lt;&uarr;hh/438&gt;</a></span>
 <span class="date">(2009-08-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-438">hh/438</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-451">hh/451</a></span>
-<pre class="post-body-content">I have just realized something. If we rewrite the git history, all our
+<div class="body">
+<pre class="postbody">I have just realized something. If we rewrite the git history, all our
 posts in which we discuss a commit should be rewritten, since all SHA
 id-s would be changed.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/451 -->
-<div class="post-summary" id="post-summary-hh-451">
+<div class="postbox"><!-- post hh/451 -->
+<span class="postsummary" id="post_hh/451">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_420.html#post-summary-hh-451">&lt;hh/451&gt;</a></span>
+<span class="index"><a href="../hh/thread_420.html#post_hh/451">&lt;hh/451&gt;</a></span>
+<span class="parent"><a href="../hh/thread_420.html#post_hh/449">&lt;&uarr;hh/449&gt;</a></span>
 <span class="date">(2009-08-02)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-449">hh/449</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I have just realized something. If we rewrite the git history, all our
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I have just realized something. If we rewrite the git history, all our
 &gt; posts in which we discuss a commit should be rewritten, since all SHA
 &gt; id-s would be changed.
-</span></span>
-Yes, it can be a problem.
+
+</span></span>Yes, it can be a problem.
 
 This search:
 
-<span class="raw-block">    egrep -l "commit.*[0-9a-f]{4,}"
-</span>
+    egrep -l "commit.*[0-9a-f]{4,}"
+
 turns up 40 posts. If that's all, we can handle that.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/451 -->
 </div><!-- postbox for post hh/449 -->
 </div><!-- postbox for post hh/438 -->

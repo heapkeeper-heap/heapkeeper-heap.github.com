@@ -1,29 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Post hook for whitespace</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Post hook for whitespace</h1>
 
 
-<div class="post-box"><!-- post hh/640 -->
-<div class="post-summary" id="post-summary-hh-640">
+<div class="postbox"><!-- post hh/640 -->
+<span class="postsummary" id="post_hh/640">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Post hook for whitespace</span>
 <span class="tags">[git, repo]</span>
-<span class="index"><a href="../hh/thread_640.html#post-summary-hh-640">&lt;hh/640&gt;</a></span>
+<span class="index"><a href="../hh/thread_640.html#post_hh/640">&lt;hh/640&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-10-11)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_640.html#post-summary-hh-697">hh/697</a>, <a href="../hh/thread_640.html#post-summary-hh-702">hh/702</a></span>
-<pre class="post-body-content">I made a commit hook that does not let you commit when there is a
+<div class="body">
+<pre class="postbody">I made a commit hook that does not let you commit when there is a
 trailing whitespace somewhere in the Python code or in the
 documentation. If you want to use it, create a file
 .git/hooks/pre-commit with the following content and give it an
 x-right:
 
-<span class="raw-block">    #!/bin/bash
+    #!/bin/bash
 
     tmp=`tempfile`
     if cat *.py doc/*.{rst,py,hrst} | grep " $" &gt; "$tmp"
@@ -35,40 +35,42 @@ x-right:
         exit 1
     fi
     rm "$tmp"
-</span>
+
 It is not very user friendly in that it does not tell you where the
 trailing whitespace exactly is. I use
 
-<span class="raw-block">    :vimgrep ' $' *.py doc/*.rst doc/*.hrst
-</span>
+    :vimgrep ' $' *.py doc/*.rst doc/*.hrst
+
 for that purpose. (It would be nice if the commit hook printed where
 the trailing whitespace is, but I don't feel like implementing that
 now.)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/697 -->
-<div class="post-summary" id="post-summary-hh-697">
+<div class="postbox"><!-- post hh/697 -->
+<span class="postsummary" id="post_hh/697">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_640.html#post-summary-hh-697">&lt;hh/697&gt;</a></span>
+<span class="index"><a href="../hh/thread_640.html#post_hh/697">&lt;hh/697&gt;</a></span>
+<span class="parent"><a href="../hh/thread_640.html#post_hh/640">&lt;&uarr;hh/640&gt;</a></span>
 <span class="date">(2009-10-18)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_640.html#post-summary-hh-640">hh/640</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">I've installed the hook. Thanks!
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody">I've installed the hook. Thanks!
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/697 -->
 
-<div class="post-box"><!-- post hh/702 -->
-<div class="post-summary" id="post-summary-hh-702">
+<div class="postbox"><!-- post hh/702 -->
+<span class="postsummary" id="post_hh/702">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_640.html#post-summary-hh-702">&lt;hh/702&gt;</a></span>
+<span class="index"><a href="../hh/thread_640.html#post_hh/702">&lt;hh/702&gt;</a></span>
+<span class="parent"><a href="../hh/thread_640.html#post_hh/640">&lt;&uarr;hh/640&gt;</a></span>
 <span class="date">(2009-10-18)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_640.html#post-summary-hh-640">hh/640</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_640.html#post-summary-hh-704">hh/704</a></span>
-<pre class="post-body-content">Updated version that also finds lines longer than 79 in Python code:
+<div class="body">
+<pre class="postbody">Updated version that also finds lines longer than 79 in Python code:
 
-<span class="raw-block">    #!/bin/bash
+    #!/bin/bash
 
     tmp=`tempfile`
     pythonfiles=`git-ls-files | grep py`
@@ -83,7 +85,7 @@ now.)
         exit 1
     fi
 
-    grep -n ".\{80\}" $pythonfiles | grep -v 'http://' &gt; "$tmp"
+    grep -n ".\{80\}" $pythonfiles | grep -v '<a href="http://'">http://'</a> &gt; "$tmp"
     if [ "`cat $tmp`" != "" ]
     then
         echo "pre-commit: No commit made."
@@ -94,20 +96,22 @@ now.)
     fi
 
     rm "$tmp"
-</span></pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/704 -->
-<div class="post-summary" id="post-summary-hh-704">
+<div class="postbox"><!-- post hh/704 -->
+<span class="postsummary" id="post_hh/704">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_640.html#post-summary-hh-704">&lt;hh/704&gt;</a></span>
+<span class="index"><a href="../hh/thread_640.html#post_hh/704">&lt;hh/704&gt;</a></span>
+<span class="parent"><a href="../hh/thread_640.html#post_hh/702">&lt;&uarr;hh/702&gt;</a></span>
 <span class="date">(2009-10-18)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_640.html#post-summary-hh-702">hh/702</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Updated version that also finds lines longer than 79 in Python code:
-</span></span>
-Great! I'll use this.
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Updated version that also finds lines longer than 79 in Python code:
+
+</span></span>Great! I'll use this.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/704 -->
 </div><!-- postbox for post hh/702 -->
 </div><!-- postbox for post hh/640 -->

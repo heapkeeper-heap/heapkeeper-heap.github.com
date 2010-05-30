@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Generating HTML from docstrings (Sphinx), wikis (Wiko, asciidoc)</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Generating HTML from docstrings (Sphinx), wikis (Wiko, asciidoc)</h1>
 
 
-<div class="post-box"><!-- post hh/38 -->
-<div class="post-summary" id="post-summary-hh-38">
+<div class="postbox"><!-- post hh/38 -->
+<span class="postsummary" id="post_hh/38">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Generating HTML from docstrings (Sphinx), wikis (Wiko, asciidoc)</span>
 <span class="tags">[prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_38.html#post-summary-hh-38">&lt;hh/38&gt;</a></span>
+<span class="index"><a href="../hh/thread_38.html#post_hh/38">&lt;hh/38&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-03-22)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_38.html#post-summary-hh-39">hh/39</a></span>
-<pre class="post-body-content">== Sphinx ==
+<div class="body">
+<pre class="postbody">== Sphinx ==
 
 There is a tool called Sphinx [1] that generates HTML from docstrings.
 It does a much nicer job than the standard docstring-&gt;HTML generator;
@@ -40,7 +40,7 @@ The most important things:
 
 Code embedding, shown in Python code:
 
-<span class="raw-block">    def f(smallfun):
+    def f(smallfun):
     """Nice function.
 
     Try this:
@@ -51,7 +51,7 @@ Code embedding, shown in Python code:
 
     You will see that...
     """
-</span>
+
 The "def sum..." lines will be verbatim syntax highlighted.
 
 It uses the same engine (Pygment) for highlighting embedded code as
@@ -59,7 +59,7 @@ Wiko.
 
 I like their definition of lists (note the explicit line numbering):
 
-<span class="raw-block">    * This is a bulleted list.
+    * This is a bulleted list.
     * It has two items, the second
       item uses two lines.
 
@@ -68,12 +68,12 @@ I like their definition of lists (note the explicit line numbering):
 
     #. This is a numbered list.
     #. It has two items too.
-</span>
+
 It supports cross references: links to other pages or to Python
 objects (e.g. classes, functions) [5]. E.g:
 
-<span class="raw-block">    See :class:`MyClass` for more informations.
-</span>
+    See :class:`MyClass` for more informations.
+
 == Docstrings and other documentation ==
 
 I think we should definitely use Sphinx for our docstings.
@@ -83,7 +83,7 @@ Pros:
 
 - We could make links between them. Imagine this Developer Guide:
 
-<span class="raw-block">    :fun:`_recalc_cycles heapia.MailDB._recalc_cycles` starts out from
+    :fun:`_recalc_cycles heapia.MailDB._recalc_cycles` starts out from
     the list of all posts, then eliminating all posts reachable via
     :fun:`iter_thread heapia.MailDB.iter_thread`.
 
@@ -92,7 +92,7 @@ Pros:
   name and it will jump to the function's documentation. Of course we
   don't have to use this format if we don't want to, we can just write
   ``_recalc_cycles`` and ``iter_thread``.
-</span>
+
 - We will have the same format in the docstrings and docs.
     - The users and developers will have to learn only one format.
     - The users and developers will have to install only one tool.
@@ -132,20 +132,22 @@ have at least 4 different things where we want to use wiki syntax:
 [3] <a href="http://sphinx.pocoo.org/rest.html">http://sphinx.pocoo.org/rest.html</a>
 [4] <a href="http://people.inf.elte.hu/hoch/mappa/wiki.txt">http://people.inf.elte.hu/hoch/mappa/wiki.txt</a>
 [5] <a href="http://sphinx.pocoo.org/markup/index.html">http://sphinx.pocoo.org/markup/index.html</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/39 -->
-<div class="post-summary" id="post-summary-hh-39">
+<div class="postbox"><!-- post hh/39 -->
+<span class="postsummary" id="post_hh/39">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_38.html#post-summary-hh-39">&lt;hh/39&gt;</a></span>
+<span class="index"><a href="../hh/thread_38.html#post_hh/39">&lt;hh/39&gt;</a></span>
+<span class="parent"><a href="../hh/thread_38.html#post_hh/38">&lt;&uarr;hh/38&gt;</a></span>
 <span class="date">(2009-03-22)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_38.html#post-summary-hh-38">hh/38</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="meta-text">[close]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[close]</span>
 
 We decided to use Sphinx later.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/39 -->
 </div><!-- postbox for post hh/38 -->
 

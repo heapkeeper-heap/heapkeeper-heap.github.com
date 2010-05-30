@@ -1,59 +1,62 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Emails with attached files handled incorrectly</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Emails with attached files handled incorrectly</h1>
 
 
-<div class="post-box"><!-- post hh/512 -->
-<div class="post-summary" id="post-summary-hh-512">
+<div class="postbox"><!-- post hh/512 -->
+<span class="postsummary" id="post_hh/512">
 <span class="author">Attila Nagy</span>
 <span class="subject">Emails with attached files handled incorrectly</span>
 <span class="tags">[bug, reviewed]</span>
-<span class="index"><a href="../hh/thread_512.html#post-summary-hh-512">&lt;hh/512&gt;</a></span>
+<span class="index"><a href="../hh/thread_512.html#post_hh/512">&lt;hh/512&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-08-15)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_512.html#post-summary-hh-534">hh/534</a></span>
-<pre class="post-body-content">Previously, attached files were simply ignored. But now there's been a
+<div class="body">
+<pre class="postbody">Previously, attached files were simply ignored. But now there's been a
 case when a mail with an attached message resulted in a malformed
 post. The post contains the body and the attachment in encoded form
 (quoted-printable and base64, respectively) complete with headers.
 
 The ID of the affected post is
 &lt;b29f917d0908051523y64e413eby8ebad8d562157a12@mail.gmail.com&gt;.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/534 -->
-<div class="post-summary" id="post-summary-hh-534">
+<div class="postbox"><!-- post hh/534 -->
+<span class="postsummary" id="post_hh/534">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_512.html#post-summary-hh-534">&lt;hh/534&gt;</a></span>
+<span class="index"><a href="../hh/thread_512.html#post_hh/534">&lt;hh/534&gt;</a></span>
+<span class="parent"><a href="../hh/thread_512.html#post_hh/512">&lt;&uarr;hh/512&gt;</a></span>
 <span class="date">(2009-08-20)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_512.html#post-summary-hh-512">hh/512</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_512.html#post-summary-hh-736">hh/736</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Previously, attached files were simply ignored.
-</span></span>
-That is not the case. Previously, there were no messages with attached
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Previously, attached files were simply ignored.
+
+</span></span>That is not the case. Previously, there were no messages with attached
 files, and that's why there were no problems! Now there are four of them
 (2197, 2322, 2375 and 2441), and they are all in error. These are
 manually corrected for now. Until this issue is resolved, please don't
 send attached files.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/736 -->
-<div class="post-summary" id="post-summary-hh-736">
+<div class="postbox"><!-- post hh/736 -->
+<span class="postsummary" id="post_hh/736">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_512.html#post-summary-hh-736">&lt;hh/736&gt;</a></span>
+<span class="index"><a href="../hh/thread_512.html#post_hh/736">&lt;hh/736&gt;</a></span>
+<span class="parent"><a href="../hh/thread_512.html#post_hh/534">&lt;&uarr;hh/534&gt;</a></span>
 <span class="date">(2009-10-21)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_512.html#post-summary-hh-534">hh/534</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="meta-text">[effort 3]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[effort 3]</span>
 <span class="meta-text">[version 0.5]</span>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/736 -->
 </div><!-- postbox for post hh/534 -->
 </div><!-- postbox for post hh/512 -->

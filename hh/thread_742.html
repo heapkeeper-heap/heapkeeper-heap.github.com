@@ -1,22 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Tidying up my hkrc</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Tidying up my hkrc</h1>
 
 
-<div class="post-box"><!-- post hh/742 -->
-<div class="post-summary" id="post-summary-hh-742">
+<div class="postbox"><!-- post hh/742 -->
+<span class="postsummary" id="post_hh/742">
 <span class="author">Attila Nagy</span>
 <span class="subject">Tidying up my hkrc</span>
-<span class="index"><a href="../hh/thread_742.html#post-summary-hh-742">&lt;hh/742&gt;</a></span>
+<span class="index"><a href="../hh/thread_742.html#post_hh/742">&lt;hh/742&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-10-22)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_742.html#post-summary-hh-746">hh/746</a>, <a href="../hh/thread_742.html#post-summary-hh-hcs42_4">hh/hcs42_4</a></span>
-<pre class="post-body-content">My hkrc is seriously lagging behind, so I'm tidying it up. I'll use
+<div class="body">
+<pre class="postbody">My hkrc is seriously lagging behind, so I'm tidying it up. I'll use
 yours as a basis for this, which means that I'll also find things in
 your hkrc.
 
@@ -35,7 +35,7 @@ but the third is for the generator). You have this:
 
 def gen_indices(postdb):
 
-<span class="raw-block">    hkcustomlib.gen_indices(postdb)
+    hkcustomlib.gen_indices(postdb)
     # Date options
     date_options = hkcustomlib.date_defopts()
     ...
@@ -48,7 +48,7 @@ def gen_indices(postdb):
     # Generator the issue tracker index
     generator = issue_tracker.create_generator(genopts)
     generator.gen_indices(genopts)
-</span>
+
 So, first you do the default index generation, then the customized
 one. Is this necessary?
 
@@ -59,9 +59,9 @@ There is a typo: "Generator the issue tracker index" should read
 
 In `index0()`, where you collect posts based on tags, you wrote this:
 
-<span class="raw-block">    python_tags = ['python', 'Python']
+    python_tags = ['python', 'Python']
     ps_python = ps_all.collect(has_tag(python_tags))
-</span>
+
 which uses:
 
 def has_tag(tags):
@@ -74,15 +74,15 @@ def has_tag(tags):
 
 In my hkrc, this reads:
 
-<span class="raw-block">    ps_py = ps_all.collect.has_tag_from(('python', 'Python'))
-</span>
+    ps_py = ps_all.collect.has_tag_from(('python', 'Python'))
+
 You introduced your solution on 2009-03-21, I did mine on 2009-05-09.
 We did basically the same thing (albeit yours has a brilliant
 functional style ;)).
 
 What do you think about this new implementation of `Post.has_tag`?
 
-<span class="raw-block">    def has_tag(self, tagset):
+    def has_tag(self, tagset):
         assert(isinstance(tagset, str) or hasattr(tagset, '__iter__'))
         if isinstance(tagset, str):
             return tagset in self._header['Tag']
@@ -90,11 +90,11 @@ What do you think about this new implementation of `Post.has_tag`?
             if tag in self._header['Tag']:
                 return True
         return False
-</span>
+
 Then we could have
 
-<span class="raw-block">    ps_python = ps_all.collect.has_tag(['python', 'Python'])
-</span>
+    ps_python = ps_all.collect.has_tag(['python', 'Python'])
+
 which is cleaner and more simple than our previous solutions.
 
 == Dead code ==
@@ -108,28 +108,29 @@ I reordered the functions, added docstrings and removed old code.
 == Observation ==
 
 The crusade to tidy up my hkrc resulted in criticizing yours...
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/746 -->
-<div class="post-summary" id="post-summary-hh-746">
+<div class="postbox"><!-- post hh/746 -->
+<span class="postsummary" id="post_hh/746">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_742.html#post-summary-hh-746">&lt;hh/746&gt;</a></span>
+<span class="index"><a href="../hh/thread_742.html#post_hh/746">&lt;hh/746&gt;</a></span>
+<span class="parent"><a href="../hh/thread_742.html#post_hh/742">&lt;&uarr;hh/742&gt;</a></span>
 <span class="date">(2009-10-22)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_742.html#post-summary-hh-742">hh/742</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_742.html#post-summary-hh-947">hh/947</a></span>
-<pre class="post-body-content">Well, my hkrc needs tidying, as well... I will tidy it up when I will
+<div class="body">
+<pre class="postbody">Well, my hkrc needs tidying, as well... I will tidy it up when I will
 commit the new Generator into a non-double-underscore branch.
 
 == Editing ==
 
 <span class="quote"><span class="quote-1">&gt; Are the `vim()`, `gvim()` and `edit_file()` functions obsolete?
-</span></span>
-Yes.
+
+</span></span>Yes.
 
 <span class="quote"><span class="quote-1">&gt; Also, what do you use `get_content()` for?
-</span></span>
-For the same thing hkcustomlib.edit_files uses the `old_content`
+
+</span></span>For the same thing hkcustomlib.edit_files uses the `old_content`
 variable. If a file did not change (its old content is the same as its
 new content), it is unnecessary to call its `touch` method.
 
@@ -140,7 +141,7 @@ new content), it is unnecessary to call its `touch` method.
 &gt;
 &gt; def gen_indices(postdb):
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     hkcustomlib.gen_indices(postdb)
+&gt;     hkcustomlib.gen_indices(postdb)
 &gt;     # Date options
 &gt;     date_options = hkcustomlib.date_defopts()
 &gt;     ...
@@ -153,11 +154,11 @@ new content), it is unnecessary to call its `touch` method.
 &gt;     # Generator the issue tracker index
 &gt;     generator = issue_tracker.create_generator(genopts)
 &gt;     generator.gen_indices(genopts)
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; So, first you do the default index generation, then the customized
 &gt; one. Is this necessary?
-</span></span>
-What do you mean by "necessary"? It is necessary in the sense that
+
+</span></span>What do you mean by "necessary"? It is necessary in the sense that
 all the different index generators generate different index pages.
 
 1. hkcustomlib.gen_indices(postdb) generates the default main index
@@ -169,16 +170,16 @@ all the different index generators generate different index pages.
 
 <span class="quote"><span class="quote-1">&gt; There is a typo: "Generator the issue tracker index" should read
 &gt; "Generating the ..."
-</span></span>
-Thanks.
+
+</span></span>Thanks.
 
 == Collecting posts matching any of a set of tags ==
 
 <span class="quote"><span class="quote-1">&gt; In `index0()`, where you collect posts based on tags, you wrote this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     python_tags = ['python', 'Python']
+&gt;     python_tags = ['python', 'Python']
 &gt;     ps_python = ps_all.collect(has_tag(python_tags))
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; which uses:
 &gt;
 &gt; def has_tag(tags):
@@ -191,20 +192,20 @@ Thanks.
 &gt;
 &gt; In my hkrc, this reads:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     ps_py = ps_all.collect.has_tag_from(('python', 'Python'))
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;     ps_py = ps_all.collect.has_tag_from(('python', 'Python'))
+&gt;
 &gt; You introduced your solution on 2009-03-21, I did mine on 2009-05-09.
 &gt; We did basically the same thing (albeit yours has a brilliant
 &gt; functional style ;)).
-</span></span>
-I guess I wanted my solution to be a short term solution. The long
+
+</span></span>I guess I wanted my solution to be a short term solution. The long
 term solution would be to automatically convert tags to match the
 canonical form (e.g. "Python" -&gt; "python"). Maybe we should not use
 uppercase letters at all in tags.
 
 <span class="quote"><span class="quote-1">&gt; What do you think about this new implementation of `Post.has_tag`?
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     def has_tag(self, tagset):
+&gt;     def has_tag(self, tagset):
 &gt;         assert(isinstance(tagset, str) or hasattr(tagset, '__iter__'))
 &gt;         if isinstance(tagset, str):
 &gt;             return tagset in self._header['Tag']
@@ -212,14 +213,14 @@ uppercase letters at all in tags.
 &gt;             if tag in self._header['Tag']:
 &gt;                 return True
 &gt;         return False
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; Then we could have
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     ps_python = ps_all.collect.has_tag(['python', 'Python'])
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;     ps_python = ps_all.collect.has_tag(['python', 'Python'])
+&gt;
 &gt; which is cleaner and more simple than our previous solutions.
-</span></span>
-Nice! Go ahead.
+
+</span></span>Nice! Go ahead.
 
 Note: Later I want to make self._header['Tag'] a set instead of a list
 for efficiency reasons. But that can wait. I'll file an issue about
@@ -228,8 +229,8 @@ it.
 <span class="quote"><span class="quote-1">&gt; == Dead code ==
 &gt;
 &gt; Your `sections1()` seems to be dead code. (Also, why 1204?)
-</span></span>
-I think I made `sections1` for a very specific purpose; probably
+
+</span></span>I think I made `sections1` for a very specific purpose; probably
 something was wrong with the thread of 1204 and I wanted to see only
 that thread when doing the debugging. And I didn't remove it, because
 I thought when I have a trouble with a specific thread again, it will
@@ -238,48 +239,51 @@ be useful to just change 1204 to something else.
 == Improvements ==
 
 I'll rewrite mine after I pushed the new generator.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/947 -->
-<div class="post-summary" id="post-summary-hh-947">
+<div class="postbox"><!-- post hh/947 -->
+<span class="postsummary" id="post_hh/947">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_742.html#post-summary-hh-947">&lt;hh/947&gt;</a></span>
+<span class="index"><a href="../hh/thread_742.html#post_hh/947">&lt;hh/947&gt;</a></span>
+<span class="parent"><a href="../hh/thread_742.html#post_hh/746">&lt;&uarr;hh/746&gt;</a></span>
 <span class="date">(2009-11-19)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_742.html#post-summary-hh-746">hh/746</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Then we could have
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Then we could have
 &gt;&gt;
-</span></span><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;     ps_python = ps_all.collect.has_tag(['python', 'Python'])
-</span></span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt;     ps_python = ps_all.collect.has_tag(['python', 'Python'])
+&gt;&gt;
 &gt;&gt; which is cleaner and more simple than our previous solutions.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Nice! Go ahead.
-</span></span>
-OK, it has been implemented and pushed (it used to be in a topic
+
+</span></span>OK, it has been implemented and pushed (it used to be in a topic
 branch, but now it is integrated in the main branch.
 
 However, I think not all remaining code has been updated to use this.
 It should be fairly easy to do this: just find and disable all
 remaining `has_tag` functions (I think there are 2 of them.), and fix
 whatever is broken by this.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/947 -->
 </div><!-- postbox for post hh/746 -->
 
-<div class="post-box"><!-- post hh/hcs42_4 -->
-<div class="post-summary" id="post-summary-hh-hcs42_4">
+<div class="postbox"><!-- post hh/hcs42_4 -->
+<span class="postsummary" id="post_hh/hcs42_4">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
 <span class="tags">[+issue]</span>
-<span class="index"><a href="../hh/thread_742.html#post-summary-hh-hcs42_4">&lt;hh/hcs42_4&gt;</a></span>
+<span class="index"><a href="../hh/thread_742.html#post_hh/hcs42_4">&lt;hh/hcs42_4&gt;</a></span>
+<span class="parent"><a href="../hh/thread_742.html#post_hh/742">&lt;&uarr;hh/742&gt;</a></span>
 <span class="date">(2010-04-24)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_742.html#post-summary-hh-742">hh/742</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="meta-text">[open]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[open]</span>
 
 This commit is still present in a public branch of mine.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/hcs42_4 -->
 </div><!-- postbox for post hh/742 -->
 

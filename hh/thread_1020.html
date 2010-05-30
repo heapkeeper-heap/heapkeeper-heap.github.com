@@ -1,26 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>dl() is getting slower</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">dl() is getting slower</h1>
 
 
-<div class="post-box"><!-- post hh/1020 -->
-<div class="post-summary" id="post-summary-hh-1020">
+<div class="postbox"><!-- post hh/1020 -->
+<span class="postsummary" id="post_hh/1020">
 <span class="author">Attila Nagy</span>
 <span class="subject">dl() is getting slower</span>
-<span class="index"><a href="../hh/thread_1020.html#post-summary-hh-1020">&lt;hh/1020&gt;</a></span>
+<span class="index"><a href="../hh/thread_1020.html#post_hh/1020">&lt;hh/1020&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2010-01-09)</span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">`dl()` is getting slower again:
+<div class="body">
+<pre class="postbody">`dl()` is getting slower again:
 
 The first `dl()` after about two weeks:
 
-<span class="raw-block">    &gt;&gt;&gt; dl()
+    &gt;&gt;&gt; dl()
     Reading settings...
     Connecting...
     Connected
@@ -30,21 +30,22 @@ The first `dl()` after about two weeks:
     288 new messages downloaded.
     Mail database saved.
     dl: 54.979973 seconds.
-</span>
+
 Then another `dl()`, right after this one:
 
-<span class="raw-block">    &gt;&gt;&gt; dl()
+    &gt;&gt;&gt; dl()
     Reading settings...
     Connecting...
     Connected
     Checking...
     No new messages.
     dl: 50.394206 seconds.
-</span>
+
 This used to be much faster. Maybe Gmail's IMAP servers are getting
 overloaded, or complex searches are throttled down. I think we'll soon
 have to do another optimization of the IMAP code.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/1020 -->
 
   </body>

@@ -1,25 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>heapid mismatch bug</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">heapid mismatch bug</h1>
 
 
-<div class="post-box"><!-- post hh/484 -->
-<div class="post-summary" id="post-summary-hh-484">
+<div class="postbox"><!-- post hh/484 -->
+<span class="postsummary" id="post_hh/484">
 <span class="author">Attila Nagy</span>
 <span class="subject">heapid mismatch bug</span>
-<span class="index"><a href="../hh/thread_484.html#post-summary-hh-484">&lt;hh/484&gt;</a></span>
+<span class="index"><a href="../hh/thread_484.html#post_hh/484">&lt;hh/484&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-08-09)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_484.html#post-summary-hh-485">hh/485</a>, <a href="../hh/thread_484.html#post-summary-hh-499">hh/499</a></span>
-<pre class="post-body-content">We have a bug in the newest Hk (as of 2009-08-09). If you look at UMS
+<div class="body">
+<pre class="postbody">We have a bug in the newest Hk (as of 2009-08-09). If you look at UMS
 Heap's post 1287, the thread summary says:
 
-<span class="raw-block">    Csabi subjects should ... [hh,... prop, reviewed] &lt;1287&gt; (2009.03.07.)
+    Csabi subjects should ... [hh,... prop, reviewed] &lt;1287&gt; (2009.03.07.)
     Attis subjects should ... [hh,... prop, reviewed] &lt;1410&gt; (2009.03.19.)
     Csabi subjects should ... [hh,... prop, reviewed] &lt;1414&gt; (2009.03.20.)
     Attis subjects should ... [hh,... prop, reviewed] &lt;1455&gt; (2009.03.23.)
@@ -27,10 +27,10 @@ Heap's post 1287, the thread summary says:
     Csabi Subjects should ... [hh,... prop] &lt;1794&gt; (2009.05.10.)
     Attis Subjects should ... [hh,... prop] &lt;1795&gt; (2009.05.10.)
     Csabi Subjects should ... [hh,... prop] &lt;1796&gt; (2009.05.10.)
-</span>
+
 While looking at thread 1287, the thread summary page lists:
 
-<span class="raw-block">    Csabi subjects should ... [hh,... reviewed] &lt;1287&gt;
+    Csabi subjects should ... [hh,... reviewed] &lt;1287&gt;
     Attis subjects should ... [hh,... reviewed] &lt;1410&gt;
     Csabi subjects should ... [hh,... reviewed] &lt;1414&gt;
     Attis subjects should ... [hh,... reviewed] &lt;1455&gt;
@@ -38,34 +38,36 @@ While looking at thread 1287, the thread summary page lists:
     Csabi Subjects should ... [hh,...] &lt;2238&gt;
     Attis Subjects should ... [hh,...] &lt;2239&gt;
     Csabi Subjects should ... [hh,...] &lt;2240&gt;
-</span>
+
 The second half of the thread is not the same. This means two things:
 - the thread summary is generated differently in these cases,
 - there is a bug in the download mechanism, and duplicate posts are
   in the database
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/485 -->
-<div class="post-summary" id="post-summary-hh-485">
+<div class="postbox"><!-- post hh/485 -->
+<span class="postsummary" id="post_hh/485">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_484.html#post-summary-hh-485">&lt;hh/485&gt;</a></span>
+<span class="index"><a href="../hh/thread_484.html#post_hh/485">&lt;hh/485&gt;</a></span>
+<span class="parent"><a href="../hh/thread_484.html#post_hh/484">&lt;&uarr;hh/484&gt;</a></span>
 <span class="date">(2009-08-09)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_484.html#post-summary-hh-484">hh/484</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">Could you send me the newest ums heap repo?
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody">Could you send me the newest ums heap repo?
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/485 -->
 
-<div class="post-box"><!-- post hh/499 -->
-<div class="post-summary" id="post-summary-hh-499">
+<div class="postbox"><!-- post hh/499 -->
+<span class="postsummary" id="post_hh/499">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_484.html#post-summary-hh-499">&lt;hh/499&gt;</a></span>
+<span class="index"><a href="../hh/thread_484.html#post_hh/499">&lt;hh/499&gt;</a></span>
+<span class="parent"><a href="../hh/thread_484.html#post_hh/484">&lt;&uarr;hh/484&gt;</a></span>
 <span class="date">(2009-08-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_484.html#post-summary-hh-484">hh/484</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_484.html#post-summary-hh-500">hh/500</a>, <a href="../hh/thread_484.html#post-summary-hh-508">hh/508</a></span>
-<pre class="post-body-content">== Problem ==
+<div class="body">
+<pre class="postbody">== Problem ==
 
 You found a real bug in Heapkeeper's post file parser, which was introduced by
 me in commit 779f05bff7. I was aware of the bug, but I did not think it would
@@ -77,7 +79,7 @@ into the subject of these posts in commit a3f92; I don't know, how and why.
 
 But git does not lie:
 
-<span class="raw-block">    -From: Attis
+    -From: Attis
     +Author: Attis
      Subject: Subjects should start with capital
        letter
@@ -89,18 +91,18 @@ But git does not lie:
     -In-Reply-To: &lt;b29f917d0903191129w3b774b86u1abe719903820d1c@mail.gmail.com&gt;
     +Parent: &lt;b29f917d0903191129w3b774b86u1abe719903820d1c@mail.gmail.com&gt;
      Date: Sun, 10 May 2009 19:16:18 +0200
-</span>
+
      &gt; Uppercase? Somehow deep in my heart I wished this to come out
 to lowercase...
 
 The original subject was:
 
-<span class="raw-block">    "Subjects should start with capital\n letter"
-</span>
+    "Subjects should start with capital\n letter"
+
 The new subject is:
 
-<span class="raw-block">    "Subjects should start with capital\n letter\n"
-</span>
+    "Subjects should start with capital\n letter\n"
+
 The final "\n" means an *empty line that contains only a space* in the post
 file. In a previous thread [1] we discussed that I modified the parser so that
 it will consider empty lines and empty lines containing only whitespace to be
@@ -113,8 +115,8 @@ the post page.
 &gt; - the thread summary is generated differently in these cases,
 &gt; - there is a bug in the download mechanism, and duplicate posts are
 &gt;   in the database
-</span></span>
-Nope, there is no bug in the download mechanism, this failure is the
+
+</span></span>Nope, there is no bug in the download mechanism, this failure is the
 consequence of the described bug. Post 1793 seemed to have no message id, so
 the email in the Google Inbox that had the same message id got downloaded, and
 post 2237 were created from it.
@@ -136,19 +138,20 @@ As far as I saw, you did not edit newly downloaded posts, which would make us
 much harder to merge our repos and fix the problems.
 
 [todo] [1] ref needed
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/500 -->
-<div class="post-summary" id="post-summary-hh-500">
+<div class="postbox"><!-- post hh/500 -->
+<span class="postsummary" id="post_hh/500">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_484.html#post-summary-hh-500">&lt;hh/500&gt;</a></span>
+<span class="index"><a href="../hh/thread_484.html#post_hh/500">&lt;hh/500&gt;</a></span>
+<span class="parent"><a href="../hh/thread_484.html#post_hh/499">&lt;&uarr;hh/499&gt;</a></span>
 <span class="date">(2009-08-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_484.html#post-summary-hh-499">hh/499</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_484.html#post-summary-hh-503">hh/503</a></span>
-<pre class="post-body-content">== Problem ==
+<div class="body">
+<pre class="postbody">== Problem ==
 
-<span class="quote"><span class="quote-1"><span class="raw-block">&gt;    -From: Attis
+<span class="quote"><span class="quote-1">&gt;    -From: Attis
 &gt;    +Author: Attis
 &gt;     Subject: Subjects should start with capital
 &gt;       letter
@@ -156,15 +159,15 @@ much harder to merge our repos and fix the problems.
 &gt;     Tag: hh
 &gt;     Tag: hh-conventions
 &gt;     Tag: prop
-</span></span></span>
-OK, I noticed just now. I wanted to tell you about it, but you were quicker :)
+
+</span></span>OK, I noticed just now. I wanted to tell you about it, but you were quicker :)
 
 <span class="quote"><span class="quote-2">&gt;&gt; The second half of the thread is not the same. This means two things:
 &gt;&gt; - the thread summary is generated differently in these cases,
 &gt;&gt; - there is a bug in the download mechanism, and duplicate posts are
 &gt;&gt;   in the database
-</span></span>
-But it's still strange that generating the thread summary for a single
+
+</span></span>But it's still strange that generating the thread summary for a single
 post and a thread page is different.
 
 == Solution ==
@@ -175,54 +178,57 @@ post and a thread page is different.
 &gt; - Create patches for aa62fbc0c8 and 2a20faccdf5d. Remove the downloading part
 &gt;  (as opposed to the tidying part) of the latter.
 &gt; - Apply them to the head of my repo.
-</span></span>
-OK.
+
+</span></span>OK.
 
 <span class="quote"><span class="quote-1">&gt; As far as I saw, you did not edit newly downloaded posts, which would make us
 &gt; much harder to merge our repos and fix the problems.
-</span></span>
-Yes, my tidying efforts haven't yet reached that point, luckily.
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/503 -->
-<div class="post-summary" id="post-summary-hh-503">
+</span></span>Yes, my tidying efforts haven't yet reached that point, luckily.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/503 -->
+<span class="postsummary" id="post_hh/503">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_484.html#post-summary-hh-503">&lt;hh/503&gt;</a></span>
+<span class="index"><a href="../hh/thread_484.html#post_hh/503">&lt;hh/503&gt;</a></span>
+<span class="parent"><a href="../hh/thread_484.html#post_hh/500">&lt;&uarr;hh/500&gt;</a></span>
 <span class="date">(2009-08-11)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_484.html#post-summary-hh-500">hh/500</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; The second half of the thread is not the same. This means two things:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt; The second half of the thread is not the same. This means two things:
 &gt;&gt;&gt; - the thread summary is generated differently in these cases,
 &gt;&gt;&gt; - there is a bug in the download mechanism, and duplicate posts are
 &gt;&gt;&gt;   in the database
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; But it's still strange that generating the thread summary for a single
 &gt; post and a thread page is different.
-</span></span>
-Yes it is, I forgot about this yesterday. The thread page generating
+
+</span></span>Yes it is, I forgot about this yesterday. The thread page generating
 code contains a bunch of copy paste code to walk the thread structure.
 I want to write a generic thread structure walking function that can
 be used for thread page generation, post page generation etc. When I
 do that, I'll try to investigate what is the reason of this behavior.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/503 -->
 </div><!-- postbox for post hh/500 -->
 
-<div class="post-box"><!-- post hh/508 -->
-<div class="post-summary" id="post-summary-hh-508">
+<div class="postbox"><!-- post hh/508 -->
+<span class="postsummary" id="post_hh/508">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_484.html#post-summary-hh-508">&lt;hh/508&gt;</a></span>
+<span class="index"><a href="../hh/thread_484.html#post_hh/508">&lt;hh/508&gt;</a></span>
+<span class="parent"><a href="../hh/thread_484.html#post_hh/499">&lt;&uarr;hh/499&gt;</a></span>
 <span class="date">(2009-08-12)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_484.html#post-summary-hh-499">hh/499</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; There seems to be some posts like post 1793. I introduced an additional newline
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; There seems to be some posts like post 1793. I introduced an additional newline
 &gt; into the subject of these posts in commit a3f92; I don't know, how and why.
-</span></span>
-See commit ec2390 in the mail repo. Message: "now how did that newline
+
+</span></span>See commit ec2390 in the mail repo. Message: "now how did that newline
 get there?". Probably unrelated to the current issue, though.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/508 -->
 </div><!-- postbox for post hh/499 -->
 </div><!-- postbox for post hh/484 -->

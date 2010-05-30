@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Editable and distributed mailing list archive</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Editable and distributed mailing list archive</h1>
 
 
-<div class="post-box"><!-- post hh/328 -->
-<div class="post-summary" id="post-summary-hh-328">
+<div class="postbox"><!-- post hh/328 -->
+<span class="postsummary" id="post_hh/328">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Editable and distributed mailing list archive</span>
 <span class="tags">[idea]</span>
-<span class="index"><a href="../hh/thread_328.html#post-summary-hh-328">&lt;hh/328&gt;</a></span>
+<span class="index"><a href="../hh/thread_328.html#post_hh/328">&lt;hh/328&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-05-24)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_328.html#post-summary-hh-614">hh/614</a></span>
-<pre class="post-body-content">== Hk as editable mailing list ==
+<div class="body">
+<pre class="postbody">== Hk as editable mailing list ==
 
 So far we agreed that Hk is an "editable mailing list" or "editable
 mailing list archive". This seems to be a genuinely new idea.
@@ -35,7 +35,7 @@ I know "archive" is not the best word here. "Distributed mailing list"
 in itself has a different meaning, that's why I'm hesitant to use that
 here.
 
-<span class="raw-block">  "Cypherpunks is a distributed mailing list. A subscriber can
+  "Cypherpunks is a distributed mailing list. A subscriber can
   subscribe to one node of the list and thereby participate on the
   full list. Each node (called a Cypherpunks Distributed Remailer
   [CDR], although they are not related to anonymous remailers)
@@ -43,7 +43,7 @@ here.
   messages to its subscribers. A message posted to one node will be
   received by the list subscribers on the other nodes, and
   vice-versa." [1]
-</span>
+
 === Motivation ===
 
 There is a big hype nowadays around "distributed" management tools.
@@ -71,12 +71,12 @@ without having to have for example Internet access.
 In these cases we just create a new post on the heap. There is no
 command that does that yet, but soon there will be:
 
-<span class="raw-block">    &gt;&gt;&gt; enew()
+    &gt;&gt;&gt; enew()
     # Hk creates a new post with a new heapid.
     # The user edits the post in a text editor.
     # The user closes the editor.
     &gt;&gt;&gt; s()
-</span>
+
 The problem is people won't get emails about posts that were created
 this way. I see two solutions. The first is the better one.
 
@@ -84,17 +84,17 @@ this way. I see two solutions. The first is the better one.
 
 We should have commands that sends emails from within Hk!
 
-<span class="raw-block">    &gt;&gt;&gt; new_email()
+    &gt;&gt;&gt; new_email()
     # Hk creates a new post with a new heapid.
     # The user edits the post in a text editor.
     # The user closes the editor.
     # Hk emails the post to the list.
     &gt;&gt;&gt;
-</span>
+
 Or course we could have a mechanism for not sending the emails
 rightaway, but storing them:
 
-<span class="raw-block">    &gt;&gt;&gt; set('email.store')
+    &gt;&gt;&gt; set('email.store')
     &gt;&gt;&gt; new_email()
     # Hk creates a new post with a new heapid.
     # The user edits the post in a text editor.
@@ -109,7 +109,7 @@ rightaway, but storing them:
     &gt;&gt;&gt; list_emails()
     []
     &gt;&gt;&gt;
-</span>
+
 Of course we could have shorter names (nE for "new email", lE for
 "list email", sE for "send email").
 
@@ -119,11 +119,11 @@ In order to avoid the situation where more people gets the same new
 heapid for their emails, the name of the author should be present in
 the posts' heapid:
 
-<span class="raw-block">    &gt;&gt;&gt; new_email()
+    &gt;&gt;&gt; new_email()
     # ...
     &gt;&gt;&gt; list_emails()
     [&lt;post 'csabi_3'&gt;]
-</span>
+
 ===== What should happen when someone commits unsent emails? =====
 
 Everybody should send only emails written by xem. The send_emails command
@@ -156,17 +156,18 @@ Another, even worse problem is that people won't be able to "reply" in
 their email client to posts created this way.
 
 [1] https://www.cypherpunks.to/list/
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/614 -->
-<div class="post-summary" id="post-summary-hh-614">
+<div class="postbox"><!-- post hh/614 -->
+<span class="postsummary" id="post_hh/614">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_328.html#post-summary-hh-614">&lt;hh/614&gt;</a></span>
+<span class="index"><a href="../hh/thread_328.html#post_hh/614">&lt;hh/614&gt;</a></span>
+<span class="parent"><a href="../hh/thread_328.html#post_hh/328">&lt;&uarr;hh/328&gt;</a></span>
 <span class="date">(2009-10-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_328.html#post-summary-hh-328">hh/328</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_328.html#post-summary-hh-616">hh/616</a></span>
-<pre class="post-body-content"><span class="meta-text">[!delthis You mention the idea of using Hk as an issue tracker. This
+<div class="body">
+<pre class="postbody"><span class="meta-text">[!delthis You mention the idea of using Hk as an issue tracker. This
 has been implemented since.]</span>
 
 <span class="meta-text">[!todo Make contact between this thread and the thread where the issue
@@ -174,43 +175,46 @@ tracker is announced].
 
 [open]</span>
 The problem of sending emails from within Hk is still unresolved.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/616 -->
-<div class="post-summary" id="post-summary-hh-616">
+<div class="postbox"><!-- post hh/616 -->
+<span class="postsummary" id="post_hh/616">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_328.html#post-summary-hh-616">&lt;hh/616&gt;</a></span>
+<span class="index"><a href="../hh/thread_328.html#post_hh/616">&lt;hh/616&gt;</a></span>
+<span class="parent"><a href="../hh/thread_328.html#post_hh/614">&lt;&uarr;hh/614&gt;</a></span>
 <span class="date">(2009-10-01)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_328.html#post-summary-hh-614">hh/614</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_328.html#post-summary-hh-617">hh/617</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The problem of sending emails from within Hk is still unresolved.
-</span></span>
-<span class="meta-text">[!delpost]</span>
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; The problem of sending emails from within Hk is still unresolved.
+
+</span></span><span class="meta-text">[!delpost]</span>
 
 It is not very high on my list. (As usual, you may go ahead if you
 want to.)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/617 -->
-<div class="post-summary" id="post-summary-hh-617">
+<div class="postbox"><!-- post hh/617 -->
+<span class="postsummary" id="post_hh/617">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_328.html#post-summary-hh-617">&lt;hh/617&gt;</a></span>
+<span class="index"><a href="../hh/thread_328.html#post_hh/617">&lt;hh/617&gt;</a></span>
+<span class="parent"><a href="../hh/thread_328.html#post_hh/616">&lt;&uarr;hh/616&gt;</a></span>
 <span class="date">(2009-10-02)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_328.html#post-summary-hh-616">hh/616</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="meta-text">[!delpost]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[!delpost]</span>
 
 <span class="quote"><span class="quote-2">&gt;&gt; The problem of sending emails from within Hk is still unresolved.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; It is not very high on my list. (As usual, you may go ahead if you
 &gt; want to.)
-</span></span>
-I think we would have taken action if the lack of this feature would
+
+</span></span>I think we would have taken action if the lack of this feature would
 have disturbed us very much, so I think this issue can go back to
 sleep for quite a while.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/617 -->
 </div><!-- postbox for post hh/616 -->
 </div><!-- postbox for post hh/614 -->

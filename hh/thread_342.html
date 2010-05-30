@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Source code, test suite, documentation</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Source code, test suite, documentation</h1>
 
 
-<div class="post-box"><!-- post hh/342 -->
-<div class="post-summary" id="post-summary-hh-342">
+<div class="postbox"><!-- post hh/342 -->
+<span class="postsummary" id="post_hh/342">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Source code, test suite, documentation</span>
 <span class="tags">[discussion]</span>
-<span class="index"><a href="../hh/thread_342.html#post-summary-hh-342">&lt;hh/342&gt;</a></span>
+<span class="index"><a href="../hh/thread_342.html#post_hh/342">&lt;hh/342&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-05-29)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_342.html#post-summary-hh-619">hh/619</a></span>
-<pre class="post-body-content"><span class="meta-text">[deltext Before answering, please read my next email.]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[deltext Before answering, please read my next email.]</span>
 
 Probably the most important product of a software project is the
 source code. However, the test suite and documentation are almost as
@@ -35,37 +35,39 @@ should _aim for_ a complete test suite and documentation. We should
 consider an untested or undocumented function or class incomplete.
 
 What is your opinion on this?
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/619 -->
-<div class="post-summary" id="post-summary-hh-619">
+<div class="postbox"><!-- post hh/619 -->
+<span class="postsummary" id="post_hh/619">
 <span class="author">Attila Nagy</span>
 <span class="subject">Hard to test pieces of the code</span>
-<span class="index"><a href="../hh/thread_342.html#post-summary-hh-619">&lt;hh/619&gt;</a></span>
+<span class="index"><a href="../hh/thread_342.html#post_hh/619">&lt;hh/619&gt;</a></span>
+<span class="parent"><a href="../hh/thread_342.html#post_hh/342">&lt;&uarr;hh/342&gt;</a></span>
 <span class="date">(2009-10-02)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_342.html#post-summary-hh-342">hh/342</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_342.html#post-summary-hh-627">hh/627</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Do you agree that we should aim for a test suite and a documentation
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Do you agree that we should aim for a test suite and a documentation
 &gt; that covers _all_ source code?
-</span></span>
-Yes, that would be optimal. Documentation can cover everything, but
+
+</span></span>Yes, that would be optimal. Documentation can cover everything, but
 some pieces of the code are not trivially tested. Take the downloading
 code, for example. To test this, we could create an email account just
 for this purpose. And of course if others wanted to test this part,
 they would have to bring their own. (We can't give them the password of
 the testing box -- and even the address would have to remain a secret,
 since the box must contain exactly the messages we put in there.)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/627 -->
-<div class="post-summary" id="post-summary-hh-627">
+<div class="postbox"><!-- post hh/627 -->
+<span class="postsummary" id="post_hh/627">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_342.html#post-summary-hh-627">&lt;hh/627&gt;</a></span>
+<span class="index"><a href="../hh/thread_342.html#post_hh/627">&lt;hh/627&gt;</a></span>
+<span class="parent"><a href="../hh/thread_342.html#post_hh/619">&lt;&uarr;hh/619&gt;</a></span>
 <span class="date">(2009-10-03)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_342.html#post-summary-hh-619">hh/619</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Do you agree that we should aim for a test suite and a documentation
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Do you agree that we should aim for a test suite and a documentation
 &gt;&gt; that covers _all_ source code?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Yes, that would be optimal. Documentation can cover everything, but
@@ -75,8 +77,8 @@ since the box must contain exactly the messages we put in there.)
 &gt; they would have to bring their own. (We can't give them the password of
 &gt; the testing box -- and even the address would have to remain a secret,
 &gt; since the box must contain exactly the messages we put in there.)
-</span></span>
-First you say "yes", then you explain why "not" :)
+
+</span></span>First you say "yes", then you explain why "not" :)
 
 Maybe you misunderstood me: I meant that both the test suite and the
 documentation covers all source code.
@@ -87,7 +89,7 @@ require network.)
 
 Let's take your example. The current EmailDownloader class has these methods:
 
-<span class="raw-block">    def __init__(self, postdb, config):
+    def __init__(self, postdb, config):
         """Constructor.
 
         Arguments:
@@ -112,12 +114,12 @@ Let's take your example. The current EmailDownloader class has these methods:
         self._server = IMAP4_SSL(host, port)
         self._server.login(username, password)
         log('Connected')
-</span>
+
 If we customized it so that the caller can specify what object to use
 instead of the IMAP4_SSL class, we could test it locally, without any
 real IMAP server:
 
-<span class="raw-block">    -def __init__(self, postdb, config):
+    -def __init__(self, postdb, config):
     +def __init__(self, postdb, config, imap_server_creator=IMAP4_SSL):
          """Constructor.
 
@@ -145,13 +147,13 @@ real IMAP server:
     +    self._server = self._imap_server_creator(host, port)
          self._server.login(username, password)
          log('Connected')
-</span>
+
 In the test, we would create an own IMAP server stub that of course
 would be only capable of doing some assertions and returning some
 hardcoded answers. For example the "connect" method of EmailDownloader
 can be tested this way:
 
-<span class="raw-block">    class MyImapServer():
+    class MyImapServer():
         def login(username, password):
             self.assertEquals(host, 'myusername')
             self.assertEquals(port, 'mypassword')
@@ -173,7 +175,7 @@ can be tested this way:
                          config,
                          imap_server_creator=my_imap_server_creator)
     ed.connect()
-</span>
+
 If you examine the `connect` method and the test case, we test each
 single line of `connect` (except for the logging). If you mess up
 anything (forget to convert the port to an integer, you write
@@ -201,7 +203,7 @@ variable to 0, and write MyImapServer.close so that it increases that
 variable. After calling EmailDownloader.close, you examine that the
 variable is indeed 1:
 
-<span class="raw-block">    # We use a list because it would be harder to modify it from
+    # We use a list because it would be harder to modify it from
     # MyImapServer if we used an integer.
     close_called = [0]
 
@@ -215,13 +217,13 @@ variable is indeed 1:
     self.assertEquals(close_called, [0])
     ed.close()
     self.assertEquals(close_called, [1])
-</span>
+
 We can even test this way that the appropriate logs will be shown.
 This is from test_hklib.py. It tests that if we parse a head with a
 'Nosuchattr' attribute, we will get a warning about it through
 hklib.log.
 
-<span class="raw-block">    def test_create_header(self):
+    def test_create_header(self):
 
         """Tests Post.create_header."""
 
@@ -260,7 +262,7 @@ hklib.log.
 
         # Setting the original logging function back
         hklib.set_log(old_log_fun)
-</span>
+
 The main things to remember: You want to simulate part of the
 environment of the object you want to test. In a very simple case,
 when you test a function, the environment is just the input
@@ -270,7 +272,8 @@ facilities), simulate it. You can use customization to get the object
 to use your simulated environment-part instead of the usual one. (It
 would be much harder if we could not modify the code under test, we
 are lucky to test our own programs.)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/627 -->
 </div><!-- postbox for post hh/619 -->
 </div><!-- postbox for post hh/342 -->

@@ -1,38 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>hkshell.p: bug fixed (2009-09-12, 3724473)</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">hkshell.p: bug fixed (2009-09-12, 3724473)</h1>
 
 
-<div class="post-box"><!-- post hh/814 -->
-<div class="post-summary" id="post-summary-hh-814">
+<div class="postbox"><!-- post hh/814 -->
+<span class="postsummary" id="post_hh/814">
 <span class="author">Attila Nagy</span>
 <span class="subject">hkshell.p: bug fixed (2009-09-12, 3724473)</span>
 <span class="tags">[commit]</span>
-<span class="index"><a href="../hh/thread_814.html#post-summary-hh-814">&lt;hh/814&gt;</a></span>
+<span class="index"><a href="../hh/thread_814.html#post_hh/814">&lt;hh/814&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-10-31)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_814.html#post-summary-hh-825">hh/825</a>, <a href="../hh/thread_814.html#post-summary-hh-828">hh/828</a></span>
-<pre class="post-body-content">"hkshell.p did not work when the argument was a real Post object."
+<div class="body">
+<pre class="postbody">"hkshell.p did not work when the argument was a real Post object."
 
 You solved it like this:
 
-<span class="raw-block">    -    return postdb().post(pp)
+    -    return postdb().post(pp)
     +    # PostSet is better in making post from a prepost...
     +    postset = postdb().postset(pp)
     +    return postset.pop()
-</span>
+
 I always thought that joke about the mathematician and the teapot was
 only a joke :)
 
 `PostSet._to_set` is where the work is done. No surprise here, a loop
 and a chain-if:
 
-<span class="raw-block">    for prepost in prepostset:
+    for prepost in prepostset:
         # calculating the post for prepost
         if isinstance(prepost, str) or isinstance(prepost, int):
             # prepost is a heapid
@@ -41,54 +41,56 @@ and a chain-if:
             post = prepost
         elif prepost == None: # prepost is None
             continue
-</span>
+
 This of course does the job, but it would have been conceptually
 cleaner to have this chain-if in a separate function, and call that
 from the loop and `hkshell.p`, too. But this may be a bit faster (one
 function call saved), which can matter a lot, since `PostSet` is an
 important part of `hklib`'s structure.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/825 -->
-<div class="post-summary" id="post-summary-hh-825">
+<div class="postbox"><!-- post hh/825 -->
+<span class="postsummary" id="post_hh/825">
 <span class="author">Csaba Hoch</span>
 <span class="subject">The mathematician & the teapot</span>
 <span class="tags">[+humor, -commit]</span>
-<span class="index"><a href="../hh/thread_814.html#post-summary-hh-825">&lt;hh/825&gt;</a></span>
+<span class="index"><a href="../hh/thread_814.html#post_hh/825">&lt;hh/825&gt;</a></span>
+<span class="parent"><a href="../hh/thread_814.html#post_hh/814">&lt;&uarr;hh/814&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_814.html#post-summary-hh-814">hh/814</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_814.html#post-summary-hh-827">hh/827</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; "hkshell.p did not work when the argument was a real Post object."
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; "hkshell.p did not work when the argument was a real Post object."
 &gt;
 &gt; You solved it like this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     -    return postdb().post(pp)
+&gt;     -    return postdb().post(pp)
 &gt;     +    # PostSet is better in making post from a prepost...
 &gt;     +    postset = postdb().postset(pp)
 &gt;     +    return postset.pop()
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; I always thought that joke about the mathematician and the teapot was
 &gt; only a joke :)
-</span></span>
-I think I know what Russel said about the teapot, but what does that
-have to do with this?
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/827 -->
-<div class="post-summary" id="post-summary-hh-827">
+</span></span>I think I know what Russel said about the teapot, but what does that
+have to do with this?
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/827 -->
+<span class="postsummary" id="post_hh/827">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_814.html#post-summary-hh-827">&lt;hh/827&gt;</a></span>
+<span class="index"><a href="../hh/thread_814.html#post_hh/827">&lt;hh/827&gt;</a></span>
+<span class="parent"><a href="../hh/thread_814.html#post_hh/825">&lt;&uarr;hh/825&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_814.html#post-summary-hh-825">hh/825</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_814.html#post-summary-hh-833">hh/833</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I always thought that joke about the mathematician and the teapot was
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I always thought that joke about the mathematician and the teapot was
 &gt;&gt; only a joke :)
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I think I know what Russel said about the teapot, but what does that
 &gt; have to do with this?
-</span></span>
-No, I meant this:
+
+</span></span>No, I meant this:
 
 "Given an empty kettle, running water, a teapot, and a tea bag, how
 does a mathematician make tea? He fills the kettle with cold water,
@@ -106,64 +108,67 @@ found its way into topics that rather belong to UMS.]</span>
 
 [1] <a href="http://blog.riskythinking.com/2009/02/business-continuity-planning-for.html">http://blog.riskythinking.com/2009/02/business-continuity-planning-for.html</a>
 [2] <a href="http://en.wikipedia.org/wiki/Russell's_teapot">http://en.wikipedia.org/wiki/Russell's_teapot</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/833 -->
-<div class="post-summary" id="post-summary-hh-833">
+<div class="postbox"><!-- post hh/833 -->
+<span class="postsummary" id="post_hh/833">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Threads moving between hh and ums</span>
 <span class="tags">[-humor]</span>
-<span class="index"><a href="../hh/thread_814.html#post-summary-hh-833">&lt;hh/833&gt;</a></span>
+<span class="index"><a href="../hh/thread_814.html#post_hh/833">&lt;hh/833&gt;</a></span>
+<span class="parent"><a href="../hh/thread_814.html#post_hh/827">&lt;&uarr;hh/827&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_814.html#post-summary-hh-827">hh/827</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_814.html#post-summary-hh-844">hh/844</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; This thread shows that there should be an easy way to move things
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; This thread shows that there should be an easy way to move things
 &gt; back and forth between heaps.
-</span></span>
-There will be :)
+
+</span></span>There will be :)
 
 <span class="quote"><span class="quote-1">&gt; It started from hh, but quickly found its way into topics that
 &gt; rather belong to UMS.
-</span></span>
-I'm not sure. I made a deliberate choice of not removing the "hh" tag.
+
+</span></span>I'm not sure. I made a deliberate choice of not removing the "hh" tag.
 If you make a funny comment on hh that people don't understand, it
 should be explained on hh.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/844 -->
-<div class="post-summary" id="post-summary-hh-844">
+<div class="postbox"><!-- post hh/844 -->
+<span class="postsummary" id="post_hh/844">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_814.html#post-summary-hh-844">&lt;hh/844&gt;</a></span>
+<span class="index"><a href="../hh/thread_814.html#post_hh/844">&lt;hh/844&gt;</a></span>
+<span class="parent"><a href="../hh/thread_814.html#post_hh/833">&lt;&uarr;hh/833&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_814.html#post-summary-hh-833">hh/833</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; It started from hh, but quickly found its way into topics that
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; It started from hh, but quickly found its way into topics that
 &gt;&gt; rather belong to UMS.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I'm not sure. I made a deliberate choice of not removing the "hh" tag.
 &gt; If you make a funny comment on hh that people don't understand, it
 &gt; should be explained on hh.
-</span></span>
-OK.
-</pre></div><!-- post-summary -->
+
+</span></span>OK.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/844 -->
 </div><!-- postbox for post hh/833 -->
 </div><!-- postbox for post hh/827 -->
 </div><!-- postbox for post hh/825 -->
 
-<div class="post-box"><!-- post hh/828 -->
-<div class="post-summary" id="post-summary-hh-828">
+<div class="postbox"><!-- post hh/828 -->
+<span class="postsummary" id="post_hh/828">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_814.html#post-summary-hh-828">&lt;hh/828&gt;</a></span>
+<span class="index"><a href="../hh/thread_814.html#post_hh/828">&lt;hh/828&gt;</a></span>
+<span class="parent"><a href="../hh/thread_814.html#post_hh/814">&lt;&uarr;hh/814&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_814.html#post-summary-hh-814">hh/814</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; `PostSet._to_set` is where the work is done. No surprise here, a loop
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; `PostSet._to_set` is where the work is done. No surprise here, a loop
 &gt; and a chain-if:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     for prepost in prepostset:
+&gt;     for prepost in prepostset:
 &gt;         # calculating the post for prepost
 &gt;         if isinstance(prepost, str) or isinstance(prepost, int):
 &gt;             # prepost is a heapid
@@ -172,12 +177,12 @@ OK.
 &gt;             post = prepost
 &gt;         elif prepost == None: # prepost is None
 &gt;             continue
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; This of course does the job, but it would have been conceptually
 &gt; cleaner to have this chain-if in a separate function, and call that
 &gt; from the loop and `hkshell.p`, too.
-</span></span>
-Yes, PostDB.post could have that chain-if. It already has a chain-if
+
+</span></span>Yes, PostDB.post could have that chain-if. It already has a chain-if
 between isinstance(str) and isinstance(int).
 
 BTW, we all know that using isinstance is ugly, so we should keep them
@@ -186,9 +191,10 @@ isolated in a very few functions.
 <span class="quote"><span class="quote-1">&gt; But this may be a bit faster (one function call saved), which can
 &gt; matter a lot, since `PostSet` is an important part of `hklib`'s
 &gt; structure.
-</span></span>
-We can do measurements :)
-</pre></div><!-- post-summary -->
+
+</span></span>We can do measurements :)
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/828 -->
 </div><!-- postbox for post hh/814 -->
 

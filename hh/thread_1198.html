@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Automatic update of copyright notices</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Automatic update of copyright notices</h1>
 
 
-<div class="post-box"><!-- post hh/1198 -->
-<div class="post-summary" id="post-summary-hh-1198">
+<div class="postbox"><!-- post hh/1198 -->
+<span class="postsummary" id="post_hh/1198">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Automatic update of copyright notices</span>
 <span class="tags">[vim]</span>
-<span class="index"><a href="../hh/thread_1198.html#post-summary-hh-1198">&lt;hh/1198&gt;</a></span>
+<span class="index"><a href="../hh/thread_1198.html#post_hh/1198">&lt;hh/1198&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2010-04-18)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_1198.html#post-summary-hh-1199">hh/1199</a></span>
-<pre class="post-body-content">I wrote a Vim snippet that automatically updates copyright notices in
+<div class="body">
+<pre class="postbody">I wrote a Vim snippet that automatically updates copyright notices in
 Heapkeeper source files:
 
     " UpdateMyCopyright:
@@ -37,64 +37,66 @@ strftime("%Y") . "#e"
         endif
     endfunction
 
-<span class="raw-block">    autocmd BufWritePre * call UpdateMyCopyright()
-</span>
+    autocmd BufWritePre * call UpdateMyCopyright()
+
 It makes the following substitutions:
 
-<span class="raw-block">    - Copyright (C) 2009 My Name
+    - Copyright (C) 2009 My Name
     + Copyright (C) 2009-2010 My Name
 
     - Copyright (C) 2008-2009 My Name
     + Copyright (C) 2008-2010 My Name
-</span>
+
 Don't forget to change the myname variable to your name. If there is no
 copyright notice in the file or the file was not modified, nothing happens.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1199 -->
-<div class="post-summary" id="post-summary-hh-1199">
+<div class="postbox"><!-- post hh/1199 -->
+<span class="postsummary" id="post_hh/1199">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1198.html#post-summary-hh-1199">&lt;hh/1199&gt;</a></span>
+<span class="index"><a href="../hh/thread_1198.html#post_hh/1199">&lt;hh/1199&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1198.html#post_hh/1198">&lt;&uarr;hh/1198&gt;</a></span>
 <span class="date">(2010-04-18)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1198.html#post-summary-hh-1198">hh/1198</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_1198.html#post-summary-hh-1200">hh/1200</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; It makes the following substitutions:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; It makes the following substitutions:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    - Copyright (C) 2009 My Name
+&gt;    - Copyright (C) 2009 My Name
 &gt;    + Copyright (C) 2009-2010 My Name
 &gt;
 &gt;    - Copyright (C) 2008-2009 My Name
 &gt;    + Copyright (C) 2008-2010 My Name
-</span></span></span>
-I never really understood this. Why is it important to specify a year?
+
+</span></span>I never really understood this. Why is it important to specify a year?
 Or, even if it is important to specify a year, what is the meaning of
 giving more than one? Is it used when deciding the expiration of the
 copyright? Then only the latest date would be meaningful.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1200 -->
-<div class="post-summary" id="post-summary-hh-1200">
+<div class="postbox"><!-- post hh/1200 -->
+<span class="postsummary" id="post_hh/1200">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1198.html#post-summary-hh-1200">&lt;hh/1200&gt;</a></span>
+<span class="index"><a href="../hh/thread_1198.html#post_hh/1200">&lt;hh/1200&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1198.html#post_hh/1199">&lt;&uarr;hh/1199&gt;</a></span>
 <span class="date">(2010-04-18)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1198.html#post-summary-hh-1199">hh/1199</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_1198.html#post-summary-hh-1239">hh/1239</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Why is it important to specify a year? [...] Is it used when deciding the
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Why is it important to specify a year? [...] Is it used when deciding the
 &gt; expiration of the copyright? Then only the latest date would be meaningful.
-</span></span>
-Yes, I think that was the original concept. But there are also derivative
+
+</span></span>Yes, I think that was the original concept. But there are also derivative
 works, and the question arises: what date should you write into the copyright
 notice of a derivative work?
 
 The answer is (in the US at least) that you should write the date when the
 derivative work was published [1][2]:
 
-<span class="raw-block">    If the work is a derivative work or a compilation incorporating previously
+    If the work is a derivative work or a compilation incorporating previously
     published material, the year date of first publication of the derivative
     work or compilation is sufficient.
-</span>
+
 But how should we apply it to a source file? Is a newer version of a file the
 same work as its previous version, or is it a derivative work? I don't know the
 answer, and if we write both dates, we will be fine either way.
@@ -110,22 +112,24 @@ the FSF's recommendation, we can do so, but the ranges are OK for me.
 [1] <a href="http://www.copyright.gov/circs/circ1.pdf">http://www.copyright.gov/circs/circ1.pdf</a>
 [2] <a href="http://www.contentious.com/2007/01/07/copyright-notice-is-the-year-really-necessary/">http://www.contentious.com/2007/01/07/copyright-notice-is-the-year-really-necessary/</a>
 [3] <a href="http://www.gnu.org/licenses/gpl-howto.html">http://www.gnu.org/licenses/gpl-howto.html</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/1239 -->
-<div class="post-summary" id="post-summary-hh-1239">
+<div class="postbox"><!-- post hh/1239 -->
+<span class="postsummary" id="post_hh/1239">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1198.html#post-summary-hh-1239">&lt;hh/1239&gt;</a></span>
+<span class="index"><a href="../hh/thread_1198.html#post_hh/1239">&lt;hh/1239&gt;</a></span>
+<span class="parent"><a href="../hh/thread_1198.html#post_hh/1200">&lt;&uarr;hh/1200&gt;</a></span>
 <span class="date">(2010-05-20)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1198.html#post-summary-hh-1200">hh/1200</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I forgot about this and started using ranges today, an just remembered this
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I forgot about this and started using ranges today, an just remembered this
 &gt; recommendation when I was composing this post. If you think we should follow
 &gt; the FSF's recommendation, we can do so, but the ranges are OK for me.
-</span></span>
-Ranges are definitely OK for me.
-</pre></div><!-- post-summary -->
+
+</span></span>Ranges are definitely OK for me.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/1239 -->
 </div><!-- postbox for post hh/1200 -->
 </div><!-- postbox for post hh/1199 -->

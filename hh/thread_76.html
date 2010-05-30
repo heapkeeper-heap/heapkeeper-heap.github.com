@@ -1,68 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Linking commits</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Linking commits</h1>
 
 
-<div class="post-box"><!-- post hh/76 -->
-<div class="post-summary" id="post-summary-hh-76">
+<div class="postbox"><!-- post hh/76 -->
+<span class="postsummary" id="post_hh/76">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Linking commits</span>
 <span class="tags">[idea, reviewed]</span>
-<span class="index"><a href="../hh/thread_76.html#post-summary-hh-76">&lt;hh/76&gt;</a></span>
+<span class="index"><a href="../hh/thread_76.html#post_hh/76">&lt;hh/76&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-04-12)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_76.html#post-summary-hh-77">hh/77</a></span>
-<pre class="post-body-content">When a post contains a commit id, the HTML page of that post could
+<div class="body">
+<pre class="postbody">When a post contains a commit id, the HTML page of that post could
 link to the github page of the specified commit.
 
 Post:
 
-<span class="raw-block">    I have looked at commit 83d64452be, and
-</span>
+    I have looked at commit 83d64452be, and
+
 Post page:
 
-<span class="raw-block">    I have looked at commit
-    &lt;a href="http://github.com/hcs42/heap/commit/83d64452be5b273d8386ca6ef374adfec739ca56"&gt;
+    I have looked at commit
+    &lt;a href="<a href="http://github.com/hcs42/heap/commit/83d64452be5b273d8386ca6ef374adfec739ca56%22>">http://github.com/hcs42/heap/commit/83d64452be5b273d8386ca6ef374adfec739ca56"&gt;</a>
     83d64452be&lt;/a&gt;, and
-</span>
+
 Maybe we should have something that tells the parser to parse that
 word as a commit id. We could use a "commit" meta text to indicate
 that the next line contains an SHA-id:
 
-<span class="raw-block">    [commit]
+    [commit]
     I have looked at commit 83d64452be, and
-</span>
+
 Probably we should look for an extendable solution, because anyone
 should be able to have their own syntax thingies.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/77 -->
-<div class="post-summary" id="post-summary-hh-77">
+<div class="postbox"><!-- post hh/77 -->
+<span class="postsummary" id="post_hh/77">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_76.html#post-summary-hh-77">&lt;hh/77&gt;</a></span>
+<span class="index"><a href="../hh/thread_76.html#post_hh/77">&lt;hh/77&gt;</a></span>
+<span class="parent"><a href="../hh/thread_76.html#post_hh/76">&lt;&uarr;hh/76&gt;</a></span>
 <span class="date">(2009-04-12)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_76.html#post-summary-hh-76">hh/76</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_76.html#post-summary-hh-78">hh/78</a>, <a href="../hh/thread_76.html#post-summary-hh-79">hh/79</a></span>
-<pre class="post-body-content"><span class="meta-text">[note From PocketPC's built-in Messaging app.]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[note From PocketPC's built-in Messaging app.]</span>
 
 <span class="quote"><span class="quote-1">&gt; Probably we should look for an extendable solution, because anyone
 &gt; should be able to have their own syntax thingies.
-</span></span>
-An intriguing idea. We need something like this for the auto-linking
+
+</span></span>An intriguing idea. We need something like this for the auto-linking
 of URLs in the body. I suggest that we keep either a list of
 regexp-based transformation rules, or, probably better, a list of
 body-transforming functions for such purposes.
 
 <span class="quote"><span class="quote-1">&gt; Maybe we should have something that tells the parser to parse that
 &gt; word as a commit id.
-</span></span>
-My idea would be to recognise the format "commit\s\+[0-9a-f]\+".
+
+</span></span>My idea would be to recognise the format "commit\s\+[0-9a-f]\+".
 
 A problem: we won't use all 40 digits of the SHA-1 hash, but github
 needs all of them in the URL. No really simple solution for this, I'm
@@ -73,101 +74,107 @@ It should be easy to specify which repo to link to, perhaps w.r.t.
 tags. E.g. with any of the Heap tags present, commit IDs could link to
 the Heap repo, while commit IDs in posts tagged "linux" could link to
 relevant commits in the Linux repo.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/78 -->
-<div class="post-summary" id="post-summary-hh-78">
+<div class="postbox"><!-- post hh/78 -->
+<span class="postsummary" id="post_hh/78">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_76.html#post-summary-hh-78">&lt;hh/78&gt;</a></span>
+<span class="index"><a href="../hh/thread_76.html#post_hh/78">&lt;hh/78&gt;</a></span>
+<span class="parent"><a href="../hh/thread_76.html#post_hh/77">&lt;&uarr;hh/77&gt;</a></span>
 <span class="date">(2009-04-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_76.html#post-summary-hh-77">hh/77</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; [note From PocketPC's built-in Messaging app.]
-</span></span>
-Other notes:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; [note From PocketPC's built-in Messaging app.]
+
+</span></span>Other notes:
 - You don't have line breaks.
 - The subject begins with "RE", which is not recognized. I'll fix this.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/78 -->
 
-<div class="post-box"><!-- post hh/79 -->
-<div class="post-summary" id="post-summary-hh-79">
+<div class="postbox"><!-- post hh/79 -->
+<span class="postsummary" id="post_hh/79">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_76.html#post-summary-hh-79">&lt;hh/79&gt;</a></span>
+<span class="index"><a href="../hh/thread_76.html#post_hh/79">&lt;hh/79&gt;</a></span>
+<span class="parent"><a href="../hh/thread_76.html#post_hh/77">&lt;&uarr;hh/77&gt;</a></span>
 <span class="date">(2009-04-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_76.html#post-summary-hh-77">hh/77</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_76.html#post-summary-hh-80">hh/80</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; [note From PocketPC's built-in Messaging app.]
-</span></span>
-And you don't have spaces after the '&gt;' signs. The funny thing is that
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; [note From PocketPC's built-in Messaging app.]
+
+</span></span>And you don't have spaces after the '&gt;' signs. The funny thing is that
 Thunderbird hides these funny things from me: it shows a space
 after the quote sign and it shows 'Re' instead of 'RE'. (Although it
 does not hide the lack of line breaks.)
 
 Maybe we should insert spaces after the '&gt;' in order to unify the format?
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/80 -->
-<div class="post-summary" id="post-summary-hh-80">
+<div class="postbox"><!-- post hh/80 -->
+<span class="postsummary" id="post_hh/80">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
 <span class="tags">[+ppc]</span>
-<span class="index"><a href="../hh/thread_76.html#post-summary-hh-80">&lt;hh/80&gt;</a></span>
+<span class="index"><a href="../hh/thread_76.html#post_hh/80">&lt;hh/80&gt;</a></span>
+<span class="parent"><a href="../hh/thread_76.html#post_hh/79">&lt;&uarr;hh/79&gt;</a></span>
 <span class="date">(2009-04-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_76.html#post-summary-hh-79">hh/79</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_76.html#post-summary-hh-83">hh/83</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; And you don't have spaces after the '&gt;' signs.
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; And you don't have spaces after the '&gt;' signs.
 &gt;
 &gt; [...]
 &gt;
 &gt; Maybe we should insert spaces after the '&gt;' in order to unify the format?
-</span></span>
-I hate this idiotic e-mail client of the PocketPC! It simply sucks.
+
+</span></span>I hate this idiotic e-mail client of the PocketPC! It simply sucks.
 However, I can't avoid using it for now. Spaces after &gt;s are easily
 added; long lines concern me more. Should I tag these posts as ppc? Or
 should we autodetect posts with long lines?
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/83 -->
-<div class="post-summary" id="post-summary-hh-83">
+<div class="postbox"><!-- post hh/83 -->
+<span class="postsummary" id="post_hh/83">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_76.html#post-summary-hh-83">&lt;hh/83&gt;</a></span>
+<span class="index"><a href="../hh/thread_76.html#post_hh/83">&lt;hh/83&gt;</a></span>
+<span class="parent"><a href="../hh/thread_76.html#post_hh/80">&lt;&uarr;hh/80&gt;</a></span>
 <span class="date">(2009-04-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_76.html#post-summary-hh-80">hh/80</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_76.html#post-summary-hh-86">hh/86</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Should I tag these posts as ppc?
-</span></span>
-I use this method for now. Always check the subject and remove
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Should I tag these posts as ppc?
+
+</span></span>I use this method for now. Always check the subject and remove
 inaccurate ppc tags, preferably before posting. (But since this is the
 Heap, that is not essential, only makes our life easier :) )
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/86 -->
-<div class="post-summary" id="post-summary-hh-86">
+<div class="postbox"><!-- post hh/86 -->
+<span class="postsummary" id="post_hh/86">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_76.html#post-summary-hh-86">&lt;hh/86&gt;</a></span>
+<span class="index"><a href="../hh/thread_76.html#post_hh/86">&lt;hh/86&gt;</a></span>
+<span class="parent"><a href="../hh/thread_76.html#post_hh/83">&lt;&uarr;hh/83&gt;</a></span>
 <span class="date">(2009-04-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_76.html#post-summary-hh-83">hh/83</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Should I tag these posts as ppc?
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Should I tag these posts as ppc?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I use this method for now. Always check the subject and remove
 &gt; inaccurate ppc tags, preferably before posting.
-</span></span>
-Maybe it would be better to use meta-text "[ppc]" as the first line
+
+</span></span>Maybe it would be better to use meta-text "[ppc]" as the first line
 instead of a tag? Of course it's not a problem in either way: if we
 write a line-break function, we can say "break the lines in the posts
 with [ppc] tag from Attis and remove all [ppc] tags".
 
 <span class="quote"><span class="quote-1">&gt; (But since this is the Heap, that is not essential, only makes our
 &gt; life easier :) )
-</span></span>
-Yep :)
-</pre></div><!-- post-summary -->
+
+</span></span>Yep :)
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/86 -->
 </div><!-- postbox for post hh/83 -->
 </div><!-- postbox for post hh/80 -->

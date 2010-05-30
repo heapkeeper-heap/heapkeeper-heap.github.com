@@ -1,89 +1,92 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Single-use lists vs. tuples</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Single-use lists vs. tuples</h1>
 
 
-<div class="post-box"><!-- post hh/776 -->
-<div class="post-summary" id="post-summary-hh-776">
+<div class="postbox"><!-- post hh/776 -->
+<span class="postsummary" id="post_hh/776">
 <span class="author">Attila Nagy</span>
 <span class="subject">Single-use lists vs. tuples</span>
 <span class="tags">[python]</span>
-<span class="index"><a href="../hh/thread_776.html#post-summary-hh-776">&lt;hh/776&gt;</a></span>
+<span class="index"><a href="../hh/thread_776.html#post_hh/776">&lt;hh/776&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-10-24)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_776.html#post-summary-hh-779">hh/779</a></span>
-<pre class="post-body-content">I noticed that you consequently use lists instead of tuples even if
+<div class="body">
+<pre class="postbody">I noticed that you consequently use lists instead of tuples even if
 they are never altered. E.g.
 
-<span class="raw-block">    assert(pos in ['begin', 'end'])
-</span>
+    assert(pos in ['begin', 'end'])
+
 Why is it better than
 
-<span class="raw-block">    assert(pos in ('begin', 'end'))
-</span>
-? Isn't the second one quicker? If not, why use tuples at all?
-</pre></div><!-- post-summary -->
+    assert(pos in ('begin', 'end'))
 
-<div class="post-box"><!-- post hh/779 -->
-<div class="post-summary" id="post-summary-hh-779">
+? Isn't the second one quicker? If not, why use tuples at all?
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/779 -->
+<span class="postsummary" id="post_hh/779">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_776.html#post-summary-hh-779">&lt;hh/779&gt;</a></span>
+<span class="index"><a href="../hh/thread_776.html#post_hh/779">&lt;hh/779&gt;</a></span>
+<span class="parent"><a href="../hh/thread_776.html#post_hh/776">&lt;&uarr;hh/776&gt;</a></span>
 <span class="date">(2009-10-24)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_776.html#post-summary-hh-776">hh/776</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_776.html#post-summary-hh-782">hh/782</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I noticed that you consequently use lists instead of tuples even if
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I noticed that you consequently use lists instead of tuples even if
 &gt; they are never altered. E.g.
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     assert(pos in ['begin', 'end'])
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;     assert(pos in ['begin', 'end'])
+&gt;
 &gt; Why is it better than
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     assert(pos in ('begin', 'end'))
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;     assert(pos in ('begin', 'end'))
+&gt;
 &gt; ?
-</span></span>
-It's not.
+
+</span></span>It's not.
 
 <span class="quote"><span class="quote-1">&gt; Isn't the second one quicker? If not, why use tuples at all?
-</span></span>
-Yes, I guess tuples are quicker.
+
+</span></span>Yes, I guess tuples are quicker.
 
 Good thing you mention this, I will use tuples from now on.
 
 Long ago I tried something like this:
 
-<span class="raw-block">    pos in 'begin', 'end'
-</span>
+    pos in 'begin', 'end'
+
 and since it did not work, I thought this does not work with tuples,
 and I got used to writings lists without thinking.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/782 -->
-<div class="post-summary" id="post-summary-hh-782">
+<div class="postbox"><!-- post hh/782 -->
+<span class="postsummary" id="post_hh/782">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_776.html#post-summary-hh-782">&lt;hh/782&gt;</a></span>
+<span class="index"><a href="../hh/thread_776.html#post_hh/782">&lt;hh/782&gt;</a></span>
+<span class="parent"><a href="../hh/thread_776.html#post_hh/779">&lt;&uarr;hh/779&gt;</a></span>
 <span class="date">(2009-10-24)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_776.html#post-summary-hh-779">hh/779</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Long ago I tried something like this:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Long ago I tried something like this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    pos in 'begin', 'end'
-</span></span></span>
-It really must be a long time ago you tried this :)
+&gt;    pos in 'begin', 'end'
+
+</span></span>It really must be a long time ago you tried this :)
 
 I mentioned in another thread (maybe one on timestat) that our Python
 knowledge has matured along with Hk, so dated parts of Hk code may be
 subpar.
 
 <span class="meta-text">[!todo link here]</span>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/782 -->
 </div><!-- postbox for post hh/779 -->
 </div><!-- postbox for post hh/776 -->

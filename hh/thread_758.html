@@ -1,90 +1,95 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>List comprehension</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">List comprehension</h1>
 
 
-<div class="post-box"><!-- post hh/758 -->
-<div class="post-summary" id="post-summary-hh-758">
+<div class="postbox"><!-- post hh/758 -->
+<span class="postsummary" id="post_hh/758">
 <span class="author">Csaba Hoch</span>
 <span class="subject">List comprehension</span>
 <span class="tags">[coding-convention, prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_758.html#post-summary-hh-758">&lt;hh/758&gt;</a></span>
+<span class="index"><a href="../hh/thread_758.html#post_hh/758">&lt;hh/758&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-10-23)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_758.html#post-summary-hh-759">hh/759</a></span>
-<pre class="post-body-content"><span class="meta-text">[effort 0:30]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[effort 0:30]</span>
 <span class="meta-text">[priority low]</span>
 
 So far I have been writing list comprehensions this way:
 
-<span class="raw-block">    [ x for y in z ]
-</span>
+    [ x for y in z ]
+
 Since the convention seems to be not to write whitespaces around the
 brackets, I propose using the following form:
 
-<span class="raw-block">    [x for y in z]
-</span>
-[1] <a href="http://docs.python.org/tutorial/datastructures.html">http://docs.python.org/tutorial/datastructures.html</a>
-</pre></div><!-- post-summary -->
+    [x for y in z]
 
-<div class="post-box"><!-- post hh/759 -->
-<div class="post-summary" id="post-summary-hh-759">
+[1] <a href="http://docs.python.org/tutorial/datastructures.html">http://docs.python.org/tutorial/datastructures.html</a>
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/759 -->
+<span class="postsummary" id="post_hh/759">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_758.html#post-summary-hh-759">&lt;hh/759&gt;</a></span>
+<span class="index"><a href="../hh/thread_758.html#post_hh/759">&lt;hh/759&gt;</a></span>
+<span class="parent"><a href="../hh/thread_758.html#post_hh/758">&lt;&uarr;hh/758&gt;</a></span>
 <span class="date">(2009-10-23)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_758.html#post-summary-hh-758">hh/758</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_758.html#post-summary-hh-760">hh/760</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; So far I have been writing list comprehensions this way:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; So far I have been writing list comprehensions this way:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    [ x for y in z ]
-</span></span></span>
-Me, too. It seems that our conventions differ from that of the general
+&gt;    [ x for y in z ]
+
+</span></span>Me, too. It seems that our conventions differ from that of the general
 Python community. But they are conventions nonetheless. So we should
 decide which to follow. This question is made more difficult by the
 fact that I think it's a wiser choice to use whitespaces. It
 emphasizes that this is not an ordinary list, but a list
 comprehension, and that it should be read accordingly.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/760 -->
-<div class="post-summary" id="post-summary-hh-760">
+<div class="postbox"><!-- post hh/760 -->
+<span class="postsummary" id="post_hh/760">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_758.html#post-summary-hh-760">&lt;hh/760&gt;</a></span>
+<span class="index"><a href="../hh/thread_758.html#post_hh/760">&lt;hh/760&gt;</a></span>
+<span class="parent"><a href="../hh/thread_758.html#post_hh/759">&lt;&uarr;hh/759&gt;</a></span>
 <span class="date">(2009-10-23)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_758.html#post-summary-hh-759">hh/759</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_758.html#post-summary-hh-761">hh/761</a></span>
-<pre class="post-body-content">I vote for not having extra spaces. (But I see your point.)
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody">I vote for not having extra spaces. (But I see your point.)
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/761 -->
-<div class="post-summary" id="post-summary-hh-761">
+<div class="postbox"><!-- post hh/761 -->
+<span class="postsummary" id="post_hh/761">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_758.html#post-summary-hh-761">&lt;hh/761&gt;</a></span>
+<span class="index"><a href="../hh/thread_758.html#post_hh/761">&lt;hh/761&gt;</a></span>
+<span class="parent"><a href="../hh/thread_758.html#post_hh/760">&lt;&uarr;hh/760&gt;</a></span>
 <span class="date">(2009-10-23)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_758.html#post-summary-hh-760">hh/760</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_758.html#post-summary-hh-841">hh/841</a></span>
-<pre class="post-body-content">Then 2 votes against spaces (you and the community) and 1 for them
+<div class="body">
+<pre class="postbody">Then 2 votes against spaces (you and the community) and 1 for them
 (me). So your proposal passes.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/841 -->
-<div class="post-summary" id="post-summary-hh-841">
+<div class="postbox"><!-- post hh/841 -->
+<span class="postsummary" id="post_hh/841">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_758.html#post-summary-hh-841">&lt;hh/841&gt;</a></span>
+<span class="index"><a href="../hh/thread_758.html#post_hh/841">&lt;hh/841&gt;</a></span>
+<span class="parent"><a href="../hh/thread_758.html#post_hh/761">&lt;&uarr;hh/761&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_758.html#post-summary-hh-761">hh/761</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="meta-text">[close]</span>
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody"><span class="meta-text">[close]</span>
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/841 -->
 </div><!-- postbox for post hh/761 -->
 </div><!-- postbox for post hh/760 -->

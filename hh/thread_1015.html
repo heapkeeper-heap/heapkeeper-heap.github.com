@@ -1,28 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Kernel workflow and octopus merge</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Kernel workflow and octopus merge</h1>
 
 
-<div class="post-box"><!-- post hh/1015 -->
-<div class="post-summary" id="post-summary-hh-1015">
+<div class="postbox"><!-- post hh/1015 -->
+<span class="postsummary" id="post_hh/1015">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Kernel workflow and octopus merge</span>
 <span class="tags">[workflow]</span>
-<span class="index"><a href="../hh/thread_1015.html#post-summary-hh-1015">&lt;hh/1015&gt;</a></span>
+<span class="index"><a href="../hh/thread_1015.html#post_hh/1015">&lt;hh/1015&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2010-01-01)</span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">In this email Linus describes the Linux kernel workflow regarding git:
+<div class="body">
+<pre class="postbody">In this email Linus describes the Linux kernel workflow regarding git:
 <a href="http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html">http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html</a>
 
 He says (typo corrected):
 
-<span class="raw-block">    Don't merge _downstream_ code at random points either.
+    Don't merge _downstream_ code at random points either.
 
     Here the "random points" comment is a dual thing. You should not
     merge random points as far as downstream is concerned (they should
@@ -37,7 +37,7 @@ He says (typo corrected):
     release branch, and is _not_ the 'random development' branch, and
     I want to merge that ready feature into my release branch because
     it's going to be part of my next release".
-</span>
+
 Somewhere (I don't know where) I think I read that these merges are
 usually octopus merges. As far as I understand, an octopus merge is a
 merge that has more than two parents. In the attachment you will find
@@ -69,7 +69,8 @@ This workflow would have the following disadvantage:
 
 I guess the master branch would contain bugfixes and small features.
 This should not break backward compatibility of course.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/1015 -->
 
   </body>

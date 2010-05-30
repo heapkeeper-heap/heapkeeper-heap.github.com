@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Augmentation in hkgen.Generator</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Augmentation in hkgen.Generator</h1>
 
 
-<div class="post-box"><!-- post hh/866 -->
-<div class="post-summary" id="post-summary-hh-866">
+<div class="postbox"><!-- post hh/866 -->
+<span class="postsummary" id="post_hh/866">
 <span class="author">Attila Nagy</span>
 <span class="subject">Augmentation in hkgen.Generator</span>
 <span class="tags">[discussion, issue, reviewed]</span>
-<span class="index"><a href="../hh/thread_866.html#post-summary-hh-866">&lt;hh/866&gt;</a></span>
+<span class="index"><a href="../hh/thread_866.html#post_hh/866">&lt;hh/866&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-11-02)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-867">hh/867</a></span>
-<pre class="post-body-content">I noticed that the post items get "augmented" before they can be
+<div class="body">
+<pre class="postbody">I noticed that the post items get "augmented" before they can be
 printed. This means adding a default `print_fun` member to a copy of
 the `PostItem` object, if the object doesn't have one.
 
@@ -25,20 +25,21 @@ Two questions:
 - why copy the `PostItem` object?
 - why alter the object instead of using `getattr` with the default
   value `Generator.print_postitem` whenever a post item is printed?
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/867 -->
-<div class="post-summary" id="post-summary-hh-867">
+<div class="postbox"><!-- post hh/867 -->
+<span class="postsummary" id="post_hh/867">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_866.html#post-summary-hh-867">&lt;hh/867&gt;</a></span>
+<span class="index"><a href="../hh/thread_866.html#post_hh/867">&lt;hh/867&gt;</a></span>
+<span class="parent"><a href="../hh/thread_866.html#post_hh/866">&lt;&uarr;hh/866&gt;</a></span>
 <span class="date">(2009-11-02)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-866">hh/866</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-879">hh/879</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Two questions:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Two questions:
 &gt; - why copy the `PostItem` object?
-</span></span>
-The reason is ugly, I have to admit.
+
+</span></span>The reason is ugly, I have to admit.
 
 We copy it because we don't want to change the PostItem object
 returned by e.g. PostDB.walk_thread. PostDB.walk_thread stores the
@@ -49,8 +50,8 @@ this.
 
 <span class="quote"><span class="quote-1">&gt; - why alter the object instead of using `getattr` with the default
 &gt;  value `Generator.print_postitem` whenever a post item is printed?
-</span></span>
-Because it is nice that you can be sure that the post items have a
+
+</span></span>Because it is nice that you can be sure that the post items have a
 print_fun attribute. There are functions that wrap the post item's
 original print_fun and create new print_funs based on this (e.g.
 hkgen.Generator.{reverse_threads,enclose_posts,enclose_threads}. For
@@ -58,17 +59,18 @@ how to use them, see issue_tracker.Generator.enclose_issue_posts.). It
 would not be nice if all those functions had to do this getattr-stuff.
 These "post item modifier functions" should be as simple as possible,
 because they are one of the main tools to customize generators.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/879 -->
-<div class="post-summary" id="post-summary-hh-879">
+<div class="postbox"><!-- post hh/879 -->
+<span class="postsummary" id="post_hh/879">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_866.html#post-summary-hh-879">&lt;hh/879&gt;</a></span>
+<span class="index"><a href="../hh/thread_866.html#post_hh/879">&lt;hh/879&gt;</a></span>
+<span class="parent"><a href="../hh/thread_866.html#post_hh/867">&lt;&uarr;hh/867&gt;</a></span>
 <span class="date">(2009-11-07)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-867">hh/867</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-895">hh/895</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; - why copy the `PostItem` object?
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; - why copy the `PostItem` object?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; The reason is ugly, I have to admit.
 &gt;
@@ -76,8 +78,8 @@ because they are one of the main tools to customize generators.
 &gt; returned by e.g. PostDB.walk_thread. PostDB.walk_thread stores the
 &gt; 'begin' PostItems, so it assumes that the post items it yield will not
 &gt; change.
-</span></span>
-Augmentation wouldn't really change it in any way relevant to
+
+</span></span>Augmentation wouldn't really change it in any way relevant to
 `PostDB.walk_thread`. But I still argue against the whole concept of
 augmentation. My main problem is that it spends "real" CPU time (copying
 and modifying objects) to achieve conceptual clarity (so that we can be
@@ -94,27 +96,28 @@ sure that the `PostItem`s have a `print_fun` attribute).
 &gt; would not be nice if all those functions had to do this getattr-stuff.
 &gt; These "post item modifier functions" should be as simple as possible,
 &gt; because they are one of the main tools to customize generators.
-</span></span>
-I can still see alternatives to the current method:
+
+</span></span>I can still see alternatives to the current method:
 - adding a getter function to Generator that defaults to
   `Generator.print_postitem`; then any "post item modifier functions"
   could use this function
 - adding a `__getattr__` method to `PostItem` that returns
   `Generator.print_postitem` whenever `print_fun` is read
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/895 -->
-<div class="post-summary" id="post-summary-hh-895">
+<div class="postbox"><!-- post hh/895 -->
+<span class="postsummary" id="post_hh/895">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_866.html#post-summary-hh-895">&lt;hh/895&gt;</a></span>
+<span class="index"><a href="../hh/thread_866.html#post_hh/895">&lt;hh/895&gt;</a></span>
+<span class="parent"><a href="../hh/thread_866.html#post_hh/879">&lt;&uarr;hh/879&gt;</a></span>
 <span class="date">(2009-11-08)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-879">hh/879</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-902">hh/902</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Augmentation wouldn't really change it in any way relevant to
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Augmentation wouldn't really change it in any way relevant to
 &gt; `PostDB.walk_thread`.
-</span></span>
-The users of the augmented post item can do whatever they want with
+
+</span></span>The users of the augmented post item can do whatever they want with
 it. Maybe it will be useful to change its "level" attribute for some
 HTML page.
 
@@ -122,8 +125,8 @@ HTML page.
 &gt; problem is that it spends "real" CPU time (copying and modifying
 &gt; objects) to achieve conceptual clarity (so that we can be sure that
 &gt; the `PostItem`s have a `print_fun` attribute).
-</span></span>
-OK, I understand your concerns, and I also think that the augmentation
+
+</span></span>OK, I understand your concerns, and I also think that the augmentation
 is ugly.
 
 There are two separate actions done by the augmentation:
@@ -137,9 +140,9 @@ The ways we can deal with these are quite different.
 I still think the best way to deal with this is what I described in
 the my previous post:
 
-<span class="raw-block">    walk_thread should copy the post items that it stores
+    walk_thread should copy the post items that it stores
     and than augment_postitem will not have to copy it.
-</span>
+
 This way we will minimize copying. We do need copying in that case,
 because the caller of walk_thread can modify the post items. (As I
 described above.)
@@ -150,15 +153,15 @@ described above.)
 &gt; - adding a getter function to Generator that defaults to
 &gt;   `Generator.print_postitem`; then any "post item modifier functions"
 &gt;   could use this function
-</span></span>
-Hm. Just for making sure that we are on the same page, the following
+
+</span></span>Hm. Just for making sure that we are on the same page, the following
 changes would be done for example to hkgen.Generator.enclose_posts.
 (Which is not a post item modifier function, but I have just realized
 that I don't have a post item modifier that actually uses print_fun,
 they all use library functions like `enclose_posts` to deal with that
 dirty part.)
 
-<span class="raw-block">    def enclose_posts(self, class_, posts):
+    def enclose_posts(self, class_, posts):
         """Returns a function that encloses the summaries of the given posts
         into the given HTML class.
 
@@ -187,7 +190,7 @@ dirty part.)
                                 closing_comment=True)
             return postitem
         return enclose
-</span>
+
 Generator.get_print_fun itself would be a trivial function.
 
 I like this idea! Shall we open this thread as a ticket? (I would
@@ -196,24 +199,25 @@ happy to do it, as well.
 
 <span class="quote"><span class="quote-1">&gt; - adding a `__getattr__` method to `PostItem` that returns
 &gt;   `Generator.print_postitem` whenever `print_fun` is read
-</span></span>
-This is not good because that would _always_ use
+
+</span></span>This is not good because that would _always_ use
 hkgen.Generator.print_postitem as the default printer function, while
 in the current system if override MyGenerator.print_postitem, the
 augmented postitems created (and augmented) in MyGenerator will have
 MyGenerator.print_postitem as the default printer function. I think
 the current behaviour is the desirable one.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/902 -->
-<div class="post-summary" id="post-summary-hh-902">
+<div class="postbox"><!-- post hh/902 -->
+<span class="postsummary" id="post_hh/902">
 <span class="author">Attila Nagy</span>
 <span class="subject">Augmentation in hkgen.Generator: measurement</span>
-<span class="index"><a href="../hh/thread_866.html#post-summary-hh-902">&lt;hh/902&gt;</a></span>
+<span class="index"><a href="../hh/thread_866.html#post_hh/902">&lt;hh/902&gt;</a></span>
+<span class="parent"><a href="../hh/thread_866.html#post_hh/895">&lt;&uarr;hh/895&gt;</a></span>
 <span class="date">(2009-11-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-895">hh/895</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-904">hh/904</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I can still see alternatives to the current method:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I can still see alternatives to the current method:
 &gt;&gt; - adding a getter function to Generator that defaults to
 &gt;&gt;   `Generator.print_postitem`; then any "post item modifier functions"
 &gt;&gt;   could use this function
@@ -225,14 +229,14 @@ the current behaviour is the desirable one.
 &gt;  +             old_print_fun = self.get_print_fun(postitem)
 &gt; [...]
 &gt; Generator.get_print_fun itself would be a trivial function.
-</span></span>
-We are definitely on the same page :)
+
+</span></span>We are definitely on the same page :)
 
 <span class="quote"><span class="quote-1">&gt; I like this idea! Shall we open this thread as a ticket? (I would
 &gt; estimate the effort to be "2"). You may implement it, but I am
 &gt; happy to do it, as well.
-</span></span>
-OK, I will, but not tonight [1].
+
+</span></span>OK, I will, but not tonight [1].
 
 <span class="quote"><span class="quote-2">&gt;&gt; - adding a `__getattr__` method to `PostItem` that returns
 &gt;&gt;   `Generator.print_postitem` whenever `print_fun` is read
@@ -243,8 +247,8 @@ OK, I will, but not tonight [1].
 &gt; augmented postitems created (and augmented) in MyGenerator will have
 &gt; MyGenerator.print_postitem as the default printer function. I think
 &gt; the current behaviour is the desirable one.
-</span></span>
-Yes, I considered this, too. I even imagined a way to set a
+
+</span></span>Yes, I considered this, too. I even imagined a way to set a
 class-level attribute in PostItem to control which printer function to
 default to, but I could feel this is a dead end. __getattr__ has
 another serious flaw, but more on that a bit later...
@@ -256,7 +260,7 @@ I wanted to measure the costs of augmentation. So I made this timing
 test (a bit longer code section follows than what looks nice in an
 e-mail or a post, but I felt it was easier to make my point like this):
 
-<span class="raw-block">    import random
+    import random
     import hkutils
     import math
 
@@ -303,11 +307,11 @@ e-mail or a post, but I felt it was easier to make my point like this):
     for numop in numops:
         numop.do()
     hkutils.print_time()
-</span>
+
 This is pretty much self-explanatory, so I'll present the results
 without further explanation:
 
-<span class="raw-block">    $ python augmentation.py
+    $ python augmentation.py
     generating 1M objects...
     using defaulting getter method...
     5.350327
@@ -317,21 +321,21 @@ without further explanation:
     9.367637
     using augmented objects...
     1.580619
-</span>
+
 This means that the augmentating approach takes 9.37 + 1.58 = 10,95
 seconds, and using __getattr__ would be the quickest.
 
 But then I realized that having a __getattr__ slows down all other
 approaches! So I commented it out, and did another run:
 
-<span class="raw-block">    generating 1M objects...
+    generating 1M objects...
     using defaulting getter method...
     3.285651
     augmenting...
     7.492890
     using augmented objects...
     1.375648
-</span>
+
 This means that a defaulting getter is the quickest, but there's no
 real difference between an ordinary getter method and one implemented
 as a __getattr__. But, as seen above, a __getattr__ slows a bit down
@@ -340,24 +344,26 @@ the best solution also with respect to efficiency.
 
 [1] My hobby[2]: hiding DM song titles in my posts.
 [2] <a href="http://en.wikipedia.org/w/index.php?title=Xkcd&oldid=325022174#cite_note-hobbycomics-22">http://en.wikipedia.org/w/index.php?title=Xkcd&amp;oldid=325022174#cite_note-hobbycomics-22</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/904 -->
-<div class="post-summary" id="post-summary-hh-904">
+<div class="postbox"><!-- post hh/904 -->
+<span class="postsummary" id="post_hh/904">
 <span class="author">Attila Nagy</span>
 <span class="subject">Use getter method instead of augmentation</span>
 <span class="tags">[-discussion]</span>
-<span class="index"><a href="../hh/thread_866.html#post-summary-hh-904">&lt;hh/904&gt;</a></span>
+<span class="index"><a href="../hh/thread_866.html#post_hh/904">&lt;hh/904&gt;</a></span>
+<span class="parent"><a href="../hh/thread_866.html#post_hh/902">&lt;&uarr;hh/902&gt;</a></span>
 <span class="date">(2009-11-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-902">hh/902</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">The way Generator currently modifies post items to add a printing
+<div class="body">
+<pre class="postbody">The way Generator currently modifies post items to add a printing
 function is ugly and inefficient. We have decided to use a getter
 method.
 
 <span class="meta-text">[effort 2]</span>
 <span class="meta-text">[assign Attis]</span>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/904 -->
 </div><!-- postbox for post hh/902 -->
 </div><!-- postbox for post hh/895 -->

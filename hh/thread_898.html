@@ -1,22 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>hkweb rewritten to start from hkshell and use new Generator</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">hkweb rewritten to start from hkshell and use new Generator</h1>
 
 
-<div class="post-box"><!-- post hh/898 -->
-<div class="post-summary" id="post-summary-hh-898">
+<div class="postbox"><!-- post hh/898 -->
+<span class="postsummary" id="post_hh/898">
 <span class="author">Attila Nagy</span>
 <span class="subject">hkweb rewritten to start from hkshell and use new Generator</span>
-<span class="index"><a href="../hh/thread_898.html#post-summary-hh-898">&lt;hh/898&gt;</a></span>
+<span class="index"><a href="../hh/thread_898.html#post_hh/898">&lt;hh/898&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-11-09)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_898.html#post-summary-hh-899">hh/899</a>, <a href="../hh/thread_898.html#post-summary-hh-901">hh/901</a></span>
-<pre class="post-body-content">A dynamic web output is added in the separate file "hkweb.py". It
+<div class="body">
+<pre class="postbody">A dynamic web output is added in the separate file "hkweb.py". It
 works as an extension to hkshell, like the issue tracker.
 
 It uses the new Generator and hkutils.add_method to modify the
@@ -24,9 +24,9 @@ Generator to handle the URLs differently.
 
 hkweb is started from within hkshell like this:
 
-<span class="raw-block">    &gt;&gt;&gt; import hkweb
+    &gt;&gt;&gt; import hkweb
     &gt;&gt;&gt; hkweb.start()
-</span>
+
 Now open <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser to view the heap's
 index. If you change the post database in hkshell, the changes are
 reflected in the browser whenever you refresh. This allows for a
@@ -36,17 +36,18 @@ the most important improvement over the previous implementation.
 I committed it with a big TODO prefix, to remind me to correct a
 problem: the port parameter is not used. I'll correct this and amend
 the commit.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/899 -->
-<div class="post-summary" id="post-summary-hh-899">
+<div class="postbox"><!-- post hh/899 -->
+<span class="postsummary" id="post_hh/899">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_898.html#post-summary-hh-899">&lt;hh/899&gt;</a></span>
+<span class="index"><a href="../hh/thread_898.html#post_hh/899">&lt;hh/899&gt;</a></span>
+<span class="parent"><a href="../hh/thread_898.html#post_hh/898">&lt;&uarr;hh/898&gt;</a></span>
 <span class="date">(2009-11-09)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_898.html#post-summary-hh-898">hh/898</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">There's still an issue: no link leads from the thread pages to the root (index).
+<div class="body">
+<pre class="postbody">There's still an issue: no link leads from the thread pages to the root (index).
 
 Since this doesn't break the usability, I plan to fix this in another
 commit, and not amend it to the first hkweb commit. Maybe it'll be
@@ -54,23 +55,25 @@ more understandable like this, with two smaller commits (or rather,
 one big and one small).
 
 <span class="meta-text">[open]</span>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/899 -->
 
-<div class="post-box"><!-- post hh/901 -->
-<div class="post-summary" id="post-summary-hh-901">
+<div class="postbox"><!-- post hh/901 -->
+<span class="postsummary" id="post_hh/901">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_898.html#post-summary-hh-901">&lt;hh/901&gt;</a></span>
+<span class="index"><a href="../hh/thread_898.html#post_hh/901">&lt;hh/901&gt;</a></span>
+<span class="parent"><a href="../hh/thread_898.html#post_hh/898">&lt;&uarr;hh/898&gt;</a></span>
 <span class="date">(2009-11-09)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_898.html#post-summary-hh-898">hh/898</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I committed it with a big TODO prefix, to remind me to correct a
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I committed it with a big TODO prefix, to remind me to correct a
 &gt; problem: the port parameter is not used. I'll correct this and amend
 &gt; the commit.
-</span></span>
-The amended commit has been pushed.
-</pre></div><!-- post-summary -->
+
+</span></span>The amended commit has been pushed.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/901 -->
 </div><!-- postbox for post hh/898 -->
 

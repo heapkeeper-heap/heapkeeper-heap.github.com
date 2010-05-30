@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Developing with Vim</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Developing with Vim</h1>
 
 
-<div class="post-box"><!-- post hh/37 -->
-<div class="post-summary" id="post-summary-hh-37">
+<div class="postbox"><!-- post hh/37 -->
+<span class="postsummary" id="post_hh/37">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Developing with Vim</span>
 <span class="tags">[reviewed, vim]</span>
-<span class="index"><a href="../hh/thread_37.html#post-summary-hh-37">&lt;hh/37&gt;</a></span>
+<span class="index"><a href="../hh/thread_37.html#post_hh/37">&lt;hh/37&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-03-22)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_37.html#post-summary-hh-82">hh/82</a></span>
-<pre class="post-body-content">In this thread, we could discuss developing Heapkeeper with Vim. It
+<div class="body">
+<pre class="postbody">In this thread, we could discuss developing Heapkeeper with Vim. It
 could contain small tips or larger essays as well. E.g. I'd like to
 read a howto sometime for using ctags with Vim and Python.
 
@@ -27,88 +27,91 @@ read a howto sometime for using ctags with Vim and Python.
 * Executing the tests with :make. When pressing F1, it runs the tests
   and jumps to the last function call in the stack trace.
 
-<span class="raw-block">    " Place in some global place, e.g. your vimrc.
+    " Place in some global place, e.g. your vimrc.
     set makeprg=./test.py
 
     " These should be executed for all Python buffers.
     " (E.g. place them in ~/.vim/ftplugin/python.vim.)
     setlocal errorformat=\ \ File\ \"%f\"\\,\ line\ %l\\,\ %m
     noremap &lt;buffer&gt; &lt;F1&gt; :make &lt;bar&gt; cw &lt;bar&gt; silent! 999cn&lt;cr&gt;
-</span>
+
 * Getting gD ("go to function or class definition") to kinda work.
 
-<span class="raw-block">    noremap &lt;buffer&gt; gD ?\(def\&lt;bar&gt;class\) &lt;c-r&gt;=expand('&lt;cword&gt;')&lt;cr&gt;\&gt;&lt;cr&gt;
+    noremap &lt;buffer&gt; gD ?\(def\&lt;bar&gt;class\) &lt;c-r&gt;=expand('&lt;cword&gt;')&lt;cr&gt;\&gt;&lt;cr&gt;
 
-</span>
+
 == For wiki files ==
 
 * Putting `` around a word:
 
-<span class="raw-block">    noremap &lt;buffer&gt; &lt;F1&gt; "_yiwi`&lt;esc&gt;ea`&lt;esc&gt;
-</span>
+    noremap &lt;buffer&gt; &lt;F1&gt; "_yiwi`&lt;esc&gt;ea`&lt;esc&gt;
+
 * Putting `` around the selected string:
 
-<span class="raw-block">    vnoremap &lt;buffer&gt; &lt;F1&gt; &lt;esc&gt;`&gt;a`&lt;esc&gt;`&lt;lt&gt;i`&lt;esc&gt;
-</span></pre></div><!-- post-summary -->
+    vnoremap &lt;buffer&gt; &lt;F1&gt; &lt;esc&gt;`&gt;a`&lt;esc&gt;`&lt;lt&gt;i`&lt;esc&gt;
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/82 -->
-<div class="post-summary" id="post-summary-hh-82">
+<div class="postbox"><!-- post hh/82 -->
+<span class="postsummary" id="post_hh/82">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_37.html#post-summary-hh-82">&lt;hh/82&gt;</a></span>
+<span class="index"><a href="../hh/thread_37.html#post_hh/82">&lt;hh/82&gt;</a></span>
+<span class="parent"><a href="../hh/thread_37.html#post_hh/37">&lt;&uarr;hh/37&gt;</a></span>
 <span class="date">(2009-04-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_37.html#post-summary-hh-37">hh/37</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_37.html#post-summary-hh-85">hh/85</a></span>
-<pre class="post-body-content">Any progress in this field recently? I'm always on the look for new
+<div class="body">
+<pre class="postbody">Any progress in this field recently? I'm always on the look for new
 editor tips!
 
 Btw. I use ctags only through :Tlist (what is the real name for that
 plugin?), which I mapped to F8.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/85 -->
-<div class="post-summary" id="post-summary-hh-85">
+<div class="postbox"><!-- post hh/85 -->
+<span class="postsummary" id="post_hh/85">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_37.html#post-summary-hh-85">&lt;hh/85&gt;</a></span>
+<span class="index"><a href="../hh/thread_37.html#post_hh/85">&lt;hh/85&gt;</a></span>
+<span class="parent"><a href="../hh/thread_37.html#post_hh/82">&lt;&uarr;hh/82&gt;</a></span>
 <span class="date">(2009-04-13)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_37.html#post-summary-hh-82">hh/82</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_37.html#post-summary-hh-233">hh/233</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Any progress in this field recently? I'm always on the look for new
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Any progress in this field recently? I'm always on the look for new
 &gt; editor tips!
-</span></span>
-Just small adjustments.
+
+</span></span>Just small adjustments.
 
 ~/.vim/ftplugin/rst.vim:
 
-<span class="raw-block">    nnoremap &lt;buffer&gt; &lt;F2&gt; "_yiwi``&lt;esc&gt;ea``&lt;esc&gt;
+    nnoremap &lt;buffer&gt; &lt;F2&gt; "_yiwi``&lt;esc&gt;ea``&lt;esc&gt;
     vnoremap &lt;buffer&gt; &lt;F2&gt; &lt;esc&gt;`&gt;a``&lt;esc&gt;`&lt;lt&gt;i``&lt;esc&gt;
     inoremap &lt;buffer&gt; &lt;F2&gt; ````&lt;left&gt;&lt;left&gt;
     setlocal tw=79
     setlocal makeprg="make html"
-</span>
+
 ~/.vim/ftplugin/python.vim:
 
-<span class="raw-block">    setlocal fo+=r
+    setlocal fo+=r
     noremap &lt;buffer&gt; gD ?\(def\&lt;bar&gt;class\) &lt;c-r&gt;=expand('&lt;cword&gt;')&lt;cr&gt;\&gt;&lt;cr&gt;
     setlocal efm=\ \ File\ \"%f\"\\,\ line\ %l%m
     setlocal tw=79
 
-</span><span class="quote"><span class="quote-1">&gt; Btw. I use ctags only through :Tlist (what is the real name for that
+<span class="quote"><span class="quote-1">&gt; Btw. I use ctags only through :Tlist (what is the real name for that
 &gt; plugin?), which I mapped to F8.
-</span></span>
-Thanks, I'll try that.
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/233 -->
-<div class="post-summary" id="post-summary-hh-233">
+</span></span>Thanks, I'll try that.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/233 -->
+<span class="postsummary" id="post_hh/233">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_37.html#post-summary-hh-233">&lt;hh/233&gt;</a></span>
+<span class="index"><a href="../hh/thread_37.html#post_hh/233">&lt;hh/233&gt;</a></span>
+<span class="parent"><a href="../hh/thread_37.html#post_hh/85">&lt;&uarr;hh/85&gt;</a></span>
 <span class="date">(2009-05-18)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_37.html#post-summary-hh-85">hh/85</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_37.html#post-summary-hh-421">hh/421</a></span>
-<pre class="post-body-content">I'm posting the current state of my customized Vim-Heapkeeper
+<div class="body">
+<pre class="postbody">I'm posting the current state of my customized Vim-Heapkeeper
 development environment.
 
 == .vimrc ==
@@ -116,7 +119,7 @@ development environment.
 This underline feature is from Attis. I will still describe it, since
 this is a public heap.
 
-<span class="raw-block">  " Underline:
+  " Underline:
   "   Underlines the current line with the given character.
   " Example:
   "   Type this line:
@@ -144,12 +147,12 @@ this is a public heap.
   " to be used in *.py docstring:
   noremap ,'' :call Underline("'")&lt;cr&gt;
   noremap ,:: :call Underline(":")&lt;cr&gt;
-</span>
+
 == hk/auto.vim ==
 
 This file is automatically sourced by my vimrc when starting Vim from hk.
 
-<span class="raw-block">  " List:
+  " List:
   "   Lists the python files in the given directory and puts them into a new
   "   buffer in the current window. When hitting ENTER on a file, Vim will jump
   "   to that file, and the list-buffer will be deleted.
@@ -278,10 +281,10 @@ This file is automatically sourced by my vimrc when starting Vim from hk.
       endif
       normal _
   endfunction
-</span>
+
 == ~/.vim/ftplugin/python.vim ==
 
-<span class="raw-block">  " Insert '#' after I press ENTER in insert mode
+  " Insert '#' after I press ENTER in insert mode
   setlocal fo+=r
 
   " text width
@@ -302,10 +305,10 @@ This file is automatically sourced by my vimrc when starting Vim from hk.
   inoremap &lt;buffer&gt; &lt;F2&gt; ````&lt;left&gt;&lt;left&gt;
   " in insert mode you type: class&lt;F3&gt;, the result is :class:`&lt;cursor&gt;`
   inoremap &lt;buffer&gt; &lt;F3&gt; :&lt;esc&gt;bi:&lt;esc&gt;Ea``&lt;left&gt;
-</span>
+
 == ~/.vim/ftplugin/rst.vim ==
 
-<span class="raw-block">  "text width
+  "text width
   setlocal tw=79
 
   " make
@@ -317,53 +320,54 @@ This file is automatically sourced by my vimrc when starting Vim from hk.
   inoremap &lt;buffer&gt; &lt;F2&gt; ````&lt;left&gt;&lt;left&gt;
   " in insert mode you type: class&lt;F3&gt;, the result is :class:`&lt;cursor&gt;`
   inoremap &lt;buffer&gt; &lt;F3&gt; :&lt;esc&gt;bi:&lt;esc&gt;Ea``&lt;left&gt;
-</span></pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/421 -->
-<div class="post-summary" id="post-summary-hh-421">
+<div class="postbox"><!-- post hh/421 -->
+<span class="postsummary" id="post_hh/421">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_37.html#post-summary-hh-421">&lt;hh/421&gt;</a></span>
+<span class="index"><a href="../hh/thread_37.html#post_hh/421">&lt;hh/421&gt;</a></span>
+<span class="parent"><a href="../hh/thread_37.html#post_hh/233">&lt;&uarr;hh/233&gt;</a></span>
 <span class="date">(2009-07-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_37.html#post-summary-hh-233">hh/233</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_37.html#post-summary-hh-423">hh/423</a></span>
-<pre class="post-body-content">Cool! This post has convinced me that not only there is much to learn
+<div class="body">
+<pre class="postbody">Cool! This post has convinced me that not only there is much to learn
 about Vim, it is also worthy.
 
 <span class="quote"><span class="quote-1">&gt; This underline feature is from Attis. I will still describe it, since
 &gt; this is a public heap.
-</span></span>
-When I designed this, I had no idea about rst, but now I see that rst
+
+</span></span>When I designed this, I had no idea about rst, but now I see that rst
 is what really makes it useful.
 
 <span class="quote"><span class="quote-1">&gt; == hk/auto.vim ==
 &gt;
 &gt; This file is automatically sourced by my vimrc when starting Vim from hk.
-</span></span>
-Does your .vimrc look for an auto.vim in whatever directory you launch
+
+</span></span>Does your .vimrc look for an auto.vim in whatever directory you launch
 Vim from?
 
-<span class="quote"><span class="quote-1"><span class="raw-block">&gt;   " List:
+<span class="quote"><span class="quote-1">&gt;   " List:
 &gt;   "   Lists the python files in the given directory and puts them into a new
 &gt;   "   buffer in the current window. When hitting ENTER on a file, Vim will jump
 &gt;   "   to that file, and the list-buffer will be deleted.
-</span></span></span>
-Wow, you essentially duplicated Vim's file explorer!
 
-<span class="quote"><span class="quote-1"><span class="raw-block">&gt;   " PyDiff:
+</span></span>Wow, you essentially duplicated Vim's file explorer!
+
+<span class="quote"><span class="quote-1">&gt;   " PyDiff:
 &gt;   "   Sets python-diff syntax highlight for the current file. python-diff means
 &gt;   "   that the syntax highlight is the python one, except for the + and - signs
 &gt;   "   in the beginning of the lines which will be blue and red. Useful when
 &gt;   "   reading a diff with a lot of Python code.
-</span></span></span>
-Seems useful, I think I'll import it into my environment the next
+
+</span></span>Seems useful, I think I'll import it into my environment the next
 thing I do...
 
-<span class="quote"><span class="quote-1"><span class="raw-block">&gt;   " HeapDiff:
+<span class="quote"><span class="quote-1">&gt;   " HeapDiff:
 &gt;   "   Puts a failing test assertion into two separate lines so that it is easier
 &gt;   "   to stop the difference.
-</span></span></span>
-I had problems spotting small differences in asserts where both sides
+
+</span></span>I had problems spotting small differences in asserts where both sides
 of the `!=` were longer than 5 screen lines. But I think it would
 have to be sorted out manually even with this.
 
@@ -377,51 +381,53 @@ have to be sorted out manually even with this.
 &gt;   "   The following command shows the modifications of hkrc_attis.py in commit
 &gt;   "   102f5fd:
 &gt;   "     :call PD("102f5fd", "hkrc_attis.py")
-</span></span>
-I like it. Elegant Git integration.
 
-<span class="quote"><span class="quote-1"><span class="raw-block">&gt;   " FM:
+</span></span>I like it. Elegant Git integration.
+
+<span class="quote"><span class="quote-1">&gt;   " FM:
 &gt;   "   Finds the definiton of a class or method in a Python buffer.
-</span></span></span>
-Wouldn't it be nice to wire this to gD?
+
+</span></span>Wouldn't it be nice to wire this to gD?
 
 <span class="quote"><span class="quote-1">&gt; == ~/.vim/ftplugin/python.vim ==
-</span></span>
-Many of these are new to me.
 
-<span class="quote"><span class="quote-1"><span class="raw-block">&gt;   " gD is normally "go to the definition of the global thing under the cursor",
+</span></span>Many of these are new to me.
+
+<span class="quote"><span class="quote-1">&gt;   " gD is normally "go to the definition of the global thing under the cursor",
 &gt;   " but it does not work for Python by default. With this mapping, it does.
 &gt;   noremap &lt;buffer&gt; gD ?\(def\&lt;bar&gt;class\) &lt;c-r&gt;=expand('&lt;cword&gt;')&lt;cr&gt;\&gt;&lt;cr&gt;
-</span></span></span>
-Great!
+
+</span></span>Great!
 
 Thanks for your tips!
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/423 -->
-<div class="post-summary" id="post-summary-hh-423">
+<div class="postbox"><!-- post hh/423 -->
+<span class="postsummary" id="post_hh/423">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_37.html#post-summary-hh-423">&lt;hh/423&gt;</a></span>
+<span class="index"><a href="../hh/thread_37.html#post_hh/423">&lt;hh/423&gt;</a></span>
+<span class="parent"><a href="../hh/thread_37.html#post_hh/421">&lt;&uarr;hh/421&gt;</a></span>
 <span class="date">(2009-07-31)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_37.html#post-summary-hh-421">hh/421</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">== hk/auto.vim ==
+<div class="body">
+<pre class="postbody">== hk/auto.vim ==
 
 <span class="quote"><span class="quote-2">&gt;&gt; This file is automatically sourced by my vimrc when starting Vim from hk.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Does your .vimrc look for an auto.vim in whatever directory you launch
 &gt; Vim from?
-</span></span>
-Yes.
 
-<span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;   " FM:
+</span></span>Yes.
+
+<span class="quote"><span class="quote-2">&gt;&gt;   " FM:
 &gt;&gt;   "   Finds the definiton of a class or method in a Python buffer.
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+</span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Wouldn't it be nice to wire this to gD?
-</span></span>
-Yes, it would be.
-</pre></div><!-- post-summary -->
+
+</span></span>Yes, it would be.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/423 -->
 </div><!-- postbox for post hh/421 -->
 </div><!-- postbox for post hh/233 -->

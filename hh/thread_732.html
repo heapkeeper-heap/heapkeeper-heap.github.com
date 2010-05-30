@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Effort</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Effort</h1>
 
 
-<div class="post-box"><!-- post hh/732 -->
-<div class="post-summary" id="post-summary-hh-732">
+<div class="postbox"><!-- post hh/732 -->
+<span class="postsummary" id="post_hh/732">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Effort</span>
 <span class="tags">[hh-conventions, prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_732.html#post-summary-hh-732">&lt;hh/732&gt;</a></span>
+<span class="index"><a href="../hh/thread_732.html#post_hh/732">&lt;hh/732&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-10-21)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_732.html#post-summary-hh-903">hh/903</a></span>
-<pre class="post-body-content">I'd like to assign some meta information to the issues.
+<div class="body">
+<pre class="postbody">I'd like to assign some meta information to the issues.
 
 For example:
 - how much effort is it to implement them
@@ -49,54 +49,56 @@ order to avoid wasted efforts.
 I don't really know yet what priorities should be have. I propose
 to use words like "high", "normal", "low". I guess "normal" is the
 default priority.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/903 -->
-<div class="post-summary" id="post-summary-hh-903">
+<div class="postbox"><!-- post hh/903 -->
+<span class="postsummary" id="post_hh/903">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_732.html#post-summary-hh-903">&lt;hh/903&gt;</a></span>
+<span class="index"><a href="../hh/thread_732.html#post_hh/903">&lt;hh/903&gt;</a></span>
+<span class="parent"><a href="../hh/thread_732.html#post_hh/732">&lt;&uarr;hh/732&gt;</a></span>
 <span class="date">(2009-11-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_732.html#post-summary-hh-732">hh/732</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_732.html#post-summary-hh-905">hh/905</a></span>
-<pre class="post-body-content">The only thing I don't like about this proposal is the syntax (not
+<div class="body">
+<pre class="postbody">The only thing I don't like about this proposal is the syntax (not
 covered in the proposal, but the syntax of actual usage). You write
 metas like this:
 
-<span class="raw-block">    [effort: 4]
-</span>
+    [effort: 4]
+
 I don't like the colon. We said the first word is special in metas, so
 the colon is not necessary to separate the first word. (Of course if
 we say the name of the meta is "effort:" and not "effort", that's
 another matter.)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/905 -->
-<div class="post-summary" id="post-summary-hh-905">
+<div class="postbox"><!-- post hh/905 -->
+<span class="postsummary" id="post_hh/905">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_732.html#post-summary-hh-905">&lt;hh/905&gt;</a></span>
+<span class="index"><a href="../hh/thread_732.html#post_hh/905">&lt;hh/905&gt;</a></span>
+<span class="parent"><a href="../hh/thread_732.html#post_hh/903">&lt;&uarr;hh/903&gt;</a></span>
 <span class="date">(2009-11-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_732.html#post-summary-hh-903">hh/903</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">I haven't realized I'm writing a colon and we talked about not writing
+<div class="body">
+<pre class="postbody">I haven't realized I'm writing a colon and we talked about not writing
 them. You are right about the contradiction.
 
 Meta text are handled incorrectly, not the way we agreed on. Currently
 a dictionary of metas will be created. I'll just write examples and
 you will get the idea:
 
-<span class="raw-block">    Post body:
+    Post body:
         [effort: 1]
         [important]
 
     Meta dict:
         {'effort': 1,
          'important': ''}
-</span>
+
 This seems to be all right. Problems:
 
-<span class="raw-block">    Post:
+    Post:
         [effort: 1]
         [effort: 2]
         [important]
@@ -107,11 +109,11 @@ This seems to be all right. Problems:
          'important': '',
          '!todo many things':'',
          '!todo this': ''}
-</span>
+
 I propose to generate a dictionary like this for the post similar to
 the latter post:
 
-<span class="raw-block">    Post:
+    Post:
         [effort 1]     # no colons
         [effort 2]
         [important]
@@ -121,13 +123,14 @@ the latter post:
         {'effort', [1, 2],
          'important': [''],
          '!todo': ['many things', 'this']}
-</span>
+
 So a non-empty list of strings will be assigned to each meta that is
 present in the post body.
 
 If you don't get the idea of what's wrong with the current dictionary
 and how should the new work, ask.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/905 -->
 </div><!-- postbox for post hh/903 -->
 </div><!-- postbox for post hh/732 -->

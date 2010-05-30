@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Improved Developers' Guide (2007-03-16 7c8039783e, 2007-03-19 74b2a84176)</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Improved Developers' Guide (2007-03-16 7c8039783e, 2007-03-19 74b2a84176)</h1>
 
 
-<div class="post-box"><!-- post hh/103 -->
-<div class="post-summary" id="post-summary-hh-103">
+<div class="postbox"><!-- post hh/103 -->
+<span class="postsummary" id="post_hh/103">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Improved Developers' Guide (2007-03-16 7c8039783e, 2007-03-19 74b2a84176)</span>
 <span class="tags">[commit, reviewed]</span>
-<span class="index"><a href="../hh/thread_103.html#post-summary-hh-103">&lt;hh/103&gt;</a></span>
+<span class="index"><a href="../hh/thread_103.html#post_hh/103">&lt;hh/103&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-04-18)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_103.html#post-summary-hh-114">hh/114</a></span>
-<pre class="post-body-content">(You may copy-paste any of my comments into the documentation or
+<div class="body">
+<pre class="postbody">(You may copy-paste any of my comments into the documentation or
 modify them as you wish.)
 
 Attis committed:
@@ -35,14 +35,14 @@ Attis committed:
 &gt; use it. Important it may seem, but at the time of writing, this function
 &gt; gets accessed only once outside the Post class, namely in Generator's
 &gt; posts_to_html().
-</span></span>
-No, it is not important. I deleted this sentence.
+
+</span></span>No, it is not important. I deleted this sentence.
 
 <span class="quote"><span class="quote-1">&gt; There is a reason for this. _all is another of those cached data
 &gt; structure. At first sight, it may seem superfluous; how are "posts" and
 &gt; "all posts" different? Answer: they are a different type.
-</span></span>
-"Answer: they are different types." ? I haven't corrected it.
+
+</span></span>"Answer: they are different types." ? I haven't corrected it.
 
 <span class="quote"><span class="quote-1">&gt; While _posts stores a list, _all is of a PostSet type. PostSet is
 &gt; not merely a set of posts; it also serves as a building unit of Heap
@@ -56,8 +56,8 @@ No, it is not important. I deleted this sentence.
 &gt; where _all (all()) would very probably do the job just as well.
 &gt;
 &gt; TODO I guess I'll have a word with Csabi on this.
-</span></span>
-They are on different abstraction levels: _posts is a list, so you can
+
+</span></span>They are on different abstraction levels: _posts is a list, so you can
 use it when you know only classes Post and MailDB. _all is a shortcut
 for _posts+"conversion to PostSet", so you can use it only if you know
 PostSet.
@@ -68,8 +68,8 @@ PostSet.
 &gt; the parent-child relationships among them. The resulting structure is
 &gt; mathematically a forest, that is, a set of trees. (TODO Ask Csabi if
 &gt; this is correct.)
-</span></span>
-No, it's not, is may contain cycles. Although we think of cycles as
+
+</span></span>No, it's not, is may contain cycles. Although we think of cycles as
 anomalies.
 
 <span class="quote"><span class="quote-1">&gt; For now, a given installation of Heap (the program) supports exactly one
@@ -86,8 +86,8 @@ anomalies.
 &gt;   of clarity, this is the "In-Reply-To:" reference, the taken
 &gt;   directly from the terminology of e-mail, but the reference here is
 &gt;   via a heapid rather than a Message-ID. More on this later.)
-</span></span>
-It is not true: a post can reference to another post either by the
+
+</span></span>It is not true: a post can reference to another post either by the
 heapid or the Message-ID of that post. Actually, the messid has a
 greater priority than heapid (i.e. if A is in-reply-to XX, then Hk
 first tries to find an email with messid XX; if there is no such
@@ -102,8 +102,8 @@ implementation of MailDB.prev().
 &gt;
 &gt; TODO Sync this with Csabi's recent hh-post on the revised nomenclature of
 &gt; thread relations.
-</span></span>
-I don't think we should be redundant, we should just refer to the
+
+</span></span>I don't think we should be redundant, we should just refer to the
 corresponding section of the Glossary.
 
 <span class="quote"><span class="quote-1">&gt; With all this made clear, we can now safely dive into the analysis of
@@ -126,8 +126,8 @@ corresponding section of the Glossary.
 &gt;
 &gt; TODO It is still to be determined whether Heapkeeper would benefit
 &gt; from a more explicit representation of the thread structure.
-</span></span>
-I don't think so. Walking the tree would be slightly more efficient,
+
+</span></span>I don't think so. Walking the tree would be slightly more efficient,
 but that would be all. Real tree structures are useful only when you
 don't have unique ids for the nodes. We do have unique ids, and its
 trivial to write the parent() and children() functions (MailDB.prev()
@@ -138,17 +138,17 @@ as easily.
 <span class="quote"><span class="quote-1">&gt; Cycles are dangerous to this system. Some functions are written in a
 &gt; way that they fall in endless loops when the thread structure contains
 &gt; loops.
-</span></span>
-Current situation: there is only one such function, MailDB.root:
 
-<span class="raw-block">   def root(self, post):
+</span></span>Current situation: there is only one such function, MailDB.root:
+
+   def root(self, post):
        """Returns the root of the post.
 
        Warning: if the thread structure contains cycles, calling this
        function may result in an endless loop. Before calling this function,
        the called should check that maildb.has_cycle() == False.
        """
-</span>
+
 I admit that the warning it very misleading, but the truth is that it
 falls into endless loop only when `post` is in a cycle.
 
@@ -164,8 +164,8 @@ to use on a heap with cycles.
 
 <span class="quote"><span class="quote-1">&gt; Examining the way post parent/child relationships are generated,
 &gt; it is safe to say that a cycle indicates an error.
-</span></span>
-See above.
+
+</span></span>See above.
 
 <span class="quote"><span class="quote-1">&gt; Such a situation can be caused by:
 &gt; * Hash collision on the IMAP server when generating Message-ID's. Highly
@@ -181,8 +181,8 @@ See above.
 &gt;
 &gt; (TODO Ask Csabi if he introduced cycle detection code "just in case"
 &gt; or he actually found cycles during development.)
-</span></span>
-I don't remember exactly. I remember that I realized the possibility
+
+</span></span>I don't remember exactly. I remember that I realized the possibility
 when modifying in-reply-to-s, and I though that we had to handle
 cycles somehow. But I don't know whether I actually created a cycle or
 not.
@@ -191,8 +191,8 @@ not.
 &gt; in _recalc_threadstruct().  This function is definitely worth a look.
 &gt;
 &gt; At 23 lines,
-</span></span>
-I don't think we should write things like this in the documentation.
+
+</span></span>I don't think we should write things like this in the documentation.
 If someone modifies the function, he/she probably won't modify this
 document as well, and the documentation will have an "obsolete"
 feeling. Although I understand that you want to point out that our
@@ -228,33 +228,33 @@ code is so nice that one of the longest function is 23 lines :D
 &gt; based. This leads to some nontrivial but totally acceptable results. See
 &gt; this example::
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    0: 1
+&gt;    0: 1
 &gt;    1: 2
 &gt;    2: 3
 &gt;    4: 5
 &gt;    5: 4, 6
 &gt;    6: 7
 &gt;    7: 8
-</span></span></span>
-You should explain this example in the documentation: what are the
+
+</span></span>You should explain this example in the documentation: what are the
 numbers before and after the colons? (I know, but the readers won't.)
 
 <span class="quote"><span class="quote-1">&gt; Here, we would say that 4 and 5 are in a cycle. From the algorithm's
 &gt; standpoint, "everything not reachable from roots is in a cycle", posts 4
 &gt; to 8 are in a cycle. Since cycles mean errors,
-</span></span>
-Again, I would say "anomalies".
+
+</span></span>Again, I would say "anomalies".
 
 <span class="quote"><span class="quote-1">&gt; there is not much sense in putting effort in recovering the maximum
 &gt; number of messages when there's a cycle present.
-</span></span>
-I disagree. I would be happy to recover the messages. But it's not
+
+</span></span>I disagree. I would be happy to recover the messages. But it's not
 easy and I don't have the motivation to do it.
 
 <span class="quote"><span class="quote-1">&gt; There's really not much point in easing the symptoms that would urge
 &gt; the user to resolve the underlying problem.
-</span></span>
-I strongly disagree. We should not urge the maintainers to remove
+
+</span></span>I strongly disagree. We should not urge the maintainers to remove
 cycles: if they want to talk a week about it, that's fine.
 
 <span class="quote"><span class="quote-1">&gt; From all this, one can probably have a clear insight into the meaning
@@ -262,21 +262,21 @@ cycles: if they want to talk a week about it, that's fine.
 &gt; implies: a list of all posts that are part of a cycle. The way this list
 &gt; is compiled is intriguing, and gives the explanation for the peculiar
 &gt; definition of "in a cycle".
-</span></span>
-It this what you think is peculiar:
 
-<span class="raw-block">    A post is in a cycle if you can go up via the ‘parent’ relation
+</span></span>It this what you think is peculiar:
+
+    A post is in a cycle if you can go up via the ‘parent’ relation
     infinitely long and you will never reach a root.
 
-</span><span class="quote"><span class="quote-1">&gt; _recalc_cycles() starts out from the list of all posts, then
+<span class="quote"><span class="quote-1">&gt; _recalc_cycles() starts out from the list of all posts, then
 &gt; eliminating all posts reachable via iter_thread(). In the end, only
 &gt; posts unreachable from the roots remain, and these are by our
 &gt; definition the posts that are in cycles.
 &gt;
 &gt; (Those familiar to git may find some similarities in concepts
 &gt; and terminologies here.
-</span></span>
-I don' find any. The only similarity I see is the content of the
+
+</span></span>I don' find any. The only similarity I see is the content of the
 database of either programs is worth to visualize as a graph.
 
 <span class="quote"><span class="quote-1">&gt; Just watch the pattern: posts form threads according to a parent
@@ -287,20 +287,20 @@ database of either programs is worth to visualize as a graph.
 &gt;
 &gt; TODO Ask Csabi if the previous paragraph is actually helpful or only
 &gt; confusing.
-</span></span>
-Only confusing.
+
+</span></span>Only confusing.
 
 <span class="quote"><span class="quote-1">&gt; _cycles is only used in two places.
-</span></span>
-I think we shouldn't write sentences like this. These make this
+
+</span></span>I think we shouldn't write sentences like this. These make this
 document a nightmare to maintain.
 
 <span class="quote"><span class="quote-1">&gt; One is to ensure the call to root() is safe. The other is to add a
 &gt; special section in the index to contain posts in cycles.
 &gt;
 &gt; TODO The former use is a bit zealous.
-</span></span>
-I don't understand what do you mean by the last three sentences; could
+
+</span></span>I don't understand what do you mean by the last three sentences; could
 you clarify?
 
 <span class="quote"><span class="quote-1">&gt; It is perfectly safe to use root() even if there are cycled loops
@@ -311,39 +311,42 @@ you clarify?
 &gt; snake-game rule: the snake that hits itself dies.)
 &gt;
 &gt; TODO Consider the time saved by eliminating this data structure.
-</span></span>
-Yes, around the middle of this letter I said I'm considering this :)
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/114 -->
-<div class="post-summary" id="post-summary-hh-114">
+</span></span>Yes, around the middle of this letter I said I'm considering this :)
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/114 -->
+<span class="postsummary" id="post_hh/114">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_103.html#post-summary-hh-114">&lt;hh/114&gt;</a></span>
+<span class="index"><a href="../hh/thread_103.html#post_hh/114">&lt;hh/114&gt;</a></span>
+<span class="parent"><a href="../hh/thread_103.html#post_hh/103">&lt;&uarr;hh/103&gt;</a></span>
 <span class="date">(2009-04-19)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_103.html#post-summary-hh-103">hh/103</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_103.html#post-summary-hh-119">hh/119</a></span>
-<pre class="post-body-content">To tell the truth, I now think that if a text that tries to clarify
+<div class="body">
+<pre class="postbody">To tell the truth, I now think that if a text that tries to clarify
 something needs this much clarification, it should be scrapped.
 
 Once I have enough time on my hands (maybe the next coach trip?), I'll
 have another go at it, and see if it comes out better. The lesson from
 this attempt is to avoid unnecessary verbosity.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/119 -->
-<div class="post-summary" id="post-summary-hh-119">
+<div class="postbox"><!-- post hh/119 -->
+<span class="postsummary" id="post_hh/119">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_103.html#post-summary-hh-119">&lt;hh/119&gt;</a></span>
+<span class="index"><a href="../hh/thread_103.html#post_hh/119">&lt;hh/119&gt;</a></span>
+<span class="parent"><a href="../hh/thread_103.html#post_hh/114">&lt;&uarr;hh/114&gt;</a></span>
 <span class="date">(2009-04-19)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_103.html#post-summary-hh-114">hh/114</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">OK. Maybe you can wait until the Architecture page is ready. Maybe it
+<div class="body">
+<pre class="postbody">OK. Maybe you can wait until the Architecture page is ready. Maybe it
 will explain a lot of things together with the heapmanip user
 documentation and heapmanip developer documentation, so we won't need
 a document like "heapmanip explained".
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/119 -->
 </div><!-- postbox for post hh/114 -->
 </div><!-- postbox for post hh/103 -->

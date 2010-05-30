@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Optimization in Hk</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Optimization in Hk</h1>
 
 
-<div class="post-box"><!-- post hh/950 -->
-<div class="post-summary" id="post-summary-hh-950">
+<div class="postbox"><!-- post hh/950 -->
+<span class="postsummary" id="post_hh/950">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Optimization in Hk</span>
 <span class="tags">[idea]</span>
-<span class="index"><a href="../hh/thread_950.html#post-summary-hh-950">&lt;hh/950&gt;</a></span>
+<span class="index"><a href="../hh/thread_950.html#post_hh/950">&lt;hh/950&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-11-19)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_950.html#post-summary-hh-951">hh/951</a></span>
-<pre class="post-body-content">In case of the new Generator, I hope it's not the customizable/flexible
+<div class="body">
+<pre class="postbody">In case of the new Generator, I hope it's not the customizable/flexible
 architecture that will prove to be the bottleneck. That we can do some caching
 and regenerate e.g. only the affected part of the index page after modifying
 some posts. Currently regenerating the index is the bottleneck in my hh
@@ -30,27 +30,29 @@ since the regexp engine is written in C, which can be faster then our Python
 loops. The one thing that I'm sure could help a lot is to rewrite the parser
 (hklib.Post.parse_header, currently 14 lines of Python code) in C. Maybe even
 the create_header function is a good idea to rewrite.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/951 -->
-<div class="post-summary" id="post-summary-hh-951">
+<div class="postbox"><!-- post hh/951 -->
+<span class="postsummary" id="post_hh/951">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_950.html#post-summary-hh-951">&lt;hh/951&gt;</a></span>
+<span class="index"><a href="../hh/thread_950.html#post_hh/951">&lt;hh/951&gt;</a></span>
+<span class="parent"><a href="../hh/thread_950.html#post_hh/950">&lt;&uarr;hh/950&gt;</a></span>
 <span class="date">(2009-11-19)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_950.html#post-summary-hh-950">hh/950</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; In case of initialization and post parsing, I don't know where to expect the
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; In case of initialization and post parsing, I don't know where to expect the
 &gt; bottleneck, I'm not sure it can be done significantly faster within Python.
-</span></span>
-I think we should do a "null parser" that reads (ie. iterates once)
+
+</span></span>I think we should do a "null parser" that reads (ie. iterates once)
 over all the post files, and does nothing but emits the same post
 object for all the post files. This would give us a lower bound for
 the optimization, a reference value we know we can't get better.
 
 If this is still not fast enough to scale up to much larger post
 counts, then some serious thinking will be needed.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/951 -->
 </div><!-- postbox for post hh/950 -->
 

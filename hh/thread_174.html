@@ -1,38 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Body parsing - the how</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Body parsing - the how</h1>
 
 
-<div class="post-box"><!-- post hh/174 -->
-<div class="post-summary" id="post-summary-hh-174">
+<div class="postbox"><!-- post hh/174 -->
+<span class="postsummary" id="post_hh/174">
 <span class="author">Attila Nagy</span>
 <span class="subject">Body parsing - the how</span>
 <span class="tags">[post syntax, prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_174.html#post-summary-hh-174">&lt;hh/174&gt;</a></span>
+<span class="index"><a href="../hh/thread_174.html#post_hh/174">&lt;hh/174&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-05-08)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_174.html#post-summary-hh-177">hh/177</a></span>
-<pre class="post-body-content">== The How ==
+<div class="body">
+<pre class="postbody">== The How ==
 
 It seems to me that body parsing aims to do many things. Because of
 this, I propose a modular system where the body parser is handed a
 list of parsing modules which are then executed one after another.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/177 -->
-<div class="post-summary" id="post-summary-hh-177">
+<div class="postbox"><!-- post hh/177 -->
+<span class="postsummary" id="post_hh/177">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_174.html#post-summary-hh-177">&lt;hh/177&gt;</a></span>
+<span class="index"><a href="../hh/thread_174.html#post_hh/177">&lt;hh/177&gt;</a></span>
+<span class="parent"><a href="../hh/thread_174.html#post_hh/174">&lt;&uarr;hh/174&gt;</a></span>
 <span class="date">(2009-05-08)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_174.html#post-summary-hh-174">hh/174</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_174.html#post-summary-hh-180">hh/180</a></span>
-<pre class="post-body-content">In the simplest form, such a modular framework does nothing else
+<div class="body">
+<pre class="postbody">In the simplest form, such a modular framework does nothing else
 besides keeping a list of processing modules and iterating over this
 list and call upon all the modules to do their specific processing. In
 this model, a processing module is simply a function that takes a
@@ -61,55 +62,56 @@ At the end of the pipeline, the last module finishes the parsing by
 calling Html.encode() on any remaining plaintext segments. Then, the
 framework joins these plaintext strings to create the final HTML
 output.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/180 -->
-<div class="post-summary" id="post-summary-hh-180">
+<div class="postbox"><!-- post hh/180 -->
+<span class="postsummary" id="post_hh/180">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_174.html#post-summary-hh-180">&lt;hh/180&gt;</a></span>
+<span class="index"><a href="../hh/thread_174.html#post_hh/180">&lt;hh/180&gt;</a></span>
+<span class="parent"><a href="../hh/thread_174.html#post_hh/177">&lt;&uarr;hh/177&gt;</a></span>
 <span class="date">(2009-05-08)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_174.html#post-summary-hh-177">hh/177</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_174.html#post-summary-hh-183">hh/183</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; It seems to me that body parsing aims to do many things.
-</span></span>
-True.
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; It seems to me that body parsing aims to do many things.
+
+</span></span>True.
 
 <span class="quote"><span class="quote-2">&gt;&gt; Because of this, I propose a modular system where the body parser
 &gt;&gt; is handed a list of parsing modules which are then executed one
 &gt;&gt; after another.
-</span></span>
-Good!
+
+</span></span>Good!
 
 <span class="quote"><span class="quote-1">&gt; In the simplest form, such a modular framework does nothing else
 &gt; besides keeping a list of processing modules and iterating over this
 &gt; list and call upon all the modules to do their specific processing.
-</span></span>
-So far so good.
+
+</span></span>So far so good.
 
 <span class="quote"><span class="quote-1">&gt; In this model, a processing module is simply a function that takes a
 &gt; string and returns the complete HTML representation of the body as
 &gt; another string. Despite its simplicity, most of the tasks we want to
 &gt; do during the body parsing can be achieved with such a model.
-</span></span>
-Keep in mind that we want to use meta things also as properties of the
+
+</span></span>Keep in mind that we want to use meta things also as properties of the
 posts. We don't only use them to create the post pages.
 
 We want to be able to do something like this:
 
-<span class="raw-block">    &gt;&gt;&gt; ls(postdb().collect.has_meta('todo'))
+    &gt;&gt;&gt; ls(postdb().collect.has_meta('todo'))
     ...
-</span>
+
 or this:
 
-<span class="raw-block">    def todos():
+    def todos():
         for post in hkshell.postdb().collect.has_meta('todo'):
             print "%s: %s" % (post.heapid, post.get_meta('todo'))
 
     &gt;&gt;&gt; todos()
     1: change the subject of this thread
     5: add this to the previous post
-</span>
+
 We also want these to be automatically processed: IIRC, we agreed that
 a meta that starts with '!' should be automatically processed (after a
 maintainer's approval).
@@ -118,13 +120,13 @@ maintainer's approval).
 &gt; in at least two ways:
 &gt; * we need to be able to access the post and the post database, while
 &gt; parsing the bodies
-</span></span>
-OK.
+
+</span></span>OK.
 
 <span class="quote"><span class="quote-1">&gt; * the separation of already processed (HTML) and still unprocessed
 &gt; (raw) parts of the body have to be distinguished
-</span></span>
-I don't really understand why. But you don't have to answer it now if
+
+</span></span>I don't really understand why. But you don't have to answer it now if
 it is just a feeling that we will need that.
 
 <span class="quote"><span class="quote-1">&gt; For this, I propose to keep the body throughout the individual stages
@@ -136,16 +138,16 @@ it is just a feeling that we will need that.
 &gt; into a single segment. Then, the very first module would break it up
 &gt; into paragraphs, and add each paragraph as an individual segment into
 &gt; a new list, with these segments all still flagged as plaintext.
-</span></span>
-What do you mean by "paragraph"? Probably the paragraph's definition
+
+</span></span>What do you mean by "paragraph"? Probably the paragraph's definition
 should go into the "what" thread.
 
 <span class="quote"><span class="quote-1">&gt; At the end of the pipeline, the last module finishes the parsing by
 &gt; calling Html.encode() on any remaining plaintext segments. Then, the
 &gt; framework joins these plaintext strings to create the final HTML
 &gt; output.
-</span></span>
-This is OK.
+
+</span></span>This is OK.
 
 You haven't talked about these explicitly:
 - The current "body" attribute of the post should remain as it is, the
@@ -155,54 +157,55 @@ You haven't talked about these explicitly:
 - It seems to me that now we want only one layer between the
   string-&gt;paragraphs-as-plain-text and finished-paragraphs-&gt;HTML. It
   this correct?
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/183 -->
-<div class="post-summary" id="post-summary-hh-183">
+<div class="postbox"><!-- post hh/183 -->
+<span class="postsummary" id="post_hh/183">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_174.html#post-summary-hh-183">&lt;hh/183&gt;</a></span>
+<span class="index"><a href="../hh/thread_174.html#post_hh/183">&lt;hh/183&gt;</a></span>
+<span class="parent"><a href="../hh/thread_174.html#post_hh/180">&lt;&uarr;hh/180&gt;</a></span>
 <span class="date">(2009-05-08)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_174.html#post-summary-hh-180">hh/180</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_174.html#post-summary-hh-184">hh/184</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Keep in mind that we want to use meta things also as properties of the
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Keep in mind that we want to use meta things also as properties of the
 &gt; posts. We don't only use them to create the post pages.
-</span></span>
-Of course. Maybe I dived into implementation a bit early, the
+
+</span></span>Of course. Maybe I dived into implementation a bit early, the
 semantics of 'automatic processing' and 'acting on a meta' should have
 been more elaborated.
 
 <span class="quote"><span class="quote-1">&gt; We want to be able to do something like this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    &gt;&gt;&gt; ls(postdb().collect.has_meta('todo'))
+&gt;    &gt;&gt;&gt; ls(postdb().collect.has_meta('todo'))
 &gt;    ...
-</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;
 &gt; or this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    def todos():
+&gt;    def todos():
 &gt;        for post in hkshell.postdb().collect.has_meta('todo'):
 &gt;            print "%s: %s" % (post.heapid, post.get_meta('todo'))
 &gt;
 &gt;    &gt;&gt;&gt; todos()
 &gt;    1: change the subject of this thread
 &gt;    5: add this to the previous post
-</span></span></span>
-Yes. Your examples further emphasize the need for body processing to
+
+</span></span>Yes. Your examples further emphasize the need for body processing to
 be present elsewhere, not just in Generator's context.
 
 <span class="quote"><span class="quote-1">&gt; We also want these to be automatically processed: IIRC, we agreed that
 &gt; a meta that starts with '!' should be automatically processed (after a
 &gt; maintainer's approval).
-</span></span>
-And of course, the semantics of '!'.
+
+</span></span>And of course, the semantics of '!'.
 
 <span class="quote"><span class="quote-2">&gt;&gt; * the separation of already processed (HTML) and still unprocessed
 &gt;&gt; (raw) parts of the body have to be distinguished
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I don't really understand why. But you don't have to answer it now if
 &gt; it is just a feeling that we will need that.
-</span></span>
-I think I can explain. Suppose we want to decorate all occurences of
+
+</span></span>I think I can explain. Suppose we want to decorate all occurences of
 authors' names in a special manner, e.g. surround them with @'s, but
 only in the original text of the posts, not in the generated output.
 Now we'll have to somehow keep track of the already processed or
@@ -215,31 +218,31 @@ Pass 3: escape HTML and finish
 
 Before pass 1:
 
-<span class="raw-block">    &gt; I think Attis is right on this.
-
-    Josh, what do you say?
-</span>
-Before pass 2:
-
-<span class="raw-block">    &lt;div id="quoteheader"&gt;Josh wrote:&lt;/div&gt;
     &gt; I think Attis is right on this.
 
     Josh, what do you say?
-</span>
+
+Before pass 2:
+
+    &lt;div id="quoteheader"&gt;Josh wrote:&lt;/div&gt;
+    &gt; I think Attis is right on this.
+
+    Josh, what do you say?
+
 Before pass 3:
 
-<span class="raw-block">    &lt;div id="quoteheader"&gt;Josh wrote:&lt;/div&gt;
+    &lt;div id="quoteheader"&gt;Josh wrote:&lt;/div&gt;
     &gt; I think @Attis@ is right on this.
 
     @Josh@, what do you say?
-</span>
+
 After pass 3:
 
-<span class="raw-block">    &lt;div id="quoteheader"&gt;Josh wrote:&lt;/div&gt;
+    &lt;div id="quoteheader"&gt;Josh wrote:&lt;/div&gt;
     &amp;gt; I think @Attis@ is right on this.
 
     @Josh@, what do you say?
-</span>
+
 This is what we want to happen. First, we don't want to decorate the
 name inside the div. Secondly, and this is much more important: we
 have to HTML-escape the quote introduction, but we mustn't escape the
@@ -249,36 +252,37 @@ HTML or in plaintext.
 
 <span class="quote"><span class="quote-1">&gt; What do you mean by "paragraph"? Probably the paragraph's definition
 &gt; should go into the "what" thread.
-</span></span>
-Yes, exactly.
+
+</span></span>Yes, exactly.
 
 <span class="quote"><span class="quote-1">&gt; - The current "body" attribute of the post should remain as it is, the
 &gt;  list of segments and the HTML representation would be other
 &gt;  objects (either data attributes (=data members) or local variables
 &gt;  of some function)
-</span></span>
-This is a very important question. I think it is directly related to a
+
+</span></span>This is a very important question. I think it is directly related to a
 broader one: when should the processing happen? Also, it brings up the
 question: do we have to hardcode the elements parsed from the body?
 
 <span class="quote"><span class="quote-1">&gt; - It seems to me that now we want only one layer between the
 &gt;  string-&gt;paragraphs-as-plain-text and finished-paragraphs-&gt;HTML. It
 &gt;  this correct?
-</span></span>
-Not necessarily -- but it'd be nice.
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/184 -->
-<div class="post-summary" id="post-summary-hh-184">
+</span></span>Not necessarily -- but it'd be nice.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/184 -->
+<span class="postsummary" id="post_hh/184">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_174.html#post-summary-hh-184">&lt;hh/184&gt;</a></span>
+<span class="index"><a href="../hh/thread_174.html#post_hh/184">&lt;hh/184&gt;</a></span>
+<span class="parent"><a href="../hh/thread_174.html#post_hh/183">&lt;&uarr;hh/183&gt;</a></span>
 <span class="date">(2009-05-09)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_174.html#post-summary-hh-183">hh/183</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_174.html#post-summary-hh-185">hh/185</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     &lt;div id="quoteheader"&gt;Attis wrote:&lt;/div&gt;
-</span></span></span>
-Why do you use "div id", why not "div class"?
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt;     &lt;div id="quoteheader"&gt;Attis wrote:&lt;/div&gt;
+
+</span></span>Why do you use "div id", why not "div class"?
 
 <span class="quote"><span class="quote-1">&gt; This is what we want to happen. First, we don't want to decorate the
 &gt; name inside the div. Secondly, and this is much more important: we
@@ -286,16 +290,16 @@ Why do you use "div id", why not "div class"?
 &gt; same character in the HTML part. Therefore, I imagined a partly
 &gt; processed body as a sequence of blocks, each marked either as being in
 &gt; HTML or in plaintext.
-</span></span>
-I got your model, but I think it has a flaw.
+
+</span></span>I got your model, but I think it has a flaw.
 
 Let's say we have another "processor" that creates div-blocks from quotes:
 
-<span class="raw-block">     &lt;div class="quoteheader"&gt;Josh wrote:&lt;/div&gt;
+     &lt;div class="quoteheader"&gt;Josh wrote:&lt;/div&gt;
      &lt;div class="quote"&gt; I think Attis is right on this.&lt;/div&gt;
 
      Josh, what do you say?
-</span>
+
 How would this interact with the "normal" processing? How would the
 @-placer know to process quote and not to process quote header?
 
@@ -317,8 +321,8 @@ to me than a pure processed/notprocessed flag.
 &gt; This is a very important question. I think it is directly related to a
 &gt; broader one: when should the processing happen? Also, it brings up the
 &gt; question: do we have to hardcode the elements parsed from the body?
-</span></span>
-Do you mean hardcoding the _types_ of the elements? I think there are
+
+</span></span>Do you mean hardcoding the _types_ of the elements? I think there are
 two kinds of "types". A type is plain text vs HTML, another is
 quote/"quote header"/footnote/etc. I guess if we just say there are these
 two kinds of types, the each processor would be free to process only
@@ -340,13 +344,13 @@ would be as helpful for me.
 &gt;&gt;  this correct?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Not necessarily -- but it'd be nice.
-</span></span>
-Well, if you want a separate quote-processor, quote-header-creator,
+
+</span></span>Well, if you want a separate quote-processor, quote-header-creator,
 footnote-finder etc. then we will have more than one.
 
 My model in my brain was about how the body parsing will work:
 
-<span class="raw-block">    create paragraphs # paragraphs = list of segments
+    create paragraphs # paragraphs = list of segments
     for p in paragraphs:
         if p is quote:
             quote_process(p)
@@ -355,33 +359,35 @@ My model in my brain was about how the body parsing will work:
         elif p is text:
             process_text(p)
         ...
-</span>
+
 Your model is probably better though, in the way that it is much
 easier to extend:
 
-<span class="raw-block">    create paragraphs # paragraphs = list of segments
+    create paragraphs # paragraphs = list of segments
     for processor in processors:
         processor(paragraphs)
-</span>
+
 However, as this pseudo code snippet shows, probably the most
 important thing to get right is the format of the "paragraphs"
 list.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/185 -->
-<div class="post-summary" id="post-summary-hh-185">
+<div class="postbox"><!-- post hh/185 -->
+<span class="postsummary" id="post_hh/185">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_174.html#post-summary-hh-185">&lt;hh/185&gt;</a></span>
+<span class="index"><a href="../hh/thread_174.html#post_hh/185">&lt;hh/185&gt;</a></span>
+<span class="parent"><a href="../hh/thread_174.html#post_hh/184">&lt;&uarr;hh/184&gt;</a></span>
 <span class="date">(2009-05-09)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_174.html#post-summary-hh-184">hh/184</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">I think we are heading into an area of textual complexity where our
+<div class="body">
+<pre class="postbody">I think we are heading into an area of textual complexity where our
 mastery of English (and perhaps non-realtime communication) are
 beginning to be major obstacle towards understanding each other. How
 about chatting about this topic? I'll be on IRC, #heapkeeper @ Ubuntu
 servers.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/185 -->
 </div><!-- postbox for post hh/184 -->
 </div><!-- postbox for post hh/183 -->

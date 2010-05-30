@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Heapkeeper terminology</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Heapkeeper terminology</h1>
 
 
-<div class="post-box"><!-- post hh/10 -->
-<div class="post-summary" id="post-summary-hh-10">
+<div class="postbox"><!-- post hh/10 -->
+<span class="postsummary" id="post_hh/10">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Heapkeeper terminology</span>
 <span class="tags">[prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_10.html#post-summary-hh-10">&lt;hh/10&gt;</a></span>
+<span class="index"><a href="../hh/thread_10.html#post_hh/10">&lt;hh/10&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-03-08)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_10.html#post-summary-hh-190">hh/190</a></span>
-<pre class="post-body-content">Notes:
+<div class="body">
+<pre class="postbody">Notes:
 
 - I previously suggested using words like 'consequence' and 'direct
   consequence', but I'm not in favour of them any more. The
@@ -38,7 +38,7 @@ Parent (primitive), child:
     only one or zero parents, but any number of children. Threads
     are based on parent-child relationships.
 
-<span class="raw-block">    The in-reply-to header of the post object of Y refers to X
+    The in-reply-to header of the post object of Y refers to X
     (either by its heapid or messid) iff X is parent of Y. When a
     post is downloaded, it's in-reply-to header will be
     automatically converted to an in-reply-to header of the
@@ -49,7 +49,7 @@ Parent (primitive), child:
 
     See also: Post.inreplyto, MailDB.prev, MailDB.children
     (Both the first functions should be renamed to `parent`.)
-</span>
+
 Root:
     Every post has a root, which is another post. If a post has no
     parent, it is its own root. Otherwise, the root of the parent is
@@ -57,8 +57,8 @@ Root:
     no parent. So the word 'root' is used both as a relation (X is the
     root of Y) and a plain noun (X is a root).
 
-<span class="raw-block">    See also: MailDB.root
-</span>
+    See also: MailDB.root
+
 Thread:
     A thread is a set of mails that have the same root. A thread
     contains exactly one post that has no parent, which is the root of
@@ -66,8 +66,8 @@ Thread:
     of the thread is a root; and it is the root of all posts in the
     thread. (And it is not a root of any other post.)
 
-<span class="raw-block">    See also: MailDB.threadstruct
-</span>
+    See also: MailDB.threadstruct
+
 Cycle:
     Each post is in exactly one thread; except for the posts that are
     in a cycle. Those posts are not present in any thread. A post is
@@ -75,76 +75,78 @@ Cycle:
     long and you will never reach a root. The cycles are handled by
     Heapkeeper, but the maintainer of the heap should remove the cycles.
 
-<span class="raw-block">    See also: MailDB.has_cycle, MailDB.cycles
-</span>
+    See also: MailDB.has_cycle, MailDB.cycles
+
 Reference (primitive):
     A post may refer to any number of other posts. Sometimes if Y is
     a reply to X, the maintainer of the heap decides that X should be
     only a reference in Y instead of being the parent of Y.
 
-<span class="raw-block">    The references of a post are stored in the post object.
-</span>
+    The references of a post are stored in the post object.
+
 Ancestor:
     If a post has no parent, it has no ancestors. Otherwise the
     ancestors of a post are its parent and the ancestors of its
     parent.
 
-<span class="raw-block">    More informally: the ancestors of a post are its parent, its
+    More informally: the ancestors of a post are its parent, its
     parent's parent, etc.
 
     See also: PostSet.expb
-</span>
+
 Descendant:
     If a post has no children, it has no descendants. Otherwise the
     ancestors of a post are its children and the descendants of its
     children.
 
-<span class="raw-block">    More informally: the descendant of a post are its children, its
+    More informally: the descendant of a post are its children, its
     children's children, etc.
 
     See also: PostSet.expf
-</span>
+
 Thread mate:
     (Is this phrase OK, or maybe you can suggest a better one?)
 
-<span class="raw-block">    Two threads are thread mates if they have the same root, i.e. they
+    Two threads are thread mates if they have the same root, i.e. they
     are in the same thread. (Posts in cycles do not have thread
     mates.) The thread mates of a post are the descendants of the root
     of the post and the root itself.
 
     See also: PostSet.exp
-</span></pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/190 -->
-<div class="post-summary" id="post-summary-hh-190">
+<div class="postbox"><!-- post hh/190 -->
+<span class="postsummary" id="post_hh/190">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_10.html#post-summary-hh-190">&lt;hh/190&gt;</a></span>
+<span class="index"><a href="../hh/thread_10.html#post_hh/190">&lt;hh/190&gt;</a></span>
+<span class="parent"><a href="../hh/thread_10.html#post_hh/10">&lt;&uarr;hh/10&gt;</a></span>
 <span class="date">(2009-05-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_10.html#post-summary-hh-10">hh/10</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_10.html#post-summary-hh-191">hh/191</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Thread:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Thread:
 &gt;    A thread is a set of mails that have the same root. A thread
 &gt;    contains exactly one post that has no parent, which is the root of
 &gt;    the thread. (The third meaning of 'root' :) ) Obviously, the root
 &gt;    of the thread is a root; and it is the root of all posts in the
 &gt;    thread. (And it is not a root of any other post.)
-</span></span>
-I think a thread should be the set of all descendants of a root (in
+
+</span></span>I think a thread should be the set of all descendants of a root (in
 the 2nd sense, that is, a post with no parent). What is defined here
 would better be called a subthread. (Even if it follows that a thread
 is a subthread, and not the other way around.)
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/191 -->
-<div class="post-summary" id="post-summary-hh-191">
+<div class="postbox"><!-- post hh/191 -->
+<span class="postsummary" id="post_hh/191">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_10.html#post-summary-hh-191">&lt;hh/191&gt;</a></span>
+<span class="index"><a href="../hh/thread_10.html#post_hh/191">&lt;hh/191&gt;</a></span>
+<span class="parent"><a href="../hh/thread_10.html#post_hh/190">&lt;&uarr;hh/190&gt;</a></span>
 <span class="date">(2009-05-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_10.html#post-summary-hh-190">hh/190</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_10.html#post-summary-hh-217">hh/217</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Thread:
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Thread:
 &gt;&gt;    A thread is a set of mails that have the same root. A thread
 &gt;&gt;    contains exactly one post that has no parent, which is the root of
 &gt;&gt;    the thread. (The third meaning of 'root' :) ) Obviously, the root
@@ -152,16 +154,16 @@ is a subthread, and not the other way around.)
 &gt;&gt;    thread. (And it is not a root of any other post.)
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I think a thread should be the set of all descendants of a root
-</span></span>
-True!
+
+</span></span>True!
 
 <span class="quote"><span class="quote-1">&gt; (in the 2nd sense, that is, a post with no parent). What is defined
 &gt; here would better be called a subthread. (Even if it follows that a
 &gt; thread is a subthread, and not the other way around.)
-</span></span>
-How about this:
 
-<span class="raw-block">  **Thread:**
+</span></span>How about this:
+
+  **Thread:**
       A thread is the set of a root and all its descendants. A thread
       contains exactly one post that has no parent, which is the root of
       the thread. (The third meaning of 'root' :) ) Obviously, the root
@@ -178,7 +180,7 @@ How about this:
       of all posts in the subthread is the same. If the subthread is
       not a thread, this root differs from the root of the subthread,
       and it is also the root of other posts outside the subthread.
-</span>
+
 We also have to move these definitions below the definition of
 "ancestor" and "descendant".
 
@@ -189,20 +191,22 @@ Csabi
 
 [1] <a href="http://heapkeeper.org/glossary.html">http://heapkeeper.org/glossary.html</a>
 [2] hk://doc/glossary.rst
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/217 -->
-<div class="post-summary" id="post-summary-hh-217">
+<div class="postbox"><!-- post hh/217 -->
+<span class="postsummary" id="post_hh/217">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_10.html#post-summary-hh-217">&lt;hh/217&gt;</a></span>
+<span class="index"><a href="../hh/thread_10.html#post_hh/217">&lt;hh/217&gt;</a></span>
+<span class="parent"><a href="../hh/thread_10.html#post_hh/191">&lt;&uarr;hh/191&gt;</a></span>
 <span class="date">(2009-05-12)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_10.html#post-summary-hh-191">hh/191</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="meta-text">[close]</span>
+<div class="body">
+<pre class="postbody"><span class="meta-text">[close]</span>
 
 As I haven't received any further comments, I performed the changes.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/217 -->
 </div><!-- postbox for post hh/191 -->
 </div><!-- postbox for post hh/190 -->

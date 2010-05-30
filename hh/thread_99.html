@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>hkshell command for re-reading post database or splitting posts</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">hkshell command for re-reading post database or splitting posts</h1>
 
 
-<div class="post-box"><!-- post hh/99 -->
-<div class="post-summary" id="post-summary-hh-99">
+<div class="postbox"><!-- post hh/99 -->
+<span class="postsummary" id="post_hh/99">
 <span class="author">Attila Nagy</span>
 <span class="subject">hkshell command for re-reading post database or splitting posts</span>
 <span class="tags">[idea, reviewed]</span>
-<span class="index"><a href="../hh/thread_99.html#post-summary-hh-99">&lt;hh/99&gt;</a></span>
+<span class="index"><a href="../hh/thread_99.html#post_hh/99">&lt;hh/99&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-04-18)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_99.html#post-summary-hh-101">hh/101</a></span>
-<pre class="post-body-content">When a thread's topic silently diverges, the thread has to be broken
+<div class="body">
+<pre class="postbody">When a thread's topic silently diverges, the thread has to be broken
 by the editors to match the topic shift.
 
 The situation is easy when the topic change happens precisely at post
@@ -55,25 +55,26 @@ So I think we need either:
 
 Such a splitting command could work like this:
 
-<span class="raw-block">    &gt;&gt;&gt; sp(123)
+    &gt;&gt;&gt; sp(123)
 
     (behind the scenes:) vim -O posts/123.post posts/x42.post
-</span>
+
 This would also spare the editor [1] the burden of keeping track of the
 x-numbers.
 
 [1] The person, not the tool.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/101 -->
-<div class="post-summary" id="post-summary-hh-101">
+<div class="postbox"><!-- post hh/101 -->
+<span class="postsummary" id="post_hh/101">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_99.html#post-summary-hh-101">&lt;hh/101&gt;</a></span>
+<span class="index"><a href="../hh/thread_99.html#post_hh/101">&lt;hh/101&gt;</a></span>
+<span class="parent"><a href="../hh/thread_99.html#post_hh/99">&lt;&uarr;hh/99&gt;</a></span>
 <span class="date">(2009-04-18)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_99.html#post-summary-hh-99">hh/99</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_99.html#post-summary-hh-112">hh/112</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; What's the editor to do? The situation is not as simple as before.
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; What's the editor to do? The situation is not as simple as before.
 &gt; Making the first "kitten-only" post a new thread could be done, but
 &gt; then, the mutant monster would seemingly drop out of nowhere. The
 &gt; mixed post must be separated, and the relevant paragraph of this mixed
@@ -84,42 +85,43 @@ x-numbers.
 &gt; read into the post database. And, if you make the mistake of staying in
 &gt; hkshell, and do an "e(124)" to change the In-Reply-To: header to x42,
 &gt; you'll get a nasty exception when attempting to generate HTML output.
-</span></span>
-Why would you say e(124)? Why would you get a nasty exception?
+
+</span></span>Why would you say e(124)? Why would you get a nasty exception?
 
 <span class="quote"><span class="quote-1">&gt; So I think we need either:
 &gt; - a command to re-read the post database (simple and less foolproof),
-</span></span>
-The rl command in hkshell does that.
+
+</span></span>The rl command in hkshell does that.
 
 <span class="quote"><span class="quote-1">&gt; - a command to facilitate the splitting of a post.
 &gt;
 &gt; Such a splitting command could work like this:
 &gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     &gt;&gt;&gt; sp(123)
+&gt;     &gt;&gt;&gt; sp(123)
 &gt;
 &gt;     (behind the scenes:) vim -O posts/123.post posts/x42.post
-</span></span></span>
-Yes, this feature would be nice, I would have used it, as well. You
+
+</span></span>Yes, this feature would be nice, I would have used it, as well. You
 can put it onto the todo list, if you want to.
 
 <span class="quote"><span class="quote-1">&gt; This would also spare the editor the burden of keeping track of
 &gt; the x-numbers.
-</span></span>
-I don't understand this.
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/112 -->
-<div class="post-summary" id="post-summary-hh-112">
+</span></span>I don't understand this.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/112 -->
+<span class="postsummary" id="post_hh/112">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_99.html#post-summary-hh-112">&lt;hh/112&gt;</a></span>
+<span class="index"><a href="../hh/thread_99.html#post_hh/112">&lt;hh/112&gt;</a></span>
+<span class="parent"><a href="../hh/thread_99.html#post_hh/101">&lt;&uarr;hh/101&gt;</a></span>
 <span class="date">(2009-04-19)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_99.html#post-summary-hh-101">hh/101</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_99.html#post-summary-hh-120">hh/120</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Why would you say e(124)? Why would you get a nasty exception?
-</span></span>
-In this situation, you have a post (123), which contains two topics.
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Why would you say e(124)? Why would you get a nasty exception?
+
+</span></span>In this situation, you have a post (123), which contains two topics.
 125 is an aswer to the first, the more important, so I'll leave the
 "125 is a reply to 123" relationship in place. 124 is the answer to
 the "side topic" of 123, so I split the part of 123 which deals with
@@ -130,24 +132,25 @@ have this new post as its parent.
 &gt;&gt; x-numbers.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I don't understand this.
-</span></span>
-Now, when we split a post, we give the new post file an ID, which is
+
+</span></span>Now, when we split a post, we give the new post file an ID, which is
 the letter 'x' followed by a number. If one wants to create a new post
 file, they have to look at the post directory listing to find the
 highest number after the 'x' in post files already present. This
 cannot be done from within hkshell as of now. This is one part of the
 problem I aim to solve.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/120 -->
-<div class="post-summary" id="post-summary-hh-120">
+<div class="postbox"><!-- post hh/120 -->
+<span class="postsummary" id="post_hh/120">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_99.html#post-summary-hh-120">&lt;hh/120&gt;</a></span>
+<span class="index"><a href="../hh/thread_99.html#post_hh/120">&lt;hh/120&gt;</a></span>
+<span class="parent"><a href="../hh/thread_99.html#post_hh/112">&lt;&uarr;hh/112&gt;</a></span>
 <span class="date">(2009-04-19)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_99.html#post-summary-hh-112">hh/112</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; This would also spare the editor the burden of keeping track of
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt; This would also spare the editor the burden of keeping track of
 &gt;&gt;&gt; the x-numbers.
 </span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; I don't understand this.
@@ -158,9 +161,10 @@ problem I aim to solve.
 &gt; the highest number after the 'x' in post files already present. This
 &gt; cannot be done from within hkshell as of now. This is one part of the
 &gt; problem I aim to solve.
-</span></span>
-True!
-</pre></div><!-- post-summary -->
+
+</span></span>True!
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/120 -->
 </div><!-- postbox for post hh/112 -->
 </div><!-- postbox for post hh/101 -->

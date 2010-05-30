@@ -1,25 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>__repr__ function (2009-04-19 f9b1451718)</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">__repr__ function (2009-04-19 f9b1451718)</h1>
 
 
-<div class="post-box"><!-- post hh/124 -->
-<div class="post-summary" id="post-summary-hh-124">
+<div class="postbox"><!-- post hh/124 -->
+<span class="postsummary" id="post_hh/124">
 <span class="author">Csaba Hoch</span>
 <span class="subject">__repr__ function (2009-04-19 f9b1451718)</span>
 <span class="tags">[commit, reviewed]</span>
-<span class="index"><a href="../hh/thread_124.html#post-summary-hh-124">&lt;hh/124&gt;</a></span>
+<span class="index"><a href="../hh/thread_124.html#post_hh/124">&lt;hh/124&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-04-23)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_124.html#post-summary-hh-125">hh/125</a></span>
-<pre class="post-body-content">Diff:
+<div class="body">
+<pre class="postbody">Diff:
 
-<span class="raw-block">    @@ -521,6 +521,9 @@ class Post(object):
+    @@ -521,6 +521,9 @@ class Post(object):
              else:
                  return False
 
@@ -29,10 +29,10 @@
          # Misc
 
          def remove_google_stuff(self):
-</span>
+
 From the Python documentation of the Python Data Model [1]:
 
-<span class="raw-block">    object.__repr__(self)
+    object.__repr__(self)
 
         Called by the repr() built-in function and by string
         conversions (reverse quotes) to compute the “official” string
@@ -57,60 +57,63 @@ From the Python documentation of the Python Data Model [1]:
         have to be a valid Python expression: a more convenient or
         concise representation may be used instead. The return value
         must be a string object.
-</span>
+
 For example:
 
-<span class="raw-block">    &gt;&gt;&gt; repr(lambda x: None)
+    &gt;&gt;&gt; repr(lambda x: None)
     '&lt;function &lt;lambda&gt; at 0xb7d62374&gt;'
-</span>
+
 I think this would be a nice repr function:
 
-<span class="raw-block">    def __repr__(self):
+    def __repr__(self):
         return '&lt;post with heapid %s&gt;' % (self._heapid,)
-</span>
+
 I see that it would be more convenient for us if it was shorter,
 but this verbosity is very helpful for our future users and not that
 inconvenient for us.
 
 [1] <a href="http://docs.python.org/reference/datamodel.html">http://docs.python.org/reference/datamodel.html</a>
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/125 -->
-<div class="post-summary" id="post-summary-hh-125">
+<div class="postbox"><!-- post hh/125 -->
+<span class="postsummary" id="post_hh/125">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_124.html#post-summary-hh-125">&lt;hh/125&gt;</a></span>
+<span class="index"><a href="../hh/thread_124.html#post_hh/125">&lt;hh/125&gt;</a></span>
+<span class="parent"><a href="../hh/thread_124.html#post_hh/124">&lt;&uarr;hh/124&gt;</a></span>
 <span class="date">(2009-04-27)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_124.html#post-summary-hh-124">hh/124</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_124.html#post-summary-hh-126">hh/126</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I see that it would be more convenient for us if it was shorter,
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I see that it would be more convenient for us if it was shorter,
 &gt; but this verbosity is very helpful for our future users and not that
 &gt; inconvenient for us.
-</span></span>
-Yes, the way it is solved right now is far from perfect. I ran into
+
+</span></span>Yes, the way it is solved right now is far from perfect. I ran into
 this just now:
 
-<span class="raw-block">    &gt;&gt;&gt; postdb().roots()[0]
+    &gt;&gt;&gt; postdb().roots()[0]
     183
-</span>
+
 Not exactly the expected answer. How about:
 
-<span class="raw-block">    &gt;&gt;&gt; postdb().roots()[0]
+    &gt;&gt;&gt; postdb().roots()[0]
     &lt;post '183'&gt;
-</span>
-I'll change the __repr__ to return this.
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/126 -->
-<div class="post-summary" id="post-summary-hh-126">
+I'll change the __repr__ to return this.
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/126 -->
+<span class="postsummary" id="post_hh/126">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_124.html#post-summary-hh-126">&lt;hh/126&gt;</a></span>
+<span class="index"><a href="../hh/thread_124.html#post_hh/126">&lt;hh/126&gt;</a></span>
+<span class="parent"><a href="../hh/thread_124.html#post_hh/125">&lt;&uarr;hh/125&gt;</a></span>
 <span class="date">(2009-04-27)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_124.html#post-summary-hh-125">hh/125</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">OK.
-</pre></div><!-- post-summary -->
+<div class="body">
+<pre class="postbody">OK.
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/126 -->
 </div><!-- postbox for post hh/125 -->
 </div><!-- postbox for post hh/124 -->

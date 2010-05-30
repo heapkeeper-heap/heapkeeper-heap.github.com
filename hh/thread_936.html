@@ -1,23 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Problems with iterating text structures</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
-  <body >
+  <body>
     <h1 id="header">Problems with iterating text structures</h1>
 
 
-<div class="post-box"><!-- post hh/936 -->
-<div class="post-summary" id="post-summary-hh-936">
+<div class="postbox"><!-- post hh/936 -->
+<span class="postsummary" id="post_hh/936">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Problems with iterating text structures</span>
 <span class="tags">[issue]</span>
-<span class="index"><a href="../hh/thread_936.html#post-summary-hh-936">&lt;hh/936&gt;</a></span>
+<span class="index"><a href="../hh/thread_936.html#post_hh/936">&lt;hh/936&gt;</a></span>
+<span class="parent">&lt;root&gt;</span>
 <span class="date">(2009-11-15)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_936.html#post-summary-hh-943">hh/943</a></span>
-<pre class="post-body-content">A text structure is a string or an iterable of text structures,
+<div class="body">
+<pre class="postbody">A text structure is a string or an iterable of text structures,
 according to the current documentation.
 
 Maybe we should not allow any iterable, for example generators,
@@ -28,38 +28,41 @@ text structure, we won't be able to use the object for anything else.
 
 So I propose correcting the documentation that we allow only iterables
 that can be iterated any number of times to be text structures.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 
-<div class="post-box"><!-- post hh/943 -->
-<div class="post-summary" id="post-summary-hh-943">
+<div class="postbox"><!-- post hh/943 -->
+<span class="postsummary" id="post_hh/943">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_936.html#post-summary-hh-943">&lt;hh/943&gt;</a></span>
+<span class="index"><a href="../hh/thread_936.html#post_hh/943">&lt;hh/943&gt;</a></span>
+<span class="parent"><a href="../hh/thread_936.html#post_hh/936">&lt;&uarr;hh/936&gt;</a></span>
 <span class="date">(2009-11-16)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_936.html#post-summary-hh-936">hh/936</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_936.html#post-summary-hh-944">hh/944</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; So I propose correcting the documentation that we allow only iterables
+<div class="body">
+<pre class="postbody"><span class="quote"><span class="quote-1">&gt; So I propose correcting the documentation that we allow only iterables
 &gt; that can be iterated any number of times to be text structures.
-</span></span>
-How about narrowing it down to lists and tuples?
-</pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/944 -->
-<div class="post-summary" id="post-summary-hh-944">
+</span></span>How about narrowing it down to lists and tuples?
+</pre></div>
+</span><!-- postsummary -->
+
+<div class="postbox"><!-- post hh/944 -->
+<span class="postsummary" id="post_hh/944">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_936.html#post-summary-hh-944">&lt;hh/944&gt;</a></span>
+<span class="index"><a href="../hh/thread_936.html#post_hh/944">&lt;hh/944&gt;</a></span>
+<span class="parent"><a href="../hh/thread_936.html#post_hh/943">&lt;&uarr;hh/943&gt;</a></span>
 <span class="date">(2009-11-16)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_936.html#post-summary-hh-943">hh/943</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content">Heapkeeper. It would not make too much sense to put sets and dictionaries into
+<div class="body">
+<pre class="postbody">Heapkeeper. It would not make too much sense to put sets and dictionaries into
 text structures... But I can't help thinking that we may find
 something else than lists and tuples that may be useful. Of course if
 we now say that we accept only lists and tuples, we can still extend
 this later.
 
 So let's narrow it down then.
-</pre></div><!-- post-summary -->
+</pre></div>
+</span><!-- postsummary -->
 </div><!-- postbox for post hh/944 -->
 </div><!-- postbox for post hh/943 -->
 </div><!-- postbox for post hh/936 -->
