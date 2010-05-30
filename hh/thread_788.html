@@ -1,22 +1,22 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Commit "Post.create_header: minor docstring improvement" (b738ba6, 2009-08-27)</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Commit "Post.create_header: minor docstring improvement" (b738ba6, 2009-08-27)</h1>
 
 
-<div class="postbox"><!-- post hh/788 -->
-<span class="postsummary" id="post_hh/788">
+<div class="post-box"><!-- post hh/788 -->
+<div class="post-summary" id="post-summary-hh-788">
 <span class="author">Attila Nagy</span>
 <span class="subject">Commit "Post.create_header: minor docstring improvement" (b738ba6, 2009-08-27)</span>
-<span class="index"><a href="../hh/thread_788.html#post_hh/788">&lt;hh/788&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_788.html#post-summary-hh-788">&lt;hh/788&gt;</a></span>
 <span class="date">(2009-10-24)</span>
-<div class="body">
-<pre class="postbody">You did a docstring update here:
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_788.html#post-summary-hh-790">hh/790</a></span>
+<pre class="post-body-content">You did a docstring update here:
 
      @staticmethod
      def create_header(d):
@@ -60,18 +60,17 @@ more than one element, an exception is raised.
 """
 
 Do you think this would be more helpful than the original?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/790 -->
-<span class="postsummary" id="post_hh/790">
+<div class="post-box"><!-- post hh/790 -->
+<div class="post-summary" id="post-summary-hh-790">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_788.html#post_hh/790">&lt;hh/790&gt;</a></span>
-<span class="parent"><a href="../hh/thread_788.html#post_hh/788">&lt;&uarr;hh/788&gt;</a></span>
+<span class="index"><a href="../hh/thread_788.html#post-summary-hh-790">&lt;hh/790&gt;</a></span>
 <span class="date">(2009-10-25)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; You did a docstring update here:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_788.html#post-summary-hh-788">hh/788</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_788.html#post-summary-hh-992">hh/992</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; You did a docstring update here:
 &gt;
 &gt;      @staticmethod
 &gt;      def create_header(d):
@@ -79,13 +78,13 @@ Do you think this would be more helpful than the original?
 &gt; -        function to a str-&gt;(str | [str]) dictionary.
 &gt; +        """Transforms the {str: [str])} returned by the parse_header
 &gt; +        function to a {str: (str | [str])} dictionary.
-
-</span></span>The first modified line should not have that extra ')' in '{str: [str])}'.
+</span></span>
+The first modified line should not have that extra ')' in '{str: [str])}'.
 
 <span class="quote"><span class="quote-1">&gt; I think neither the old, nor the new ones are the best. I had to read
 &gt; the source to understand what it does.
-
-</span></span>You are right in that the docstring does not describe what the
+</span></span>
+You are right in that the docstring does not describe what the
 function actually does.
 
 <span class="quote"><span class="quote-1">&gt; Warning: the function `copy_one` is jedi code. I was reading it while
@@ -93,20 +92,20 @@ function actually does.
 &gt; does, then I had to do experiments in Python, because I couldn't
 &gt; believe that it does what it should. But it does -- the function is
 &gt; thoroughly tested, breaking it makes 70 tests fail.
-
-</span></span>:)))
+</span></span>
+:)))
 
 <span class="quote"><span class="quote-1">&gt; I would rewrite its docstring like this (of course later complete with
 &gt; proper arguments and returns sections):
+</span></span>
+Which would be this:
 
-</span></span>Which would be this:
-
-    **Argument:**
+<span class="raw-block">    **Argument:**
 
     - `d` ({str: [str]}) -- ...
 
     **Returns:** ({str: (str | [str])})
-
+</span>
 If you have a better name for `d`, I'm listening...
 
 I hope you don't have a problem with the {key: value} and [items]
@@ -114,22 +113,22 @@ notation. I stole that from the Erlang documentation conventions.
 
 <span class="quote"><span class="quote-1">&gt; """Creates a dictionary of headers from the dictionary returned by the
 &gt; `parse_header` function. This dictionary contains only keys of
-
-</span></span>The word "This" is ambiguous here.
+</span></span>
+The word "This" is ambiguous here.
 
 <span class="quote"><span class="quote-1">&gt; existing header names, and if the source dictionary contains any other
 &gt; keys, an exception will be raised.
-
-</span></span>Not true. A warning is printed in this case:
+</span></span>
+Not true. A warning is printed in this case:
 
 hklib.py, line 782:
 
-        # Adding additional keys to the _header and print warning about them
+<span class="raw-block">        # Adding additional keys to the _header and print warning about them
         for attr in d.keys():
             log('WARNING: Additional keys: "%s".' % d)
             copy_list(attr)
         return h
-
+</span>
 See commit 1932903 (Post: "forward compatible" post file parsing,
 2009-08-27) for why we should not raise an exception in this case.
 
@@ -137,8 +136,8 @@ See commit 1932903 (Post: "forward compatible" post file parsing,
 &gt; alternative name, which allows for parsing legacy post files.
 &gt;
 &gt; Two kinds of headers exist, one is which can have multiple values.
-
-</span></span>"one of which"?
+</span></span>
+"one of which"?
 
 <span class="quote"><span class="quote-1">&gt; The values for these keys are lists of string values both in the
 &gt; received and the returned dictionaries. Such are 'Tag' and 'Flag'
@@ -154,14 +153,14 @@ See commit 1932903 (Post: "forward compatible" post file parsing,
 &gt;     {'Parent': '', 'Author': 'Someone', 'Flag': [], 'Tag': ['one',
 &gt; 'two'], 'Date': '', 'Message-Id': '', 'Subject': 'topic'}
 &gt; """
-
-</span></span>Having examples for these kinds of functions is very good, lately I
+</span></span>
+Having examples for these kinds of functions is very good, lately I
 got used to writing them. (If we write a nice test case, basically we
 get the example for free.)
 
 Whitespace corrections:
 
-    **Example:** ::
+<span class="raw-block">    **Example:** ::
 
         &gt;&gt;&gt; Post.create_header({'Author':['Someone'],
         ...                     'Subject':['topic'],
@@ -169,12 +168,12 @@ Whitespace corrections:
         {'Parent': '', 'Author': 'Someone', 'Flag': [],
         'Tag': ['one', 'two'], 'Date': '', 'Message-Id': '',
         'Subject': 'topic'}
-
+</span>
 I think we can allow ourselves to put linebreaks into the output
 dictionary in places that are convenient to the reader. Maybe we could
 even introduce other white spaces:
 
-        &gt;&gt;&gt; Post.create_header({'Author':['Someone'],
+<span class="raw-block">        &gt;&gt;&gt; Post.create_header({'Author':['Someone'],
         ...                     'Subject':['topic'],
         ...                     'Tag':['one','two']})
         {'Parent': '',
@@ -184,81 +183,80 @@ even introduce other white spaces:
          'Date': '',
          'Message-Id': '',
          'Subject': 'topic'}
-
+</span>
 What do you think?
 
 <span class="quote"><span class="quote-1">&gt; Do you think this would be more helpful than the original?
+</span></span>
+Definitely, thanks!
+</pre></div><!-- post-summary -->
 
-</span></span>Definitely, thanks!
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/992 -->
-<span class="postsummary" id="post_hh/992">
+<div class="post-box"><!-- post hh/992 -->
+<div class="post-summary" id="post-summary-hh-992">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_788.html#post_hh/992">&lt;hh/992&gt;</a></span>
-<span class="parent"><a href="../hh/thread_788.html#post_hh/790">&lt;&uarr;hh/790&gt;</a></span>
+<span class="index"><a href="../hh/thread_788.html#post-summary-hh-992">&lt;hh/992&gt;</a></span>
 <span class="date">(2009-12-20)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Warning: the function `copy_one` is jedi code. I was reading it while
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_788.html#post-summary-hh-790">hh/790</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Warning: the function `copy_one` is jedi code. I was reading it while
 &gt;&gt; watching TV -- it took about two hours to begin to understand what it
 &gt;&gt; does, then I had to do experiments in Python, because I couldn't
 &gt;&gt; believe that it does what it should. But it does -- the function is
 &gt;&gt; thoroughly tested, breaking it makes 70 tests fail.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; :)))
-
-</span></span>Jedi code is OK -- it shows off our skills, it is educative to
+</span></span>
+Jedi code is OK -- it shows off our skills, it is educative to
 understand, but it should always be adequately documented.
 
 <span class="quote"><span class="quote-2">&gt;&gt; I would rewrite its docstring like this (of course later complete with
 &gt;&gt; proper arguments and returns sections):
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Which would be this:
-
-</span></span>Thanks!
+</span></span>
+Thanks!
 
 <span class="quote"><span class="quote-1">&gt; If you have a better name for `d`, I'm listening...
-
-</span></span>Well, `dictionary_to_be_rewritten` would be too long, `old_dict` is
+</span></span>
+Well, `dictionary_to_be_rewritten` would be too long, `old_dict` is
 cryptic, so let's stay with `d` for now.
 
 <span class="quote"><span class="quote-1">&gt; I hope you don't have a problem with the {key: value} and [items]
 &gt; notation. I stole that from the Erlang documentation conventions.
-
-</span></span>It's perfectly OK with me.
+</span></span>
+It's perfectly OK with me.
 
 <span class="quote"><span class="quote-2">&gt;&gt; """Creates a dictionary of headers from the dictionary returned by the
 &gt;&gt; `parse_header` function. This dictionary contains only keys of
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; The word "This" is ambiguous here.
-
-</span></span>Yes it is, thanks.
+</span></span>
+Yes it is, thanks.
 
 <span class="quote"><span class="quote-2">&gt;&gt; existing header names, and if the source dictionary contains any other
 &gt;&gt; keys, an exception will be raised.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Not true. A warning is printed in this case:
-
-</span></span>Yes, but it was true at the point when this docstring was added :)
+</span></span>
+Yes, but it was true at the point when this docstring was added :)
 
 <span class="quote"><span class="quote-2">&gt;&gt; Two kinds of headers exist, one is which can have multiple values.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; "one of which"?
+</span></span>
+Umm, a grammatical question. Let's simplify:
 
-</span></span>Umm, a grammatical question. Let's simplify:
-
-    There are 10 kinds of people. One is which can read binary.
-
+<span class="raw-block">    There are 10 kinds of people. One is which can read binary.
+</span>
 vs.
 
-    There are 10 kinds of people. One of which can read binary.
-
+<span class="raw-block">    There are 10 kinds of people. One of which can read binary.
+</span>
 I think the latter form is better when the two sentences are run together:
 
-    There are 10 kinds of people, one of which can read binary.
-
+<span class="raw-block">    There are 10 kinds of people, one of which can read binary.
+</span>
 This is only gut feeling, please don't ask me to explain it any
 further, because I won't be able to. But this experiment shows that my
 gut feeling is the same as yours: in this case, "one of which" would
@@ -267,14 +265,14 @@ be better.
 <span class="quote"><span class="quote-1">&gt; Having examples for these kinds of functions is very good, lately I
 &gt; got used to writing them. (If we write a nice test case, basically we
 &gt; get the example for free.)
-
-</span></span>I agree,
+</span></span>
+I agree,
 
 <span class="quote"><span class="quote-1">&gt; I think we can allow ourselves to put linebreaks into the output
 &gt; dictionary in places that are convenient to the reader. Maybe we could
 &gt; even introduce other white spaces:
 &gt;
-&gt;        &gt;&gt;&gt; Post.create_header({'Author':['Someone'],
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;        &gt;&gt;&gt; Post.create_header({'Author':['Someone'],
 &gt;        ...                     'Subject':['topic'],
 &gt;        ...                     'Tag':['one','two']})
 &gt;        {'Parent': '',
@@ -284,10 +282,10 @@ be better.
 &gt;         'Date': '',
 &gt;         'Message-Id': '',
 &gt;         'Subject': 'topic'}
-&gt;
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; What do you think?
-
-</span></span>This will kill our naive KLOC values, but everything for the reader.
+</span></span>
+This will kill our naive KLOC values, but everything for the reader.
 
 We could add a "non-naive" KLOC script to our scripts/ directory that
 skips comments, docstrings and whitespace.
@@ -295,11 +293,10 @@ skips comments, docstrings and whitespace.
 <span class="quote"><span class="quote-2">&gt;&gt; Do you think this would be more helpful than the original?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Definitely, thanks!
-
-</span></span>OK, I'll incorporate it into the set of docstring improvements I'm
+</span></span>
+OK, I'll incorporate it into the set of docstring improvements I'm
 planning to do in the next few days. Really!
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/992 -->
 </div><!-- postbox for post hh/790 -->
 </div><!-- postbox for post hh/788 -->

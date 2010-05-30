@@ -1,28 +1,28 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Commit threads</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Commit threads</h1>
 
 
-<div class="postbox"><!-- post hh/34 -->
-<span class="postsummary" id="post_hh/34">
+<div class="post-box"><!-- post hh/34 -->
+<div class="post-summary" id="post-summary-hh-34">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Commit threads</span>
 <span class="tags">[prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/34">&lt;hh/34&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-34">&lt;hh/34&gt;</a></span>
 <span class="date">(2009-03-21)</span>
-<div class="body">
-<pre class="postbody">When talking about a specific commit (or commits), I suggest the
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_34.html#post-summary-hh-49">hh/49</a></span>
+<pre class="post-body-content">When talking about a specific commit (or commits), I suggest the
 following forms for the subject:
 
-    [hh][commit] Description (date sha)
+<span class="raw-block">    [hh][commit] Description (date sha)
     [hh][commit] Description (date1 sha1, date2 sha2...)
-
+</span>
 - `date` is a date in yyyy-mm-dd format, as gitk displays it. Or is
   mm-dd enough?
 - `sha` is the first 10 characters of the SHA1 ID. Or should it be
@@ -30,22 +30,21 @@ following forms for the subject:
 
 E.g.:
 
-    [hh][commit] Developer Guide (2007-03-16 f3865b0265, 2007-03-19 137486f2a0)
-</pre></div>
-</span><!-- postsummary -->
+<span class="raw-block">    [hh][commit] Developer Guide (2007-03-16 f3865b0265, 2007-03-19 137486f2a0)
+</span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/49 -->
-<span class="postsummary" id="post_hh/49">
+<div class="post-box"><!-- post hh/49 -->
+<div class="post-summary" id="post-summary-hh-49">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/49">&lt;hh/49&gt;</a></span>
-<span class="parent"><a href="../hh/thread_34.html#post_hh/34">&lt;&uarr;hh/34&gt;</a></span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-49">&lt;hh/49&gt;</a></span>
 <span class="date">(2009-03-23)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; - `sha` is the first 10 characters of the SHA1 ID. Or should it be
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_34.html#post-summary-hh-34">hh/34</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_34.html#post-summary-hh-50">hh/50</a>, <a href="../hh/thread_34.html#post-summary-hh-51">hh/51</a>, <a href="../hh/thread_34.html#post-summary-hh-75">hh/75</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; - `sha` is the first 10 characters of the SHA1 ID. Or should it be
 &gt;  less?
-
-</span></span>With 5 digits, you have 16^5 = 2^20 = 1048576 different hashes. With
+</span></span>
+With 5 digits, you have 16^5 = 2^20 = 1048576 different hashes. With
 10000 non-colliding hashes, the chance of collision is about 1:100
 with each new hash added. (Correct me on that if I'm wrong,
 combinatorics is not exactly my forte.) So we seem to be better off
@@ -53,63 +52,61 @@ with 10 digits. (Even if I started this letter with the intent of
 advocating 5 digit hashes...)
 
 OK.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/50 -->
-<span class="postsummary" id="post_hh/50">
+<div class="post-box"><!-- post hh/50 -->
+<div class="post-summary" id="post-summary-hh-50">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/50">&lt;hh/50&gt;</a></span>
-<span class="parent"><a href="../hh/thread_34.html#post_hh/49">&lt;&uarr;hh/49&gt;</a></span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-50">&lt;hh/50&gt;</a></span>
 <span class="date">(2009-03-23)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; So we seem to be better off with 10 digits. (Even if I started this
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_34.html#post-summary-hh-49">hh/49</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; So we seem to be better off with 10 digits. (Even if I started this
 &gt; letter with the intent of advocating 5 digit hashes...)
-
-</span></span>:))))))
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+:))))))
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/50 -->
 
-<div class="postbox"><!-- post hh/51 -->
-<span class="postsummary" id="post_hh/51">
+<div class="post-box"><!-- post hh/51 -->
+<div class="post-summary" id="post-summary-hh-51">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/51">&lt;hh/51&gt;</a></span>
-<span class="parent"><a href="../hh/thread_34.html#post_hh/49">&lt;&uarr;hh/49&gt;</a></span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-51">&lt;hh/51&gt;</a></span>
 <span class="date">(2009-03-23)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; - `sha` is the first 10 characters of the SHA1 ID. Or should it be
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_34.html#post-summary-hh-49">hh/49</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_34.html#post-summary-hh-53">hh/53</a>, <a href="../hh/thread_34.html#post-summary-hh-63">hh/63</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; - `sha` is the first 10 characters of the SHA1 ID. Or should it be
 &gt;&gt;  less?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; With 5 digits, you have 16^5 = 2^20 = 1048576 different hashes.
-
-</span></span>Why do you take 16 as a base? A SHA character can be either a
+</span></span>
+Why do you take 16 as a base? A SHA character can be either a
 lowercase letter, an uppercase letter or a digit: 26+26+10=62.
 So the number of all variations with 5 digits is 62^5 = 916132832.
 
 <span class="quote"><span class="quote-1">&gt; With 10000 non-colliding hashes, the chance of collision is about
 &gt; 1:100 with each new hash added.
+</span></span>
+If you add a new hash, the chance of having a collision is:
 
-</span></span>If you add a new hash, the chance of having a collision is:
-
-    10000/916132832 = 1:91613 = .0000109154
-
+<span class="raw-block">    10000/916132832 = 1:91613 = .0000109154
+</span>
 Having no collision:
 
-    1 - .0000109154 = .9999890846 = 99.99890846%
-
+<span class="raw-block">    1 - .0000109154 = .9999890846 = 99.99890846%
+</span>
 The chance that there is no collision between k concrete hashes when
 there are n possible hashes:
 
-    positive cases: n*(n-1)*...*(n-k+1)
+<span class="raw-block">    positive cases: n*(n-1)*...*(n-k+1)
     all cases:  n^k
     probability: positive_cases / all_cases
-
+</span>
 A small bc script that calculates the probability:
 
-    n = 62^5
+<span class="raw-block">    n = 62^5
     k = 10000
 
     s = 1
@@ -123,7 +120,7 @@ A small bc script that calculates the probability:
     print s/(n^k)
     print "\n"
     quit
-
+</span>
 The famous example: 30 people in a classroom, what are the chances
 that there are at least two people with the same birthday?
 
@@ -132,17 +129,17 @@ Answer: the probability is around 71%. (n=365, k=30)
 The probability of not having a collision when using 5 characters long
 ids:
 
-    94.689034994794458384%
-
+<span class="raw-block">    94.689034994794458384%
+</span>
 The probability of not having a collision when using 10 characters
 long ids:
 
-    99.999999994043245827%
-
+<span class="raw-block">    99.999999994043245827%
+</span>
 I was wondering about all the numbers between 1 and 10. They are as
 follows:
 
-     3:  0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000039334920%
+<span class="raw-block">     3:  0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000039334920%
      4:  3.3904284628652179833%
      5: 94.689034994794458384%
      6: 99.912019719070384845%
@@ -150,13 +147,13 @@ follows:
      8: 99.999977102239580324%
      9: 99.999999630681241958%
     10: 99.999999994043245827%
-
+</span>
 1 and 2 are effectively 0. I was wondering about 40 as well, the
 number git uses. I started bc with 40, but I haven't had the patience
 to wait for the result (maybe tomorrow). But you can extrapolate from
 the number of 9-s in the numbers:
 
- number: nines
+<span class="raw-block"> number: nines
      6: 1
      6: 3
      7: 4
@@ -165,19 +162,19 @@ the number of 9-s in the numbers:
     10: 10
     ...
     40: 50
-
+</span>
 So it should be around:
     40: 99.99999999999999999999999999999999999999999999999999%
 
 <span class="quote"><span class="quote-1">&gt; (Correct me on that if I'm wrong, combinatorics is not exactly my
 &gt; forte.)
-
-</span></span>I see :)
+</span></span>
+I see :)
 
 <span class="quote"><span class="quote-1">&gt; So we seem to be better off with 10 digits. (Even if I started this
 &gt; letter with the intent of advocating 5 digit hashes...)
-
-</span></span>Maybe your initial feeling was right? If we work on the project for 3
+</span></span>
+Maybe your initial feeling was right? If we work on the project for 3
 years, doing 10 commits per day, commenting every single commit, and
 trying to check out every single one -- we would have a 95% chance of
 not having any problems. And if this collision occurred once in 3
@@ -187,18 +184,17 @@ enough to use 5-long ids by git - we are talking about using them in
 the subjects of our posts.)
 
 So, I'm in favour of 5-long ids in subjects.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/53 -->
-<span class="postsummary" id="post_hh/53">
+<div class="post-box"><!-- post hh/53 -->
+<div class="post-summary" id="post-summary-hh-53">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/53">&lt;hh/53&gt;</a></span>
-<span class="parent"><a href="../hh/thread_34.html#post_hh/51">&lt;&uarr;hh/51&gt;</a></span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-53">&lt;hh/53&gt;</a></span>
 <span class="date">(2009-03-24)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I was wondering about 40 as well, the number git uses. I started bc
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_34.html#post-summary-hh-51">hh/51</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I was wondering about 40 as well, the number git uses. I started bc
 &gt; with 40, but I haven't had the patience to wait for the result
 &gt; (maybe tomorrow). But you can extrapolate from the number of 9-s in
 &gt; the numbers:
@@ -215,57 +211,54 @@ So, I'm in favour of 5-long ids in subjects.
 &gt;
 &gt; So it should be around:
 &gt;    40: 99.999999999999999999999999999999999999999999999999%
-
-</span></span>The "exact" number:
+</span></span>
+The "exact" number:
      40: 99.9999999999999999999999999999999999999999999999999999999999999899246766541222762475427649806%
 
 My estimate wasn't very bad. 63 nines instead of 50.
 
 Another interesting thing: how many commits should we have so that we
 will have a 50% chance of collision in git... My estimate: A LOT.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/53 -->
 
-<div class="postbox"><!-- post hh/63 -->
-<span class="postsummary" id="post_hh/63">
+<div class="post-box"><!-- post hh/63 -->
+<div class="post-summary" id="post-summary-hh-63">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/63">&lt;hh/63&gt;</a></span>
-<span class="parent"><a href="../hh/thread_34.html#post_hh/51">&lt;&uarr;hh/51&gt;</a></span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-63">&lt;hh/63&gt;</a></span>
 <span class="date">(2009-04-05)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Why do you take 16 as a base? A SHA character can be either a
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_34.html#post-summary-hh-51">hh/51</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_34.html#post-summary-hh-65">hh/65</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Why do you take 16 as a base? A SHA character can be either a
 &gt; lowercase letter, an uppercase letter or a digit
+</span></span>
+Are you sure? I keep seeing only hex digits, and absolutely no uppercase.
+</pre></div><!-- post-summary -->
 
-</span></span>Are you sure? I keep seeing only hex digits, and absolutely no uppercase.
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/65 -->
-<span class="postsummary" id="post_hh/65">
+<div class="post-box"><!-- post hh/65 -->
+<div class="post-summary" id="post-summary-hh-65">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/65">&lt;hh/65&gt;</a></span>
-<span class="parent"><a href="../hh/thread_34.html#post_hh/63">&lt;&uarr;hh/63&gt;</a></span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-65">&lt;hh/65&gt;</a></span>
 <span class="date">(2009-04-05)</span>
-<div class="body">
-<pre class="postbody">Oh, right. I'll redo the math when I feel like...
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_34.html#post-summary-hh-63">hh/63</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Oh, right. I'll redo the math when I feel like...
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/65 -->
 </div><!-- postbox for post hh/63 -->
 </div><!-- postbox for post hh/51 -->
 
-<div class="postbox"><!-- post hh/75 -->
-<span class="postsummary" id="post_hh/75">
+<div class="post-box"><!-- post hh/75 -->
+<div class="post-summary" id="post-summary-hh-75">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_34.html#post_hh/75">&lt;hh/75&gt;</a></span>
-<span class="parent"><a href="../hh/thread_34.html#post_hh/49">&lt;&uarr;hh/49&gt;</a></span>
+<span class="index"><a href="../hh/thread_34.html#post-summary-hh-75">&lt;hh/75&gt;</a></span>
 <span class="date">(2009-04-12)</span>
-<div class="body">
-<pre class="postbody"><span class="meta-text">[close]</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_34.html#post-summary-hh-49">hh/49</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[close]</span>
 
 <span class="quote"><span class="quote-2">&gt;&gt; - `sha` is the first 10 characters of the SHA1 ID. Or should it be
 &gt;&gt;  less?
@@ -276,10 +269,9 @@ will have a 50% chance of collision in git... My estimate: A LOT.
 &gt; combinatorics is not exactly my forte.) So we seem to be better off
 &gt; with 10 digits. (Even if I started this letter with the intent of
 &gt; advocating 5 digit hashes...)
-
-</span></span>Let's use 10 digits then.
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+Let's use 10 digits then.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/75 -->
 </div><!-- postbox for post hh/49 -->
 </div><!-- postbox for post hh/34 -->

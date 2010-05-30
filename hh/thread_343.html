@@ -1,23 +1,23 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Tracking missing tests, documentation and other todos</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Tracking missing tests, documentation and other todos</h1>
 
 
-<div class="postbox"><!-- post hh/343 -->
-<span class="postsummary" id="post_hh/343">
+<div class="post-box"><!-- post hh/343 -->
+<div class="post-summary" id="post-summary-hh-343">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Tracking missing tests, documentation and other todos</span>
 <span class="tags">[prop, reviewed]</span>
-<span class="index"><a href="../hh/thread_343.html#post_hh/343">&lt;hh/343&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-343">&lt;hh/343&gt;</a></span>
 <span class="date">(2009-05-29)</span>
-<div class="body">
-<pre class="postbody">Previously I argued that all todos should be in our todo file.
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-370">hh/370</a></span>
+<pre class="post-body-content">Previously I argued that all todos should be in our todo file.
 I changed my mind: I think we need to document each function
 separately and locally whether they have tests and documentation. This
 would be especially important for new developers: when they create a
@@ -26,7 +26,7 @@ suite and documentation.
 
 I propose writing TODO-comments in the code:
 
-    # TODO test, document
+<span class="raw-block">    # TODO test, document
     def myfun():
         pass
 
@@ -36,26 +36,25 @@ I propose writing TODO-comments in the code:
         # TODO test, document
         def yourfun():
             pass
-
+</span>
 If you agree, I will write a small tool that extracts these todos:
 
-    $ scripts/list_todos
+<span class="raw-block">    $ scripts/list_todos
     hkrc.py:
         myfun: test, document
         MyClass: test
         MyClass.yourfun: test, document
-</pre></div>
-</span><!-- postsummary -->
+</span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/370 -->
-<span class="postsummary" id="post_hh/370">
+<div class="post-box"><!-- post hh/370 -->
+<div class="post-summary" id="post-summary-hh-370">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_343.html#post_hh/370">&lt;hh/370&gt;</a></span>
-<span class="parent"><a href="../hh/thread_343.html#post_hh/343">&lt;&uarr;hh/343&gt;</a></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-370">&lt;hh/370&gt;</a></span>
 <span class="date">(2009-06-03)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I think we need to document each function separately and locally
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-343">hh/343</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-371">hh/371</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I think we need to document each function separately and locally
 &gt; whether they have tests and documentation. This would be especially
 &gt; important for new developers: when they create a new function, they
 &gt; don't necessarily know their way around the test suite and
@@ -63,7 +62,7 @@ If you agree, I will write a small tool that extracts these todos:
 &gt;
 &gt; I propose writing TODO-comments in the code:
 &gt;
-&gt;     # TODO test, document
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     # TODO test, document
 &gt;     def myfun():
 &gt;         pass
 &gt;
@@ -73,36 +72,35 @@ If you agree, I will write a small tool that extracts these todos:
 &gt;         # TODO test, document
 &gt;         def yourfun():
 &gt;             pass
-
-</span></span>OK. I like the idea.
+</span></span></span>
+OK. I like the idea.
 
 How about marking missing stuff only locally, and reserving the TODO
 file to emphasize missing and important pieces of test and docs?
 
 <span class="quote"><span class="quote-1">&gt; If you agree, I will write a small tool that extracts these todos:
 &gt;
-&gt;     $ scripts/list_todos
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     $ scripts/list_todos
 &gt;     hkrc.py:
 &gt;         myfun: test, document
 &gt;         MyClass: test
 &gt;         MyClass.yourfun: test, document
+</span></span></span>
+Also seems nice.
+</pre></div><!-- post-summary -->
 
-</span></span>Also seems nice.
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/371 -->
-<span class="postsummary" id="post_hh/371">
+<div class="post-box"><!-- post hh/371 -->
+<div class="post-summary" id="post-summary-hh-371">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_343.html#post_hh/371">&lt;hh/371&gt;</a></span>
-<span class="parent"><a href="../hh/thread_343.html#post_hh/370">&lt;&uarr;hh/370&gt;</a></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-371">&lt;hh/371&gt;</a></span>
 <span class="date">(2009-06-03)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; How about marking missing stuff only locally, and reserving the TODO
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-370">hh/370</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-372">hh/372</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; How about marking missing stuff only locally, and reserving the TODO
 &gt; file to emphasize missing and important pieces of test and docs?
-
-</span></span>My proposal was this:
+</span></span>
+My proposal was this:
 - marking missing documentation and tests locally
 - everything else goes into the issue tracker (now todo file, later
   probably a heap)
@@ -121,18 +119,17 @@ heavy-weigth than just writing a TODO-comment and developers don't
 feel like writing an email about a minor thing they should just do.
 
 We should think about pros and contras of the alternatives.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/372 -->
-<span class="postsummary" id="post_hh/372">
+<div class="post-box"><!-- post hh/372 -->
+<div class="post-summary" id="post-summary-hh-372">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_343.html#post_hh/372">&lt;hh/372&gt;</a></span>
-<span class="parent"><a href="../hh/thread_343.html#post_hh/371">&lt;&uarr;hh/371&gt;</a></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-372">&lt;hh/372&gt;</a></span>
 <span class="date">(2009-06-04)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; How about marking missing stuff only locally, and reserving the TODO
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-371">hh/371</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-373">hh/373</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; How about marking missing stuff only locally, and reserving the TODO
 &gt;&gt; file to emphasize missing and important pieces of test and docs?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; My proposal was this:[-]
@@ -142,8 +139,8 @@ We should think about pros and contras of the alternatives.
 &gt;
 &gt; How is your suggestion different from this? Do you suggest placing
 &gt; notes about other minor missing things in the source code?
-
-</span></span>No, I misunderstood you, then you misunderstood me. I say cluttering
+</span></span>
+No, I misunderstood you, then you misunderstood me. I say cluttering
 up the source code with all kinds of notes is no good, but one line
 per function stating what is missing would be a nice thing. We should
 save all else for the TODO file.
@@ -154,40 +151,37 @@ are already there in the source code, and anyone can find them, even
 automatically. So, for the missing docs and tests, we should only list
 the most important ones in the TODO. All other notes and missing
 things would, of course, belong there.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/373 -->
-<span class="postsummary" id="post_hh/373">
+<div class="post-box"><!-- post hh/373 -->
+<div class="post-summary" id="post-summary-hh-373">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_343.html#post_hh/373">&lt;hh/373&gt;</a></span>
-<span class="parent"><a href="../hh/thread_343.html#post_hh/372">&lt;&uarr;hh/372&gt;</a></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-373">&lt;hh/373&gt;</a></span>
 <span class="date">(2009-06-04)</span>
-<div class="body">
-<pre class="postbody">OK then. We agree (if I didn't misunderstand you :) ) that all todo
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-372">hh/372</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-374">hh/374</a></span>
+<pre class="post-body-content">OK then. We agree (if I didn't misunderstand you :) ) that all todo
 should be at exactly one place. If the todo is about missing docs or
 test cases, this place is the source code, otherwise it is the todo
 file (or later the issue tracker).
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/374 -->
-<span class="postsummary" id="post_hh/374">
+<div class="post-box"><!-- post hh/374 -->
+<div class="post-summary" id="post-summary-hh-374">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_343.html#post_hh/374">&lt;hh/374&gt;</a></span>
-<span class="parent"><a href="../hh/thread_343.html#post_hh/373">&lt;&uarr;hh/373&gt;</a></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-374">&lt;hh/374&gt;</a></span>
 <span class="date">(2009-06-04)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; OK then. We agree (if I didn't misunderstand you :) ) that all todo
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-373">hh/373</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; OK then. We agree (if I didn't misunderstand you :) ) that all todo
 &gt; should be at exactly one place. If the todo is about missing docs or
 &gt; test cases, this place is the source code, otherwise it is the todo
 &gt; file (or later the issue tracker).
-
-</span></span>OK.
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+OK.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/374 -->
 </div><!-- postbox for post hh/373 -->
 </div><!-- postbox for post hh/372 -->

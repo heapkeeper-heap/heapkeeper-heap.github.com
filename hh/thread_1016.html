@@ -1,230 +1,218 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Mapping for removing trailing whitespace</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Mapping for removing trailing whitespace</h1>
 
 
-<div class="postbox"><!-- post hh/1016 -->
-<span class="postsummary" id="post_hh/1016">
+<div class="post-box"><!-- post hh/1016 -->
+<div class="post-summary" id="post-summary-hh-1016">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Mapping for removing trailing whitespace</span>
 <span class="tags">[vim]</span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1016">&lt;hh/1016&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1016">&lt;hh/1016&gt;</a></span>
 <span class="date">(2010-01-02)</span>
-<div class="body">
-<pre class="postbody">So trivial, but so useful:
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1017">hh/1017</a></span>
+<pre class="post-body-content">So trivial, but so useful:
 
-    :noremap ,&lt;space&gt; :%s/ \+$/&lt;cr&gt;
-</pre></div>
-</span><!-- postsummary -->
+<span class="raw-block">    :noremap ,&lt;space&gt; :%s/ \+$/&lt;cr&gt;
+</span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1017 -->
-<span class="postsummary" id="post_hh/1017">
+<div class="post-box"><!-- post hh/1017 -->
+<div class="post-summary" id="post-summary-hh-1017">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1017">&lt;hh/1017&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1016">&lt;&uarr;hh/1016&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1017">&lt;hh/1017&gt;</a></span>
 <span class="date">(2010-01-02)</span>
-<div class="body">
-<pre class="postbody">Is there a way in Vim to attach a hook to saving, so that trailing
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1016">hh/1016</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1018">hh/1018</a></span>
+<pre class="post-body-content">Is there a way in Vim to attach a hook to saving, so that trailing
 whitespaces get cleaned up automatically on saving?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1018 -->
-<span class="postsummary" id="post_hh/1018">
+<div class="post-box"><!-- post hh/1018 -->
+<div class="post-summary" id="post-summary-hh-1018">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1018">&lt;hh/1018&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1017">&lt;&uarr;hh/1017&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1018">&lt;hh/1018&gt;</a></span>
 <span class="date">(2010-01-02)</span>
-<div class="body">
-<pre class="postbody">Good idea! It is easy:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1017">hh/1017</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1019">hh/1019</a></span>
+<pre class="post-body-content">Good idea! It is easy:
 
-    :au BufWritePre * :%s/ \+$//
-</pre></div>
-</span><!-- postsummary -->
+<span class="raw-block">    :au BufWritePre * :%s/ \+$//
+</span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1019 -->
-<span class="postsummary" id="post_hh/1019">
+<div class="post-box"><!-- post hh/1019 -->
+<div class="post-summary" id="post-summary-hh-1019">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1019">&lt;hh/1019&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1018">&lt;&uarr;hh/1018&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1019">&lt;hh/1019&gt;</a></span>
 <span class="date">(2010-01-02)</span>
-<div class="body">
-<pre class="postbody">This is better:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1018">hh/1018</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1090">hh/1090</a></span>
+<pre class="post-body-content">This is better:
 
-    :au BufWritePre * :silent! %s/ \+$//
-
+<span class="raw-block">    :au BufWritePre * :silent! %s/ \+$//
+</span>
 This way we can avoid the error message when there was no trailing
 whitespace to be removed.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1090 -->
-<span class="postsummary" id="post_hh/1090">
+<div class="post-box"><!-- post hh/1090 -->
+<div class="post-summary" id="post-summary-hh-1090">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1090">&lt;hh/1090&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1019">&lt;&uarr;hh/1019&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1090">&lt;hh/1090&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; This is better:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1019">hh/1019</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1091">hh/1091</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; This is better:
 &gt;
-&gt;     :au BufWritePre * :silent! %s/ \+$//
-&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     :au BufWritePre * :silent! %s/ \+$//
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; This way we can avoid the error message when there was no trailing
 &gt; whitespace to be removed.
-
-</span></span>But beware! Only apply this for files where trailing whitespace is an
+</span></span>
+But beware! Only apply this for files where trailing whitespace is an
 error. E.g. Python files. Trailing whitespace is important in some
 file types, like Heap posts and MediaWiki markup. (It can be used to
 include blank lines in code sections in both.)
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1091 -->
-<span class="postsummary" id="post_hh/1091">
+<div class="post-box"><!-- post hh/1091 -->
+<div class="post-summary" id="post-summary-hh-1091">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1091">&lt;hh/1091&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1090">&lt;&uarr;hh/1090&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1091">&lt;hh/1091&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody">We should have trailing white space in emails. It messes them up. For example:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1090">hh/1090</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1092">hh/1092</a>, <a href="../hh/thread_1016.html#post-summary-hh-1099">hh/1099</a></span>
+<pre class="post-body-content">We should have trailing white space in emails. It messes them up. For example:
 
 This is a line with a trailing whitespace.
 This is another line.
 
 In my experience, Thunderbird will show the two lines as one line. I
 will report back in a minute.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1092 -->
-<span class="postsummary" id="post_hh/1092">
+<div class="post-box"><!-- post hh/1092 -->
+<div class="post-summary" id="post-summary-hh-1092">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1092">&lt;hh/1092&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1091">&lt;&uarr;hh/1091&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1092">&lt;hh/1092&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; In my experience, Thunderbird will show the two lines as one line. I
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1091">hh/1091</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1093">hh/1093</a>, <a href="../hh/thread_1016.html#post-summary-hh-1098">hh/1098</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; In my experience, Thunderbird will show the two lines as one line. I
 &gt; will report back in a minute.
-
-</span></span>GMail removed the trailing space. How about these:
+</span></span>
+GMail removed the trailing space. How about these:
 
 One line.
 Another line.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1093 -->
-<span class="postsummary" id="post_hh/1093">
+<div class="post-box"><!-- post hh/1093 -->
+<div class="post-summary" id="post-summary-hh-1093">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1093">&lt;hh/1093&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1092">&lt;&uarr;hh/1092&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1093">&lt;hh/1093&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody">It is shown as one line even in GMail!
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1092">hh/1092</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1094">hh/1094</a>, <a href="../hh/thread_1016.html#post-summary-hh-1096">hh/1096</a></span>
+<pre class="post-body-content">It is shown as one line even in GMail!
 
 So post should never have trailing whitespace.
 
 Sphinx documents don't need them either.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1094 -->
-<span class="postsummary" id="post_hh/1094">
+<div class="post-box"><!-- post hh/1094 -->
+<div class="post-summary" id="post-summary-hh-1094">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1094">&lt;hh/1094&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1093">&lt;&uarr;hh/1093&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1094">&lt;hh/1094&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody">There is another concern though, which do not apply to either
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1093">hh/1093</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1095">hh/1095</a></span>
+<pre class="post-body-content">There is another concern though, which do not apply to either
 Heapkeeper or any document I edit at home, but it does apply to my day
 job. If I turned this automatic trailing space-remover on, it would
 remove trailing whitespace from existing code, and CVS would show that
 I modified those lines, which would mess up the diff.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1095 -->
-<span class="postsummary" id="post_hh/1095">
+<div class="post-box"><!-- post hh/1095 -->
+<div class="post-summary" id="post-summary-hh-1095">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1095">&lt;hh/1095&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1094">&lt;&uarr;hh/1094&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1095">&lt;hh/1095&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; If I turned this automatic trailing space-remover on, it would
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1094">hh/1094</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If I turned this automatic trailing space-remover on, it would
 &gt; remove trailing whitespace from existing code, and CVS would show that
 &gt; I modified those lines, which would mess up the diff.
-
-</span></span>The answer here would be to do a cleanup commit in which you remove
+</span></span>
+The answer here would be to do a cleanup commit in which you remove
 all the trailing whitespace in one go, if the policy/conventions
 permit.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1095 -->
 </div><!-- postbox for post hh/1094 -->
 
-<div class="postbox"><!-- post hh/1096 -->
-<span class="postsummary" id="post_hh/1096">
+<div class="post-box"><!-- post hh/1096 -->
+<div class="post-summary" id="post-summary-hh-1096">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1096">&lt;hh/1096&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1093">&lt;&uarr;hh/1093&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1096">&lt;hh/1096&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody">Sorry, I didn't really catch what you did here. I think it'd be wise to
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1093">hh/1093</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1016.html#post-summary-hh-1100">hh/1100</a></span>
+<pre class="post-body-content">Sorry, I didn't really catch what you did here. I think it'd be wise to
 do such experimentation by clearly stating what you wrote in the original
 form. E.g.:
 
-    One line.&lt;tab&gt;&lt;tab&gt;&lt;spc&gt;
+<span class="raw-block">    One line.&lt;tab&gt;&lt;tab&gt;&lt;spc&gt;
     Another line.&lt;tab&gt;
-
+</span>
 This way, we could see what got swallowed, because I really don't have
 a clue now.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1100 -->
-<span class="postsummary" id="post_hh/1100">
+<div class="post-box"><!-- post hh/1100 -->
+<div class="post-summary" id="post-summary-hh-1100">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1100">&lt;hh/1100&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1096">&lt;&uarr;hh/1096&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1100">&lt;hh/1100&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Sorry, I didn't really catch what you did here. I think it'd be wise to
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1096">hh/1096</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Sorry, I didn't really catch what you did here. I think it'd be wise to
 &gt; do such experimentation by clearly stating what you wrote in the original
 &gt; form.
-
-</span></span>Sorry, you are right, I wasn't wise enough :)
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+Sorry, you are right, I wasn't wise enough :)
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1100 -->
 </div><!-- postbox for post hh/1096 -->
 </div><!-- postbox for post hh/1093 -->
 
-<div class="postbox"><!-- post hh/1098 -->
-<span class="postsummary" id="post_hh/1098">
+<div class="post-box"><!-- post hh/1098 -->
+<div class="post-summary" id="post-summary-hh-1098">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1098">&lt;hh/1098&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1092">&lt;&uarr;hh/1092&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1098">&lt;hh/1098&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody">On Sun, Feb 7, 2010 at 8:59 AM, Csaba Hoch &lt;csaba.hoch@gmail.com&gt; wrote:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1092">hh/1092</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">On Sun, Feb 7, 2010 at 8:59 AM, Csaba Hoch &lt;csaba.hoch@gmail.com&gt; wrote:
 <span class="quote"><span class="quote-2">&gt;&gt; In my experience, Thunderbird will show the two lines as one line. I
 &gt;&gt; will report back in a minute.
 </span></span><span class="quote"><span class="quote-1">&gt;
@@ -232,25 +220,24 @@ a clue now.
 &gt;
 &gt; One line. Another line.
 &gt;
-
-</span></span>I wrote this email from Thunderbird. It looked like this when I sent it:
+</span></span>
+I wrote this email from Thunderbird. It looked like this when I sent it:
 
 One line.&lt;space&gt;
 Another line.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1098 -->
 </div><!-- postbox for post hh/1092 -->
 
-<div class="postbox"><!-- post hh/1099 -->
-<span class="postsummary" id="post_hh/1099">
+<div class="post-box"><!-- post hh/1099 -->
+<div class="post-summary" id="post-summary-hh-1099">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1016.html#post_hh/1099">&lt;hh/1099&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1016.html#post_hh/1091">&lt;&uarr;hh/1091&gt;</a></span>
+<span class="index"><a href="../hh/thread_1016.html#post-summary-hh-1099">&lt;hh/1099&gt;</a></span>
 <span class="date">(2010-02-07)</span>
-<div class="body">
-<pre class="postbody">On Sun, Feb 7, 2010 at 8:58 AM, Csaba Hoch &lt;csaba.hoch@gmail.com&gt; wrote:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1016.html#post-summary-hh-1091">hh/1091</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">On Sun, Feb 7, 2010 at 8:58 AM, Csaba Hoch &lt;csaba.hoch@gmail.com&gt; wrote:
 <span class="quote"><span class="quote-1">&gt; We should have trailing white space in emails. It messes them up. For example:
 &gt;
 &gt; This is a line with a trailing whitespace.
@@ -258,14 +245,13 @@ Another line.
 &gt;
 &gt; In my experience, Thunderbird will show the two lines as one line. I
 &gt; will report back in a minute.
-
-</span></span>I wrote this email from the web interface of GMail. It looked like
+</span></span>
+I wrote this email from the web interface of GMail. It looked like
 this when I pushed the "Send" button:
 
 One line.&lt;space&gt;
 Another line.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1099 -->
 </div><!-- postbox for post hh/1091 -->
 </div><!-- postbox for post hh/1090 -->

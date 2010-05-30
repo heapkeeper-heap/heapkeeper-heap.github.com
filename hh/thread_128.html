@@ -1,108 +1,106 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>None is also accepted as prepost (4b2977e9b7 2009-04-27)</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">None is also accepted as prepost (4b2977e9b7 2009-04-27)</h1>
 
 
-<div class="postbox"><!-- post hh/128 -->
-<span class="postsummary" id="post_hh/128">
+<div class="post-box"><!-- post hh/128 -->
+<div class="post-summary" id="post-summary-hh-128">
 <span class="author">Csaba Hoch</span>
 <span class="subject">None is also accepted as prepost (4b2977e9b7 2009-04-27)</span>
-<span class="tags">[commit]</span>
-<span class="index"><a href="../hh/thread_128.html#post_hh/128">&lt;hh/128&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="tags">[commit, reviewed]</span>
+<span class="index"><a href="../hh/thread_128.html#post-summary-hh-128">&lt;hh/128&gt;</a></span>
 <span class="date">(2009-04-28)</span>
-<div class="body">
-<pre class="postbody">Why is it good that None is also accepted as prepost?
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_128.html#post-summary-hh-134">hh/134</a></span>
+<pre class="post-body-content">Why is it good that None is also accepted as prepost?
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/134 -->
-<span class="postsummary" id="post_hh/134">
+<div class="post-box"><!-- post hh/134 -->
+<div class="post-summary" id="post-summary-hh-134">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_128.html#post_hh/134">&lt;hh/134&gt;</a></span>
-<span class="parent"><a href="../hh/thread_128.html#post_hh/128">&lt;&uarr;hh/128&gt;</a></span>
+<span class="index"><a href="../hh/thread_128.html#post-summary-hh-134">&lt;hh/134&gt;</a></span>
 <span class="date">(2009-04-29)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Why is it good that None is also accepted as prepost?
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_128.html#post-summary-hh-128">hh/128</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_128.html#post-summary-hh-135">hh/135</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Why is it good that None is also accepted as prepost?
+</span></span>
+See commit efa4653435, 2009-04-27 19:59:22:
 
-</span></span>See commit efa4653435, 2009-04-27 19:59:22:
-
-    ps_singles = postdb.roots()
+<span class="raw-block">    ps_singles = postdb.roots()
     for post in postdb.all():
         ps_singles -= hklib.PostSet(postdb, [postdb.parent(post)])
-
+</span>
 This could have been written as something like:
 
-    ps_singles = postdb.roots()
+<span class="raw-block">    ps_singles = postdb.roots()
     for post in postdb.all():
         parent = postdb.parent(post)
         if parent is not None:
             ps_singles -= hklib.PostSet(postdb, [parent])
-
+</span>
 which I didn't like. I thought that an empty set is perfectly sensible, and it
 should also make sense to create an empty PostSet. Then, the special case when
 a post has no parents would not be special at all and needs no special
 handling. After all, creating an empty set on a None input seems logical.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/135 -->
-<span class="postsummary" id="post_hh/135">
+<div class="post-box"><!-- post hh/135 -->
+<div class="post-summary" id="post-summary-hh-135">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_128.html#post_hh/135">&lt;hh/135&gt;</a></span>
-<span class="parent"><a href="../hh/thread_128.html#post_hh/134">&lt;&uarr;hh/134&gt;</a></span>
+<span class="index"><a href="../hh/thread_128.html#post-summary-hh-135">&lt;hh/135&gt;</a></span>
 <span class="date">(2009-04-29)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Why is it good that None is also accepted as prepost?
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_128.html#post-summary-hh-134">hh/134</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_128.html#post-summary-hh-139">hh/139</a>, <a href="../hh/thread_128.html#post-summary-hh-141">hh/141</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Why is it good that None is also accepted as prepost?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; See commit efa4653435, 2009-04-27 19:59:22:
 &gt;
-&gt;     ps_singles = postdb.roots()
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     ps_singles = postdb.roots()
 &gt;     for post in postdb.all():
 &gt;         ps_singles -= hklib.PostSet(postdb, [])
-
-</span></span>You can write "postdb.postset(xx)" instead of "hklib.PostSet(postdb, xx)".
+</span></span></span>
+You can write "postdb.postset(xx)" instead of "hklib.PostSet(postdb, xx)".
 
 <span class="quote"><span class="quote-1">&gt; This could have been written as something like:
 &gt;
-&gt;     ps_singles = postdb.roots()
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     ps_singles = postdb.roots()
 &gt;     for post in postdb.all():
 &gt;         parent = postdb.parent(post)
 &gt;         if parent is not None:
 &gt;             ps_singles -= hklib.PostSet(postdb, [parent])
-
-</span></span>This works without accepting None as a prepost in the constructor or
+</span></span></span>
+This works without accepting None as a prepost in the constructor or
 prepostset:
 
-    ps_singles = postdb.roots()
+<span class="raw-block">    ps_singles = postdb.roots()
     for post in postdb.all():
         ps_singles -= [postdb.parent(post)] # when postdb.parent(post)
                                             # is None, nothing happens
-
+</span>
 But that's what I would write, which is more efficient and nicer in my eyes:
 
-    ps_singles = \
+<span class="raw-block">    ps_singles = \
         postdb.postset(postdb.roots()). \
         collect(lambda post: postdb.children(post) == [])
 
-<span class="quote"><span class="quote-1">&gt; I thought that an empty set is perfectly sensible, and it
+</span><span class="quote"><span class="quote-1">&gt; I thought that an empty set is perfectly sensible, and it
 &gt; should also make sense to create an empty PostSet.
-
-</span></span>Yes, an empty PostSet is perfectly sensible. It can be created as
+</span></span>
+Yes, an empty PostSet is perfectly sensible. It can be created as
 PostSet([]) or PostSet(set()). [] and set() are also good prepostsets.
 
 <span class="quote"><span class="quote-1">&gt; Then, the special case when a post has no parents would not be
 &gt; special at all and needs no special handling. After all, creating an
 &gt; empty set on a None input seems logical.
-
-</span></span>It is not logical. It is only handy :)
+</span></span>
+It is not logical. It is only handy :)
 
 Now the logic of prepostset is the following:
 - There are preposts. Each prepost represents exactly one post.
@@ -119,90 +117,67 @@ I'm hesitant to decide whether accepting None is handy enough to
 give up these principles. Although I don't think it is handy at all in
 your example, it may be handy at some other time, considering that
 there are functions like `parent` that return either a Post or None.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/139 -->
-<span class="postsummary" id="post_hh/139">
+<div class="post-box"><!-- post hh/139 -->
+<div class="post-summary" id="post-summary-hh-139">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_128.html#post_hh/139">&lt;hh/139&gt;</a></span>
-<span class="parent"><a href="../hh/thread_128.html#post_hh/135">&lt;&uarr;hh/135&gt;</a></span>
+<span class="index"><a href="../hh/thread_128.html#post-summary-hh-139">&lt;hh/139&gt;</a></span>
 <span class="date">(2009-05-02)</span>
-<div class="body">
-<pre class="postbody">You are right: not logical, only handy.
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_128.html#post-summary-hh-135">hh/135</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">You are right: not logical, only handy.
 
-<span class="quote"><span class="quote-1">&gt; Although I don't think it is handy at all in
-&gt; your example, it may be handy at some other time, considering that
-&gt; there are functions like `parent` that return either a Post or None.
+<span class="quote"><span class="quote-1">&gt; Although I don't think it is handy at all in your example, it may be
+&gt; handy at some other time, considering that there are functions like
+&gt; `parent` that return either a Post or None.
+</span></span>
+Exactly; this is why I created this feature.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/139 -->
 
-</span></span>Exactly; this is why I created this feature.
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/141 -->
-<span class="postsummary" id="post_hh/141">
+<div class="post-box"><!-- post hh/141 -->
+<div class="post-summary" id="post-summary-hh-141">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_128.html#post_hh/141">&lt;hh/141&gt;</a></span>
-<span class="parent"><a href="../hh/thread_128.html#post_hh/139">&lt;&uarr;hh/139&gt;</a></span>
+<span class="index"><a href="../hh/thread_128.html#post-summary-hh-141">&lt;hh/141&gt;</a></span>
 <span class="date">(2009-05-02)</span>
-<div class="body">
-<pre class="postbody">This solution is elegant and totally solves my problem:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_128.html#post-summary-hh-135">hh/135</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_128.html#post-summary-hh-144">hh/144</a></span>
+<pre class="post-body-content">This solution is elegant and totally solves my problem:
 
-<span class="quote"><span class="quote-1">&gt;   ps_singles = postdb.roots()
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;   ps_singles = postdb.roots()
 &gt;   for post in postdb.all():
 &gt;       ps_singles -= [postdb.parent(post)] # when postdb.parent(post)
 &gt;                                           # is None, nothing happens
-
-&gt; But that's what I would write, which is more efficient and nicer in my eyes:
-
-&gt;   ps_singles = \
+</span></span></span>
+<span class="quote"><span class="quote-1">&gt; But that's what I would write, which is more efficient and nicer in my eyes:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;   ps_singles = \
 &gt;       postdb.postset(postdb.roots()). \
 &gt;       collect(lambda post: postdb.children(post) == [])
-
-</span></span>Oh, I didn't realize there was a children() member function... now
+</span></span></span>
+Oh, I didn't realize there was a children() member function... now
 this changes everything! I think this is the most important part of
 the code: Post class and its members. I once started to explain the
 code while trying to understand it for myself, and now I think I
 should continue this effort.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/144 -->
-<span class="postsummary" id="post_hh/144">
+<div class="post-box"><!-- post hh/144 -->
+<div class="post-summary" id="post-summary-hh-144">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_128.html#post_hh/144">&lt;hh/144&gt;</a></span>
-<span class="parent"><a href="../hh/thread_128.html#post_hh/141">&lt;&uarr;hh/141&gt;</a></span>
+<span class="index"><a href="../hh/thread_128.html#post-summary-hh-144">&lt;hh/144&gt;</a></span>
 <span class="date">(2009-05-02)</span>
-<div class="body">
-<pre class="postbody">Nagy Attila wrote:
-<span class="quote"><span class="quote-1">&gt; This solution is elegant and totally solves my problem:
-&gt;
-</span></span><span class="quote"><span class="quote-2">&gt;&gt;   ps_singles = postdb.roots()
-&gt;&gt;   for post in postdb.all():
-&gt;&gt;       ps_singles -= [postdb.parent(post)] # when postdb.parent(post)
-&gt;&gt;                                           # is None, nothing happens
-</span></span><span class="quote"><span class="quote-1">&gt;
-</span></span><span class="quote"><span class="quote-2">&gt;&gt; But that's what I would write, which is more efficient and nicer in my eyes:
-</span></span><span class="quote"><span class="quote-1">&gt;
-</span></span><span class="quote"><span class="quote-2">&gt;&gt;   ps_singles = \
-&gt;&gt;       postdb.postset(postdb.roots()). \
-&gt;&gt;       collect(lambda post: postdb.children(post) == [])
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; Oh, I didn't realize there was a children() member function... now
-&gt; this changes everything! I think this is the most important part of
-&gt; the code: Post class and its members. I once started to explain the
-&gt; code while trying to understand it for myself, and now I think I
-&gt; should continue this effort.
-
-</span></span>You should definately read the architecture page before doing so. There are a lot of information like this there.
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_128.html#post-summary-hh-141">hh/141</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">You should definitely read the architecture page before doing so.
+There are a lot of information like this there.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/144 -->
 </div><!-- postbox for post hh/141 -->
-</div><!-- postbox for post hh/139 -->
 </div><!-- postbox for post hh/135 -->
 </div><!-- postbox for post hh/134 -->
 </div><!-- postbox for post hh/128 -->

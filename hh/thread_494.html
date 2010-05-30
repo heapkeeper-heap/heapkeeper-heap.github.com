@@ -1,99 +1,94 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Posts without message-id, duplicate message-ids</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Posts without message-id, duplicate message-ids</h1>
 
 
-<div class="postbox"><!-- post hh/494 -->
-<span class="postsummary" id="post_hh/494">
+<div class="post-box"><!-- post hh/494 -->
+<div class="post-summary" id="post-summary-hh-494">
 <span class="author">Attila Nagy</span>
 <span class="subject">Posts without message-id, duplicate message-ids</span>
-<span class="index"><a href="../hh/thread_494.html#post_hh/494">&lt;hh/494&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_494.html#post-summary-hh-494">&lt;hh/494&gt;</a></span>
 <span class="date">(2009-08-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; "A post may have a message id, which is the Message-Id attribute in
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_494.html#post-summary-hh-495">hh/495</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; "A post may have a message id, which is the Message-Id attribute in
 &gt; the header. The message id is the message id of the email from which
 &gt; the post was created. It is supposed to be unique." [1]
-
-</span></span>I understand 'may', but what does 'supposed to be unique' mean? When
+</span></span>
+I understand 'may', but what does 'supposed to be unique' mean? When
 is it a problem when two messages have the same Message-Id?
 
 <span class="quote"><span class="quote-1">&gt; [1] </span></span><span class="quote"><span class="quote-1"><a href="http://heapkeeper.org/hklib.html#hklib.Post">http://heapkeeper.org/hklib.html#hklib.Post</a></span></span><span class="quote"><span class="quote-1">
-</span></span></pre></div>
-</span><!-- postsummary -->
+</span></span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/495 -->
-<span class="postsummary" id="post_hh/495">
+<div class="post-box"><!-- post hh/495 -->
+<div class="post-summary" id="post-summary-hh-495">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_494.html#post_hh/495">&lt;hh/495&gt;</a></span>
-<span class="parent"><a href="../hh/thread_494.html#post_hh/494">&lt;&uarr;hh/494&gt;</a></span>
+<span class="index"><a href="../hh/thread_494.html#post-summary-hh-495">&lt;hh/495&gt;</a></span>
 <span class="date">(2009-08-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; "A post may have a message id, which is the Message-Id attribute in
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_494.html#post-summary-hh-494">hh/494</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_494.html#post-summary-hh-502">hh/502</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; "A post may have a message id, which is the Message-Id attribute in
 &gt;&gt; the header. The message id is the message id of the email from which
 &gt;&gt; the post was created. It is supposed to be unique." [1]
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I understand 'may', but what does 'supposed to be unique' mean? When
 &gt; is it a problem when two messages have the same Message-Id?
-
-</span></span>We build a messageid -&gt; post dictionary to help calculating
+</span></span>
+We build a messageid -&gt; post dictionary to help calculating
 parent-child relationships. (This dictionary is a data attribute of
 the post database object.) If post A and B have the same messageid,
 and C is the child of A, Heapkeeper might think that C is the child of
 B. (It is nondeterministic whether is consider A or B to be the parent
 of C.) I don't think the program would crash, be we should print at
 least a warning in this case.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/502 -->
-<span class="postsummary" id="post_hh/502">
+<div class="post-box"><!-- post hh/502 -->
+<div class="post-summary" id="post-summary-hh-502">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_494.html#post_hh/502">&lt;hh/502&gt;</a></span>
-<span class="parent"><a href="../hh/thread_494.html#post_hh/495">&lt;&uarr;hh/495&gt;</a></span>
+<span class="index"><a href="../hh/thread_494.html#post-summary-hh-502">&lt;hh/502&gt;</a></span>
 <span class="date">(2009-08-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I don't think the program would crash, be we should print at
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_494.html#post-summary-hh-495">hh/495</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_494.html#post-summary-hh-504">hh/504</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I don't think the program would crash, be we should print at
 &gt; least a warning in this case.
-
-</span></span>We should sanitize Message-Ids. This recent issue could have been
+</span></span>
+We should sanitize Message-Ids. This recent issue could have been
 easily caught back when it happened in the first place.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/504 -->
-<span class="postsummary" id="post_hh/504">
+<div class="post-box"><!-- post hh/504 -->
+<div class="post-summary" id="post-summary-hh-504">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_494.html#post_hh/504">&lt;hh/504&gt;</a></span>
-<span class="parent"><a href="../hh/thread_494.html#post_hh/502">&lt;&uarr;hh/502&gt;</a></span>
+<span class="index"><a href="../hh/thread_494.html#post-summary-hh-504">&lt;hh/504&gt;</a></span>
 <span class="date">(2009-08-11)</span>
-<div class="body">
-<pre class="postbody">I don't understand what you mean by "sanitation".
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_494.html#post-summary-hh-502">hh/502</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_494.html#post-summary-hh-506">hh/506</a></span>
+<pre class="post-body-content">I don't understand what you mean by "sanitation".
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/506 -->
-<span class="postsummary" id="post_hh/506">
+<div class="post-box"><!-- post hh/506 -->
+<div class="post-summary" id="post-summary-hh-506">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_494.html#post_hh/506">&lt;hh/506&gt;</a></span>
-<span class="parent"><a href="../hh/thread_494.html#post_hh/504">&lt;&uarr;hh/504&gt;</a></span>
+<span class="index"><a href="../hh/thread_494.html#post-summary-hh-506">&lt;hh/506&gt;</a></span>
 <span class="date">(2009-08-11)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I don't understand what you mean by "sanitation".
-
-</span></span>I mean failing or warning on incorrect input. In this case, the
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_494.html#post-summary-hh-504">hh/504</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I don't understand what you mean by "sanitation".
+</span></span>
+I mean failing or warning on incorrect input. In this case, the
 program should warn if there are duplicate Message-Ids.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/506 -->
 </div><!-- postbox for post hh/504 -->
 </div><!-- postbox for post hh/502 -->

@@ -1,31 +1,31 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>"if l" versus "if l != []"</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">"if l" versus "if l != []"</h1>
 
 
-<div class="postbox"><!-- post hh/924 -->
-<span class="postsummary" id="post_hh/924">
+<div class="post-box"><!-- post hh/924 -->
+<div class="post-summary" id="post-summary-hh-924">
 <span class="author">Csaba Hoch</span>
 <span class="subject">"if l" versus "if l != []"</span>
 <span class="tags">[efficiency]</span>
-<span class="index"><a href="../hh/thread_924.html#post_hh/924">&lt;hh/924&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_924.html#post-summary-hh-924">&lt;hh/924&gt;</a></span>
 <span class="date">(2009-11-14)</span>
-<div class="body">
-<pre class="postbody">I made measurements about the efficiency of the conditions when we
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_924.html#post-summary-hh-1047">hh/1047</a></span>
+<pre class="post-body-content">I made measurements about the efficiency of the conditions when we
 want to check whether a list is empty or not. The result is that "if
 l" is faster than "if l != []", which is faster then "if len(l)". The
 average execution times:
 
-    if l:       0.642
+<span class="raw-block">    if l:       0.642
     if l != []: 0.826
     if len(l):  1.085
-
+</span>
 The results are the same for strings, and apply of course also
 regardless of whether the list is empty or not. I also made
 measurements that show that "is None" is faster than "!= None".
@@ -55,7 +55,7 @@ it was an interesting experiment.
 
 test.sh:
 
-    # Number of tests for each test case
+<span class="raw-block">    # Number of tests for each test case
     numberoftests=3
 
     function echonote
@@ -110,10 +110,10 @@ test.sh:
     echonote "NONE INSTEAD OF LIST"
     maketest 'x = None' 'x is not None'
     maketest 'x = None' 'x != None'
-
+</span>
 Execution:
 
-    $ test.sh &gt; f
+<span class="raw-block">    $ test.sh &gt; f
     $ cat f
     ----------------------------------------
     NORMAL CASE
@@ -251,12 +251,12 @@ Execution:
     real	0m0.783s
     real	0m0.783s
     real	0m0.777s
-
+</span>
 === Heapkeeper measurement ===
 
 20+20 single measurements:
 
-    (hcs)hk$ Gco HEAD^; hk-ums 'gi(); q()' &gt;/dev/null; for i in `seq 1 10`; do bash -c "time hk-ums 'gi(); q()' &gt;/dev/null" 2&gt;&amp;1 | sed -n 2p; done;  hk-ums 'gi(); q()' &gt;/dev/null; for i in `seq 1 10`; do bash -c "time hk-ums 'gi(); q()' &gt;/dev/null" 2&gt;&amp;1 | sed -n 2p; done;
+<span class="raw-block">    (hcs)hk$ Gco HEAD^; hk-ums 'gi(); q()' &gt;/dev/null; for i in `seq 1 10`; do bash -c "time hk-ums 'gi(); q()' &gt;/dev/null" 2&gt;&amp;1 | sed -n 2p; done;  hk-ums 'gi(); q()' &gt;/dev/null; for i in `seq 1 10`; do bash -c "time hk-ums 'gi(); q()' &gt;/dev/null" 2&gt;&amp;1 | sed -n 2p; done;
     Note: moving to "HEAD^" which isn't a local branch
     If you want to create a new branch from this checkout, you may do so
     (now or later) by using -b with the checkout command again. Example:
@@ -309,10 +309,10 @@ Execution:
     4.7703
     (hcs)hk$ echo 'scale=4;(4.720+ 4.765+ 4.761+ 4.734+ 4.757+ 4.745+ 4.790+ 4.763+ 4.750+ 4.755+ 4.754+ 4.789+ 4.764+ 4.741+ 4.745+ 4.766+ 4.777+ 4.747+ 4.760+ 4.815)/20' | bc
     4.7599
-
+</span>
 Then I made compound measurements:
 
-    #!/bin/bash
+<span class="raw-block">    #!/bin/bash
 
     n=20
     N=10
@@ -336,10 +336,10 @@ Then I made compound measurements:
         git checkout hcs  &gt;/dev/null 2&gt;/dev/null
         do_n_tests new
     done
-
+</span>
 Results:
 
-    $ ./do_test
+<span class="raw-block">    $ ./do_test
     Average execution time of 20 old test(s): 4.743
     Average execution time of 20 new test(s): 4.730
     Average execution time of 20 old test(s): 4.737
@@ -360,46 +360,43 @@ Results:
     Average execution time of 20 new test(s): 4.740
     Average execution time of 20 old test(s): 4.743
     Average execution time of 20 new test(s): 4.728
-</pre></div>
-</span><!-- postsummary -->
+</span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1047 -->
-<span class="postsummary" id="post_hh/1047">
+<div class="post-box"><!-- post hh/1047 -->
+<div class="post-summary" id="post-summary-hh-1047">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_924.html#post_hh/1047">&lt;hh/1047&gt;</a></span>
-<span class="parent"><a href="../hh/thread_924.html#post_hh/924">&lt;&uarr;hh/924&gt;</a></span>
+<span class="index"><a href="../hh/thread_924.html#post-summary-hh-1047">&lt;hh/1047&gt;</a></span>
 <span class="date">(2010-01-28)</span>
-<div class="body">
-<pre class="postbody">Wow! The amount of work you put into this experiment is impressive!
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_924.html#post-summary-hh-924">hh/924</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_924.html#post-summary-hh-1049">hh/1049</a></span>
+<pre class="post-body-content">Wow! The amount of work you put into this experiment is impressive!
 
 <span class="quote"><span class="quote-1">&gt; So I would not change our convention about writing "if l != []", but
 &gt; it was an interesting experiment.
-
-</span></span>Even if we came to this conclusion now, we gained experence. Later, we
+</span></span>
+Even if we came to this conclusion now, we gained experence. Later, we
 may encounter situations where this optimization may provide a
 significant speed gain.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1049 -->
-<span class="postsummary" id="post_hh/1049">
+<div class="post-box"><!-- post hh/1049 -->
+<div class="post-summary" id="post-summary-hh-1049">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_924.html#post_hh/1049">&lt;hh/1049&gt;</a></span>
-<span class="parent"><a href="../hh/thread_924.html#post_hh/1047">&lt;&uarr;hh/1047&gt;</a></span>
+<span class="index"><a href="../hh/thread_924.html#post-summary-hh-1049">&lt;hh/1049&gt;</a></span>
 <span class="date">(2010-01-28)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; So I would not change our convention about writing "if l != []", but
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_924.html#post-summary-hh-1047">hh/1047</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; So I would not change our convention about writing "if l != []", but
 &gt;&gt; it was an interesting experiment.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Even if we came to this conclusion now, we gained experence. Later, we
 &gt; may encounter situations where this optimization may provide a
 &gt; significant speed gain.
-
-</span></span>True.
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+True.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1049 -->
 </div><!-- postbox for post hh/1047 -->
 </div><!-- postbox for post hh/924 -->

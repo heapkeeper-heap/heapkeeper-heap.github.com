@@ -1,37 +1,37 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Printing post references in the body</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Printing post references in the body</h1>
 
 
-<div class="postbox"><!-- post hh/887 -->
-<span class="postsummary" id="post_hh/887">
+<div class="post-box"><!-- post hh/887 -->
+<div class="post-summary" id="post-summary-hh-887">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Printing post references in the body</span>
 <span class="tags">[feature, new post syntax, post references, reviewed]</span>
-<span class="index"><a href="../hh/thread_887.html#post_hh/887">&lt;hh/887&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_887.html#post-summary-hh-887">&lt;hh/887&gt;</a></span>
 <span class="date">(2009-11-08)</span>
-<div class="body">
-<pre class="postbody"><span class="meta-text">[effort 10]</span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[effort 10]</span>
 
 The post references in the body should be processed and shown in the
 post page. Example:
 
 Post body:
 
-    I like that robot, even though
+<span class="raw-block">    I like that robot, even though
     it is so silly... [1]
 
     [1] ums/123
-
+</span>
 Simplified version of post body in post page:
 
-    &lt;div class="body"&gt;
+<span class="raw-block">    &lt;div class="body"&gt;
     I like that robot, even though&lt;br/&gt;
     it is so silly... [1]&lt;br/&gt;
     &lt;br/&gt;
@@ -39,7 +39,7 @@ Simplified version of post body in post page:
     [1] &lt;a href="thread_123#post_123"&gt;ums/123&lt;/a&gt;
     &lt;/span&gt;
     &lt;/div&gt;
-
+</span>
 To make it efficient, I propose the Post class to have a lazy data
 attribute called _body_segments that would contain body/footnote
 segments. It would be the first step towards the body parsing. (We
@@ -50,9 +50,9 @@ it.)
 
 The feature would handle multi-line posts:
 
-    [1] This is
+<span class="raw-block">    [1] This is
         a footnote
-
+</span>
 I don't know when exactly should we accept the next line as part of
 the footnote.
 
@@ -60,30 +60,30 @@ Alternatives:
 
 - when it is perfectly indented:
 
-    [1] This is
+<span class="raw-block">    [1] This is
         a footnote
-
+</span>
 - when its indentation level is equal to or greater than that of the
  perfect indentation:
 
-    [1] This is
+<span class="raw-block">    [1] This is
           still a footnote
-
+</span>
 - when it starts with a whitespace:
 
-    [1] This is
+<span class="raw-block">    [1] This is
      also a footnote
-
+</span>
 Also, should a footnote be terminated by an empty line?
 
 I propose the following, but I have no strong opinion:
 
-    If the previous line is a footnote, than the current line is its
+<span class="raw-block">    If the previous line is a footnote, than the current line is its
     continuation if and only if:
 
     1. the current line starts with a whitespace, and
     2. the current line contains other characters then whitespace
-
+</span>
 I'm curious about your opinion, but I don't want to have a long
 discussion about this. Such footnotes are rare, and we can change our
 minds if we see a reason for that in the future.
@@ -95,8 +95,7 @@ long-long discussions we had. I think we now should follow a pragmatic
 approach and implement one small step at a time. Later we can still
 have a more general system if we feel that Hk has matured enough to
 handle complicated post syntax.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/887 -->
 
   </body>

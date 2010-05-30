@@ -1,23 +1,23 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Heapkeeper attempts SSL connection to plain IMAP servers</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Heapkeeper attempts SSL connection to plain IMAP servers</h1>
 
 
-<div class="postbox"><!-- post hh/1210 -->
-<span class="postsummary" id="post_hh/1210">
+<div class="post-box"><!-- post hh/1210 -->
+<div class="post-summary" id="post-summary-hh-1210">
 <span class="author">Attila Nagy</span>
 <span class="subject">Heapkeeper attempts SSL connection to plain IMAP servers</span>
 <span class="tags">[bug]</span>
-<span class="index"><a href="../hh/thread_1210.html#post_hh/1210">&lt;hh/1210&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_1210.html#post-summary-hh-1210">&lt;hh/1210&gt;</a></span>
 <span class="date">(2010-05-05)</span>
-<div class="body">
-<pre class="postbody">Right now, Heapkeeper connects to all IMAP servers via IMAPS,
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1210.html#post-summary-hh-1215">hh/1215</a></span>
+<pre class="post-body-content">Right now, Heapkeeper connects to all IMAP servers via IMAPS,
 regardless of the port number.
 
 I think this should work like this:
@@ -33,74 +33,69 @@ routines:SSL23_GET_SERVER_HELLO:unknown protocol
 at the end of a long stack trace, of course. This should be caught and
 displayed as a more meaningful message, e.g. "Error: trying to connect
 via IMAPS to a non-SSL server."
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1215 -->
-<span class="postsummary" id="post_hh/1215">
+<div class="post-box"><!-- post hh/1215 -->
+<div class="post-summary" id="post-summary-hh-1215">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1210.html#post_hh/1215">&lt;hh/1215&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1210.html#post_hh/1210">&lt;&uarr;hh/1210&gt;</a></span>
+<span class="index"><a href="../hh/thread_1210.html#post-summary-hh-1215">&lt;hh/1215&gt;</a></span>
 <span class="date">(2010-05-07)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I think this should work like this:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1210.html#post-summary-hh-1210">hh/1210</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1210.html#post-summary-hh-1240">hh/1240</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I think this should work like this:
 &gt; - have an IMAP/IMAPS option,
 &gt; - if this is omitted, default to IMAPS for port 993, and IMAP for port 143
 &gt; - for any other ports, issue a warning, or maybe silently default to IMAP.
-
-</span></span>OK.
+</span></span>
+OK.
 
 <span class="quote"><span class="quote-1">&gt; This should be caught and displayed as a more meaningful message
+</span></span>
+OK.
+</pre></div><!-- post-summary -->
 
-</span></span>OK.
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/1240 -->
-<span class="postsummary" id="post_hh/1240">
+<div class="post-box"><!-- post hh/1240 -->
+<div class="post-summary" id="post-summary-hh-1240">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1210.html#post_hh/1240">&lt;hh/1240&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1210.html#post_hh/1215">&lt;&uarr;hh/1215&gt;</a></span>
+<span class="index"><a href="../hh/thread_1210.html#post-summary-hh-1240">&lt;hh/1240&gt;</a></span>
 <span class="date">(2010-05-20)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I think this should work like this:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1210.html#post-summary-hh-1215">hh/1215</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1210.html#post-summary-hh-1249">hh/1249</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I think this should work like this:
 &gt;&gt; - have an IMAP/IMAPS option,
 &gt;&gt; - if this is omitted, default to IMAPS for port 993, and IMAP for port 143
 &gt;&gt; - for any other ports, issue a warning, or maybe silently default to IMAP.
-
-</span></span>I pushed a fix that works like this on the "_imap" branch. The option
+</span></span>
+I pushed a fix that works like this on the "_imap" branch. The option
 is called "imaps", and it's optional. I also updated the relevant test
 cases. Csabi, would you check if it's OK?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1249 -->
-<span class="postsummary" id="post_hh/1249">
+<div class="post-box"><!-- post hh/1249 -->
+<div class="post-summary" id="post-summary-hh-1249">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1210.html#post_hh/1249">&lt;hh/1249&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1210.html#post_hh/1240">&lt;&uarr;hh/1240&gt;</a></span>
+<span class="index"><a href="../hh/thread_1210.html#post-summary-hh-1249">&lt;hh/1249&gt;</a></span>
 <span class="date">(2010-05-22)</span>
-<div class="body">
-<pre class="postbody">It seems to be OK.
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1210.html#post-summary-hh-1240">hh/1240</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1210.html#post-summary-hh-1252">hh/1252</a></span>
+<pre class="post-body-content">It seems to be OK.
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1252 -->
-<span class="postsummary" id="post_hh/1252">
+<div class="post-box"><!-- post hh/1252 -->
+<div class="post-summary" id="post-summary-hh-1252">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1210.html#post_hh/1252">&lt;hh/1252&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1210.html#post_hh/1249">&lt;&uarr;hh/1249&gt;</a></span>
+<span class="index"><a href="../hh/thread_1210.html#post-summary-hh-1252">&lt;hh/1252&gt;</a></span>
 <span class="date">(2010-05-23)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; It seems to be OK.
-
-</span></span><span class="meta-text">[close]</span>
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1210.html#post-summary-hh-1249">hh/1249</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; It seems to be OK.
+</span></span>
+<span class="meta-text">[close]</span>
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1252 -->
 </div><!-- postbox for post hh/1249 -->
 </div><!-- postbox for post hh/1240 -->

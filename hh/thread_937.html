@@ -1,33 +1,32 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Error displaying posts without heapid</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Error displaying posts without heapid</h1>
 
 
-<div class="postbox"><!-- post hh/937 -->
-<span class="postsummary" id="post_hh/937">
+<div class="post-box"><!-- post hh/937 -->
+<div class="post-summary" id="post-summary-hh-937">
 <span class="author">Attila Nagy</span>
 <span class="subject">Error displaying posts without heapid</span>
 <span class="tags">[bug]</span>
-<span class="index"><a href="../hh/thread_937.html#post_hh/937">&lt;hh/937&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_937.html#post-summary-hh-937">&lt;hh/937&gt;</a></span>
 <span class="date">(2009-11-15)</span>
-<div class="body">
-<pre class="postbody">To reproduce:
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">To reproduce:
 
-    &gt;&gt;&gt; import hklib
+<span class="raw-block">    &gt;&gt;&gt; import hklib
     &gt;&gt;&gt; a=hklib.Post.from_str('Author: a')
     &gt;&gt;&gt; a
     Traceback (most recent call last):
       File "&lt;console&gt;", line 1, in &lt;module&gt;
       File "/data/lab/hk/heapkeeper/hklib.py", line 851, in __repr__
         return "&lt;post '" + self._heapid + "'&gt;"
-</pre></div>
-</span><!-- postsummary -->
+</span></pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/937 -->
 
   </body>

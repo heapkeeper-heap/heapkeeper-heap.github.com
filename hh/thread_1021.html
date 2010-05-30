@@ -1,22 +1,22 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Miraculous automatic reloading of hkrc</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Miraculous automatic reloading of hkrc</h1>
 
 
-<div class="postbox"><!-- post hh/1021 -->
-<span class="postsummary" id="post_hh/1021">
+<div class="post-box"><!-- post hh/1021 -->
+<div class="post-summary" id="post-summary-hh-1021">
 <span class="author">Attila Nagy</span>
 <span class="subject">Miraculous automatic reloading of hkrc</span>
-<span class="index"><a href="../hh/thread_1021.html#post_hh/1021">&lt;hh/1021&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_1021.html#post-summary-hh-1021">&lt;hh/1021&gt;</a></span>
 <span class="date">(2010-01-10)</span>
-<div class="body">
-<pre class="postbody">Now I feel just like Susan Calvin with the mind-reading robot...
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1021.html#post-summary-hh-1022">hh/1022</a></span>
+<pre class="post-body-content">Now I feel just like Susan Calvin with the mind-reading robot...
 
 We've been dreaming about automatic reloading of changed modules in
 Python for some time now [1][2], but to my surprise, it seems to have
@@ -61,18 +61,18 @@ line 1596, in start
         raise socket.error, msg
     error: (98, 'Address already in use')
 
-    127.0.0.1:39145 - - [10/Jan/2010 12:05:54] "HTTP/1.1 GET /" - 200 OK
-
+<span class="raw-block">    127.0.0.1:39145 - - [10/Jan/2010 12:05:54] "HTTP/1.1 GET /" - 200 OK
+</span>
 So it seems like hkrc.py is loaded again! To confirm, I add a `print`
 statement just before calling `main()`, and save. And when reloading,
 I see this output:
 
-    Hello from hkrc, about to call main.
+<span class="raw-block">    Hello from hkrc, about to call main.
     Feature already set.
-    <a href="http://0.0.0.0:8080/">http://0.0.0.0:8080/</a>
+    http://0.0.0.0:8080/
     Exception in thread Thread-14:
     ...
-
+</span>
 So hkrc.py is reloaded! But how? I checked in `hkweb.py`, and I can't
 seem to find any trace of this.
 
@@ -104,42 +104,39 @@ objects retain their membership to the old versions of the classes.
 
 [1] heap://1431
 [2] heap://3607
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1022 -->
-<span class="postsummary" id="post_hh/1022">
+<div class="post-box"><!-- post hh/1022 -->
+<div class="post-summary" id="post-summary-hh-1022">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1021.html#post_hh/1022">&lt;hh/1022&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1021.html#post_hh/1021">&lt;&uarr;hh/1021&gt;</a></span>
+<span class="index"><a href="../hh/thread_1021.html#post-summary-hh-1022">&lt;hh/1022&gt;</a></span>
 <span class="date">(2010-01-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; So web.py does it for us. I wonder how they handle those problems
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1021.html#post-summary-hh-1021">hh/1021</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1021.html#post-summary-hh-1023">hh/1023</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; So web.py does it for us. I wonder how they handle those problems
 &gt; we've discussed related to objects, namely that on reloading modules,
 &gt; objects retain their membership to the old versions of the classes.
+</span></span>
+Are you sure it handles those?
+</pre></div><!-- post-summary -->
 
-</span></span>Are you sure it handles those?
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/1023 -->
-<span class="postsummary" id="post_hh/1023">
+<div class="post-box"><!-- post hh/1023 -->
+<div class="post-summary" id="post-summary-hh-1023">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1021.html#post_hh/1023">&lt;hh/1023&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1021.html#post_hh/1022">&lt;&uarr;hh/1022&gt;</a></span>
+<span class="index"><a href="../hh/thread_1021.html#post-summary-hh-1023">&lt;hh/1023&gt;</a></span>
 <span class="date">(2010-01-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; So web.py does it for us. I wonder how they handle those problems
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1021.html#post-summary-hh-1022">hh/1022</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; So web.py does it for us. I wonder how they handle those problems
 &gt;&gt; we've discussed related to objects, namely that on reloading modules,
 &gt;&gt; objects retain their membership to the old versions of the classes.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Are you sure it handles those?
-
-</span></span>No, I'm almost sure it doesn't. But I haven't checked.
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+No, I'm almost sure it doesn't. But I haven't checked.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1023 -->
 </div><!-- postbox for post hh/1022 -->
 </div><!-- postbox for post hh/1021 -->

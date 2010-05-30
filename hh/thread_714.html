@@ -1,23 +1,23 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>"Star" appears in flat sections</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">"Star" appears in flat sections</h1>
 
 
-<div class="postbox"><!-- post hh/714 -->
-<span class="postsummary" id="post_hh/714">
+<div class="post-box"><!-- post hh/714 -->
+<div class="post-summary" id="post-summary-hh-714">
 <span class="author">Attila Nagy</span>
 <span class="subject">"Star" appears in flat sections</span>
 <span class="tags">[bug, reviewed]</span>
-<span class="index"><a href="../hh/thread_714.html#post_hh/714">&lt;hh/714&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_714.html#post-summary-hh-714">&lt;hh/714&gt;</a></span>
 <span class="date">(2009-10-20)</span>
-<div class="body">
-<pre class="postbody">"Stars" (now rendered as dashes to denote repeating subject or tags)
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_714.html#post-summary-hh-715">hh/715</a></span>
+<pre class="post-body-content">"Stars" (now rendered as dashes to denote repeating subject or tags)
 should not be generated in flat sections, but some commit between
 "master" and current "_hcs" (which is now at 2009-10-18 'hkshell: "exc
 for non-existing posts" bug fixed') introduced this bug.
@@ -40,10 +40,10 @@ flat PostItems.
 
 This test:
 
-    if (postitem.pos != 'flat' and
+<span class="raw-block">    if (postitem.pos != 'flat' and
         options.shorttags and parent != None and
         tags == parent.tags()):
-
+</span>
 began to look to complicated, so it needed a comment, besides it was
 present in both `Generator.postitem_subject()` and
 `Generator.postitem_tags()`, so I created a new
@@ -62,18 +62,17 @@ I also pushed a branch called "_hcs-bugfix", which is the rest of your
 
 A test case which checks if stars are generated in flat sections might
 be useful.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/715 -->
-<span class="postsummary" id="post_hh/715">
+<div class="post-box"><!-- post hh/715 -->
+<div class="post-summary" id="post-summary-hh-715">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_714.html#post_hh/715">&lt;hh/715&gt;</a></span>
-<span class="parent"><a href="../hh/thread_714.html#post_hh/714">&lt;&uarr;hh/714&gt;</a></span>
+<span class="index"><a href="../hh/thread_714.html#post-summary-hh-715">&lt;hh/715&gt;</a></span>
 <span class="date">(2009-10-20)</span>
-<div class="body">
-<pre class="postbody">Very well done! Indeed, I forgot about this case. You implemented
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_714.html#post-summary-hh-714">hh/714</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_714.html#post-summary-hh-716">hh/716</a></span>
+<pre class="post-body-content">Very well done! Indeed, I forgot about this case. You implemented
 exactly the same solution that I would have implemented if I had
 realized this problem.
 
@@ -92,68 +91,64 @@ word "is".
 2. According to our docstring conventions (which are not written down
 anywhere...),
 
-    - *postitem* (:class:`PostItem`) - the PostItem being examined
+<span class="raw-block">    - *postitem* (:class:`PostItem`) - the PostItem being examined
     - *param* (`str`) - the name of the parameter to examine,
-
+</span>
 would become
 
-    - `postitem` (|PostItem|) - the post item being examined
+<span class="raw-block">    - `postitem` (|PostItem|) - the post item being examined
     - `param` (str) - the name of the parameter to examine,
-
+</span>
 3. The itemization after "We can use a star if the following
 conditions are all met:" is incorrect, because Sphinx needs an empty
 line before the itemization. So it should be like this:
 
-        We can use a star if the following conditions are all met:
+<span class="raw-block">        We can use a star if the following conditions are all met:
 
         - using stars is enabled (`shortsubject`, `shorttags` options),
         - PostItem is not flat,
         - the post described has a parent,
         - the property being examined is the same as that of the parent.
-
+</span>
 That's why we put an empty line after "**Arguments:**"
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/716 -->
-<span class="postsummary" id="post_hh/716">
+<div class="post-box"><!-- post hh/716 -->
+<div class="post-summary" id="post-summary-hh-716">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_714.html#post_hh/716">&lt;hh/716&gt;</a></span>
-<span class="parent"><a href="../hh/thread_714.html#post_hh/715">&lt;&uarr;hh/715&gt;</a></span>
+<span class="index"><a href="../hh/thread_714.html#post-summary-hh-716">&lt;hh/716&gt;</a></span>
 <span class="date">(2009-10-20)</span>
-<div class="body">
-<pre class="postbody">Thanks, for your comments. I've updated the branches accordingly and
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_714.html#post-summary-hh-715">hh/715</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_714.html#post-summary-hh-725">hh/725</a></span>
+<pre class="post-body-content">Thanks, for your comments. I've updated the branches accordingly and
 pushed them.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/725 -->
-<span class="postsummary" id="post_hh/725">
+<div class="post-box"><!-- post hh/725 -->
+<div class="post-summary" id="post-summary-hh-725">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_714.html#post_hh/725">&lt;hh/725&gt;</a></span>
-<span class="parent"><a href="../hh/thread_714.html#post_hh/716">&lt;&uarr;hh/716&gt;</a></span>
+<span class="index"><a href="../hh/thread_714.html#post-summary-hh-725">&lt;hh/725&gt;</a></span>
 <span class="date">(2009-10-21)</span>
-<div class="body">
-<pre class="postbody">I pushed a few further corrections (together with corrections to other
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_714.html#post-summary-hh-716">hh/716</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_714.html#post-summary-hh-750">hh/750</a></span>
+<pre class="post-body-content">I pushed a few further corrections (together with corrections to other
 docstrings).
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/750 -->
-<span class="postsummary" id="post_hh/750">
+<div class="post-box"><!-- post hh/750 -->
+<div class="post-summary" id="post-summary-hh-750">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_714.html#post_hh/750">&lt;hh/750&gt;</a></span>
-<span class="parent"><a href="../hh/thread_714.html#post_hh/725">&lt;&uarr;hh/725&gt;</a></span>
+<span class="index"><a href="../hh/thread_714.html#post-summary-hh-750">&lt;hh/750&gt;</a></span>
 <span class="date">(2009-10-22)</span>
-<div class="body">
-<pre class="postbody">The issue persists in the new Generator. Let's not close this thread
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_714.html#post-summary-hh-725">hh/725</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">The issue persists in the new Generator. Let's not close this thread
 until we corrected the bug there. I want to correct it there only
 after we merged your current change into the master.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/750 -->
 </div><!-- postbox for post hh/725 -->
 </div><!-- postbox for post hh/716 -->

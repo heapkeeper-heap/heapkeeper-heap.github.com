@@ -1,23 +1,23 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Threads/1 (2009-05-07 3b4f6d3677c)</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Threads/1 (2009-05-07 3b4f6d3677c)</h1>
 
 
-<div class="postbox"><!-- post hh/189 -->
-<span class="postsummary" id="post_hh/189">
+<div class="post-box"><!-- post hh/189 -->
+<div class="post-summary" id="post-summary-hh-189">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Threads/1 (2009-05-07 3b4f6d3677c)</span>
 <span class="tags">[commit]</span>
-<span class="index"><a href="../hh/thread_189.html#post_hh/189">&lt;hh/189&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_189.html#post-summary-hh-189">&lt;hh/189&gt;</a></span>
 <span class="date">(2009-05-10)</span>
-<div class="body">
-<pre class="postbody">I have looked through the first commit of the four. Here are my
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_189.html#post-summary-hh-192">hh/192</a></span>
+<pre class="post-body-content">I have looked through the first commit of the four. Here are my
 comments.
 
 == User experience ==
@@ -29,11 +29,11 @@ say, it was a great user experience!
 
 hklib.Html.post_summary_table:
 
-     '&lt;tr class="%s"&gt;' % (class_,) + \
+<span class="raw-block">     '&lt;tr class="%s"&gt;' % (class_,) + \
   -  Html.post_summary(link, author, subject, tags, index, date, 'td')+\
   +  Html.post_summary(link, author, subject, tags, index, date, 'td') + \
      '&lt;/tr&gt;\n'
-
+</span>
 There was a reason for writing ")+\" instead of ") + \": the latter
 line does not fit in 79 characters. That's why I cheated.
 
@@ -41,7 +41,7 @@ line does not fit in 79 characters. That's why I cheated.
 
 hklib.Html.thread_post_header:
 
-  +  def thread_post_header(link, author, subject, tags, index, date):
+<span class="raw-block">  +  def thread_post_header(link, author, subject, tags, index, date):
   +      """Creates a summary for a post as a div, and closes it
   +      immediately."""
   +      class_ = 'postsummary'
@@ -52,10 +52,10 @@ hklib.Html.thread_post_header:
   +              Html.post_summary(
   +                  link, author, subject, tags, index, date, 'span')) + \
   +          '&lt;/div&gt;\n'
-
+</span>
 You can make a bit more compact code (I'm patching your patch):
 
-     def thread_post_header(link, author, subject, tags, index, date):
+<span class="raw-block">     def thread_post_header(link, author, subject, tags, index, date):
          """Creates a summary for a post as a div, and closes it
          immediately."""
   -      class_ = 'postsummary'
@@ -67,18 +67,18 @@ You can make a bit more compact code (I'm patching your patch):
                  Html.post_summary(
                      link, author, subject, tags, index, date, 'span')) + \
              '&lt;/div&gt;\n'
-
+</span>
 == Documentation ==
 
 hklib.GeneratorOptions.__init__:
 
-     def __init__(self,
+<span class="raw-block">     def __init__(self,
                   indices=hkutils.NOT_SET,
                   write_toc=False,
                   shortsubject=False,
                   shorttags=False,
   +               locallinks=False,
-
+</span>
 Would you document the attributes like this before merging the
 "threads" branch with the master? You know best what these are -- you
 have to explain me anyway, and why not do it in the docstings.
@@ -87,14 +87,14 @@ have to explain me anyway, and why not do it in the docstings.
 
 hklib.Generator.summarize_thread:
 
-         return ''.join(l)
+<span class="raw-block">         return ''.join(l)
   +
   +
   +  def summarize_thread(self, post, options):
-
+</span>
 PEP 8 says about blank lines:
 
-  Blank Lines
+<span class="raw-block">  Blank Lines
 
     Separate top-level function and class definitions with two blank lines.
 
@@ -105,7 +105,7 @@ PEP 8 says about blank lines:
     one-liners (e.g. a set of dummy implementations).
 
     Use blank lines in functions, sparingly, to indicate logical sections.
-
+</span>
 I'm not sure we should put two blank lines here (and before
 full_thread), just because they are long functions.
 
@@ -115,7 +115,7 @@ between related top-level functions.
 
 I sometimes also use this when I want to group functions:
 
-    class C:
+<span class="raw-block">    class C:
 
         # group 1
 
@@ -129,7 +129,7 @@ I sometimes also use this when I want to group functions:
 
         def f(self):
             pass
-
+</span>
 Maybe I should put an additional blank line before the comments?
 
 == Duplicated code ==
@@ -147,7 +147,7 @@ than before.
 
 hklib.Generator.full_thread:
 
-  +  def full_thread(self, thread, options):
+<span class="raw-block">  +  def full_thread(self, thread, options):
   +      """Converts the whole thread into HTML.
   +
   +      **Arguments:**
@@ -160,11 +160,11 @@ hklib.Generator.full_thread:
   +      **Notes:**
   +      Don't forget that a thread is identified by its root post.
   +      """
-
+</span>
 I think the information in the note has its place after explaining
 what the *thread* argument is for:
 
-     def full_thread(self, thread, options):
+<span class="raw-block">     def full_thread(self, thread, options):
          """Converts the whole thread into HTML.
 
          **Arguments:**
@@ -179,12 +179,12 @@ what the *thread* argument is for:
   -      **Notes:**
   -      Don't forget that a thread is identified by its root post.
          """
-
+</span>
 You weren't consistent, though:
 
 hklib.Generator.summarize_thread:
 
-  +  def summarize_thread(self, post, options):
+<span class="raw-block">  +  def summarize_thread(self, post, options):
   [...]
   +
   +      **Arguments:**
@@ -195,7 +195,7 @@ hklib.Generator.summarize_thread:
   +
   +      **Returns:** ``HtmlStr``
   +      """
-
+</span>
 Probably it is a good idea to have a pseudo-type called Thread.
 Pseudo-types are not real Python types, but we use them as types in
 the documentation so we can talk about them easily. To see how
@@ -211,8 +211,8 @@ to keep the docstrings up-to-date, though.
 
 hklib.Generator.gen_threads:
 
-  +  for thread in self._postdb.threads():
-
+<span class="raw-block">  +  for thread in self._postdb.threads():
+</span>
 Maybe _postdb.roots() would be a bit better than _postdb.threads().
 The difference is that _postdb.roots() is the set of roots, while
 _postdb.threads is a dictionary between the roots and their
@@ -226,34 +226,34 @@ context.)
 
 hklib.Generator.section:
 
-     if not (thread &amp; posts).is_set([]):
+<span class="raw-block">     if not (thread &amp; posts).is_set([]):
   +      # if section contains at least part of the thread
          l.append(self.thread(root, options))
-
+</span>
 Do you think I should write more comments like this?
 
 == Footprint of "print" statement? ==
 
 hklib.Generator.gen_indices:
 
-     for i, section in enumerate(index.sections):
+<span class="raw-block">     for i, section in enumerate(index.sections):
          options.section = section
   -      f.write(self.section(i, options))
   +      sect = self.section(i, options)
   +      f.write(sect)
          del options.section
      f.write(Html.doc_footer())
-
+</span>
 I have only one question: why? :)
 
 == Newlines at the end of file ==
 
 hklib.Generator.gen_threads:
 
-  +  log('Thread HTMLs generated.')
+<span class="raw-block">  +  log('Thread HTMLs generated.')
   +
   +
-
+</span>
 What do you say to not leaving any whitespace at the end of a file?
 (Except for the last newline character that is not shown by Vim
 explicitly.)
@@ -261,34 +261,32 @@ explicitly.)
 Csabi
 
 [1] <a href="http://hste.uw.hu/heapkeeper/hkshell.html#hkshell-prepost">http://hste.uw.hu/heapkeeper/hkshell.html#hkshell-prepost</a>
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/192 -->
-<span class="postsummary" id="post_hh/192">
+<div class="post-box"><!-- post hh/192 -->
+<div class="post-summary" id="post-summary-hh-192">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_189.html#post_hh/192">&lt;hh/192&gt;</a></span>
-<span class="parent"><a href="../hh/thread_189.html#post_hh/189">&lt;&uarr;hh/189&gt;</a></span>
+<span class="index"><a href="../hh/thread_189.html#post-summary-hh-192">&lt;hh/192&gt;</a></span>
 <span class="date">(2009-05-10)</span>
-<div class="body">
-<pre class="postbody">Thanks for your comments. I've modified the code and pushed the
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_189.html#post-summary-hh-189">hh/189</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_189.html#post-summary-hh-193">hh/193</a></span>
+<pre class="post-body-content">Thanks for your comments. I've modified the code and pushed the
 changes. Are we ready for the merge?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/193 -->
-<span class="postsummary" id="post_hh/193">
+<div class="post-box"><!-- post hh/193 -->
+<div class="post-summary" id="post-summary-hh-193">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_189.html#post_hh/193">&lt;hh/193&gt;</a></span>
-<span class="parent"><a href="../hh/thread_189.html#post_hh/192">&lt;&uarr;hh/192&gt;</a></span>
+<span class="index"><a href="../hh/thread_189.html#post-summary-hh-193">&lt;hh/193&gt;</a></span>
 <span class="date">(2009-05-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Thanks for your comments. I've modified the code and pushed the
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_189.html#post-summary-hh-192">hh/192</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Thanks for your comments. I've modified the code and pushed the
 &gt; changes. Are we ready for the merge?
-
-</span></span>I have not looked at the other commits yet. But if all the tests work,
+</span></span>
+I have not looked at the other commits yet. But if all the tests work,
 it is OK to merge.
 
 It is nice solution in my opinion to merge "master" _into_ "threads"
@@ -296,8 +294,7 @@ until we say "threads" is OK. (I saw that is what you had done.) If
 you say though that "threads" is OK, and it would be more convenient
 for you to use Hk after merging it into "master", you are free to do
 it.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/193 -->
 </div><!-- postbox for post hh/192 -->
 </div><!-- postbox for post hh/189 -->

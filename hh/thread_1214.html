@@ -1,29 +1,29 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Encoding errors are fatal to IMAP downloading</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Encoding errors are fatal to IMAP downloading</h1>
 
 
-<div class="postbox"><!-- post hh/1214 -->
-<span class="postsummary" id="post_hh/1214">
+<div class="post-box"><!-- post hh/1214 -->
+<div class="post-summary" id="post-summary-hh-1214">
 <span class="author">Attila Nagy</span>
 <span class="subject">Encoding errors are fatal to IMAP downloading</span>
 <span class="tags">[bug]</span>
-<span class="index"><a href="../hh/thread_1214.html#post_hh/1214">&lt;hh/1214&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_1214.html#post-summary-hh-1214">&lt;hh/1214&gt;</a></span>
 <span class="date">(2010-05-06)</span>
-<div class="body">
-<pre class="postbody">This bug is closely related to [1].
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1214.html#post-summary-hh-1219">hh/1219</a>, <a href="../hh/thread_1214.html#post-summary-hh-1221">hh/1221</a></span>
+<pre class="post-body-content">This bug is closely related to [1].
 
 Right now, every message is converted to UTF-8 like this:
 
-    charset = message.get_content_charset()
+<span class="raw-block">    charset = message.get_content_charset()
     text = hkutils.utf8(text, charset)
-
+</span>
 If a buggy client supplies a wrong charset, the `decode()` function
 inside `hkutils.utf8` will fail with an exception that stops
 downloading at the affected post.
@@ -36,48 +36,46 @@ auto-detecting?
 
 [1] heap://todo
 Subject: IMAP downloading fails when parsing a message without author
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1219 -->
-<span class="postsummary" id="post_hh/1219">
+<div class="post-box"><!-- post hh/1219 -->
+<div class="post-summary" id="post-summary-hh-1219">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1214.html#post_hh/1219">&lt;hh/1219&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1214.html#post_hh/1214">&lt;&uarr;hh/1214&gt;</a></span>
+<span class="index"><a href="../hh/thread_1214.html#post-summary-hh-1219">&lt;hh/1219&gt;</a></span>
 <span class="date">(2010-05-07)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; If a buggy client supplies a wrong charset, the `decode()` function
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1214.html#post-summary-hh-1214">hh/1214</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1214.html#post-summary-hh-1227">hh/1227</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If a buggy client supplies a wrong charset, the `decode()` function
 &gt; inside `hkutils.utf8` will fail with an exception that stops
 &gt; downloading at the affected post.
+</span></span>
+Could you give an example when hkutils.utf8() fails?
+</pre></div><!-- post-summary -->
 
-</span></span>Could you give an example when hkutils.utf8() fails?
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/1227 -->
-<span class="postsummary" id="post_hh/1227">
+<div class="post-box"><!-- post hh/1227 -->
+<div class="post-summary" id="post-summary-hh-1227">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1214.html#post_hh/1227">&lt;hh/1227&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1214.html#post_hh/1219">&lt;&uarr;hh/1219&gt;</a></span>
+<span class="index"><a href="../hh/thread_1214.html#post-summary-hh-1227">&lt;hh/1227&gt;</a></span>
 <span class="date">(2010-05-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; If a buggy client supplies a wrong charset, the `decode()` function
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1214.html#post-summary-hh-1219">hh/1219</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; If a buggy client supplies a wrong charset, the `decode()` function
 &gt;&gt; inside `hkutils.utf8` will fail with an exception that stops
 &gt;&gt; downloading at the affected post.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Could you give an example when hkutils.utf8() fails?
+</span></span>
+Sure. Parsing an e-mail which has these headers:
 
-</span></span>Sure. Parsing an e-mail which has these headers:
-
-    Content-Type: TEXT/PLAIN; charset=utf-8
+<span class="raw-block">    Content-Type: TEXT/PLAIN; charset=utf-8
     Content-Transfer-Encoding: QUOTED-PRINTABLE
-
+</span>
 and there is a line in the body that looks like this:
 
-    &gt; On Thu, Nov 11, 2004 at 06:37:39PM +0100, Christian Bj=E4levik wrote:
-
+<span class="raw-block">    &gt; On Thu, Nov 11, 2004 at 06:37:39PM +0100, Christian Bj=E4levik wrote:
+</span>
 Now, =E4 translates to byte 0xe4, which would start a 3-byte sequence.
 The following characters are basic Latin letters (i.e. letters of the
 English alphabet). Without looking up their codes, we know this places
@@ -87,15 +85,15 @@ bytes, which are in the range 0x80..0xbf.
 How did this happen? The first occurence of this name was as an
 author, in a "From:" field, like this:
 
-    From: =?ISO-8859-1?Q?Christian_Bj=E4levik?= &lt;xyz@xyz.se&gt;
-
+<span class="raw-block">    From: =?ISO-8859-1?Q?Christian_Bj=E4levik?= &lt;xyz@xyz.se&gt;
+</span>
 He sent this using Thunderbird 0.8 in 8bit transfer-encoding, using
 iso-8859-1. No problems so far.
 
 The next message in the thread quotes him like this:
 
-    On Thu, Nov 11, 2004 at 06:37:39PM +0100, Christian Bjälevik wrote:
-
+<span class="raw-block">    On Thu, Nov 11, 2004 at 06:37:39PM +0100, Christian Bjälevik wrote:
+</span>
 This is still a 0xe4 character, and the message is transfer-encoded in
 8bit and character-encoded in iso-8859-1, this time by Mutt 1.5.6. No
 problems so far...
@@ -118,45 +116,42 @@ Some other problems:
 
 But the majority of problems is simply marking ISO-8859-x encoded
 messages as being in UTF-8.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1227 -->
 </div><!-- postbox for post hh/1219 -->
 
-<div class="postbox"><!-- post hh/1221 -->
-<span class="postsummary" id="post_hh/1221">
+<div class="post-box"><!-- post hh/1221 -->
+<div class="post-summary" id="post-summary-hh-1221">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1214.html#post_hh/1221">&lt;hh/1221&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1214.html#post_hh/1214">&lt;&uarr;hh/1214&gt;</a></span>
+<span class="index"><a href="../hh/thread_1214.html#post-summary-hh-1221">&lt;hh/1221&gt;</a></span>
 <span class="date">(2010-05-08)</span>
-<div class="body">
-<pre class="postbody">"Wrong charset" also means unknown charsets. E.g. ubuntu-devel has
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1214.html#post-summary-hh-1214">hh/1214</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1214.html#post-summary-hh-1224">hh/1224</a></span>
+<pre class="post-body-content">"Wrong charset" also means unknown charsets. E.g. ubuntu-devel has
 several messages encoded in the exotic "iso-8859-8-i", and one in
 "unknown-8bit". The messages are of course plain English, so there are
 no encoding errors if we interpret the text either as UTF-8 or
 ISO-8859-1.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1224 -->
-<span class="postsummary" id="post_hh/1224">
+<div class="post-box"><!-- post hh/1224 -->
+<div class="post-summary" id="post-summary-hh-1224">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1214.html#post_hh/1224">&lt;hh/1224&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1214.html#post_hh/1221">&lt;&uarr;hh/1221&gt;</a></span>
+<span class="index"><a href="../hh/thread_1214.html#post-summary-hh-1224">&lt;hh/1224&gt;</a></span>
 <span class="date">(2010-05-09)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; "Wrong charset" also means unknown charsets.
-
-</span></span>I see.
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1214.html#post-summary-hh-1221">hh/1221</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; "Wrong charset" also means unknown charsets.
+</span></span>
+I see.
 
 <span class="quote"><span class="quote-3">&gt;&gt;&gt; I think we should catch decode error exceptions in
 &gt;&gt;&gt; `hkutils.utf8()`, and return the string unmodified.
-
-</span></span>OK, but we should print a warning in these cases.
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+OK, but we should print a warning in these cases.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1224 -->
 </div><!-- postbox for post hh/1221 -->
 </div><!-- postbox for post hh/1214 -->

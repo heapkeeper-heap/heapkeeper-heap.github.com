@@ -1,59 +1,57 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Email parsing problem</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Email parsing problem</h1>
 
 
-<div class="postbox"><!-- post hh/1024 -->
-<span class="postsummary" id="post_hh/1024">
+<div class="post-box"><!-- post hh/1024 -->
+<div class="post-summary" id="post-summary-hh-1024">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Email parsing problem</span>
 <span class="tags">[issue]</span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1024">&lt;hh/1024&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1024">&lt;hh/1024&gt;</a></span>
 <span class="date">(2010-01-15)</span>
-<div class="body">
-<pre class="postbody"><span class="meta-text">[priority high]</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-1025">hh/1025</a></span>
+<pre class="post-body-content"><span class="meta-text">[priority high]</span>
 
 Since post 3820, posts are not parsed correctly.
 
 The post body contains things like this:
 
-    --0016e68fcdeaa61245047c7c631a
+<span class="raw-block">    --0016e68fcdeaa61245047c7c631a
     Content-Type: text/plain; charset=ISO-8859-2
     Content-Transfer-Encoding: quoted-printable
-
+</span>
 Also, the non-ascii characters in the text are encoded:
 
-    Szerintem zavarn=E1, de ilyen cs=FAnyas=E1gra m=E9g nem l=E1ttam p=E9ld=E1t=
-</pre></div>
-</span><!-- postsummary -->
+<span class="raw-block">    Szerintem zavarn=E1, de ilyen cs=FAnyas=E1gra m=E9g nem l=E1ttam p=E9ld=E1t=
+</span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1025 -->
-<span class="postsummary" id="post_hh/1025">
+<div class="post-box"><!-- post hh/1025 -->
+<div class="post-summary" id="post-summary-hh-1025">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1025">&lt;hh/1025&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1024">&lt;&uarr;hh/1024&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1025">&lt;hh/1025&gt;</a></span>
 <span class="date">(2010-01-16)</span>
-<div class="body">
-<pre class="postbody"><span class="meta-text">[assign Csabi]</span>
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1024">hh/1024</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-1026">hh/1026</a></span>
+<pre class="post-body-content"><span class="meta-text">[assign Csabi]</span>
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1026 -->
-<span class="postsummary" id="post_hh/1026">
+<div class="post-box"><!-- post hh/1026 -->
+<div class="post-summary" id="post-summary-hh-1026">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1026">&lt;hh/1026&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1025">&lt;&uarr;hh/1025&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1026">&lt;hh/1026&gt;</a></span>
 <span class="date">(2010-01-16)</span>
-<div class="body">
-<pre class="postbody">I have solved the problem [1][2]. See more information in the commit message.
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1025">hh/1025</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-1114">hh/1114</a></span>
+<pre class="post-body-content">I have solved the problem [1][2]. See more information in the commit message.
 
 We should write test cases for the email parser part of
 EmailDownloader, because we never know when will GMail change
@@ -66,20 +64,19 @@ of EmailDownloader.
 
 [1] hk repo/7017452
 [2] <a href="http://github.com/hcs42/heapkeeper/commit/4b173f7d64dc2b4202ce52d914333abf18e312b8">http://github.com/hcs42/heapkeeper/commit/4b173f7d64dc2b4202ce52d914333abf18e312b8</a>
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1114 -->
-<span class="postsummary" id="post_hh/1114">
+<div class="post-box"><!-- post hh/1114 -->
+<div class="post-summary" id="post-summary-hh-1114">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1114">&lt;hh/1114&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1026">&lt;&uarr;hh/1026&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1114">&lt;hh/1114&gt;</a></span>
 <span class="date">(2010-02-09)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I have solved the problem [1][2]. See more information in the commit message.
-
-</span></span>Great!
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1026">hh/1026</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-1119">hh/1119</a>, <a href="../hh/thread_1024.html#post-summary-hh-1181">hh/1181</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I have solved the problem [1][2]. See more information in the commit message.
+</span></span>
+Great!
 
 I think the list of understood encodings is incomplete. I did a small
 research. Sylpheed keeps downloaded messages in a format equivalent to
@@ -87,7 +84,7 @@ the original MIME format in one file per message. So it was as easy as
 `grep | sort | uniq` to compile this list of encodings I've
 encountered so far:
 
-    Content-Transfer-Encoding: 7bit
+<span class="raw-block">    Content-Transfer-Encoding: 7bit
     Content-Transfer-Encoding: 8Bit
     Content-Transfer-Encoding: 8bit
     Content-Transfer-Encoding: BASE64
@@ -99,16 +96,16 @@ encountered so far:
     Content-Transfer-Encoding: quoted-printable
     Content-Transfer-Encoding: x-uuencode
     Content-Transfer-Encoding:quoted-printable
-
+</span>
 The current implementation handles for `base64` and
 `quoted-printable`, and it recognizes these in both upper- and
 lowercase. So these remain:
 
-    Content-Transfer-Encoding: 7bit
+<span class="raw-block">    Content-Transfer-Encoding: 7bit
     Content-Transfer-Encoding: 8bit
     Content-Transfer-Encoding: binary
     Content-Transfer-Encoding: x-uuencode
-
+</span>
 `7bit` is the default. Despite this, sometimes it is specified. Such
 cases would now yield a warning, but the emails are correctly parsed.
 
@@ -118,50 +115,48 @@ shouldn't give a warning.
 The last one, `x-uuencode` is a strange one, it can be found in only
 one out of the 5532 messages examined. It is used for the encoding of
 an attachment, so it is probably safe to ignore it.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1119 -->
-<span class="postsummary" id="post_hh/1119">
+<div class="post-box"><!-- post hh/1119 -->
+<div class="post-summary" id="post-summary-hh-1119">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1119">&lt;hh/1119&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1114">&lt;&uarr;hh/1114&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1119">&lt;hh/1119&gt;</a></span>
 <span class="date">(2010-02-09)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; The current implementation handles for `base64` and
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1114">hh/1114</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-1121">hh/1121</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The current implementation handles for `base64` and
 &gt; `quoted-printable`, and it recognizes these in both upper- and
 &gt; lowercase. So these remain:
 &gt;
-&gt;    Content-Transfer-Encoding: 7bit
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    Content-Transfer-Encoding: 7bit
 &gt;    Content-Transfer-Encoding: 8bit
 &gt;    Content-Transfer-Encoding: binary
 &gt;    Content-Transfer-Encoding: x-uuencode
-&gt;
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; `7bit` is the default. Despite this, sometimes it is specified. Such
 &gt; cases would now yield a warning, but the emails are correctly parsed.
-
-</span></span>7bit is handled now: (search for 7bit)
+</span></span>
+7bit is handled now: (search for 7bit)
 <a href="http://github.com/hcs42/heapkeeper/blob/_0.4/hklib.py">http://github.com/hcs42/heapkeeper/blob/_0.4/hklib.py</a>
 
 <span class="quote"><span class="quote-1">&gt; I think `8bit` and `binary` don't have to be decoded either, but they
 &gt; shouldn't give a warning.
-
-</span></span>These are not handled now. Why do you think they should not give a
+</span></span>
+These are not handled now. Why do you think they should not give a
 warning? If something has 8bit encoding, is it latin1? Shouldn't we
 convert that into UTF-8?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1121 -->
-<span class="postsummary" id="post_hh/1121">
+<div class="post-box"><!-- post hh/1121 -->
+<div class="post-summary" id="post-summary-hh-1121">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1121">&lt;hh/1121&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1119">&lt;&uarr;hh/1119&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1121">&lt;hh/1121&gt;</a></span>
 <span class="date">(2010-02-09)</span>
-<div class="body">
-<pre class="postbody">This is how I understand this topic. It is not necessarily the correct
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1119">hh/1119</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-1170">hh/1170</a></span>
+<pre class="post-body-content">This is how I understand this topic. It is not necessarily the correct
 answer.
 
 I think in the world of MIME/SMTP email, content-encoding and charset
@@ -169,20 +164,20 @@ are two different things.
 
 For example, this is from an email I wrote in Hungarian:
 
-    Content-Type: text/plain; charset=UTF-8
+<span class="raw-block">    Content-Type: text/plain; charset=UTF-8
     Content-Transfer-Encoding: 8bit
-
+</span>
 This is from an email I wrote in English:
 
-    Content-Type: text/plain; charset=ISO-8859-1
-
+<span class="raw-block">    Content-Type: text/plain; charset=ISO-8859-1
+</span>
 (`Content-Transfer-Encoding` is omitted, so it is `7bit`.)
 
 Charset and encoding refer to two different layers of the stack. Let's
 see what this means if we want to send this Hungarian sentence:
 
-    Szép időnk van.
-
+<span class="raw-block">    Szép időnk van.
+</span>
 Note: there are two characters in this sentence that are not in the
 lower 128 chars of ISO-8859-1 (that is, which are not in standard
 ASCII). The first (the accented e) is a fairly common character, e.g.
@@ -207,12 +202,12 @@ Microsoft also uses it in PE (EXE, DLL etc.) files, and some others.
 If we represent our sentence in UTF-8 and Latin-2, this is how it
 would look like in a hexdump:
 
-    53 7a c3 a9 70 20 69 64 c5 91 6e 6b 20 76 61 6e 2e  |Sz..p id..nk van.|
-
+<span class="raw-block">    53 7a c3 a9 70 20 69 64 c5 91 6e 6b 20 76 61 6e 2e  |Sz..p id..nk van.|
+</span>
 If we represent it in Latin-2, here's how it looks like:
 
-    53 7a e9 70 20 69 64 f5 6e 6b 20 76 61 6e 2e  |Sz.p id.nk van.|
-
+<span class="raw-block">    53 7a e9 70 20 69 64 f5 6e 6b 20 76 61 6e 2e  |Sz.p id.nk van.|
+</span>
 And this is the "content" that we'll encode in the next step using a
 method represented by a possible value of `Content-Transfer-Encoding`.
 
@@ -244,7 +239,7 @@ examples.
 
 
 
-    Content | Charset | Encoding | Result
+<span class="raw-block">    Content | Charset | Encoding | Result
    ------------------------------------------------------------
     fridge  | latin1  | 7bit     | OK
     fridge  | latin1  | 8bit     | OK
@@ -273,7 +268,7 @@ examples.
     冰箱    | utf-8   | 7bit     | Encoding error
     冰箱    | utf-8   | 8bit     | OK
     冰箱    | utf-8   | base64   | OK
-
+</span>
 The conclusion of this table is that the farther a writing system is
 from English, the fewer charset/encoding combinations will work.
 
@@ -281,23 +276,23 @@ Now I'll try to answer your questions:
 
 <span class="quote"><span class="quote-1">&gt; Why do you think they should not give a
 &gt; warning?
-
-</span></span>They should not give warnings because they are perfectly legal. See
-e.g. the original of <a href="../hh/thread_172.html#post_hh/173">heap://173</a> or heap://1984.
+</span></span>
+They should not give warnings because they are perfectly legal. See
+e.g. the original of <a href="../hh/thread_172.html#post-summary-hh-173">heap://173</a> or heap://1984.
 
 <span class="quote"><span class="quote-1">&gt; If something has 8bit encoding, is it latin1?
-
-</span></span>If the encoding is 8bit, the charset may be anything. We have to
+</span></span>
+If the encoding is 8bit, the charset may be anything. We have to
 respect the charset declatation of the `Content-Type` header, if it's
 present; but I don't know what it defaults to when it isn't.
 
 To see how `8bit` can be used to "encode" both Latin-2 and UTF-8,
-compare the originals of the previously mentioned <a href="../hh/thread_172.html#post_hh/173">heap://173</a> and
+compare the originals of the previously mentioned <a href="../hh/thread_172.html#post-summary-hh-173">heap://173</a> and
 heap://1984.
 
 <span class="quote"><span class="quote-1">&gt; Shouldn't we convert that into UTF-8?
-
-</span></span>It would be reasonable to convert text in any other charset to
+</span></span>
+It would be reasonable to convert text in any other charset to
 UTF-8: the heap posts have no way of specifying charset, and frankly,
 I am happy it doesn't. UTF-8 is optimal for our purposes.
 
@@ -320,20 +315,19 @@ represent the Hungarian sentence, it could be transmitted in the
 it has been constructed so that all ASCII characters are coded to
 themselves, so encoding ordinary English text is an identity
 operation.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1170 -->
-<span class="postsummary" id="post_hh/1170">
+<div class="post-box"><!-- post hh/1170 -->
+<div class="post-summary" id="post-summary-hh-1170">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1170">&lt;hh/1170&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1121">&lt;&uarr;hh/1121&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1170">&lt;hh/1170&gt;</a></span>
 <span class="date">(2010-02-14)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; This is how I understand this topic.
-
-</span></span>Thanks, you managed to clear up a few things.
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1121">hh/1121</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; This is how I understand this topic.
+</span></span>
+Thanks, you managed to clear up a few things.
 
 <span class="quote"><span class="quote-1">&gt; Now I'll try to answer your questions:
 &gt;
@@ -341,88 +335,83 @@ operation.
 &gt;&gt; warning?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; They should not give warnings because they are perfectly legal. See
-&gt; e.g. the original of </span></span><span class="quote"><span class="quote-1"><a href="../hh/thread_172.html#post_hh/173">heap://173</a></span></span><span class="quote"><span class="quote-1"> or </span></span><span class="quote"><span class="quote-1">heap://1984</span></span><span class="quote"><span class="quote-1"> .
-
-</span></span>OK, this is implied by your explanation.
+&gt; e.g. the original of </span></span><span class="quote"><span class="quote-1"><a href="../hh/thread_172.html#post-summary-hh-173">heap://173</a></span></span><span class="quote"><span class="quote-1"> or </span></span><span class="quote"><span class="quote-1">heap://1984</span></span><span class="quote"><span class="quote-1"> .
+</span></span>
+OK, this is implied by your explanation.
 
 <span class="quote"><span class="quote-2">&gt;&gt; Shouldn't we convert that into UTF-8?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; It would be reasonable to convert text in any other charset to
 &gt; UTF-8: the heap posts have no way of specifying charset, and frankly,
 &gt; I am happy it doesn't. UTF-8 is optimal for our purposes.
-
-</span></span>OK then, that's what we do now.
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+OK then, that's what we do now.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1170 -->
 </div><!-- postbox for post hh/1121 -->
 </div><!-- postbox for post hh/1119 -->
 
-<div class="postbox"><!-- post hh/1181 -->
-<span class="postsummary" id="post_hh/1181">
+<div class="post-box"><!-- post hh/1181 -->
+<div class="post-summary" id="post-summary-hh-1181">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1181">&lt;hh/1181&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1114">&lt;&uarr;hh/1114&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1181">&lt;hh/1181&gt;</a></span>
 <span class="date">(2010-02-20)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I think `8bit` and `binary` don't have to be decoded either, but they
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1114">hh/1114</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-hcs42_5">hh/hcs42_5</a>, <a href="../hh/thread_1024.html#post-summary-hh-1238">hh/1238</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I think `8bit` and `binary` don't have to be decoded either, but they
 &gt; shouldn't give a warning.
-
-</span></span><span class="meta-text">[open]</span>
+</span></span>
+<span class="meta-text">[open]</span>
 
 Warnings should be removed then.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/hcs42_5 -->
-<span class="postsummary" id="post_hh/hcs42_5">
+<div class="post-box"><!-- post hh/hcs42_5 -->
+<div class="post-summary" id="post-summary-hh-hcs42_5">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/hcs42_5">&lt;hh/hcs42_5&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1181">&lt;&uarr;hh/1181&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-hcs42_5">&lt;hh/hcs42_5&gt;</a></span>
 <span class="date">(2010-05-02)</span>
-<div class="body">
-<pre class="postbody">Subissue solved by commit b84f72f900.
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1181">hh/1181</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Subissue solved by commit b84f72f900.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/hcs42_5 -->
 
-<div class="postbox"><!-- post hh/1238 -->
-<span class="postsummary" id="post_hh/1238">
+<div class="post-box"><!-- post hh/1238 -->
+<div class="post-summary" id="post-summary-hh-1238">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1238">&lt;hh/1238&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1181">&lt;&uarr;hh/1181&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1238">&lt;hh/1238&gt;</a></span>
 <span class="date">(2010-05-20)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I think `8bit` and `binary` don't have to be decoded either, but they
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1181">hh/1181</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1024.html#post-summary-hh-1250">hh/1250</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I think `8bit` and `binary` don't have to be decoded either, but they
 &gt;&gt; shouldn't give a warning.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; [open] Warnings should be removed then.
-
-</span></span>I plan to correct this when I fix the email decoding part (see related
+</span></span>
+I plan to correct this when I fix the email decoding part (see related
 issues and bugs [1][2][3]).
 
-[1] <a href="../hh/thread_1212.html#post_hh/1212">heap://hh/1212</a>
-[2] <a href="../hh/thread_1213.html#post_hh/1213">heap://hh/1213</a>
-[3] <a href="../hh/thread_1214.html#post_hh/1214">heap://hh/1214</a>
-</pre></div>
-</span><!-- postsummary -->
+[1] <a href="../hh/thread_1212.html#post-summary-hh-1212">heap://hh/1212</a>
+[2] <a href="../hh/thread_1213.html#post-summary-hh-1213">heap://hh/1213</a>
+[3] <a href="../hh/thread_1214.html#post-summary-hh-1214">heap://hh/1214</a>
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1250 -->
-<span class="postsummary" id="post_hh/1250">
+<div class="post-box"><!-- post hh/1250 -->
+<div class="post-summary" id="post-summary-hh-1250">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1024.html#post_hh/1250">&lt;hh/1250&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1024.html#post_hh/1238">&lt;&uarr;hh/1238&gt;</a></span>
+<span class="index"><a href="../hh/thread_1024.html#post-summary-hh-1250">&lt;hh/1250&gt;</a></span>
 <span class="date">(2010-05-22)</span>
-<div class="body">
-<pre class="postbody"><span class="meta-text">[todo Delete this post and its parent.]</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1024.html#post-summary-hh-1238">hh/1238</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[todo Delete this post and its parent.]</span>
 
 I already fixed this and closed it on the Heapkeeper Heap.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1250 -->
 </div><!-- postbox for post hh/1238 -->
 </div><!-- postbox for post hh/1181 -->

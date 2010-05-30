@@ -1,59 +1,58 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Caching of next heapid</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Caching of next heapid</h1>
 
 
-<div class="postbox"><!-- post hh/812 -->
-<span class="postsummary" id="post_hh/812">
+<div class="post-box"><!-- post hh/812 -->
+<div class="post-summary" id="post-summary-hh-812">
 <span class="author">Attila Nagy</span>
 <span class="subject">Caching of next heapid</span>
 <span class="tags">[discussion]</span>
-<span class="index"><a href="../hh/thread_812.html#post_hh/812">&lt;hh/812&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_812.html#post-summary-hh-812">&lt;hh/812&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<div class="body">
-<pre class="postbody">This piece of code is used to determine the cached value of the next
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_812.html#post-summary-hh-822">hh/822</a></span>
+<pre class="post-body-content">This piece of code is used to determine the cached value of the next
 numerical heapid:
 
-    next_heapid_0 = max(heapids) + 1 if heapids != [] else 0
+<span class="raw-block">    next_heapid_0 = max(heapids) + 1 if heapids != [] else 0
     self._next_heapid = max([self._next_heapid, next_heapid_0])
-
+</span>
 My first version:
 
-    try:
+<span class="raw-block">    try:
         self._next_heapid = max((self._next_heapid, max(heapids) + 1))
     except ValueError:
         self._next_heapid = 0
-
+</span>
 My second version (more verbose, but more self-documenting):
 
-    try:
+<span class="raw-block">    try:
         current = self._next_heapid
         first_free = max(heapids) + 1
         self._next_heapid = max(current, first_free)
     except ValueError:
         self._next_heapid = 0
-
+</span>
 Which one do you prefer?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/822 -->
-<span class="postsummary" id="post_hh/822">
+<div class="post-box"><!-- post hh/822 -->
+<div class="post-summary" id="post-summary-hh-822">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_812.html#post_hh/822">&lt;hh/822&gt;</a></span>
-<span class="parent"><a href="../hh/thread_812.html#post_hh/812">&lt;&uarr;hh/812&gt;</a></span>
+<span class="index"><a href="../hh/thread_812.html#post-summary-hh-822">&lt;hh/822&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<div class="body">
-<pre class="postbody">The code you gave it not equivalent to my code.
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_812.html#post-summary-hh-812">hh/812</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_812.html#post-summary-hh-826">hh/826</a></span>
+<pre class="post-body-content">The code you gave it not equivalent to my code.
 
-    def f(self, heapids):
+<span class="raw-block">    def f(self, heapids):
         """My code"""
         next_heapid_0 = max(heapids) + 1 if heapids != [] else 0
         self._next_heapid = max([self._next_heapid, next_heapid_0])
@@ -77,20 +76,19 @@ Which one do you prefer?
     self._next_heapid = 2
     g(self, [])
     print self._next_heapid  # Your code gives 0
-</pre></div>
-</span><!-- postsummary -->
+</span></pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/826 -->
-<span class="postsummary" id="post_hh/826">
+<div class="post-box"><!-- post hh/826 -->
+<div class="post-summary" id="post-summary-hh-826">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_812.html#post_hh/826">&lt;hh/826&gt;</a></span>
-<span class="parent"><a href="../hh/thread_812.html#post_hh/822">&lt;&uarr;hh/822&gt;</a></span>
+<span class="index"><a href="../hh/thread_812.html#post-summary-hh-826">&lt;hh/826&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; The code you gave it not equivalent to my code.
-
-</span></span>OK, I wanted to replicate your code's function, at which I failed, but the
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_812.html#post-summary-hh-822">hh/822</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_812.html#post-summary-hh-832">hh/832</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The code you gave it not equivalent to my code.
+</span></span>
+OK, I wanted to replicate your code's function, at which I failed, but the
 result is not necessarily useless. This code is in the `_load_from_disk`
 method, so this difference matters only if you delete all post files from
 the mail directory, and do an `rl()`. Then, with your code, if you do an
@@ -102,7 +100,7 @@ a reload is performed, since "the disk knows better" which is the next
 heapid to use. Right now, there is a way `_next_heapid` and the "real"
 next heapid can get out of sync:
 
-    &gt;&gt;&gt; postdb().all()
+<span class="raw-block">    &gt;&gt;&gt; postdb().all()
     PostSet([&lt;post '1'&gt;, &lt;post '2'&gt;, &lt;post '3'&gt;])
     &gt;&gt;&gt; off('save')
     &gt;&gt;&gt; enew()
@@ -117,48 +115,47 @@ next heapid can get out of sync:
     &lt;post '6'&gt;
     &gt;&gt;&gt; postdb().all()
     PostSet([&lt;post '1'&gt;, &lt;post '2'&gt;, &lt;post '3'&gt;, &lt;post '6'&gt;])
-
+</span>
 I think in this case, the last enew should create a post with the heapid
 '4' and not '6'.
 
 So, my newest version:
 
-   try:
+<span class="raw-block">   try:
        self._next_heapid = max(heapids) + 1
    except ValueError:
        self._next_heapid = 0
-
+</span>
 Do you think it would be important to preserve `_next_heapid` across a reload?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/832 -->
-<span class="postsummary" id="post_hh/832">
+<div class="post-box"><!-- post hh/832 -->
+<div class="post-summary" id="post-summary-hh-832">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_812.html#post_hh/832">&lt;hh/832&gt;</a></span>
-<span class="parent"><a href="../hh/thread_812.html#post_hh/826">&lt;&uarr;hh/826&gt;</a></span>
+<span class="index"><a href="../hh/thread_812.html#post-summary-hh-832">&lt;hh/832&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Do you think it would be important to preserve `_next_heapid` across
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_812.html#post-summary-hh-826">hh/826</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_812.html#post-summary-hh-835">hh/835</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Do you think it would be important to preserve `_next_heapid` across
 &gt; a reload?
-
-</span></span>No, I guess you are right.
+</span></span>
+No, I guess you are right.
 
 <span class="quote"><span class="quote-1">&gt; So, my newest version:
 &gt;
-&gt;    try:
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    try:
 &gt;        self._next_heapid = max(heapids) + 1
 &gt;    except ValueError:
 &gt;        self._next_heapid = 0
+</span></span></span>
+I would still prefer if-else structure:
 
-</span></span>I would still prefer if-else structure:
-
-    if heapids == []:
+<span class="raw-block">    if heapids == []:
         self._next_heapid = 0
     else:
         self._next_heapid = max(heapids) + 1
-
+</span>
 Don't you think it is more readable?
 
 But of course either of these should be improved because we want to
@@ -166,46 +163,43 @@ use the cache mechanism for all prefixes. (Where an empty string is
 just a concrete prefix.)
 
 <span class="meta-text">[note: I have not read your commit on this subject yet.]</span>
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/835 -->
-<span class="postsummary" id="post_hh/835">
+<div class="post-box"><!-- post hh/835 -->
+<div class="post-summary" id="post-summary-hh-835">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_812.html#post_hh/835">&lt;hh/835&gt;</a></span>
-<span class="parent"><a href="../hh/thread_812.html#post_hh/832">&lt;&uarr;hh/832&gt;</a></span>
+<span class="index"><a href="../hh/thread_812.html#post-summary-hh-835">&lt;hh/835&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I would still prefer if-else structure:
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_812.html#post-summary-hh-832">hh/832</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_812.html#post-summary-hh-840">hh/840</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I would still prefer if-else structure:
 &gt;
-&gt;    if heapids == []:
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    if heapids == []:
 &gt;        self._next_heapid = 0
 &gt;    else:
 &gt;        self._next_heapid = max(heapids) + 1
-&gt;
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Don't you think it is more readable?
-
-</span></span>OK, I totally agree.
+</span></span>
+OK, I totally agree.
 
 <span class="quote"><span class="quote-1">&gt; I have not read your commit on this subject yet.
-
-</span></span>Don't hurry too much, I want to rewrite it to use this new code we've
+</span></span>
+Don't hurry too much, I want to rewrite it to use this new code we've
 just agreed on.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/840 -->
-<span class="postsummary" id="post_hh/840">
+<div class="post-box"><!-- post hh/840 -->
+<div class="post-summary" id="post-summary-hh-840">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_812.html#post_hh/840">&lt;hh/840&gt;</a></span>
-<span class="parent"><a href="../hh/thread_812.html#post_hh/835">&lt;&uarr;hh/835&gt;</a></span>
+<span class="index"><a href="../hh/thread_812.html#post-summary-hh-840">&lt;hh/840&gt;</a></span>
 <span class="date">(2009-10-31)</span>
-<div class="body">
-<pre class="postbody">OK, it is implemented now, and pushed to _next_heapid.
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_812.html#post-summary-hh-835">hh/835</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">OK, it is implemented now, and pushed to _next_heapid.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/840 -->
 </div><!-- postbox for post hh/835 -->
 </div><!-- postbox for post hh/832 -->

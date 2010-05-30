@@ -1,28 +1,28 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Simple scripts: documentation, grep (2009-05-10 b99f4dc212)</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Simple scripts: documentation, grep (2009-05-10 b99f4dc212)</h1>
 
 
-<div class="postbox"><!-- post hh/195 -->
-<span class="postsummary" id="post_hh/195">
+<div class="post-box"><!-- post hh/195 -->
+<div class="post-summary" id="post-summary-hh-195">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Simple scripts: documentation, grep (2009-05-10 b99f4dc212)</span>
 <span class="tags">[commit]</span>
-<span class="index"><a href="../hh/thread_195.html#post_hh/195">&lt;hh/195&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_195.html#post-summary-hh-195">&lt;hh/195&gt;</a></span>
 <span class="date">(2009-05-10)</span>
-<div class="body">
-<pre class="postbody">--------------------------------- scripts/stat ---------------------------------
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_195.html#post-summary-hh-203">hh/203</a></span>
+<pre class="post-body-content">--------------------------------- scripts/stat ---------------------------------
   +#!/bin/bash
   +
   +./hkshell 'on("t")' "for i in range($2): $1()" 'q()' | grep "^$1" | cut -d " " -f 2 | scripts/stat.py
 
-  ------------------------------- scripts/stat.py -------------------------------
+<span class="raw-block">  ------------------------------- scripts/stat.py -------------------------------
   +#!/usr/bin/python
   +
   +import sys
@@ -47,7 +47,7 @@
   +sd /= count - 1
   +
   +print "average: %f, SD: %f" % (avg, sd)
-
+</span>
 == Documentation ==
 
 Could you provide a little info on how to use new scripts when you
@@ -56,7 +56,7 @@ could have written a small example at least in the commit message.
 (Which could be copied in the documentation later.) Something like
 this would have been enough:
 
-  The scripts/stat script executes the given hkshell command given
+<span class="raw-block">  The scripts/stat script executes the given hkshell command given
   times.
 
   An example:
@@ -68,7 +68,7 @@ this would have been enough:
   the the result of the measurement is printed: the average executing
   time of the gp() commands was 0.000153 seconds, while the square
   deviation was 0.000000.
-
+</span>
 Don't be afraid that writing longer commit messages is a waste of
 time, I will read all them happily :) It takes you 1 minute to write a
 commit message like this, and it save me 5 minutes of thinking about
@@ -81,36 +81,34 @@ corrected pushdoc -- I have just realized that its handling of
 
 == Minor improvement idea ==
 
-  --------------------------------- scripts/stat ---------------------------------
+<span class="raw-block">  --------------------------------- scripts/stat ---------------------------------
   +  #!/bin/bash
   +
   +  ./hkshell 'on("t")' "for i in range($2): $1()" 'q()' | grep "^$1" | cut -d " " -f 2 | scripts/stat.py
-
+</span>
 I would write
 
-    grep "^$1:"
-
+<span class="raw-block">    grep "^$1:"
+</span>
 instead of
 
-    grep "^$1"
-
+<span class="raw-block">    grep "^$1"
+</span>
 You never know :)
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/203 -->
-<span class="postsummary" id="post_hh/203">
+<div class="post-box"><!-- post hh/203 -->
+<div class="post-summary" id="post-summary-hh-203">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_195.html#post_hh/203">&lt;hh/203&gt;</a></span>
-<span class="parent"><a href="../hh/thread_195.html#post_hh/195">&lt;&uarr;hh/195&gt;</a></span>
+<span class="index"><a href="../hh/thread_195.html#post-summary-hh-203">&lt;hh/203&gt;</a></span>
 <span class="date">(2009-05-10)</span>
-<div class="body">
-<pre class="postbody">OK, help included. Also updated the maths: it now calculates the
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_195.html#post-summary-hh-195">hh/195</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">OK, help included. Also updated the maths: it now calculates the
 standard deviation, not the squared deviation. (Not that it matters
 much to me.)
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/203 -->
 </div><!-- postbox for post hh/195 -->
 

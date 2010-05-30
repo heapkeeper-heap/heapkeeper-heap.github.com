@@ -1,22 +1,22 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Pylint</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Pylint</h1>
 
 
-<div class="postbox"><!-- post hh/1037 -->
-<span class="postsummary" id="post_hh/1037">
+<div class="post-box"><!-- post hh/1037 -->
+<div class="post-summary" id="post-summary-hh-1037">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Pylint</span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1037">&lt;hh/1037&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1037">&lt;hh/1037&gt;</a></span>
 <span class="date">(2010-01-24)</span>
-<div class="body">
-<pre class="postbody">I tried out pylint [1], which is a static analyser tool for Python. It
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1130">hh/1130</a></span>
+<pre class="post-body-content">I tried out pylint [1], which is a static analyser tool for Python. It
 can be installed by doing "apt-get install pylint".
 
 pylint can warn us when the code does not conform to coding
@@ -29,11 +29,11 @@ It is not as smart as its Erlang counterpart called Dialyser. Dialyser
 would do type inference and warn when a function is called wrong types
 of arguments. pylint does not warn even for the following:
 
-    def f():
+<span class="raw-block">    def f():
         print
 
     f(1)
-
+</span>
 If you give this code to pylint, you will get 3 warnings: one because
 the module does not have a docstring, another because f does not have
 a docstring, and a third one because f is too short and function names
@@ -41,23 +41,23 @@ should have at least 3 characters according to pylint.
 
 Fortunately it can be controlled which warnings are suppressed:
 
-    $ pylint --output=colorized --reports=n --include-ids=y --disable-msg=C0111 a.py
+<span class="raw-block">    $ pylint --output=colorized --reports=n --include-ids=y --disable-msg=C0111 a.py
     No config file found, using default configuration
     ************* Module a
     C0103:  1:f: Invalid name "f" (should match [a-z_][a-z0-9_]{2,30}$)
-
+</span>
 The warning code of missing docstring is C0111.
 
 Comments into source code can instruct pylint to suppress warnings:
 
-    # pylint: disable-msg=C0111
+<span class="raw-block">    # pylint: disable-msg=C0111
     def f():
         # pylint: disable-msg=C0103
         print
 
     def g():
         print
-
+</span>
 The first line instructs it to suppress the "missing documentation"
 warning. The third line instructs it to suppress "invalid name", but
 it will be applied only for `f`, go we will still get a warning for
@@ -78,75 +78,72 @@ more errors, and I would have spent less time debugging.
 pylint prints this error quite a few time when used on Heapkeeper's
 code:
 
-    Exception RuntimeError: 'maximum recursion depth exceeded while
+<span class="raw-block">    Exception RuntimeError: 'maximum recursion depth exceeded while
     calling a Python object' in &lt;type 'exceptions.AttributeError'&gt;
     ignored
-
+</span>
 It does not exit and still prints warnings, but this is annoying. I
 found the entry in the pylint developer's bug tracker [2], so I hope
 something will be done about this soon. Until then:
 
-    $ pylint &lt;args&gt; 2&gt;&amp;1 | sed '/^Exc/d'
-
+<span class="raw-block">    $ pylint &lt;args&gt; 2&gt;&amp;1 | sed '/^Exc/d'
+</span>
 I have commited the hk_pylint script to hk-dev-utils which contains
 this workaround, and instructs pylint to ignore all warning that we
 don't care (or at least not for now).
 
 [1] <a href="http://www.logilab.org/857">http://www.logilab.org/857</a>
 [2] <a href="http://www.logilab.org/ticket/19641">http://www.logilab.org/ticket/19641</a>
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1130 -->
-<span class="postsummary" id="post_hh/1130">
+<div class="post-box"><!-- post hh/1130 -->
+<div class="post-summary" id="post-summary-hh-1130">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1130">&lt;hh/1130&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1037">&lt;&uarr;hh/1037&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1130">&lt;hh/1130&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I tried out pylint [1], which is a static analyser tool for Python. It
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1037">hh/1037</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1131">hh/1131</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I tried out pylint [1], which is a static analyser tool for Python. It
 &gt; can be installed by doing "apt-get install pylint".
-
-</span></span>Thanks for this essay.
+</span></span>
+Thanks for this essay.
 
 Don't you have the impression that unit testing is far superior to
 what pylint does, and largely makes it unneeded?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1131 -->
-<span class="postsummary" id="post_hh/1131">
+<div class="post-box"><!-- post hh/1131 -->
+<div class="post-summary" id="post-summary-hh-1131">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1131">&lt;hh/1131&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1130">&lt;&uarr;hh/1130&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1131">&lt;hh/1131&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Don't you have the impression that unit testing is far superior to
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1130">hh/1130</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1132">hh/1132</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Don't you have the impression that unit testing is far superior to
 &gt; what pylint does, and largely makes it unneeded?
-
-</span></span>Largely, but not completely. I like that pylint tries to force coding
+</span></span>
+Largely, but not completely. I like that pylint tries to force coding
 conventions, because it is better to say to fellow developers that
 "write it this way because pylint says so" that "write it this way
 because I say so". However, it can backfire, if someone wants to do
 something because pylint says so and I don't...
 
 Some people think unit tests makes static typing unneeded.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1132 -->
-<span class="postsummary" id="post_hh/1132">
+<div class="post-box"><!-- post hh/1132 -->
+<div class="post-summary" id="post-summary-hh-1132">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1132">&lt;hh/1132&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1131">&lt;&uarr;hh/1131&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1132">&lt;hh/1132&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; Some people think unit tests makes static typing unneeded.
-
-</span></span>An interesting view!
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1131">hh/1131</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1134">hh/1134</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Some people think unit tests makes static typing unneeded.
+</span></span>
+An interesting view!
 
 I've recently began to interpret static typing as a necessary price of
 compiled languages, but this is not so. Think BCPL, then think Java:
@@ -156,99 +153,93 @@ interpreted.
 The right way to look at static typing is as a tool of avoiding type
 errors. Of course testing can do the same. Question is: does the type
 information available in declarations improve code readability?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1134 -->
-<span class="postsummary" id="post_hh/1134">
+<div class="post-box"><!-- post hh/1134 -->
+<div class="post-summary" id="post-summary-hh-1134">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1134">&lt;hh/1134&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1132">&lt;&uarr;hh/1132&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1134">&lt;hh/1134&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; The right way to look at static typing is as a tool of avoiding type
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1132">hh/1132</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1135">hh/1135</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The right way to look at static typing is as a tool of avoiding type
 &gt; errors.
+</span></span>
+And to document the code.
+</pre></div><!-- post-summary -->
 
-</span></span>And to document the code.
-</pre></div>
-</span><!-- postsummary -->
-
-<div class="postbox"><!-- post hh/1135 -->
-<span class="postsummary" id="post_hh/1135">
+<div class="post-box"><!-- post hh/1135 -->
+<div class="post-summary" id="post-summary-hh-1135">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1135">&lt;hh/1135&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1134">&lt;&uarr;hh/1134&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1135">&lt;hh/1135&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; The right way to look at static typing is as a tool of avoiding type
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1134">hh/1134</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1136">hh/1136</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; The right way to look at static typing is as a tool of avoiding type
 &gt;&gt; errors.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; And to document the code.
-
-</span></span>OK, I haven't read your next sentence carefully enough:
+</span></span>
+OK, I haven't read your next sentence carefully enough:
 
 <span class="quote"><span class="quote-2">&gt;&gt; Question is: does the type
 &gt;&gt; information available in declarations improve code readability?
-
-</span></span>I think it does when you give type information about parameters and
+</span></span>
+I think it does when you give type information about parameters and
 return values.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1136 -->
-<span class="postsummary" id="post_hh/1136">
+<div class="post-box"><!-- post hh/1136 -->
+<div class="post-summary" id="post-summary-hh-1136">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1136">&lt;hh/1136&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1135">&lt;&uarr;hh/1135&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1136">&lt;hh/1136&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt; Question is: does the type
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1135">hh/1135</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1138">hh/1138</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; Question is: does the type
 &gt;&gt;&gt; information available in declarations improve code readability?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I think it does when you give type information about parameters and
 &gt; return values.
-
-</span></span>But, of course, good docstrings are at least as useful -- the only
+</span></span>
+But, of course, good docstrings are at least as useful -- the only
 difference is that docstrings are optional.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1138 -->
-<span class="postsummary" id="post_hh/1138">
+<div class="post-box"><!-- post hh/1138 -->
+<div class="post-summary" id="post-summary-hh-1138">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1138">&lt;hh/1138&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1136">&lt;&uarr;hh/1136&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1138">&lt;hh/1138&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; But, of course, good docstrings are at least as useful -- the only
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1136">hh/1136</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1037.html#post-summary-hh-1139">hh/1139</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; But, of course, good docstrings are at least as useful -- the only
 &gt; difference is that docstrings are optional.
-
-</span></span>Optional and not checked by any automatic mechanism, so a docstring
+</span></span>
+Optional and not checked by any automatic mechanism, so a docstring
 may be obsolete.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1139 -->
-<span class="postsummary" id="post_hh/1139">
+<div class="post-box"><!-- post hh/1139 -->
+<div class="post-summary" id="post-summary-hh-1139">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1037.html#post_hh/1139">&lt;hh/1139&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1037.html#post_hh/1138">&lt;&uarr;hh/1138&gt;</a></span>
+<span class="index"><a href="../hh/thread_1037.html#post-summary-hh-1139">&lt;hh/1139&gt;</a></span>
 <span class="date">(2010-02-10)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; But, of course, good docstrings are at least as useful -- the only
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1037.html#post-summary-hh-1138">hh/1138</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; But, of course, good docstrings are at least as useful -- the only
 &gt;&gt; difference is that docstrings are optional.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Optional and not checked by any automatic mechanism, so a docstring
 &gt; may be obsolete.
-
-</span></span>But it wouldn't be impossible to extend pylint to do such checking.
-</pre></div>
-</span><!-- postsummary -->
+</span></span>
+But it wouldn't be impossible to extend pylint to do such checking.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1139 -->
 </div><!-- postbox for post hh/1138 -->
 </div><!-- postbox for post hh/1136 -->

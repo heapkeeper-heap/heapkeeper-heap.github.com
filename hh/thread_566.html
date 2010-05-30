@@ -1,22 +1,22 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Workflow with separate repositories: example</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Workflow with separate repositories: example</h1>
 
 
-<div class="postbox"><!-- post hh/566 -->
-<span class="postsummary" id="post_hh/566">
+<div class="post-box"><!-- post hh/566 -->
+<div class="post-summary" id="post-summary-hh-566">
 <span class="author">Attila Nagy</span>
 <span class="subject">Workflow with separate repositories: example</span>
-<span class="index"><a href="../hh/thread_566.html#post_hh/566">&lt;hh/566&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_566.html#post-summary-hh-566">&lt;hh/566&gt;</a></span>
 <span class="date">(2009-09-01)</span>
-<div class="body">
-<pre class="postbody">I'll use your "_e" branch as an example to see if I have understood
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_566.html#post-summary-hh-568">hh/568</a></span>
+<pre class="post-body-content">I'll use your "_e" branch as an example to see if I have understood
 the workflow correctly. It'll be a bit detailed, but I hope it can be
 understood easily.
 
@@ -53,36 +53,35 @@ local and push.
 
 [1] The underscore will be removed if this workflow goes stable.
 <span class="meta-text">[!todo Remove this and the underscores once this has happened.]</span>
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/568 -->
-<span class="postsummary" id="post_hh/568">
+<div class="post-box"><!-- post hh/568 -->
+<div class="post-summary" id="post-summary-hh-568">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_566.html#post_hh/568">&lt;hh/568&gt;</a></span>
-<span class="parent"><a href="../hh/thread_566.html#post_hh/566">&lt;&uarr;hh/566&gt;</a></span>
+<span class="index"><a href="../hh/thread_566.html#post-summary-hh-568">&lt;hh/568&gt;</a></span>
 <span class="date">(2009-09-01)</span>
-<div class="body">
-<pre class="postbody">Exactly.
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_566.html#post-summary-hh-566">hh/566</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_566.html#post-summary-hh-570">hh/570</a>, <a href="../hh/thread_566.html#post-summary-hh-574">hh/574</a></span>
+<pre class="post-body-content">Exactly.
 
 Maybe I'll try out something new soon. To stick with the example, at
 step 3, you could comment on my changes by making new commits.
 
 Let's suppose these are my commits (oldest at the top):
 
-   something nice
+<span class="raw-block">   something nice
    something funny
    something good
-
+</span>
 You could create a branch like this as remotes/attis/_e:
 
-   something nice
+<span class="raw-block">   something nice
    corrections to "something nice"
    something funny
    something good
    corrections to "something good"
-
+</span>
 You would describe the necessary things in the commits messages of the
 correction commits. It is easy to make this tree from the original one
 by using git cherry-pick. (You cherry-pick my first commit, and commit
@@ -93,79 +92,75 @@ Then you push. Then I fetch.
 If I agree with all of your corrections, I make an interactive rebase
 by squasing the corrections into the original commits:
 
-   p something nice
+<span class="raw-block">   p something nice
    s corrections to "something nice"
    p something funny
    p something good
    s corrections to "something good"
-
+</span>
 It would be a bit faster to store your changes in git then writing
 diffs in email. (Especially when there are several commits.) On the
 other hand, the conversation about the modifications is harder. So
 probably this method is applicable only for fixing trivial mistakes,
 making the code to conform conventions, and improving style.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/570 -->
-<span class="postsummary" id="post_hh/570">
+<div class="post-box"><!-- post hh/570 -->
+<div class="post-summary" id="post-summary-hh-570">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_566.html#post_hh/570">&lt;hh/570&gt;</a></span>
-<span class="parent"><a href="../hh/thread_566.html#post_hh/568">&lt;&uarr;hh/568&gt;</a></span>
+<span class="index"><a href="../hh/thread_566.html#post-summary-hh-570">&lt;hh/570&gt;</a></span>
 <span class="date">(2009-09-01)</span>
-<div class="body">
-<pre class="postbody">I have just tried this out. Have a look at my '_fastforward' branch please.
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_566.html#post-summary-hh-568">hh/568</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_566.html#post-summary-hh-573">hh/573</a></span>
+<pre class="post-body-content">I have just tried this out. Have a look at my '_fastforward' branch please.
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/573 -->
-<span class="postsummary" id="post_hh/573">
+<div class="post-box"><!-- post hh/573 -->
+<div class="post-summary" id="post-summary-hh-573">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_566.html#post_hh/573">&lt;hh/573&gt;</a></span>
-<span class="parent"><a href="../hh/thread_566.html#post_hh/570">&lt;&uarr;hh/570&gt;</a></span>
+<span class="index"><a href="../hh/thread_566.html#post-summary-hh-573">&lt;hh/573&gt;</a></span>
 <span class="date">(2009-09-02)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; I have just tried this out. Have a look at my '_fastforward' branch please.
-
-</span></span><span class="meta-text">[!todo Correct this to "_fastdownload".]</span>
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_566.html#post-summary-hh-570">hh/570</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I have just tried this out. Have a look at my '_fastforward' branch please.
+</span></span>
+<span class="meta-text">[!todo Correct this to "_fastdownload".]</span>
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/573 -->
 </div><!-- postbox for post hh/570 -->
 
-<div class="postbox"><!-- post hh/574 -->
-<span class="postsummary" id="post_hh/574">
+<div class="post-box"><!-- post hh/574 -->
+<div class="post-summary" id="post-summary-hh-574">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_566.html#post_hh/574">&lt;hh/574&gt;</a></span>
-<span class="parent"><a href="../hh/thread_566.html#post_hh/568">&lt;&uarr;hh/568&gt;</a></span>
+<span class="index"><a href="../hh/thread_566.html#post-summary-hh-574">&lt;hh/574&gt;</a></span>
 <span class="date">(2009-09-02)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; It would be a bit faster to store your changes in git then writing
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_566.html#post-summary-hh-568">hh/568</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_566.html#post-summary-hh-577">hh/577</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; It would be a bit faster to store your changes in git then writing
 &gt; diffs in email.
-
-</span></span>Sending the diffs in email sounds a bit silly. The diffs are there in
+</span></span>
+Sending the diffs in email sounds a bit silly. The diffs are there in
 Git, why bother send it in email too?
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/577 -->
-<span class="postsummary" id="post_hh/577">
+<div class="post-box"><!-- post hh/577 -->
+<div class="post-summary" id="post-summary-hh-577">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_566.html#post_hh/577">&lt;hh/577&gt;</a></span>
-<span class="parent"><a href="../hh/thread_566.html#post_hh/574">&lt;&uarr;hh/574&gt;</a></span>
+<span class="index"><a href="../hh/thread_566.html#post-summary-hh-577">&lt;hh/577&gt;</a></span>
 <span class="date">(2009-09-07)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; It would be a bit faster to store your changes in git then writing
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_566.html#post-summary-hh-574">hh/574</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; It would be a bit faster to store your changes in git then writing
 &gt;&gt; diffs in email.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Sending the diffs in email sounds a bit silly. The diffs are there in
 &gt; Git, why bother send it in email too?
-
-</span></span>Because if we want to discuss the commit in email, we will copy and
+</span></span>
+Because if we want to discuss the commit in email, we will copy and
 paste parts of the diff into the email and write the comments after
 that. Have a look at almost any thread that discusses the commits.
 
@@ -173,8 +168,7 @@ It would not only be inconvenient not to paste the relevant parts of
 the diff into the email, but it would make following the conversation
 for someone else difficult, because we rebase and rewrite commits when
 we talk about them on HH.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/577 -->
 </div><!-- postbox for post hh/574 -->
 </div><!-- postbox for post hh/568 -->

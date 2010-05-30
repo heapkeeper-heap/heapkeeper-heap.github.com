@@ -1,94 +1,91 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Blog: added module for building a blog with hk (c24058f 2009-11-28)</title>
-    <link rel=stylesheet href="../heapindex.css" type="text/css">
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
   </head>
-  <body>
+  <body >
     <h1 id="header">Blog: added module for building a blog with hk (c24058f 2009-11-28)</h1>
 
 
-<div class="postbox"><!-- post hh/1004 -->
-<span class="postsummary" id="post_hh/1004">
+<div class="post-box"><!-- post hh/1004 -->
+<div class="post-summary" id="post-summary-hh-1004">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Blog: added module for building a blog with hk (c24058f 2009-11-28)</span>
 <span class="tags">[commit]</span>
-<span class="index"><a href="../hh/thread_1004.html#post_hh/1004">&lt;hh/1004&gt;</a></span>
-<span class="parent">&lt;root&gt;</span>
+<span class="index"><a href="../hh/thread_1004.html#post-summary-hh-1004">&lt;hh/1004&gt;</a></span>
 <span class="date">(2009-12-29)</span>
-<div class="body">
-<pre class="postbody">== Use PostDB.postset ==
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1004.html#post-summary-hh-1080">hh/1080</a></span>
+<pre class="post-body-content">== Use PostDB.postset ==
 
-    + self._blog_posts = hklib.PostSet(postdb,
+<span class="raw-block">    + self._blog_posts = hklib.PostSet(postdb,
     +                                  ...)
-
+</span>
 I would prefer using
 
-    + self._blog_posts = postdb.postset(...)
-
+<span class="raw-block">    + self._blog_posts = postdb.postset(...)
+</span>
 instead. I think the latter is nicer.
 
 == Use PostSet.collect ==
 
-    + index_set = hklib.PostSet(postdb, filter(is_blog_index, postdb.all()))
-
+<span class="raw-block">    + index_set = hklib.PostSet(postdb, filter(is_blog_index, postdb.all()))
+</span>
 This is better:
 
-    + index_set = postdb.all().collect(is_blog_index)
-
+<span class="raw-block">    + index_set = postdb.all().collect(is_blog_index)
+</span>
 == Returning text structure ==
 
-    + heapid = postitem.post.heapid()
+<span class="raw-block">    + heapid = postitem.post.heapid()
     + return 'blog_%s.html' % (heapid,)
-
+</span>
 You can also use the following:
 
-    + heapid = postitem.post.heapid()
+<span class="raw-block">    + heapid = postitem.post.heapid()
     + return ('blog_', heapid, '.html')
-
+</span>
 == Unnecessary comma ==
 
-    +  item = \
+<span class="raw-block">    +  item = \
     +      self.print_link(
     +          self.print_postitem_link(postitem),
     +          self.escape(postitem.post.subject(),))
-
+</span>
 Did you really mean this comma? --------------^
 
 It does no harm, but still...
 
 I would prefer doing the fix in a separate commit.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1080 -->
-<span class="postsummary" id="post_hh/1080">
+<div class="post-box"><!-- post hh/1080 -->
+<div class="post-summary" id="post-summary-hh-1080">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1004.html#post_hh/1080">&lt;hh/1080&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1004.html#post_hh/1004">&lt;&uarr;hh/1004&gt;</a></span>
+<span class="index"><a href="../hh/thread_1004.html#post-summary-hh-1080">&lt;hh/1080&gt;</a></span>
 <span class="date">(2010-02-06)</span>
-<div class="body">
-<pre class="postbody">Thanks for your comments. I know the blog extension is desperately in
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1004.html#post-summary-hh-1004">hh/1004</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1004.html#post-summary-hh-1084">hh/1084</a></span>
+<pre class="post-body-content">Thanks for your comments. I know the blog extension is desperately in
 need of attention, but catching up with the core developments is more
 important for me right now, so I'll implement these changes after
 that.
-</pre></div>
-</span><!-- postsummary -->
+</pre></div><!-- post-summary -->
 
-<div class="postbox"><!-- post hh/1084 -->
-<span class="postsummary" id="post_hh/1084">
+<div class="post-box"><!-- post hh/1084 -->
+<div class="post-summary" id="post-summary-hh-1084">
 <span class="author">Csaba Hoch</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_1004.html#post_hh/1084">&lt;hh/1084&gt;</a></span>
-<span class="parent"><a href="../hh/thread_1004.html#post_hh/1080">&lt;&uarr;hh/1080&gt;</a></span>
+<span class="index"><a href="../hh/thread_1004.html#post-summary-hh-1084">&lt;hh/1084&gt;</a></span>
 <span class="date">(2010-02-06)</span>
-<div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-1">&gt; but catching up with the core developments is more important for me right now
-
-</span></span>I agree.
-</pre></div>
-</span><!-- postsummary -->
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1004.html#post-summary-hh-1080">hh/1080</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; but catching up with the core developments is more important for me right now
+</span></span>
+I agree.
+</pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/1084 -->
 </div><!-- postbox for post hh/1080 -->
 </div><!-- postbox for post hh/1004 -->
