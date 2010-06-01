@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Editable and distributed mailing list archive</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Editable and distributed mailing list archive</h1>
+
+
+<div class="post-box"><!-- post hh/328 -->
+<div class="post-summary" id="post-summary-hh-328">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Editable and distributed mailing list archive</span>
+<span class="tags">[idea, reviewed]</span>
+<span class="index"><a href="../hh/thread_328.html#post-summary-hh-328">&lt;hh/328&gt;</a></span>
+<span class="date">(2009-05-24)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_328.html#post-summary-hh-614">hh/614</a></span>
+<pre class="post-body-content">== Hk as editable mailing list ==
+
+So far we agreed that Hk is an "editable mailing list" or "editable
+mailing list archive". This seems to be a genuinely new idea.
+
+Google results (all written between in quotes):
+- "editable mailing list" -&gt; 4 results
+- "editable mailing archive" -&gt; 0 result
+- "editable mail archive" -&gt; 0 result
+
+== Hk as distributed mailing list archive ==
+
+=== The word "archive" ===
+
+I know "archive" is not the best word here. "Distributed mailing list"
+in itself has a different meaning, that's why I'm hesitant to use that
+here [1].
+
+<span class="raw-block">    "Cypherpunks is a distributed mailing list. A subscriber can
+    subscribe to one node of the list and thereby participate on the
+    full list. Each node (called a Cypherpunks Distributed Remailer
+    [CDR], although they are not related to anonymous remailers)
+    exchanges messages with the other nodes in addition to sending
+    messages to its subscribers. A message posted to one node will be
+    received by the list subscribers on the other nodes, and
+    vice-versa."
+</span>
+=== Motivation ===
+
+There is a big hype nowadays around "distributed" management tools [2].
+Distributed version control is widely used, and I sent an email a few
+days ago about distributed issue tracking.
+
+Shouldn't we be the "distributed mailing list archive"? (DMLA for
+short.)
+
+=== Example ===
+
+Here I will talk about HH, but it could be any heap; anyone could have
+the same goals that we have when we want to use HH for issue tracking
+Hk.
+
+So I was thinking about using Hk as its own issue tracker. The obvious
+advantage would be that if someone files an issue, it means that xe
+sends an email to HH with a special meta note (e.g. [issue]).
+
+But then I was editing our Todo file. I realized that a lot of times
+I want to add small issues and I don't want to write one-line emails
+about each single one. I want to store the new issues _within Hk_,
+without having to have for example Internet access.
+
+In these cases we just create a new post on the heap. There is no
+command that does that yet, but soon there will be:
+
+<span class="raw-block">    &gt;&gt;&gt; enew()
+    # Hk creates a new post with a new heapid.
+    # The user edits the post in a text editor.
+    # The user closes the editor.
+    &gt;&gt;&gt; s()
+</span>
+The problem is people won't get emails about posts that were created
+this way. I see two solutions. The first is the better one.
+
+==== Sending email with Hk ===
+
+We should have commands that sends emails from within Hk!
+
+<span class="raw-block">    &gt;&gt;&gt; new_email()
+    # Hk creates a new post with a new heapid.
+    # The user edits the post in a text editor.
+    # The user closes the editor.
+    # Hk emails the post to the list.
+    &gt;&gt;&gt;
+</span>
+Or course we could have a mechanism for not sending the emails
+rightaway, but storing them:
+
+<span class="raw-block">    &gt;&gt;&gt; set('email.store')
+    &gt;&gt;&gt; new_email()
+    # Hk creates a new post with a new heapid.
+    # The user edits the post in a text editor.
+    # The user closes the editor.
+    # Hk will remember the post as an email to be sent.
+    &gt;&gt;&gt; new_email()
+    # Creating another email
+    &gt;&gt;&gt; list_emails()
+    [&lt;post '123'&gt;, &lt;post '124'&gt;]
+    &gt;&gt;&gt; send_emails()
+    # Sending emails
+    &gt;&gt;&gt; list_emails()
+    []
+    &gt;&gt;&gt;
+</span>
+Of course we could have shorter names (nE for "new email", lE for
+"list email", sE for "send email").
+
+===== Avoiding heapid clash =====
+
+In order to avoid the situation where more people gets the same new
+heapid for their emails, the name of the author should be present in
+the posts' heapid:
+
+<span class="raw-block">    &gt;&gt;&gt; new_email()
+    # ...
+    &gt;&gt;&gt; list_emails()
+    [&lt;post 'csabi_3'&gt;]
+</span>
+===== What should happen when someone commits unsent emails? =====
+
+Everybody should send only emails written by xem. The send_emails command
+would send only the posts that has the same author as the user of the
+program. (Now Hk does not know who is the user of the program. This
+feature would require Hk to know that. It is not a big deal, hk.cfg
+could contain that information.)
+
+==== Commit emails ====
+
+This section is an alternative solution to the the problem that people
+don't get emails about posts that were created with Hk with the
+current Hk.
+
+The HH repository could have commit emails that are sent to everyone
+on the mailing list. (Commit emails=automatic emails about commits.)
+This way, when the new posts are committed to the central HH repo,
+people would get emails.
+
+The problem is that emails which are sent normally would be committed
+afterwards, so they would be received twice. (Once as normal emails
+and once as post commits.) This could be worked around by setting up
+the commit email system in a way that it does not send emails about
+commits with the log message "New mail downloaded". But I think this
+is not convenient for most people on the mailing list, who don't care
+about all changes in the posts and don't want to go through the commit
+emails.
+
+Another, even worse problem is that people won't be able to "reply" in
+their email client to posts created this way.
+
+[1] https://www.cypherpunks.to/list/
+[2] <a href="../hh/thread_298.html#post-summary-hh-298">heap://hh/298</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/614 -->
+<div class="post-summary" id="post-summary-hh-614">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_328.html#post-summary-hh-614">&lt;hh/614&gt;</a></span>
+<span class="date">(2009-10-01)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_328.html#post-summary-hh-328">hh/328</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[open]</span>
+
+The problem of sending emails from within Hk is still unresolved.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/614 -->
+</div><!-- postbox for post hh/328 -->
+
+  </body>
+</html>

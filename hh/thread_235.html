@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Feature/setting system</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Feature/setting system</h1>
+
+
+<div class="post-box"><!-- post hh/235 -->
+<div class="post-summary" id="post-summary-hh-235">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Feature/setting system</span>
+<span class="tags">[feature, reviewed]</span>
+<span class="index"><a href="../hh/thread_235.html#post-summary-hh-235">&lt;hh/235&gt;</a></span>
+<span class="date">(2009-05-18)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_235.html#post-summary-hh-245">hh/245</a>, <a href="../hh/thread_235.html#post-summary-hh-248">hh/248</a></span>
+<pre class="post-body-content">== Introduction ==
+
+In a previous thread we talked about the need of having a simpler
+customization system that does not require the user to know Python and
+that enables everybody to turn customization settings on and off very
+easily [1].
+
+An immature version of this has already been implemented in hkshell [2].
+Please read the corresponding documentation to understand what I am
+talking about now [3].
+
+The current implementation calls the customization items "features."
+I propose to improve the "feature" system. The word "feature" could
+also be renamed to "setting". ("Option" is already used in a different
+context.) Which name do you prefer? I will stick with "setting" for
+now.
+
+== Using the proposed setting system ==
+
+The improved setting system could be used like this:
+
+<span class="raw-block">    &gt;&gt;&gt; on('gen_indices')
+    &gt;&gt;&gt; on('date_timedelta', days=3)
+</span>
+Or we could have a hierarchical structure of settings as has
+Thunderbird, so that it will be easier to understand the system of
+settings:
+
+<span class="raw-block">    &gt;&gt;&gt; on('auto.gen_indices')
+    &gt;&gt;&gt; on('gen.date.timedelta', days=3)
+    &gt;&gt;&gt; on('gen.subject.same_as_parent')
+    &gt;&gt;&gt; on('gen.subject.same_as_parent', symbol='&amp;dash;')
+    &gt;&gt;&gt; off('gen.subject.same_as_parent')
+</span>
+We have a shorter version of all features now (e.g. on('gi') instead
+of on('gen_indices')), but I'm not sure we need that. It would make
+the system more complicated, both to implement and use. I don't think
+we change the settings as much as we give commands, and usually
+setting the settings will go into hkrc anyway.
+
+Anyone will be able to make new features, as anyone can make new
+commands and new event handlers as of now.
+
+== Implementing the proposed setting system ==
+
+=== hkshell.settings, value, state ===
+
+I envision a global dictionary in hkshell called `settings`, which
+contains the value and the state of all settings. The value of a
+setting is known and seen by the user (e.g. "on" and "off"). The state
+of a setting is an object that is interesting only for the setting
+itself. E.g. when the gen_indices setting is on, a listener object is
+placed in hkshell.listeners. (This listener object invokes the index
+generator function at the appropriate moments.) This listener object
+would be the state of the setting. The hkshell.settings dictionary
+would store both, but the user would care only about the values and
+not the states. By definition, the value is the part of the stored
+things that is interesting for the user. This is what the users will
+see when they ask the value of the setting, and this is what they have
+to give when asking Heapkeeper to set a new value for the setting.
+
+=== Setting functions ===
+
+Every setting would have a function that can set the value of that
+setting. The implementor of the setting would be helped by decorators.
+
+A listener function is used now in the implementation of the
+'gen_indices' feature. This function would be used unmodified in the
+new implementation. The listener function:
+
+<span class="raw-block">    def gen_indices_listener(e):  # `e` is an Event object.
+        if (e.type == 'after' and # `e` was raised after the execution
+                                  # of a command.
+            len(modification_listener.touched_posts()) &gt; 0): # at
+                                                             # least
+                                                             # one
+                                                             # post
+                                                             # changed
+            gen_indices() # generate index pages
+</span>
+The setting function would look like this:
+
+<span class="raw-block">    @setting('auto.gen_indices')
+    def setting_gen_indices(value, state, newvalue):
+        # - value: the current value of the setting (as given by the
+        #   user)
+        # - state: the current state of the setting (as set by the
+        #   previous invocation of this function)
+        # - newvalue: the new value of the setting (as given by the
+        #   user now)
+        listener = state # our state is the reference to the listener
+                         # function
+
+        # Removing the listener if exists
+        if listener != None:
+            assert(value == 'on')
+            remove_listener(listener)
+            listener = None
+        else:
+            assert(value == 'off')
+
+        # Adding the listener if the given new value is 'on'
+        if newvalue == 'on':
+            # gen_indices_listener is a function that I described
+            # above
+            listener = gen_indices_listener
+            append_listener(listener)
+
+        return listener # we return the new state
+</span>
+Usage:
+
+<span class="raw-block">    &gt;&gt;&gt; on('auto.gen_indices')
+</span>
+A more compact version:
+
+<span class="raw-block">    @setting('auto.gen_indices')
+    def setting_gen_indices(value, listener, newvalue):
+
+        # Removing the listener if exists
+        if listener != None:
+            remove_listener(listener)
+            listener = None
+
+        # Adding the listener if the given new value is 'on'
+        if newvalue == 'on':
+            listener = gen_indices_listener
+            append_listener(listener)
+
+        return listener
+</span>
+The same scheme works for e.g. gen.date.timedelta and
+gen.subject.same_as_parent. For those settings, I guess we need a
+global hkshell.GeneratorOptions that is modified by the setting functions.
+
+=== Deducing the name of the setting ==
+
+We could deduce the name of the setting from the name of the function:
+
+<span class="raw-block">    @setting()
+    def setting__auto__gen_indices(value, listener, newvalue):
+        ...
+</span>
+=== Default values for settings ===
+
+The decorator could also have the default value as argument:
+
+<span class="raw-block">    @setting('auto.gen_indices', default='on')
+    def setting_gen_indices(value, listener, newvalue):
+        ...
+</span>
+== Settings and options ==
+
+You may ask: what is the difference between settings and options?
+The shortest answer is that they are two abstraction levels, and
+settings will be build on the top of options. When option x is set to
+value y, the only thing that happens is that the dictionary of the
+option object instance will have a different value for key y. On the
+other hand, when a setting is changed, many things can happen: e.g.
+all the current settings (like 'gen_indices') create an event handler
+and insert it into hkshell.listeners when turned off. Another
+difference is that options are local: they are just object instances
+and many of them can exist at the same time. The setting system on the
+other hand would be one global dictionary. This way, using settings
+would be easier, but using options directly would be more flexible.
+
+[1] <a href="../hh/thread_226.html#post-summary-hh-226">heap://hh/226</a>
+[2] git://5971d43, 2009-04-04
+[3] git://doc/hkshell.rst and <a href="http://hste.uw.hu/heapkeeper/hkshell.html#hkshell-features">http://hste.uw.hu/heapkeeper/hkshell.html#hkshell-features</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/245 -->
+<div class="post-summary" id="post-summary-hh-245">
+<span class="author">Attila Nagy</span>
+<span class="subject">Keep abbreviations for the most important settings</span>
+<span class="tags">[+prop, -feature]</span>
+<span class="index"><a href="../hh/thread_235.html#post-summary-hh-245">&lt;hh/245&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_235.html#post-summary-hh-235">hh/235</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_235.html#post-summary-hh-280">hh/280</a></span>
+<pre class="post-body-content"><span class="meta-text">[open]</span>
+
+<span class="quote"><span class="quote-1">&gt; We have a shorter version of all features now (e.g. on('gi') instead
+&gt; of on('gen_indices')), but I'm not sure we need that. It would make
+&gt; the system more complicated, both to implement and use. I don't think
+&gt; we change the settings as much as we give commands, and usually
+&gt; setting the settings will go into hkrc anyway.
+</span></span>
+I can feel myself slipping into an old groove, but I cannot help but argue on
+the various kinds of users, their expectations of us, and what we can expect of
+them in turn.
+
+First, we have developers, "one of us". They use whatever features we have,
+since it's they who write it. As long as we have only these, everything is
+fine.
+
+Second, we could have (and should have sooner or later) "high power users".
+These guys (or gals) don't themselves contribute to the code, but they are the
+fine code warriors, who indeed Read The Flaming Manuscript (TM) before asking
+any questions, and at the very same time (and this is our part in it) grasp the
+essence and greatness of the project well enough to keep up with the
+developers.
+
+Third, if our project ever manages to get any attention at all, we
+shall have "power users". For an ordinary project, the power user would
+represent a high class in terms of competence, but for us, it'll probably be
+the entry level, as it is very unlikely that your average Desktop Linux User
+(under the pseudonym of Sudo Synaptic) will ever take attention in our project.
+This group will most likely consist of poor system administrators, who have
+been charged with the task of setting up a mailing list for some newly created
+commitee at the firm. To make matters worse, it would have to be done overtime,
+and, just as the poor fellow enumerates his options (Majordomo, Mailman et
+al.), the Boss turns back to him, and adds almost casually "And it'd be great
+if the archive could be edited.", meaning, of course, it _has_ to be editable.
+This poor guy is looking for a solution that is as ready-to-run, off-the-self
+and add-water-and-stir as possible, and the time he can devote to each of the
+candidates is just enough for a quick download-install-try sequence. He'll
+simply skip to the next candidate if he is asked to read anything longer than
+your average README, and even that is pretty much the top of what can be
+expected of him. No offense; that's just how it works.
+
+So, as a conclusion: I'm all for hierarchical settings, but they are too long
+for anyone not too deeply involved with the project to remember, and too
+tiresome to look up all the time. We have to have a usable set of settings
+available in abbreviated form at the power user's fingertips.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/280 -->
+<div class="post-summary" id="post-summary-hh-280">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_235.html#post-summary-hh-280">&lt;hh/280&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_235.html#post-summary-hh-245">hh/245</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_235.html#post-summary-hh-282">hh/282</a></span>
+<pre class="post-body-content">I accept your point of view, although I don't agree. Since you seem to
+have a stronger opinion that I do, let's have shortcuts for _some_
+settings along with your wishes.
+
+A side note though (you don't have to answer): Vim newbies often
+complain that experts use the short names of commands on the mailing
+list without explaining them. In our case they are the third category
+of users: they will be intimidated by reading "on('gi')" on HH and
+will be reluctant to look it up. Thus the setting shortcuts will help
+only the first two categories of people. And not much: they can write
+better shortcuts in their hkrc just as easily (e.g. "t()" instead of
+"on('t'")). And as I noted, our settings are not like Vim settings
+that are changed often while using Vim: they are like Thunderbird
+settings that are changed once when you figure out whether you like
+them or not.
+
+I propose than that all setting should have a name in the hierarchical
+structure, at least on the second level (a.b, a.b.c, a.b.c.d etc).
+Shortcuts should be outside the hierarchical structure. E.g.:
+
+<span class="raw-block">    &gt;&gt;&gt; on('etc.something')
+    &gt;&gt;&gt; on('st')
+</span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/282 -->
+<div class="post-summary" id="post-summary-hh-282">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_235.html#post-summary-hh-282">&lt;hh/282&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_235.html#post-summary-hh-280">hh/280</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_235.html#post-summary-hh-284">hh/284</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; A side note though (you don't have to answer): Vim newbies often
+&gt; complain that experts use the short names of commands on the mailing
+&gt; list without explaining them.
+</span></span>
+I've just been convinced. It's not short options that'll help hands-on
+administrators, but a sensible set of defaults that'll enable them to
+deploy the system with the least amount of customization for the widest
+range of purposes.
+
+So, I can let go of the abbreviations.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/284 -->
+<div class="post-summary" id="post-summary-hh-284">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_235.html#post-summary-hh-284">&lt;hh/284&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_235.html#post-summary-hh-282">hh/282</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[close]</span>
+
+<span class="quote"><span class="quote-1">&gt; I've just been convinced. [...]
+&gt;
+&gt; So, I can let go of the abbreviations.
+</span></span>
+Great :)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/284 -->
+</div><!-- postbox for post hh/282 -->
+</div><!-- postbox for post hh/280 -->
+</div><!-- postbox for post hh/245 -->
+
+<div class="post-box"><!-- post hh/248 -->
+<div class="post-summary" id="post-summary-hh-248">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_235.html#post-summary-hh-248">&lt;hh/248&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_235.html#post-summary-hh-235">hh/235</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_235.html#post-summary-hh-283">hh/283</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The current implementation calls the customization items "features."
+&gt; I propose to improve the "feature" system. The word "feature" could
+&gt; also be renamed to "setting".
+</span></span>
+I think "setting" is the best option. No pun intended [1].
+
+<span class="quote"><span class="quote-1">&gt; Or we could have a hierarchical structure of settings as has
+&gt; Thunderbird, so that it will be easier to understand the system of
+&gt; settings:
+</span></span>
+I like the idea. Such a system will surely pay off when we'll have to
+provide controls for all of them on the Web UI.
+
+<span class="quote"><span class="quote-1">&gt; We have a shorter version of all features now (e.g. on('gi') instead
+&gt; of on('gen_indices')), but I'm not sure we need that. It would make
+&gt; the system more complicated, both to implement and use. I don't think
+&gt; we change the settings as much as we give commands, and usually
+&gt; setting the settings will go into hkrc anyway.
+</span></span>
+You are right, still, Vim has its own abbreviations, and it's a
+Good Thing. But how about letting the user bring their own set of
+abbreviations? And providing a simple set of abbrevs for the most common
+settings in hkcustomlib?
+
+<span class="meta-text">[note I've written a lengthy argument on why I think it's important to
+retain abbreviations for at least the most important options. I don't
+want to include it here, since there was little new in it compared to
+my earlier essay on the topic.]</span>
+
+To cut a long story short: I'm all for hierarchical settings, but they are
+too long for anyone not too deeply involved with the project to remember,
+and too tiresome to look up all the time. We have to have a usable set
+of settings available in abbreviated form at the power user's fingertips.
+
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;             len(modification_listener.touched_posts()) &gt; 0): # at
+&gt;                                                              # least
+&gt;                                                              # one
+&gt;                                                              # post
+&gt;                                                              # changed
+</span></span></span>
+Sorry, can't help asking: are you serious about vertical comments? :)
+
+<span class="quote"><span class="quote-1">&gt; The setting function would look like this:
+</span></span>
+<span class="quote"><span class="quote-1">&gt; A more compact version:
+</span></span>
+What you propose seems complicated at first. Still, I think the added
+complexity will find its use when handling more complicated settings. So
+I say OK.
+
+<span class="quote"><span class="quote-1">&gt; Usage:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     &gt;&gt;&gt; on('auto.gen_indices')
+</span></span></span>
+It is a good thing the old syntax is retained.
+
+<span class="quote"><span class="quote-1">&gt; The same scheme works for e.g. gen.date.timedelta and
+&gt; gen.subject.same_as_parent. For those settings, I guess we need a
+&gt; global hkshell.GeneratorOptions that is modified by the setting functions.
+</span></span>
+Yes, I've also been feeling the need for a global instance of
+GeneratorOptions for a while now.
+
+<span class="quote"><span class="quote-1">&gt; === Deducing the name of the setting ==
+</span></span>
+<span class="quote"><span class="quote-1">&gt; === Default values for settings ===
+</span></span>
+I like these ideas a lot.
+
+<span class="quote"><span class="quote-1">&gt; == Settings and options ==
+&gt;
+&gt; You may ask: what is the difference between settings and options?
+&gt; The shortest answer is that...
+</span></span>
+So, options are local, while settings are global and acts as event hooks. Am I
+correct?
+
+Generally I say OK to this proposal, but with the addition of my argument for
+abbreviations.
+
+[1] <a href="http://xkcd.com/559/">http://xkcd.com/559/</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/283 -->
+<div class="post-summary" id="post-summary-hh-283">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_235.html#post-summary-hh-283">&lt;hh/283&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_235.html#post-summary-hh-248">hh/248</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;             len(modification_listener.touched_posts()) &gt; 0): # at
+&gt;&gt;                                                              # least
+&gt;&gt;                                                              # one
+&gt;&gt;                                                              # post
+&gt;&gt;                                                              # changed
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Sorry, can't help asking: are you serious about vertical comments? :)
+</span></span>
+I didn't want to make long lines...
+
+<span class="quote"><span class="quote-2">&gt;&gt; == Settings and options ==
+&gt;&gt;
+&gt;&gt; You may ask: what is the difference between settings and options?
+&gt;&gt; The shortest answer is that...
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; So, options are local,
+</span></span>
+Yes.
+
+<span class="quote"><span class="quote-1">&gt; while settings are global
+</span></span>
+Yes.
+
+<span class="quote"><span class="quote-1">&gt; and acts as event hooks. Am I correct?
+</span></span>
+No. The current settings act as event hooks, but many feature setting
+will act like a global option, without any connection to the event
+handling system.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/283 -->
+</div><!-- postbox for post hh/248 -->
+</div><!-- postbox for post hh/235 -->
+
+  </body>
+</html>

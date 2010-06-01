@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>IMAP downloading fails when parsing a message without author</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">IMAP downloading fails when parsing a message without author</h1>
+
+
+<div class="post-box"><!-- post hh/1212 -->
+<div class="post-summary" id="post-summary-hh-1212">
+<span class="author">Attila Nagy</span>
+<span class="subject">IMAP downloading fails when parsing a message without author</span>
+<span class="tags">[bug]</span>
+<span class="index"><a href="../hh/thread_1212.html#post-summary-hh-1212">&lt;hh/1212&gt;</a></span>
+<span class="date">(2010-05-06)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1212.html#post-summary-hh-1217">hh/1217</a></span>
+<pre class="post-body-content">Normally, emails have a "From:" header field. However, some people use
+clients that are apparently buggy, and mailing lists are not free from
+such messages. See for example this:
+
+https://lists.ubuntu.com/archives/ubuntu-devel/2004-October/000343.html
+
+Parsing such messages currently fails. Even worse, the resulting
+exception is not caught anywhere, so it flies all the way up to
+hkshell, causing any `dl()` operation to stop at the affected post.
+
+I think two things should work differently:
+- we should catch any exceptions that are generated while parsing
+individual messages,
+- we should handle posts without authors.
+
+The question is how do you think authorless posts should be handled?
+We have several options:
+- have `Post.author()` return None -- would probably break a lot of
+things (and I think this is what happens now),
+- have `Post.author()` return an empty string -- would not break that
+many things, but
+- have `Post.author()` return something like 'none' or 'no author' --
+I think it would be the responsibility of the generator to print
+something like this for such messages.
+
+(Curiously, for the example above, the ubuntu-devel mailing list's
+mbox archive contains an introduction line that contains the author,
+but there is no matching header item.)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1217 -->
+<div class="post-summary" id="post-summary-hh-1217">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1212.html#post-summary-hh-1217">&lt;hh/1217&gt;</a></span>
+<span class="date">(2010-05-07)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1212.html#post-summary-hh-1212">hh/1212</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The question is how do you think authorless posts should be handled?
+&gt; We have several options:
+&gt; - have `Post.author()` return None -- would probably break a lot of
+&gt; things (and I think this is what happens now),
+&gt; - have `Post.author()` return an empty string -- would not break that
+&gt; many things, but
+&gt; - have `Post.author()` return something like 'none' or 'no author' --
+&gt; I think it would be the responsibility of the generator to print
+&gt; something like this for such messages.
+</span></span>
+I would prefer Post.author() to return an empty string. Other similar
+methods (Post.subject(), Post.parent(), Post.date(), Post.date_str())
+return an empty string when there is no real value in the post.
+(Although Post.messid() returns None.)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1217 -->
+</div><!-- postbox for post hh/1212 -->
+
+  </body>
+</html>

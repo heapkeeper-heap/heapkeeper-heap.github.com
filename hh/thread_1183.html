@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>assertEquals is removed from Python 2.7</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">assertEquals is removed from Python 2.7</h1>
+
+
+<div class="post-box"><!-- post hh/1183 -->
+<div class="post-summary" id="post-summary-hh-1183">
+<span class="author">Csaba Hoch</span>
+<span class="subject">assertEquals is removed from Python 2.7</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1183.html#post-summary-hh-1183">&lt;hh/1183&gt;</a></span>
+<span class="date">(2010-02-28)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1183.html#post-summary-hh-1186">hh/1186</a></span>
+<pre class="post-body-content">The unittest.assertEquals function has been removed from Python 2.7,
+and we should use assertEqual instead. Since we have been using
+assertEquals so far, we will have to change our code.
+
+<span class="meta-text">[effort 1]</span>
+
+[1] <a href="http://docs.python.org/dev/library/unittest.html">http://docs.python.org/dev/library/unittest.html</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1186 -->
+<div class="post-summary" id="post-summary-hh-1186">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1183.html#post-summary-hh-1186">&lt;hh/1186&gt;</a></span>
+<span class="date">(2010-03-07)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1183.html#post-summary-hh-1183">hh/1183</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Also, assert_ is deprecated, assertTrue should be used instead.
+
+There are nice improvements like:
+- assertMultilineEqual that uses diff, and which makes my unittest
+modification that also uses diff unnecessary
+- custom types can be hooked into the assert* functions
+- test.py in Heapkeeper will not be needed because test fuctions will
+be discovered automatically
+
+The new unittest is also backported to Python &lt;=2.4, so we could use
+it; it can be downloaded from pypi. But the current version is fine,
+there is no rush.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1186 -->
+</div><!-- postbox for post hh/1183 -->
+
+  </body>
+</html>

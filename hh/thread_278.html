@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Terminology: editor vs maintainer</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Terminology: editor vs maintainer</h1>
+
+
+<div class="post-box"><!-- post hh/278 -->
+<div class="post-summary" id="post-summary-hh-278">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Terminology: editor vs maintainer</span>
+<span class="tags">[reviewed]</span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-278">&lt;hh/278&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_278.html#post-summary-hh-285">hh/285</a></span>
+<pre class="post-body-content">Do you think they mean the same, or do you use them in different context?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/285 -->
+<div class="post-summary" id="post-summary-hh-285">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-285">&lt;hh/285&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-278">hh/278</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_278.html#post-summary-hh-287">hh/287</a></span>
+<pre class="post-body-content">No, I use them interchangeably. But you've mentioned two castes of people
+working on the heap; I guess to the likeness of editors and admins on
+Wikipedia. Am I right? Would you expand this idea?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/287 -->
+<div class="post-summary" id="post-summary-hh-287">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-287">&lt;hh/287&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-285">hh/285</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_278.html#post-summary-hh-290">hh/290</a>, <a href="../hh/thread_278.html#post-summary-hh-291">hh/291</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; No, I use them interchangeably. But you've mentioned two castes of people
+&gt; working on the heap; I guess to the likeness of editors and admins on
+&gt; Wikipedia. Am I right?
+</span></span>
+I don't know what an admin does exactly on Wikipedia.
+
+<span class="quote"><span class="quote-1">&gt; Would you expand this idea?
+</span></span>
+This two-cast system was just my perception about your idea. You
+said:
+
+<span class="raw-block">    On the Hungarian Wikipedia, a new revision patrolling system has
+    been instantiated. This is pretty similar to how I fancy using a
+    Git repo as a backend for the Web interface.
+</span>
+I guess many maintainer would be allowed to commit their changes into
+the local repository, but only the upper cast could push them e.g. to
+the repository on GitHub. I don't fancy this idea very much, the heap
+would lose its dynamics in my opinion. It also would not make too much
+sense, since if we have a git repository on Hkweb, we don't need
+GitHub at all.
+
+Another (more sensible) two-cast system is to have many maintainer who
+are allowed to change the posts via the web interface, but only a
+limited number of people who are allowed to work via hkshell.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/290 -->
+<div class="post-summary" id="post-summary-hh-290">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-290">&lt;hh/290&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-287">hh/287</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_278.html#post-summary-hh-292">hh/292</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I guess many maintainer would be allowed to commit their changes
+&gt; into the local repository, but only the upper cast could push them
+&gt; e.g. to the repository on GitHub.
+</span></span>
+There is a problem with this. If an upper-caste maintainer would reject
+a commit made by a lower-caste maintainer, the process of removing the
+commit before the push would be nontrivial.
+
+I thought the outer party would make the changes, and the inner party
+would commit them. That, of course causes synchronization problems once
+the heap has a decent amount of traffic.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/292 -->
+<div class="post-summary" id="post-summary-hh-292">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-292">&lt;hh/292&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-290">hh/290</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_278.html#post-summary-hh-294">hh/294</a></span>
+<pre class="post-body-content">Which would require us to implement a version control system...
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/294 -->
+<div class="post-summary" id="post-summary-hh-294">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-294">&lt;hh/294&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-292">hh/292</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_278.html#post-summary-hh-296">hh/296</a></span>
+<pre class="post-body-content">Don't really feel like... hope you can understand :)
+
+I think we will have to introduce some kind of lockout system anyway. My
+idea would be to lock the database for the time of creating a complete copy --
+a snapshot. Then, if it's complete, editing can resume, and the copy would be
+committed into the repository.
+
+This approach only makes sense if creating a full copy is much faster than
+committing into git right away, which I doubt.
+
+A more sophisticated approach would be to keep changes in memory for the time
+of a database freeze, and when the freeze is over (ie. the commit has
+completed), the changes would be transferred from memory to disk.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/296 -->
+<div class="post-summary" id="post-summary-hh-296">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-296">&lt;hh/296&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-294">hh/294</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Don't really feel like... hope you can understand :)
+</span></span>
+Me neither; that's why I wrote ellipses at the end of the sentence.
+
+<span class="quote"><span class="quote-1">&gt; I think we will have to introduce some kind of lockout system anyway. My
+&gt; idea would be to lock the database for the time of creating a complete copy --
+&gt; a snapshot. Then, if it's complete, editing can resume, and the copy would be
+&gt; committed into the repository.
+</span></span>
+I don't really understand what is the use of the copy. Different posts
+are edited by different people at the same time; what does "resume"
+mean in this context? Deleting the work of everyone since the last
+commit? (Read my last paragraph before answering.)
+
+<span class="quote"><span class="quote-1">&gt; This approach only makes sense if creating a full copy is much faster than
+&gt; committing into git right away, which I doubt.
+&gt;
+&gt; A more sophisticated approach would be to keep changes in memory for the time
+&gt; of a database freeze, and when the freeze is over (ie. the commit has
+&gt; completed), the changes would be transferred from memory to disk.
+</span></span>
+Are you talking about dealing with synchronization problems or
+the implementation of the don't-commit-until-approved feature?
+(Also: read my last paragraph before answering.)
+
+I have a feeling that we are on the wrong track. I'm happy with the
+git repository containing everything everybody ever posted -- just not
+on GitHub. If someone is not happy with that, they are free to use
+some other VCS instead of git, which allows them to remove certain
+commits even from their history. Maybe we too should use something
+else that fits our needs better.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/296 -->
+</div><!-- postbox for post hh/294 -->
+</div><!-- postbox for post hh/292 -->
+</div><!-- postbox for post hh/290 -->
+
+<div class="post-box"><!-- post hh/291 -->
+<div class="post-summary" id="post-summary-hh-291">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-291">&lt;hh/291&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-287">hh/287</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_278.html#post-summary-hh-293">hh/293</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Another (more sensible) two-cast system is to have many maintainer who
+&gt; are allowed to change the posts via the web interface, but only a
+&gt; limited number of people who are allowed to work via hkshell.
+</span></span>
+I don't see how that would solve anything. Basically the same tasks could be
+done via through hkshell as via hkweb, only some kinds of complex
+operations could be done much more efficiently via the former.
+
+Plus, if we want to do a commit, we'd have to temporarily lock the web
+interface.
+
+And, yet another point: current hkshell can't accomodate more than one users
+editing the heap at the same time. This minor inconvenience would turn into a
+huge problem with hkweb.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/293 -->
+<div class="post-summary" id="post-summary-hh-293">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_278.html#post-summary-hh-293">&lt;hh/293&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_278.html#post-summary-hh-291">hh/291</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Another (more sensible) two-cast system is to have many maintainer who
+&gt;&gt; are allowed to change the posts via the web interface, but only a
+&gt;&gt; limited number of people who are allowed to work via hkshell.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I don't see how that would solve anything.
+</span></span>
+It has nothing to do with the problem we talked in the thread. But you
+asked me about caste systems...
+
+<span class="quote"><span class="quote-1">&gt; Basically the same tasks could be done via through hkshell as via
+&gt; hkweb, only some kinds of complex operations could be done much more
+&gt; efficiently via the former.
+</span></span>
+That is exactly what it would solve: being able to perform complex
+operations that require hkshell without having to grant full access to
+a heap server to everybody who wants to be an editor.
+
+<span class="quote"><span class="quote-1">&gt; Plus, if we want to do a commit, we'd have to temporarily lock the web
+&gt; interface.
+</span></span>
+I'm not sure about this. We do need synchronization between commits of
+course.
+
+<span class="quote"><span class="quote-1">&gt; And, yet another point: current hkshell can't accomodate more than one users
+&gt; editing the heap at the same time. This minor inconvenience would turn into a
+&gt; huge problem with hkweb.
+</span></span>
+Yes, I have thought about this before. It should be the topic of
+another thread though.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/293 -->
+</div><!-- postbox for post hh/291 -->
+</div><!-- postbox for post hh/287 -->
+</div><!-- postbox for post hh/285 -->
+</div><!-- postbox for post hh/278 -->
+
+  </body>
+</html>

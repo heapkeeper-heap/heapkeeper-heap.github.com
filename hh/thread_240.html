@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Separating Heapkeeper Heap and UMS Heap</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Separating Heapkeeper Heap and UMS Heap</h1>
+
+
+<div class="post-box"><!-- post hh/240 -->
+<div class="post-summary" id="post-summary-hh-240">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Separating Heapkeeper Heap and UMS Heap</span>
+<span class="tags">[reviewed]</span>
+<span class="index"><a href="../hh/thread_240.html#post-summary-hh-240">&lt;hh/240&gt;</a></span>
+<span class="date">(2009-05-18)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_240.html#post-summary-hh-250">hh/250</a></span>
+<pre class="post-body-content">Heapkeeper heap and UMS heap have been living as one entity until now.
+I think it is worth to start to think and talk about how should we
+separate them.
+
+== Reorganizing HH heapids ==
+
+Usually it is a very bad idea to modify the heapids of existing posts.
+In HH's case, on the other hand, I think it would be rather desirable.
+HH's index page otherwise would look weird for new people.
+
+== Heapkeeper support for managing several heaps ==
+
+Hk should have a good support for managing both heaps at the same
+time. We want to be able to write commands like this:
+
+<span class="raw-block">    &gt;&gt;&gt; ums_heap = heap('~/documents/heaps/ums')
+    &gt;&gt;&gt; hh_heap = heap('~/documents/heaps/hh')
+    &gt;&gt;&gt; ums = ums_heap.postdb()
+    &gt;&gt;&gt; hh = hh_heap.postdb()
+    &gt;&gt;&gt; p = ums.post('123')
+    &gt;&gt;&gt; p.move(hh)
+</span>
+Posts can reference to each other, so probably it will not be this
+simple. (Or the implementation has to be smart in some way to make it
+simple.)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/250 -->
+<div class="post-summary" id="post-summary-hh-250">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_240.html#post-summary-hh-250">&lt;hh/250&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_240.html#post-summary-hh-240">hh/240</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_240.html#post-summary-hh-253">hh/253</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Heapkeeper heap and UMS heap have been living as one entity until now.
+&gt; I think it is worth to start to think and talk about how should we
+&gt; separate them.
+</span></span>
+Absolutely.
+
+== Reorganizing HH heapids ==
+
+<span class="quote"><span class="quote-1">&gt; Usually it is a very bad idea to modify the heapids of existing posts.
+&gt; In HH's case, on the other hand, I think it would be rather desirable.
+&gt; HH's index page otherwise would look weird for new people.
+</span></span>
+Do you have any idea for this mass-renaming? We'd have to take care of
+any in-body references as well as heapids in In-Reply-To: headers. No
+simple task, especially the latter. Maybe we should add a feature for
+this to hklib? Then, anyone facing this problem later would have a
+readily usable solution.
+
+== Heapkeeper support for managing several heaps ==
+
+<span class="quote"><span class="quote-1">&gt; Hk should have a good support for managing both heaps at the same
+&gt; time. We want to be able to write commands like this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     &gt;&gt;&gt; ums_heap = heap('~/documents/heaps/ums')
+&gt;     &gt;&gt;&gt; hh_heap = heap('~/documents/heaps/hh')
+&gt;     &gt;&gt;&gt; ums = ums_heap.postdb()
+&gt;     &gt;&gt;&gt; hh = hh_heap.postdb()
+&gt;     &gt;&gt;&gt; p = ums.post('123')
+&gt;     &gt;&gt;&gt; p.move(hh)
+</span></span></span>
+Nice examples! Of course, we'd have to take great care when moving,
+since heapids are heap-specific, so if a parent message is specified
+via its heapid, it will break when moved. Basically the same issue as
+with renumbering the split-off heap.
+
+<span class="quote"><span class="quote-1">&gt; Posts can reference to each other, so probably it will not be this
+&gt; simple. (Or the implementation has to be smart in some way to make it
+&gt; simple.)
+</span></span>
+Which is also manageable as long as the format is precisely specified,
+as with headers. It is the body that makes me worried.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/253 -->
+<div class="post-summary" id="post-summary-hh-253">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_240.html#post-summary-hh-253">&lt;hh/253&gt;</a></span>
+<span class="date">(2009-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_240.html#post-summary-hh-250">hh/250</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_240.html#post-summary-hh-1189">hh/1189</a></span>
+<pre class="post-body-content">== Reorganizing HH heapids ==
+
+<span class="quote"><span class="quote-2">&gt;&gt; Usually it is a very bad idea to modify the heapids of existing posts.
+&gt;&gt; In HH's case, on the other hand, I think it would be rather desirable.
+&gt;&gt; HH's index page otherwise would look weird for new people.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Do you have any idea for this mass-renaming? We'd have to take care of
+&gt; any in-body references as well as heapids in In-Reply-To: headers. No
+&gt; simple task, especially the latter. Maybe we should add a feature for
+&gt; this to hklib? Then, anyone facing this problem later would have a
+&gt; readily usable solution.
+</span></span>
+I think this problem can be solved elegantly only if we make a change
+in our model. We take heapids as unique identifiers of posts; from the
+moment we have multiple heaps, this is not true.
+
+We have three options:
+1. Give a decent support for moving posts between heaps.
+2. Give a little support for moving posts between heaps that solves
+   our problem with our human help. We may give a decent support at
+   some point in the future.
+3. Don't give any support, just implement a post-mover function, use
+   it and throw it away.
+
+Let's talk about how we could implement a decent support, and if we
+decide it would be too hard and we want to separate the two heaps, we
+fall back onto the second or third option.
+
+== Heapkeeper support for managing several heaps ==
+
+<span class="quote"><span class="quote-2">&gt;&gt; Hk should have a good support for managing both heaps at the same
+&gt;&gt; time. We want to be able to write commands like this:
+&gt;&gt;
+</span></span><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;     &gt;&gt;&gt; ums_heap = heap('~/documents/heaps/ums')
+&gt;&gt;     &gt;&gt;&gt; hh_heap = heap('~/documents/heaps/hh')
+&gt;&gt;     &gt;&gt;&gt; ums = ums_heap.postdb()
+&gt;&gt;     &gt;&gt;&gt; hh = hh_heap.postdb()
+&gt;&gt;     &gt;&gt;&gt; p = ums.post('123')
+&gt;&gt;     &gt;&gt;&gt; p.move(hh)
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Nice examples! Of course, we'd have to take great care when moving,
+&gt; since heapids are heap-specific, so if a parent message is specified
+&gt; via its heapid, it will break when moved. Basically the same issue as
+&gt; with renumbering the split-off heap.
+&gt;
+</span></span><span class="quote"><span class="quote-2">&gt;&gt; Posts can reference to each other, so probably it will not be this
+&gt;&gt; simple. (Or the implementation has to be smart in some way to make it
+&gt;&gt; simple.)
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Which is also manageable as long as the format is precisely specified,
+&gt; as with headers. It is the body that makes me worried.
+</span></span>
+These comments of yours reveal the two main problems we have.
+
+I'll think about them.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1189 -->
+<div class="post-summary" id="post-summary-hh-1189">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_240.html#post-summary-hh-1189">&lt;hh/1189&gt;</a></span>
+<span class="date">(2010-03-15)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_240.html#post-summary-hh-253">hh/253</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_240.html#post-summary-hh-1193">hh/1193</a></span>
+<pre class="post-body-content">In parallel to implementing the "several heaps" feature [1], I
+prepared our heap for the separation. I also wrote a small Python
+function that performs the separation and placed it in
+hkrc_csabahoch.py. I uploaded the page generated from the separated HH
+here [2] so that you can check it out. You can also check out how the
+post bodies are displayed: the meta text and quotes are highlighted,
+and the web and heap references are real links.
+
+We should set up a Google Groups account for HH and send the new
+emails there. We should create a GitHub repository for HH and we
+should push the new HH posts there, so that will be the primary HH
+repository. We should push the HTML pages generated from HH to
+heapkeeper.org.
+
+If you say OK, I will try to do these next weekend. If you don't say
+anything, I won't do these next weekend, but probably two weeks later.
+
+[1] <a href="../hh/thread_536.html#post-summary-hh-536">heap://hh/536</a>
+[2] <a href="http://heapkeeper.org/hh_html/index/index.html">http://heapkeeper.org/hh_html/index/index.html</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1193 -->
+<div class="post-summary" id="post-summary-hh-1193">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_240.html#post-summary-hh-1193">&lt;hh/1193&gt;</a></span>
+<span class="date">(2010-04-10)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_240.html#post-summary-hh-1189">hh/1189</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; We should set up a Google Groups account for Hh and send the new
+&gt; emails there.
+</span></span>
+Done: <a href="http://groups.google.com/group/heapkeeper-heap">http://groups.google.com/group/heapkeeper-heap</a>
+
+<span class="quote"><span class="quote-1">&gt; We should create a GitHub repository for Hh and we should push the
+&gt; new Hh posts there, so that will be the primary Hh repository.
+</span></span>
+Done: <a href="http://github.com/hcs42/heapkeeper-heap">http://github.com/hcs42/heapkeeper-heap</a>
+
+<span class="quote"><span class="quote-1">&gt; We should push the HTML pages generated from Hh to heapkeeper.org.
+</span></span>
+Done: <a href="http://heapkeeper-heap.github.com">http://heapkeeper-heap.github.com</a>
+
+I decided to use GitHub instead of heapkeeper.org, because
+heapkeeper.org has only ftp, which would require us to push each file
+all the time. (It seems that there is no good sync-tool for ftp.)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1193 -->
+</div><!-- postbox for post hh/1189 -->
+</div><!-- postbox for post hh/253 -->
+</div><!-- postbox for post hh/250 -->
+</div><!-- postbox for post hh/240 -->
+
+  </body>
+</html>

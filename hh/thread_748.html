@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Convention about expected/real result</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Convention about expected/real result</h1>
+
+
+<div class="post-box"><!-- post hh/748 -->
+<div class="post-summary" id="post-summary-hh-748">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Convention about expected/real result</span>
+<span class="tags">[prop, reviewed]</span>
+<span class="index"><a href="../hh/thread_748.html#post-summary-hh-748">&lt;hh/748&gt;</a></span>
+<span class="date">(2009-10-22)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_748.html#post-summary-hh-794">hh/794</a></span>
+<pre class="post-body-content">I think we should have a convention about whether the expected or real
+result should be written first in the assertions. I'll discuss the two
+possible conventions and than describe my idea.
+
+== Real result first ==
+
+Usually I have been following the "real result first" convention,
+which reads nice when you read the _test code_:
+
+<span class="raw-block">    self.assertTextStructsAreEqual(
+        g.print_post_summary_div(postitem)
+        g.enclose(
+            class_='postsummary',
+            id='post_0',
+            newlines=True,
+            content=expected_header))
+</span>
+It reads like this: if I execute the `print_post_summary_div`
+function, the result should be an enclosed structure where the class
+is "postsummary", the id is "post_0", the new lines are enabled and
+the content is the same as the previously created `expected_header`
+text.
+
+== Expected result first ==
+
+On the other hand, if we read the _test results_ instead of the test
+code, the "expected result first" seems to be better:
+
+The test code:
+
+<span class="raw-block">    self.assertTextStructsAreEqual(
+        g.enclose(
+            class_='postsummary',
+            id='post_0',
+            newlines=True,
+            content=expected_header)),
+        g.print_post_summary_div(postitem)
+</span>
+The test result:
+
+<span class="raw-block">    AssertionError: The following strings should be equal but they are not:
+
+    -&lt;span class="postsummary" id="post_0"&gt;
+    +&lt;span class="postsummary" id="post_0"&gt;&lt;!-- post 0 --&gt;
+     &lt;span class="author"&gt;author0&lt;/span&gt;
+     &lt;span class="subject"&gt;subject0&lt;/span&gt;
+     &lt;span class="button"&gt;&lt;a href="thread_0.html"&gt;&lt;img src="thread.png" /&gt;&lt;/a&gt;&lt;/span&gt;
+     &lt;span class="tags"&gt;[tag1, tag2]&lt;/span&gt;
+     &lt;span class="index"&gt;&lt;a href="thread_0.html#post_0"&gt;&amp;lt;0&amp;gt;&lt;/a&gt;&lt;/span&gt;
+    -&lt;/span&gt;
+    +&lt;/span&gt;&lt;!-- post 0 --&gt;&lt;!-- postsummary --&gt;
+</span>
+The test result reads nicely because it says "the real result has
+extra comments compared to the expected result".
+
+The order does not really have a significance when reading non-diff
+test results:
+
+<span class="raw-block">    AssertionError: ['a', 'b'] != ['a']
+</span>
+== Idea ==
+
+I have an idea to have the best of the two worlds. We should write the
+real results first, the unittest module should do the "diff" in the
+other way around!
+
+This way the test code would look like this:
+
+<span class="raw-block">    self.assertEquals(
+        real,
+        expected)
+</span>
+The normal test results would look like this:
+
+<span class="raw-block">    AssertionError: real != expected
+</span>
+The diff test results would look like this:
+
+<span class="raw-block">    AssertionError: The following strings should be equal but they are not:
+
+    -expected
+    +real
+</span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/794 -->
+<div class="post-summary" id="post-summary-hh-794">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_748.html#post-summary-hh-794">&lt;hh/794&gt;</a></span>
+<span class="date">(2009-10-29)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_748.html#post-summary-hh-748">hh/748</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_748.html#post-summary-hh-820">hh/820</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; This way the test code would look like this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    self.assertEquals(
+&gt;        real,
+&gt;        expected)
+</span></span></span>
+OK.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/820 -->
+<div class="post-summary" id="post-summary-hh-820">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_748.html#post-summary-hh-820">&lt;hh/820&gt;</a></span>
+<span class="date">(2009-10-31)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_748.html#post-summary-hh-794">hh/794</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[close]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/820 -->
+</div><!-- postbox for post hh/794 -->
+</div><!-- postbox for post hh/748 -->
+
+  </body>
+</html>

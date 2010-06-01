@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Docstring tracking tool</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Docstring tracking tool</h1>
+
+
+<div class="post-box"><!-- post hh/675 -->
+<div class="post-summary" id="post-summary-hh-675">
+<span class="author">Attila Nagy</span>
+<span class="subject">Docstring tracking tool</span>
+<span class="tags">[idea]</span>
+<span class="index"><a href="../hh/thread_675.html#post-summary-hh-675">&lt;hh/675&gt;</a></span>
+<span class="date">(2009-10-17)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_675.html#post-summary-hh-683">hh/683</a></span>
+<pre class="post-body-content">Maybe we could build a small tool to track the docstrings and point
+out functions lacking proper documentation. Maybe it could even be a
+Vim script. Do you think this would be useful?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/683 -->
+<div class="post-summary" id="post-summary-hh-683">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_675.html#post-summary-hh-683">&lt;hh/683&gt;</a></span>
+<span class="date">(2009-10-17)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_675.html#post-summary-hh-675">hh/675</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_675.html#post-summary-hh-692">hh/692</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Maybe we could build a small tool to track the docstrings and point
+&gt; out functions lacking proper documentation.
+</span></span>
+What do you mean by "proper documentation"?
+
+It could e.g. check that the documentation is in correct format, and
+that the function's documentation is included in the corresponding
+*.rst file.
+
+<span class="quote"><span class="quote-1">&gt; Maybe it could even be a Vim script.
+</span></span>
+I think if we do it, we should write it in Python, so we don't have
+tough limitations, and we can use it as a commit hook.
+
+<span class="quote"><span class="quote-1">&gt; Do you think this would be useful?
+</span></span>
+Probably yes.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/692 -->
+<div class="post-summary" id="post-summary-hh-692">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_675.html#post-summary-hh-692">&lt;hh/692&gt;</a></span>
+<span class="date">(2009-10-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_675.html#post-summary-hh-683">hh/683</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_675.html#post-summary-hh-700">hh/700</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; What do you mean by "proper documentation"?
+&gt;
+&gt; It could e.g. check that the documentation is in correct format
+</span></span>
+That's exactly what I was thinking about. We have several levels of
+documentation for functions:
+- none,
+- one line only, to state what the function is for,
+- detailed (arguments and return), but in the old form,
+- detailed (arguments and return), and in the newest form.
+
+An example of the old form:
+
+<span class="raw-block">    @staticmethod
+    def parse_header(f):
+        """Parses the header from f.
+
+        Arguments:
+        f -- A file descriptor.
+
+        Returns:
+        dict(str, [str]).
+        """
+</span>
+And the new form:
+
+<span class="raw-block">    @staticmethod
+    def from_str(s, heapid=None, postdb=None):
+        """Creates a |Post| object from the given string.
+
+        **Arguments:**
+
+        - `s` (str) -- String from which the post should be created. It is
+          handled like the content of a post file.
+        - `heapid` (|Heapid| | None) -- Initial value of the `_heapid` data
+          attribute.
+        - `postdb` (|PostDB| None) -- Initial value of the `_postdb` data
+          attribute.
+
+        **Returns:** |Post|
+        """
+</span>
+I think we should fill this up from the bottom, i.e. it is more
+important to document everything than to improve existing
+documentation. Do you agree?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/700 -->
+<div class="post-summary" id="post-summary-hh-700">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_675.html#post-summary-hh-700">&lt;hh/700&gt;</a></span>
+<span class="date">(2009-10-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_675.html#post-summary-hh-692">hh/692</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_675.html#post-summary-hh-703">hh/703</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I think we should fill this up from the bottom, i.e. it is more
+&gt; important to document everything than to improve existing
+&gt; documentation. Do you agree?
+</span></span>
+We should definitely document everything new. But we (I) should still
+update the remaining parts of `hklib` at some point.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/703 -->
+<div class="post-summary" id="post-summary-hh-703">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_675.html#post-summary-hh-703">&lt;hh/703&gt;</a></span>
+<span class="date">(2009-10-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_675.html#post-summary-hh-700">hh/700</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_675.html#post-summary-hh-707">hh/707</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; But we (I) should still
+</span></span>
+We/I/Gaia :D
+
+Maybe we could have a documentation weekend sometime.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/707 -->
+<div class="post-summary" id="post-summary-hh-707">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_675.html#post-summary-hh-707">&lt;hh/707&gt;</a></span>
+<span class="date">(2009-10-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_675.html#post-summary-hh-703">hh/703</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_675.html#post-summary-hh-709">hh/709</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; But we (I) should still
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; We/I/Gaia :D
+</span></span>
+:)))
+
+<span class="quote"><span class="quote-1">&gt; Maybe we could have a documentation weekend sometime.
+</span></span>
+Sorting the documentation is a boring activity, so I think it should
+be done by a tired person who does not feel like doing more active
+things like working on new features or debugging. We should not waste
+weekends for sorting out hklib documentation :)
+
+But actually it's not that big a deal now. hklib.Post is partly ready,
+and hklib.Generator will be deleted. So there is only a few classes
+whose documentation should be updated. (All other documentation is
+fine.)
+
+Or maybe I miss something and you mean something else by
+"documentation weekend".
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/709 -->
+<div class="post-summary" id="post-summary-hh-709">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_675.html#post-summary-hh-709">&lt;hh/709&gt;</a></span>
+<span class="date">(2009-10-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_675.html#post-summary-hh-707">hh/707</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; We should not waste
+&gt; weekends for sorting out hklib documentation :)
+</span></span>
+Good point :)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/709 -->
+</div><!-- postbox for post hh/707 -->
+</div><!-- postbox for post hh/703 -->
+</div><!-- postbox for post hh/700 -->
+</div><!-- postbox for post hh/692 -->
+</div><!-- postbox for post hh/683 -->
+</div><!-- postbox for post hh/675 -->
+
+  </body>
+</html>

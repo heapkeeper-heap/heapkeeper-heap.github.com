@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Renamings</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Renamings</h1>
+
+
+<div class="post-box"><!-- post hh/105 -->
+<div class="post-summary" id="post-summary-hh-105">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Renamings</span>
+<span class="tags">[prop, reviewed]</span>
+<span class="index"><a href="../hh/thread_105.html#post-summary-hh-105">&lt;hh/105&gt;</a></span>
+<span class="date">(2009-04-18)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_105.html#post-summary-hh-107">hh/107</a></span>
+<pre class="post-body-content">What do you say to perform the following renamings:
+- MailDB -&gt; PostDB
+- In general: heap*.py -&gt; hk*.py
+- heapmanip -&gt; hklib
+- heaplib -&gt; hkutils
+- heapia -&gt; hkshell
+- heapcustomlib -&gt; hkcustomlib (better name?)
+- heapcustom (not in the repo) -&gt; hkrc
+
+BTW, do you now what is "rc" in .vimrc, .kderc, etc?
+
+And to moving the following code:
+- heapmanip.Html -&gt; current heaplib, proposed hkutils
+
+I think we should move Section, Index and Generator in the future, but
+I don't know where. It will depend on the implementation of the
+dynamic web pages. So I think we should leave them now as they are.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/107 -->
+<div class="post-summary" id="post-summary-hh-107">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_105.html#post-summary-hh-107">&lt;hh/107&gt;</a></span>
+<span class="date">(2009-04-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_105.html#post-summary-hh-105">hh/105</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_105.html#post-summary-hh-108">hh/108</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; What do you say to perform the following renamings:
+&gt; - MailDB -&gt; PostDB
+&gt; - In general: heap*.py -&gt; hk*.py
+&gt; - heapmanip -&gt; hklib
+&gt; - heaplib -&gt; hkutils
+&gt; - heapia -&gt; hkshell
+&gt; - heapcustomlib -&gt; hkcustomlib (better name?)
+&gt; - heapcustom (not in the repo) -&gt; hkrc
+</span></span>
+OK.
+
+<span class="quote"><span class="quote-1">&gt; BTW, do you now what is "rc" in .vimrc, .kderc, etc?
+</span></span>
+<a href="http://en.wikipedia.org/wiki/Run_Commands">http://en.wikipedia.org/wiki/Run_Commands</a>
+
+<span class="quote"><span class="quote-1">&gt; And to moving the following code:
+&gt; - heapmanip.Html -&gt; current heaplib, proposed hkutils
+&gt; I think we should move Section, Index and Generator in the future
+</span></span>
+Seems to me a major refactoring is in order. What do you propose as
+the main ordering principle of classes into modules?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/108 -->
+<div class="post-summary" id="post-summary-hh-108">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_105.html#post-summary-hh-108">&lt;hh/108&gt;</a></span>
+<span class="date">(2009-04-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_105.html#post-summary-hh-107">hh/107</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_105.html#post-summary-hh-109">hh/109</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; And to moving the following code:
+&gt;&gt; - heapmanip.Html -&gt; current heaplib, proposed hkutils
+&gt;&gt; I think we should move Section, Index and Generator in the future
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Seems to me a major refactoring is in order. What do you propose as
+&gt; the main ordering principle of classes into modules?
+</span></span>
+From the Architecture page which is under construction:
+
+<span class="raw-block">    :mod:`hkutils`
+       Contains general library classes and functions.
+    :mod:`hklib`
+       The database and business logic of Heapkeeper. Its classes can
+       download, store, and modify posts and generate HTML from them.
+    :mod:`hkshell`
+       The interactive interface of Heapkeeper.
+    :mod:`hkcustomlib`
+       Contains functions and classes that are useful for the
+       parametrization of functions in other modules (especially functions
+       of :mod:`heapmanip` and :mod:`heapia`).
+</span>
+Does it give an adequate answer to your question? The HTML generation
+should not necessarily be in hklib by the system's logic, as I said.
+
+I'm not really satisfied with the name hkcustomlib. Any ideas are
+welcome.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/109 -->
+<div class="post-summary" id="post-summary-hh-109">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_105.html#post-summary-hh-109">&lt;hh/109&gt;</a></span>
+<span class="date">(2009-04-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_105.html#post-summary-hh-108">hh/108</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[close]</span>
+
+Done.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/109 -->
+</div><!-- postbox for post hh/108 -->
+</div><!-- postbox for post hh/107 -->
+</div><!-- postbox for post hh/105 -->
+
+  </body>
+</html>

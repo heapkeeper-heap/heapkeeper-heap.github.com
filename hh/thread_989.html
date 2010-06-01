@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Concerns about the workflow</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Concerns about the workflow</h1>
+
+
+<div class="post-box"><!-- post hh/989 -->
+<div class="post-summary" id="post-summary-hh-989">
+<span class="author">Attila Nagy</span>
+<span class="subject">Concerns about the workflow</span>
+<span class="tags">[workflow]</span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-989">&lt;hh/989&gt;</a></span>
+<span class="date">(2009-12-17)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-990">hh/990</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; And since we still don't have a satisfying workflow, I do
+&gt; understand them.
+</span></span>
+I see you have some concerns about our workflow. You've also voiced
+these doubts at the VigConf. I would love to hear the specifics, maybe
+we can find an easy answer, or, if not, at least we'll know better
+what we're looking for.
+
+I don't think that the original idea of pushing our branches to the
+point where we are with the reviewing process would be flawed. It
+would and should work -- only if we could devote more time to the
+project.
+
+So, maybe what we are looking for is a more "lazyness-tolerant" workflow?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/990 -->
+<div class="post-summary" id="post-summary-hh-990">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-990">&lt;hh/990&gt;</a></span>
+<span class="date">(2009-12-17)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-989">hh/989</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-991">hh/991</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; And since we still don't have a satisfying workflow, I do
+&gt;&gt; understand them.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I see you have some concerns about our workflow. You've also voiced
+&gt; these doubts at the VigConf. I would love to hear the specifics, maybe
+&gt; we can find an easy answer, or, if not, at least we'll know better
+&gt; what we're looking for.
+</span></span>
+You mean the specific concerns?
+
+<span class="quote"><span class="quote-1">&gt; I don't think that the original idea of pushing our branches to the
+&gt; point where we are with the reviewing process would be flawed.
+</span></span>
+I don't think that either.
+
+<span class="quote"><span class="quote-1">&gt; It would and should work -- only if we could devote more time to the
+&gt; project.
+&gt;
+&gt; So, maybe what we are looking for is a more "lazyness-tolerant" workflow?
+</span></span>
+Yes, probably. It should support the use case when only one of us work
+and the other just reads email and has little time for the project.
+(Which is only temporary of course.)
+
+Other O/S projects have some kind of timeout (if noone objects in a
+week, it will be considered as agreed). Sometimes I think that it a
+good idea. What do you think?
+
+It seems that this method requires us to do more review than we can
+handle. Maybe we would have shorter (and of course not so thorough)
+reviews to make sure that coding goes on and the master branch will
+not be left behind.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/991 -->
+<div class="post-summary" id="post-summary-hh-991">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-991">&lt;hh/991&gt;</a></span>
+<span class="date">(2009-12-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-990">hh/990</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-995">hh/995</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I see you have some concerns about our workflow. You've also voiced
+&gt;&gt; these doubts at the VigConf. I would love to hear the specifics, maybe
+&gt;&gt; we can find an easy answer, or, if not, at least we'll know better
+&gt;&gt; what we're looking for.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; You mean the specific concerns?
+</span></span>
+Yes.
+
+<span class="quote"><span class="quote-2">&gt;&gt; I don't think that the original idea of pushing our branches to the
+&gt;&gt; point where we are with the reviewing process would be flawed.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I don't think that either.
+</span></span>
+Good :)
+
+<span class="quote"><span class="quote-2">&gt;&gt; So, maybe what we are looking for is a more "lazyness-tolerant" workflow?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Yes, probably. It should support the use case when only one of us work
+&gt; and the other just reads email and has little time for the project.
+&gt; (Which is only temporary of course.)
+&gt;
+&gt; Other O/S projects have some kind of timeout (if noone objects in a
+&gt; week, it will be considered as agreed). Sometimes I think that it a
+&gt; good idea. What do you think?
+</span></span>
+Yes, as it allows for progress even in the absence of other contributors.
+
+<span class="quote"><span class="quote-1">&gt; It seems that this method requires us to do more review than we can
+&gt; handle. Maybe we would have shorter (and of course not so thorough)
+&gt; reviews to make sure that coding goes on and the master branch will
+&gt; not be left behind.
+</span></span>
+I honestly don't know what to do with code reviews! I hate it. It is
+so much harder to review code that to write it. Or maybe it is not
+hard, but it is definitely not as rewarding. Any ideas on how to make
+reviewing more rewarding?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/995 -->
+<div class="post-summary" id="post-summary-hh-995">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-995">&lt;hh/995&gt;</a></span>
+<span class="date">(2009-12-22)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-991">hh/991</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1077">hh/1077</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; I see you have some concerns about our workflow. You've also voiced
+&gt;&gt;&gt; these doubts at the VigConf. I would love to hear the specifics, maybe
+&gt;&gt;&gt; we can find an easy answer, or, if not, at least we'll know better
+&gt;&gt;&gt; what we're looking for.
+</span></span><span class="quote"><span class="quote-2">&gt;&gt; You mean the specific concerns?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Yes.
+</span></span>
+I don't know about you, but I have to admit, I am lost in our commits.
+We have quite a few branches, and we are not good at keeping track of
+the state of the commits. Now for example we have a linear tree of a
+few segments; the first segment has been review by both of us, the
+second waits for you, the third waits for me etc. We don't have a good
+way for describing our state. If I put Gitk and the wave next to each
+other, I still have a very hard time finding out where we are, and
+which commits belong to a segment. And I'm the author of most
+commits...
+
+If I decide to rebase something, I can't do it without effecting you.
+That's OK, but we should have a place where I describe what I did, so
+that when you start your work, you can catch up, destroy the necessary
+branches etc. This would be an informal git log: it would log the
+reality and not the rewritten reality. It would be nice if you could
+mark the log entries as "read" or "done". It should be a linear list
+of changes, maybe with some comments intervened.
+
+You have not answered to my question on dec 1 on the Branches wave.
+(Note: I'm not here to blame you.) If we don't want to be slow (I
+don't), we should either be more responsive, or be able to make
+decisions like this on our own. I have not been very responsive either
+in the last few weeks, so I think we should go for the second option.
+
+Our master branch is so far behind; we should fast forward it more
+often. It is an important factor because the chaos is always *after*
+the master; so if we have half as commit after the master, the
+chaos in the new branches is half as big. Also, the relevant part is
+the "reality log" would be smaller, and the "branch state" page would
+also be half as big.
+
+I think these are the biggest problems, and that's what I think
+we could do about it:
+1. Find a better way to describe the state of the tree. Either inside
+   our outside of Wave, I don't know. The goal is to be very tidy, and
+   maybe Wave does not force us to have a discipline.
+2. Let's have a reality log. Maybe Wave, maybe not.
+3. Have a one week timeout for proposals. I.e. if there is no
+   discussion nor agreement for one week, the proposer can go ahead.
+4. Let's fast forward the master branch more often.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1077 -->
+<div class="post-summary" id="post-summary-hh-1077">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1077">&lt;hh/1077&gt;</a></span>
+<span class="date">(2010-02-05)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-995">hh/995</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1086">hh/1086</a>, <a href="../hh/thread_989.html#post-summary-hh-1089">hh/1089</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If I decide to rebase something, I can't do it without effecting you.
+&gt; That's OK, but we should have a place where I describe what I did, so
+&gt; that when you start your work, you can catch up, destroy the necessary
+&gt; branches etc. This would be an informal git log: it would log the
+&gt; reality and not the rewritten reality. It would be nice if you could
+&gt; mark the log entries as "read" or "done". It should be a linear list
+&gt; of changes, maybe with some comments intervened.
+</span></span>
+An intriguing idea. How would you implement it?
+
+Don't you think the need for such a "reality log" means that we should
+give up our rebasing workflow?
+
+<span class="quote"><span class="quote-1">&gt; You have not answered to my question on dec 1 on the Branches wave.
+</span></span>
+It is hard to take up a new habit. E-mail is now a strong habit: when
+I sit down to a computer, one of the first things I do is check
+e-mail [1]. Wave has not made itself such a habit.
+
+Maybe the way to handle the topics we used to discuss on the Wave
+would be best handled by a new heap. This could serve as a kind of
+bulletin board where we could post our plans, a summary of our daily
+work etc. What do you think?
+
+<span class="quote"><span class="quote-1">&gt; (Note: I'm not here to blame you.) If we don't want to be slow (I
+&gt; don't), we should either be more responsive, or be able to make
+&gt; decisions like this on our own. I have not been very responsive either
+&gt; in the last few weeks, so I think we should go for the second option.
+</span></span>
+We've been doing this for one or two months now. I think it works: you
+do most of the development, while I'm trying to follow you, and from
+time to time, I contribute something useful to the code. What do you
+think?
+
+<span class="quote"><span class="quote-1">&gt; I think these are the biggest problems, and that's what I think
+&gt; we could do about it:
+&gt; 1. Find a better way to describe the state of the tree. Either inside
+&gt;    our outside of Wave, I don't know. The goal is to be very tidy, and
+&gt;    maybe Wave does not force us to have a discipline.
+</span></span>
+I love `gitk`. And in git, tags are cheap. How about having tags like
+"waiting-for-attis-review-start" and "waiting-for-attis-review-end"?
+OK, sounds wild, but I think we should give it a try.
+
+<span class="quote"><span class="quote-1">&gt; 2. Let's have a reality log. Maybe Wave, maybe not.
+</span></span>
+Reality log... I just don't know. Git does this, in a sense. It keeps
+two timestamps for the commit and the code. When we rebase, only the
+commit timestamp changes. Maybe a "reality log" is only a matter of
+sorting commits by code timestamps?
+
+<span class="quote"><span class="quote-1">&gt; 3. Have a one week timeout for proposals. I.e. if there is no
+&gt;    discussion nor agreement for one week, the proposer can go ahead.
+</span></span>
+I think this is already in effect, and it works.
+
+<span class="quote"><span class="quote-1">&gt; 4. Let's fast forward the master branch more often.
+</span></span>
+OK.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1086 -->
+<div class="post-summary" id="post-summary-hh-1086">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1086">&lt;hh/1086&gt;</a></span>
+<span class="date">(2010-02-06)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1077">hh/1077</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1153">hh/1153</a>, <a href="../hh/thread_989.html#post-summary-hh-1154">hh/1154</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; If I decide to rebase something, I can't do it without effecting you.
+&gt;&gt; That's OK, but we should have a place where I describe what I did, so
+&gt;&gt; that when you start your work, you can catch up, destroy the necessary
+&gt;&gt; branches etc. This would be an informal git log: it would log the
+&gt;&gt; reality and not the rewritten reality. It would be nice if you could
+&gt;&gt; mark the log entries as "read" or "done". It should be a linear list
+&gt;&gt; of changes, maybe with some comments intervened.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; An intriguing idea. How would you implement it?
+</span></span>
+My only idea is to use Wave.
+
+<span class="quote"><span class="quote-1">&gt; Don't you think the need for such a "reality log" means that we should
+&gt; give up our rebasing workflow?
+</span></span>
+Maybe we should. I have described a method we could use in another thread [1].
+
+<span class="quote"><span class="quote-1">&gt; Maybe the way to handle the topics we used to discuss on the Wave
+&gt; would be best handled by a new heap. This could serve as a kind of
+&gt; bulletin board where we could post our plans, a summary of our daily
+&gt; work etc. What do you think?
+</span></span>
+Wave is nice because the messaging can become instant dynamically. But
+we can try out your suggestion.
+
+<span class="quote"><span class="quote-1">&gt; We've been doing this for one or two months now. I think it works: you
+&gt; do most of the development, while I'm trying to follow you, and from
+&gt; time to time, I contribute something useful to the code. What do you
+&gt; think?
+</span></span>
+That's OK.
+
+<span class="quote"><span class="quote-2">&gt;&gt; I think these are the biggest problems, and that's what I think
+&gt;&gt; we could do about it:
+&gt;&gt; 1. Find a better way to describe the state of the tree. Either inside
+&gt;&gt;    our outside of Wave, I don't know. The goal is to be very tidy, and
+&gt;&gt;    maybe Wave does not force us to have a discipline.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I love `gitk`. And in git, tags are cheap. How about having tags like
+&gt; "waiting-for-attis-review-start" and "waiting-for-attis-review-end"?
+&gt; OK, sounds wild, but I think we should give it a try.
+</span></span>
+I dislike the idea of using tags for this purpose. Tags are very
+official things: they show up in the download page on github [2], and
+tags are not meant to be deleted (I think they are harder to delete
+than branches.)
+
+<span class="quote"><span class="quote-2">&gt;&gt; 2. Let's have a reality log. Maybe Wave, maybe not.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Reality log... I just don't know. Git does this, in a sense. It keeps
+&gt; two timestamps for the commit and the code. When we rebase, only the
+&gt; commit timestamp changes. Maybe a "reality log" is only a matter of
+&gt; sorting commits by code timestamps?
+</span></span>
+The reality log is mainly about the reasons of why something was
+rebased. It is not about storing dates, it is about how and why branch
+X got modified. It is mainly for developers who want to understand why
+a remote branch disappeared or got rebased, and what is the difference
+between the old and the new version of the branch.
+
+If we have a new heap that you proposed, we may have a special tag for
+reality log. These posts would explain how and why certain rebases
+happened.
+
+<span class="quote"><span class="quote-2">&gt;&gt; 3. Have a one week timeout for proposals. I.e. if there is no
+&gt;&gt;    discussion nor agreement for one week, the proposer can go ahead.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I think this is already in effect, and it works.
+</span></span>
+I think that it works, too. The proposal was about having this timeout
+without explicit mention. What do you think about that?
+
+[1] <a href="../hh/thread_1015.html#post-summary-hh-1015">heap://hh/1015</a>
+[2] <a href="http://github.com/hcs42/heapkeeper/downloads">http://github.com/hcs42/heapkeeper/downloads</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1153 -->
+<div class="post-summary" id="post-summary-hh-1153">
+<span class="author">Attila Nagy</span>
+<span class="subject">The reality log</span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1153">&lt;hh/1153&gt;</a></span>
+<span class="date">(2010-02-11)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1086">hh/1086</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1161">hh/1161</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; If I decide to rebase something, I can't do it without effecting you.
+&gt;&gt;&gt; That's OK, but we should have a place where I describe what I did, so
+&gt;&gt;&gt; that when you start your work, you can catch up, destroy the necessary
+&gt;&gt;&gt; branches etc. This would be an informal git log: it would log the
+&gt;&gt;&gt; reality and not the rewritten reality. It would be nice if you could
+&gt;&gt;&gt; mark the log entries as "read" or "done". It should be a linear list
+&gt;&gt;&gt; of changes, maybe with some comments intervened.
+</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt; An intriguing idea. How would you implement it?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; My only idea is to use Wave.
+</span></span>
+What would such a log look like exactly?
+
+How about logging only rebases instead of having to log every commit
+into the reality log too?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1161 -->
+<div class="post-summary" id="post-summary-hh-1161">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1161">&lt;hh/1161&gt;</a></span>
+<span class="date">(2010-02-12)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1153">hh/1153</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1162">hh/1162</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; What would such a log look like exactly?
+</span></span>
+Like an IM conversation about what we are rebasing. But it does not
+have to be real time, thanks to wave.
+
+Just imagine that there is an IRC room where we only talk about
+rewriting git history. The log of that room would be the reality log.
+Nothing formal.
+
+<span class="quote"><span class="quote-1">&gt; How about logging only rebases instead of having to log every commit
+&gt; into the reality log too?
+</span></span>
+I thought about logging (=talking about) only rebases.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1162 -->
+<div class="post-summary" id="post-summary-hh-1162">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1162">&lt;hh/1162&gt;</a></span>
+<span class="date">(2010-02-13)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1161">hh/1161</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1182">hh/1182</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; What would such a log look like exactly?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Like an IM conversation about what we are rebasing. But it does not
+&gt; have to be real time, thanks to wave.
+&gt;
+&gt; Just imagine that there is an IRC room where we only talk about
+&gt; rewriting git history. The log of that room would be the reality log.
+&gt; Nothing formal.
+</span></span>
+OK, this sounds usable.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1182 -->
+<div class="post-summary" id="post-summary-hh-1182">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1182">&lt;hh/1182&gt;</a></span>
+<span class="date">(2010-02-21)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1162">hh/1162</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1233">hh/1233</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; What would such a log look like exactly?
+</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt; Like an IM conversation about what we are rebasing. But it does not
+&gt;&gt; have to be real time, thanks to wave.
+&gt;&gt;
+&gt;&gt; Just imagine that there is an IRC room where we only talk about
+&gt;&gt; rewriting git history. The log of that room would be the reality log.
+&gt;&gt; Nothing formal.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; OK, this sounds usable.
+</span></span>
+I created a wave for the reality log.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1233 -->
+<div class="post-summary" id="post-summary-hh-1233">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1233">&lt;hh/1233&gt;</a></span>
+<span class="date">(2010-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1182">hh/1182</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1236">hh/1236</a></span>
+<pre class="post-body-content">Is this still relevant now that we use a merging workflow?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1236 -->
+<div class="post-summary" id="post-summary-hh-1236">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1236">&lt;hh/1236&gt;</a></span>
+<span class="date">(2010-05-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1233">hh/1233</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">It depends on how much do we rewrite history (which is allowed in
+usual topic branches whose names start with underscore). Probably we
+won't do too many rewrites, so the reality log is not that important.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1236 -->
+</div><!-- postbox for post hh/1233 -->
+</div><!-- postbox for post hh/1182 -->
+</div><!-- postbox for post hh/1162 -->
+</div><!-- postbox for post hh/1161 -->
+</div><!-- postbox for post hh/1153 -->
+
+<div class="post-box"><!-- post hh/1154 -->
+<div class="post-summary" id="post-summary-hh-1154">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1154">&lt;hh/1154&gt;</a></span>
+<span class="date">(2010-02-11)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1086">hh/1086</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1155">hh/1155</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt; &gt;&gt; 3. Have a one week timeout for proposals. I.e. if there is no
+&gt; &gt;&gt;    discussion nor agreement for one week, the proposer can go ahead.
+</span></span><span class="quote"><span class="quote-2">&gt; &gt;
+&gt; &gt; I think this is already in effect, and it works.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I think that it works, too. The proposal was about having this timeout
+&gt; without explicit mention. What do you think about that?
+</span></span>
+OK, I think that'd be useful.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1155 -->
+<div class="post-summary" id="post-summary-hh-1155">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1155">&lt;hh/1155&gt;</a></span>
+<span class="date">(2010-02-11)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1154">hh/1154</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1157">hh/1157</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; The proposal was about having this timeout
+&gt;&gt; without explicit mention. What do you think about that?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; OK, I think that'd be useful.
+</span></span>
+Is it OK if the timeout is one week? Or would you prefer another time span?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1157 -->
+<div class="post-summary" id="post-summary-hh-1157">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1157">&lt;hh/1157&gt;</a></span>
+<span class="date">(2010-02-11)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1155">hh/1155</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1158">hh/1158</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; The proposal was about having this timeout
+&gt;&gt;&gt; without explicit mention. What do you think about that?
+</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt; OK, I think that'd be useful.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Is it OK if the timeout is one week? Or would you prefer another time span?
+</span></span>
+Let's say that the implicit timeout is always one week, and if a
+proposal needs a shorter timeout, it would have to be explicitly
+specified.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1158 -->
+<div class="post-summary" id="post-summary-hh-1158">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1158">&lt;hh/1158&gt;</a></span>
+<span class="date">(2010-02-11)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1157">hh/1157</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Let's say that the implicit timeout is always one week, and if a
+&gt; proposal needs a shorter timeout, it would have to be explicitly
+&gt; specified.
+</span></span>
+OK.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1158 -->
+</div><!-- postbox for post hh/1157 -->
+</div><!-- postbox for post hh/1155 -->
+</div><!-- postbox for post hh/1154 -->
+</div><!-- postbox for post hh/1086 -->
+
+<div class="post-box"><!-- post hh/1089 -->
+<div class="post-summary" id="post-summary-hh-1089">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1089">&lt;hh/1089&gt;</a></span>
+<span class="date">(2010-02-07)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1077">hh/1077</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_989.html#post-summary-hh-1156">hh/1156</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; (Note: I'm not here to blame you.) If we don't want to be slow (I
+&gt;&gt; don't), we should either be more responsive, or be able to make
+&gt;&gt; decisions like this on our own. I have not been very responsive either
+&gt;&gt; in the last few weeks, so I think we should go for the second option.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; We've been doing this for one or two months now. I think it works: you
+&gt; do most of the development, while I'm trying to follow you, and from
+&gt; time to time, I contribute something useful to the code.
+</span></span>
+Do your statements ("We've been doing this for one or two months now",
+"from time to time, I contribute something useful to the code") imply
+that you contributed to the code in the last two months? :)
+
+<span class="quote"><span class="quote-1">&gt; What do you think?
+</span></span>
+I think this workflow you describe is OK.
+
+I'd like to point out something here. I don't want either of us being
+active to cause that the other not be able to spend enough time
+writing code. For example, it is OK if developers spend half or
+quarter of their time on communication, tenth of their time reviewing
+others' code, and the rest developing new code. What I don't want is
+the following: if I have more time to write code and emails, and you
+want to review all code and answer all emails thinking about them
+carefully, you may not have enough time to write code yourself. It is
+a downward spiral, because I will be more and more productive because
+I get better and better writing at code, and I don't even have to
+spend my time reviewing others' code, because there will not be code
+from others for me to review. So I'd rather see you reading through
+the commit messages quickly without even looking at the code, and
+answering my emails only if it is quick or you think it is important.
+This way you can spend a large amount of your "Heapkeeper time"
+actually writing code (and testing and documenting it :) ), which
+makes you more comfortable with the code base and the workflow, which
+in turn makes you be able to make more thorough reviews and write more
+thoughtful emails.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1156 -->
+<div class="post-summary" id="post-summary-hh-1156">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_989.html#post-summary-hh-1156">&lt;hh/1156&gt;</a></span>
+<span class="date">(2010-02-11)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_989.html#post-summary-hh-1089">hh/1089</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; (Note: I'm not here to blame you.) If we don't want to be slow (I
+&gt;&gt;&gt; don't), we should either be more responsive, or be able to make
+&gt;&gt;&gt; decisions like this on our own. I have not been very responsive either
+&gt;&gt;&gt; in the last few weeks, so I think we should go for the second option.
+</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt; We've been doing this for one or two months now. I think it works: you
+&gt;&gt; do most of the development, while I'm trying to follow you, and from
+&gt;&gt; time to time, I contribute something useful to the code.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Do your statements ("We've been doing this for one or two months now",
+&gt; "from time to time, I contribute something useful to the code") imply
+&gt; that you contributed to the code in the last two months? :)
+</span></span>
+Maybe, but unfortunately this is not true; in these two months, I haven't
+found the time to contribute. But it looks like that in the near future,
+I will. And during my absence, things haven't stopped: and that's the
+most important merit of this workflow.
+
+<span class="quote"><span class="quote-1">&gt; I'd like to point out something here. I don't want either of us being
+&gt; active to cause that the other not be able to spend enough time
+&gt; writing code. For example, it is OK if developers spend half or
+&gt; quarter of their time on communication, tenth of their time reviewing
+&gt; others' code, and the rest developing new code. What I don't want is
+&gt; the following: if I have more time to write code and emails, and you
+&gt; want to review all code and answer all emails thinking about them
+&gt; carefully, you may not have enough time to write code yourself. It is
+&gt; a downward spiral, because I will be more and more productive because
+&gt; I get better and better writing at code, and I don't even have to
+&gt; spend my time reviewing others' code, because there will not be code
+&gt; from others for me to review. So I'd rather see you reading through
+&gt; the commit messages quickly without even looking at the code, and
+&gt; answering my emails only if it is quick or you think it is important.
+&gt; This way you can spend a large amount of your "Heapkeeper time"
+&gt; actually writing code (and testing and documenting it :) ), which
+&gt; makes you more comfortable with the code base and the workflow, which
+&gt; in turn makes you be able to make more thorough reviews and write more
+&gt; thoughtful emails.
+</span></span>
+I like this thought a lot. It helps me understand how I have dropped
+behind so much. And the advices were much needed. So, from now on,
+should I ever run low on time, I'll prefer reading commit messages to
+trying to read and answer all emails. Hopefully, that'll allow me to
+keep up with the development better.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1156 -->
+</div><!-- postbox for post hh/1089 -->
+</div><!-- postbox for post hh/1077 -->
+</div><!-- postbox for post hh/995 -->
+</div><!-- postbox for post hh/991 -->
+</div><!-- postbox for post hh/990 -->
+</div><!-- postbox for post hh/989 -->
+
+  </body>
+</html>

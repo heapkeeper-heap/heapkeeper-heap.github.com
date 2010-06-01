@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Customizing the unittest module</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Customizing the unittest module</h1>
+
+
+<div class="post-box"><!-- post hh/672 -->
+<div class="post-summary" id="post-summary-hh-672">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Customizing the unittest module</span>
+<span class="index"><a href="../hh/thread_672.html#post-summary-hh-672">&lt;hh/672&gt;</a></span>
+<span class="date">(2009-10-16)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_672.html#post-summary-hh-722">hh/722</a></span>
+<pre class="post-body-content">I made my second modification to the standard Python module
+`unittest`.
+
+My modifications:
+1. Stop when the first test case fails.
+2. When two strings should be equal but they are not, print a diff
+   instead of just printing them as Python expressions.
+
+Example:
+
+<span class="raw-block">    $ ./test.py
+    ======================================================================
+    FAIL: Tests the following functions:
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/a/cp/hk/hk/test_hklib.py", line 2348, in test_write_post_pages_NEW
+        Html.doc_footer()])
+      File "/a/cp/hk/hk/test_hklib.py", line 2190, in assertTextStructsAreEqual
+        hkutils.textstruct_to_str(text2))
+    AssertionError: The following strings should be equal but they are not:
+
+     &lt;html&gt;
+       &lt;head&gt;
+         &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;
+         &lt;title&gt;Heap index&lt;/title&gt;
+         &lt;link rel=stylesheet href="heapindex.css" type="text/css"&gt;
+       &lt;/head&gt;
+       &lt;body&gt;
+         &lt;h1 id="header"&gt;Heap index&lt;/h1&gt;
+
+     &lt;div class="postbox"&gt;
+     &lt;span class="postsummary"&gt;&lt;span class="author"&gt;&lt;a href="0.html"&gt;author0&lt;/a&gt;&lt;/span&gt;
+     &lt;span class="subject"&gt;&lt;a href="0.html"&gt;subject0&lt;/a&gt;&lt;/span&gt;
+     &lt;span class="button"&gt;&lt;a href="thread_0.html"&gt;&lt;img src="thread.png" /&gt;&lt;/a&gt;&lt;/span&gt;
+     &lt;span class="tags"&gt;&lt;a href="0.html"&gt;[]&lt;/a&gt;&lt;/span&gt;
+     &lt;span class="index"&gt;&lt;a href="0.html"&gt;&lt;span class="index"&gt;&amp;lt;0&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
+     &lt;span class="date"&gt;&lt;a href="0.html"&gt;&lt;/a&gt;&lt;/span&gt;
+    -&lt;div class="body"&gt;&lt;pre class="postbody"&gt;body0
+    -&lt;/pre&gt;&lt;/div&gt;
+    +
+    +&lt;/span&gt;&lt;div class="postbox"&gt;
+    +&lt;span class="postsummary"&gt;&lt;span class="author"&gt;&lt;a href="1.html"&gt;author1&lt;/a&gt;&lt;/span&gt;
+    +&lt;span class="subject"&gt;&lt;a href="1.html"&gt;subject1&lt;/a&gt;&lt;/span&gt;
+    +
+    +&lt;span class="tags"&gt;&lt;a href="1.html"&gt;[]&lt;/a&gt;&lt;/span&gt;
+    +&lt;span class="index"&gt;&lt;a href="1.html"&gt;&lt;span class="index"&gt;&amp;lt;1&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
+    +&lt;span class="date"&gt;&lt;a href="1.html"&gt;&lt;/a&gt;&lt;/span&gt;
+    +
+    +&lt;/span&gt;&lt;div class="postbox"&gt;
+     &lt;/span&gt;&lt;/div&gt;
+    +&lt;/div&gt;
+
+       &lt;/body&gt;
+     &lt;/html&gt;
+
+
+    ----------------------------------------------------------------------
+    Ran 108 tests in 0.240s
+
+    FAILED (failures=1)
+</span>
+Together with the commit hooks and my Vim customization for the
+Python+git combination, I make more and more stuff that could be
+useful for Hk developers.
+
+Do you think I should share them? If yes, where?
+a. "heapkeeper" repo
+b. Another github repo (e.g. heapkeeper_devtools)
+c. hh
+d. UMS Heap
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/722 -->
+<div class="post-summary" id="post-summary-hh-722">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_672.html#post-summary-hh-722">&lt;hh/722&gt;</a></span>
+<span class="date">(2009-10-21)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_672.html#post-summary-hh-672">hh/672</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; 2. When two strings should be equal but they are not, print a diff
+&gt;   instead of just printing them as Python expressions.
+</span></span>
+This is a life-saver!
+
+<span class="quote"><span class="quote-1">&gt; Do you think I should share them? If yes, where?
+&gt; a. "heapkeeper" repo
+&gt; b. Another github repo (e.g. heapkeeper_devtools)
+&gt; c. hh
+&gt; d. UMS Heap
+</span></span>
+I guess "hh" would be the best option.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/722 -->
+</div><!-- postbox for post hh/672 -->
+
+  </body>
+</html>

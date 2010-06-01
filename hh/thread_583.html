@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>"hkshell: enew accepts prefix" (2009-09-06 90b4c7d6)</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">"hkshell: enew accepts prefix" (2009-09-06 90b4c7d6)</h1>
+
+
+<div class="post-box"><!-- post hh/583 -->
+<div class="post-summary" id="post-summary-hh-583">
+<span class="author">Attila Nagy</span>
+<span class="subject">"hkshell: enew accepts prefix" (2009-09-06 90b4c7d6)</span>
+<span class="tags">[commit]</span>
+<span class="index"><a href="../hh/thread_583.html#post-summary-hh-583">&lt;hh/583&gt;</a></span>
+<span class="date">(2009-09-07)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_583.html#post-summary-hh-584">hh/584</a></span>
+<pre class="post-body-content">You made this commit on your "_e" branch:
+
+<span class="raw-block">    commit 90b4c7d6b0e1a764179ab1324c337e7e983b6a82
+    Author: Csaba Hoch &lt;csaba.hoch@gmail.com&gt;
+    Date:   Sun Sep 6 18:13:58 2009 +0200
+
+       hkshell: enew accepts prefix
+</span>
+       If you want to create a new post with heapid myname_&lt;number&gt;,
+just use this:
+
+<span class="raw-block">           &gt;&gt;&gt; enew('myname_')
+
+       PostDB.next_heapid has been extended to handle prefixes.
+</span>
+Since this commit affects hklib.py as well, this should be mentioned
+in the summary, like this:
+
+<span class="raw-block">   hklib, hkshell: PostDB.next_heapid, enew accepts prefix
+</span>
+At least I think it's the more important of the changes you've made.
+But good thing you've done it, it'll be useful.
+
+We could even have a hook that checks which modules have changed, and
+pre-initializes the commit message with their names. Of course, you'd
+be free to delete them, if you don't want to use it.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/584 -->
+<div class="post-summary" id="post-summary-hh-584">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_583.html#post-summary-hh-584">&lt;hh/584&gt;</a></span>
+<span class="date">(2009-09-07)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_583.html#post-summary-hh-583">hh/583</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_583.html#post-summary-hh-585">hh/585</a></span>
+<pre class="post-body-content">I had thought about the title of this commit before commiting, and I
+had similar thoughts.
+
+I'm not sure that it's a good idea to mention all the modules that has
+changed in the title; we have only 50 characters there. Your
+recommendation for example is 55 characters.
+
+I choose to mention "enew accepts prefixes", because it is easier to
+comprehend and see its usefulness than do the same for
+"Post.next_heapid accepts prefixes". But I might have been wrong.
+
+I could also have cut the commit into two, but that would not make too
+much sense. (It's not useful if we have many tiny commits.)
+
+Another thought: you don't always have to state the module, you can
+state a class or a method, too:
+
+<span class="raw-block">    PostDB: much nicer
+</span>
+or
+
+<span class="raw-block">    PostDB.next_heapid: accepts prefix
+</span>
+The main idea is to state the scope of the change before the colon.
+
+So maybe the best title is the following:
+
+<span class="raw-block">    PostDB.next_heapid,hkshell.enew: accepting prefix
+</span>
+(We can spare the space before the colon, too.)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/585 -->
+<div class="post-summary" id="post-summary-hh-585">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_583.html#post-summary-hh-585">&lt;hh/585&gt;</a></span>
+<span class="date">(2009-09-07)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_583.html#post-summary-hh-584">hh/584</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_583.html#post-summary-hh-586">hh/586</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Another thought: you don't always have to state the module, you can
+&gt; state a class or a method, too:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    PostDB: much nicer
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; or
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    PostDB.next_heapid: accepts prefix
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; The main idea is to state the scope of the change before the colon.
+</span></span>
+Good idea!
+
+<span class="quote"><span class="quote-1">&gt; So maybe the best title is the following:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    PostDB.next_heapid,hkshell.enew: accepting prefix
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; (We can spare the space before the colon, too.)
+</span></span>
+You mean the one after the comma. Probably, though I'd only do that as
+a last resort to cut down 51 chars to 50. My ties to typography are
+strong :)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/586 -->
+<div class="post-summary" id="post-summary-hh-586">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_583.html#post-summary-hh-586">&lt;hh/586&gt;</a></span>
+<span class="date">(2009-09-08)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_583.html#post-summary-hh-585">hh/585</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; So maybe the best title is the following:
+&gt;&gt;
+</span></span><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;    PostDB.next_heapid,hkshell.enew: accepting prefix
+</span></span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt; (We can spare the space before the colon, too.)
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; You mean the one after the comma.
+</span></span>
+Yes, sorry.
+<span class="meta-text">[todo Fix]</span>
+
+<span class="quote"><span class="quote-1">&gt;  Probably, though I'd only do that as
+&gt; a last resort to cut down 51 chars to 50. My ties to typography are
+&gt; strong :)
+</span></span>
+OK :)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/586 -->
+</div><!-- postbox for post hh/585 -->
+</div><!-- postbox for post hh/584 -->
+</div><!-- postbox for post hh/583 -->
+
+  </body>
+</html>

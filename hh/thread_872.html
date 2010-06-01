@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>X for iterator</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">X for iterator</h1>
+
+
+<div class="post-box"><!-- post hh/872 -->
+<div class="post-summary" id="post-summary-hh-872">
+<span class="author">Csaba Hoch</span>
+<span class="subject">X for iterator</span>
+<span class="tags">[prop, reviewed]</span>
+<span class="index"><a href="../hh/thread_872.html#post-summary-hh-872">&lt;hh/872&gt;</a></span>
+<span class="date">(2009-11-06)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_872.html#post-summary-hh-875">hh/875</a></span>
+<pre class="post-body-content">I use the prefix `x` to denote that a variable is an iterator (e.g.
+"xpostitems"). It is important to be noted, because there are some
+things that cannot be done with iterators that can be done with
+lists/sets. The most important difference is that they can be iterated
+only once:
+
+<span class="raw-block">    for postitem in xpostitems: # ok
+        print postitem
+    for postitem in xpostitems: # problem
+        print postitem
+</span>
+So basically iterators are a disposable collection type.
+
+For the sake of completeness, you can make lists from iterators in
+which case you can use them without this restriction:
+
+<span class="raw-block">    postitems = list(xpostitems)
+    for postitem in postitems: # ok
+        print postitem
+    for postitem in postitems: # ok
+        print postitem
+</span>
+The new Generator uses iterators for customizing the post items, so it
+may be worth to have a look at them:
+<a href="http://docs.python.org/library/stdtypes.html#iterator-types">http://docs.python.org/library/stdtypes.html#iterator-types</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/875 -->
+<div class="post-summary" id="post-summary-hh-875">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_872.html#post-summary-hh-875">&lt;hh/875&gt;</a></span>
+<span class="date">(2009-11-06)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_872.html#post-summary-hh-872">hh/872</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_872.html#post-summary-hh-877">hh/877</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I use the prefix `x` to denote that a variable is an iterator (e.g.
+&gt; "xpostitems").
+</span></span>
+Thanks for noting this, I thought the `x` denoted the augmented post items.
+
+Have you changed all the iterators to reflect this? Or do you intend to?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/877 -->
+<div class="post-summary" id="post-summary-hh-877">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_872.html#post-summary-hh-877">&lt;hh/877&gt;</a></span>
+<span class="date">(2009-11-06)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_872.html#post-summary-hh-875">hh/875</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_872.html#post-summary-hh-930">hh/930</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Have you changed all the iterators to reflect this? Or do you intend to?
+</span></span>
+I haven't really used iterators previously. If there are iterators
+that does not have an `x` prefix, I recommend fixing them.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/930 -->
+<div class="post-summary" id="post-summary-hh-930">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_872.html#post-summary-hh-930">&lt;hh/930&gt;</a></span>
+<span class="date">(2009-11-15)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_872.html#post-summary-hh-877">hh/877</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Seems to be accepted.
+
+<span class="meta-text">[close]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/930 -->
+</div><!-- postbox for post hh/877 -->
+</div><!-- postbox for post hh/875 -->
+</div><!-- postbox for post hh/872 -->
+
+  </body>
+</html>

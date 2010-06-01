@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>hkweb: no web.py; state of hkweb</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">hkweb: no web.py; state of hkweb</h1>
+
+
+<div class="post-box"><!-- post hh/1007 -->
+<div class="post-summary" id="post-summary-hh-1007">
+<span class="author">Csaba Hoch</span>
+<span class="subject">hkweb: no web.py; state of hkweb</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1007.html#post-summary-hh-1007">&lt;hh/1007&gt;</a></span>
+<span class="date">(2009-12-29)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1007.html#post-summary-hh-1008">hh/1008</a></span>
+<pre class="post-body-content">Now I cannot use hkweb because I don't have web.py. We have two
+choices:
+- add web.py to the Heapkeeper repository
+- describe how to get web.py and where should the user put it
+
+Which one do you prefer? Would you do the work?
+
+Otherwise is hkweb usable?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1008 -->
+<div class="post-summary" id="post-summary-hh-1008">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1007.html#post-summary-hh-1008">&lt;hh/1008&gt;</a></span>
+<span class="date">(2009-12-29)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1007.html#post-summary-hh-1007">hh/1007</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1007.html#post-summary-hh-1010">hh/1010</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Now I cannot use hkweb because I don't have web.py. We have two
+&gt; choices:
+&gt; - add web.py to the Heapkeeper repository
+&gt; - describe how to get web.py and where should the user put it
+&gt;[...]
+&gt; Otherwise is hkweb usable?
+</span></span>
+I'd prefer the first, but I'm sorry to say that hkweb is broken. I'll
+look into the issue as soon as possible, and I'll also add web.py to
+the repo in the process.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1010 -->
+<div class="post-summary" id="post-summary-hh-1010">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1007.html#post-summary-hh-1010">&lt;hh/1010&gt;</a></span>
+<span class="date">(2009-12-31)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1007.html#post-summary-hh-1008">hh/1008</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1007.html#post-summary-hh-1011">hh/1011</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Now I cannot use hkweb because I don't have web.py. We have two
+&gt;&gt; choices:
+&gt;&gt; - add web.py to the Heapkeeper repository
+&gt;&gt; - describe how to get web.py and where should the user put it
+&gt;&gt; [...]
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I'd prefer the first, [...]
+</span></span>
+web.py is on github [1]. It is not just one file but quite a few ones.
+There is also a web.py Ubuntu package. These facts make me prefer not
+to add web.py to our repository.
+
+[1] <a href="http://github.com/webpy/webpy">http://github.com/webpy/webpy</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1011 -->
+<div class="post-summary" id="post-summary-hh-1011">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1007.html#post-summary-hh-1011">&lt;hh/1011&gt;</a></span>
+<span class="date">(2009-12-31)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1007.html#post-summary-hh-1010">hh/1010</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1007.html#post-summary-hh-1012">hh/1012</a>, <a href="../hh/thread_1007.html#post-summary-hh-1013">hh/1013</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; web.py is on github [1]. It is not just one file but quite a few ones.
+&gt; There is also a web.py Ubuntu package. These facts make me prefer not
+&gt; to add web.py to our repository.
+</span></span>
+You may be right, but the Ubuntu repo may be outdated. 0.3 was an
+almost complete rewrite, and 0.2 and 0.3 are not compatible. web.py is
+a new project, similar compatibility-breaking changes may be ahead.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1012 -->
+<div class="post-summary" id="post-summary-hh-1012">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1007.html#post-summary-hh-1012">&lt;hh/1012&gt;</a></span>
+<span class="date">(2009-12-31)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1007.html#post-summary-hh-1011">hh/1011</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1007.html#post-summary-hh-1083">hh/1083</a></span>
+<pre class="post-body-content">Ubuntu 9.10 contains version 0.32 as far as I see. The current web.py
+version is 0.33.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1083 -->
+<div class="post-summary" id="post-summary-hh-1083">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1007.html#post-summary-hh-1083">&lt;hh/1083&gt;</a></span>
+<span class="date">(2010-02-06)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1007.html#post-summary-hh-1012">hh/1012</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Ubuntu 9.10 contains version 0.32 as far as I see. The current web.py
+&gt; version is 0.33.
+</span></span>
+Yes, and hkweb does work with the one included in Ubuntu 9.10. But
+there is a bug, and thread pages throw an exception. I'll fix this
+soon.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1083 -->
+</div><!-- postbox for post hh/1012 -->
+
+<div class="post-box"><!-- post hh/1013 -->
+<div class="post-summary" id="post-summary-hh-1013">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1007.html#post-summary-hh-1013">&lt;hh/1013&gt;</a></span>
+<span class="date">(2009-12-31)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1007.html#post-summary-hh-1011">hh/1011</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; web.py is a new project,
+</span></span>
+Relatively new... It is four years old.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1013 -->
+</div><!-- postbox for post hh/1011 -->
+</div><!-- postbox for post hh/1010 -->
+</div><!-- postbox for post hh/1008 -->
+</div><!-- postbox for post hh/1007 -->
+
+  </body>
+</html>

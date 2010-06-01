@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Distributed/offline issue tracking</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Distributed/offline issue tracking</h1>
+
+
+<div class="post-box"><!-- post hh/298 -->
+<div class="post-summary" id="post-summary-hh-298">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Distributed/offline issue tracking</span>
+<span class="tags">[discussion, reviewed]</span>
+<span class="index"><a href="../hh/thread_298.html#post-summary-hh-298">&lt;hh/298&gt;</a></span>
+<span class="date">(2009-05-20)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_298.html#post-summary-hh-1076">hh/1076</a>, <a href="../hh/thread_298.html#post-summary-hh-1230">hh/1230</a></span>
+<pre class="post-body-content">== Motivation ==
+
+It would be nice to use an issue tracking system that lets us work
+offline as git does.
+
+I don't have to talk about the merits of distributed (and offline) issue
+tracking. But I have to mention its disadvantages:
+- It will be harder for the users to send bugs. On the other hand, I
+  think most users want to send bugs on the mailing list anyway,
+  because they are not sure if it is indeed a bug.
+- The issue tracker is updated only when we push. I don't think that's
+  an important problem though.
+
+== Articles on the subject ==
+
+I have found various resources that talk about DITs (Distributed Issue
+Trackers).
+
+Offline Issue Tracking [1]:
+
+<span class="raw-block">    A blog entry. The author mentions TicGit, Git-issues and Ditz.
+</span>
+Distributed bug tracking [2]:
+
+<span class="raw-block">    An article from May 2008. The author mentions Bugs Everywhere,
+    ticgit, Scmbug, DisTract, DITrack, and Ditz.
+</span>
+A lists of distributed issue trackers [3]:
+
+<span class="raw-block">    A plain list with a few notes. Mentions 13 DITS.
+</span>
+Distributed bug tracking [4]:
+
+<span class="raw-block">    An article from April 2008. The author mentions Fossil, Bugs
+    Everywhere, DITrack, DisTract, TicGit and Ditz.
+</span>
+Ditz versus Bugs Everywhere [5]
+
+<span class="raw-block">    Comparison of Ditz and Bugs Everywhere. Interesting article.
+</span>
+== Features ==
+
+Important features:
+- Generating HTML pages from the issue database, so that we can push
+  it to our homepage (it shows the users where are we heading, and it
+  also shows the maturity of the project).
+- Issues should have tags, just like posts on the heap. This would
+  replace the current hierarchy of the Todo file.
+
+Nice-to-have features:
+- Easily readable and editable issue database. E.g. Ditz stores every
+  issue in a YAML file.
+
+== Concrete tools ==
+
+=== Feasible options ===
+
+All tools that are in this category support git. They either support
+git explicitly or are VCS agnostic. All of them have clean command
+line interfaces. None of them has a comprehensive documentation; at
+most they have a good tutorial.
+
+Note: sometimes one item is both under "Pros" and "Misc". The reason
+is I wanted the language, repository and database format to be in the
+Misc section; but I also wanted to show which ones are pros.
+
+==== Bugs Everywhere (git, bazaar, mercurial, rcs, arch) ====
+
+Homepage:
+    <a href="http://bugseverywhere.org/be/show/HomePage">http://bugseverywhere.org/be/show/HomePage</a>
+
+Pros:
+    - Used to be the leading project in this niche.
+    - Written in Python.
+
+Cons:
+    - "perhaps abandonware, last commit was July 2007" -- [4] (in April 2008)
+    - "The Ditz mailing list is really active with people debating
+      ideas for new features. The be mailing list is now showing some
+      signs of life after looking dead in August." [5] (in Dec 2008)
+
+Misc:
+    - Written in Python.
+    - The project uses Bazaar.
+
+==== TicGit ====
+
+Homepage with tutorial screenshots:
+    <a href="http://wiki.github.com/schacon/ticgit">http://wiki.github.com/schacon/ticgit</a>
+
+Pros:
+    - Seems easy to use and has a nice tutorial.
+    - Issues may have tags.
+    - Hosted by GitHub.
+
+Cons:
+    - Git-Issues a "better version" of TicGit.
+    - The tool was implemented between March and May of 2008; it isn't
+      very active now.
+
+Misc:
+    - Written in Ruby.
+    - Hosted by GitHub.
+    - I haven't managed to find out how the issue database is stored.
+
+=== Git-Issues ===
+
+Homepage with examples:
+    <a href="http://github.com/jwiegley/git-issues/tree/master">http://github.com/jwiegley/git-issues/tree/master</a>
+
+Pros:
+    - "It replicates the functionality of packages like ticgit, but
+      does so in the form of a more standalone Python script. You can
+      check this script in along with your project in order to ensure
+      that all contributors are able to view the bug database using
+      the same version of the script that you used to create them".
+    - Active project since May 2008. Has a major and quite a few minor
+      contributors [6].
+    - Issues may have tags.
+    - Written in Python.
+    - Hosted by GitHub.
+
+Cons:
+    - I could not find how to modify a ticket without having to edit
+      the XML file that stores it. Even though the homepage states the
+      following: "Note that for any XML haters out there, you’ll never
+      have to look at this data."
+
+Misc:
+    - Written in Python.
+    - Hosted by GitHub.
+    - The issue database is stored in XML.
+
+==== Ditz ====
+
+Pages:
+    - Homepage with screenshots: <a href="http://ditz.rubyforge.org/">http://ditz.rubyforge.org/</a>
+    - HTML generated from the issue database: <a href="http://ditz.rubyforge.org/ditz/">http://ditz.rubyforge.org/ditz/</a>
+    - Ditz Commander (GUI): <a href="http://code.google.com/p/ditz-commander/">http://code.google.com/p/ditz-commander/</a>
+
+Pros:
+    - The source code of the Ditz project is stored in git.
+    - Can generate HTML page from issues.
+    - "The Ditz mailing list is really active with people debating
+      ideas for new features." [5]
+    - There is a GUI which can be used to browse and edit the tickets.
+
+Misc:
+    - Written in Ruby.
+    - Hosted by Gitorious.
+    - The issue database is stored in YAML.
+    - Last commit was in March 2009.
+
+=== Not feasible options ===
+
+They don't support git.
+
+- Fossil -- a version control system with integrated bug tracker
+- DITrack -- subversion only
+- DisTract -- monotone VCS only
+
+=== Haven't looked at them ===
+
+- Scmbug (glues together VCS and other bug tracking software, such as
+  bugzilla)
+- bartman's git-case (git)
+- Stick (git)
+- cil (Command-line issue tracker with some git integration for closing
+  bugs on commit)
+- dbug
+
+== Conclusion ==
+
+I don't think Bugs Everywhere is the right solution. I think one of
+Git-Issues and Ditz will be the winner. Git-issues does not support
+HTML generation; Ditz does not support tags. I lean a bit towards
+git-issues: maybe we can write a small module that generates web pages
+from the XML files that make up the issue database. If only they used
+YAML... But we should definitely try out both before we make a
+decision.
+
+We should have a look at the other DITs,  but they were mentioned only
+on [3] (with the exception of Scmbug), so they are probably even more
+immature then the four I talked about.
+
+[1] <a href="http://my.opera.com/karmazilla/blog/2009/01/24/offline-issue-tracking">http://my.opera.com/karmazilla/blog/2009/01/24/offline-issue-tracking</a>
+[2] <a href="http://lwn.net/Articles/281849/">http://lwn.net/Articles/281849/</a>
+[3] <a href="http://dist-bugs.kitenet.net/software/">http://dist-bugs.kitenet.net/software/</a>
+[4] <a href="http://community.livejournal.com/evan_tech/248736.html">http://community.livejournal.com/evan_tech/248736.html</a>
+[5] <a href="http://blog.tplus1.com/index.php/2008/12/22/ditz-versus-bugs-everywhere/">http://blog.tplus1.com/index.php/2008/12/22/ditz-versus-bugs-everywhere/</a>
+[6] <a href="http://github.com/jwiegley/git-issues/graphs/impact">http://github.com/jwiegley/git-issues/graphs/impact</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1076 -->
+<div class="post-summary" id="post-summary-hh-1076">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_298.html#post-summary-hh-1076">&lt;hh/1076&gt;</a></span>
+<span class="date">(2010-02-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_298.html#post-summary-hh-298">hh/298</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">I made a stackoverflow answer out of this post:
+<a href="http://stackoverflow.com/questions/2186628/textbased-issue-tracker-todo-list-for-git/2187005#2187005">http://stackoverflow.com/questions/2186628/textbased-issue-tracker-todo-list-for-git/2187005#2187005</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1076 -->
+
+<div class="post-box"><!-- post hh/1230 -->
+<div class="post-summary" id="post-summary-hh-1230">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_298.html#post-summary-hh-1230">&lt;hh/1230&gt;</a></span>
+<span class="date">(2010-05-18)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_298.html#post-summary-hh-298">hh/298</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_298.html#post-summary-hh-1246">hh/1246</a></span>
+<pre class="post-body-content">Now, almost exactly a year later, do you use a distributed issue tracker?
+
+Side question: has Hk's issue_tracker become the tool you had in mind?
+If not, what does it lack?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1246 -->
+<div class="post-summary" id="post-summary-hh-1246">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_298.html#post-summary-hh-1246">&lt;hh/1246&gt;</a></span>
+<span class="date">(2010-05-22)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_298.html#post-summary-hh-1230">hh/1230</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_298.html#post-summary-hh-1251">hh/1251</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Now, almost exactly a year later, do you use a distributed issue
+&gt; tracker?
+</span></span>
+I use only Heapkeeper's issue tracker. I haven't tried the ones I
+wrote about.
+
+<span class="quote"><span class="quote-1">&gt; Side question: has Hk's issue_tracker become the tool you had in
+&gt; mind?
+</span></span>
+Yes.
+
+<span class="quote"><span class="quote-1">&gt; If not, what does it lack?
+</span></span>
+It would be good to add new posts from the web interface.
+
+Also, sometimes the table format where one issue is one row would be
+easier to read. It is also good to add information like the
+implementors of the issues as a column of this table. I know that you
+made steps in this direction and implemented this table; but I haven't
+used it yet.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1251 -->
+<div class="post-summary" id="post-summary-hh-1251">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_298.html#post-summary-hh-1251">&lt;hh/1251&gt;</a></span>
+<span class="date">(2010-05-23)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_298.html#post-summary-hh-1246">hh/1246</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; If not, what does it lack?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; It would be good to add new posts from the web interface.
+</span></span>
+This applies to all of Hk, of course :)
+
+<span class="quote"><span class="quote-1">&gt; Also, sometimes the table format where one issue is one row would be
+&gt; easier to read. It is also good to add information like the
+&gt; implementors of the issues as a column of this table. I know that you
+&gt; made steps in this direction and implemented this table; but I haven't
+&gt; used it yet.
+</span></span>
+Yes, and it is usable and looks good, but I'm hotlinking the icons
+from Canonical's Launchpad, which is a bad, bad thing to do. This
+should be resolved, e.g. by taking the appropriate icons and gluing
+together to form a new icon set, containing only those that we need.
+Also, I'm not sure those icons are free to use. (But Launchpad is an
+open source project, so we can reasonably expect.)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1251 -->
+</div><!-- postbox for post hh/1246 -->
+</div><!-- postbox for post hh/1230 -->
+</div><!-- postbox for post hh/298 -->
+
+  </body>
+</html>

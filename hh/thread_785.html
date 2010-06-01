@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Names of test classes and test functions</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Names of test classes and test functions</h1>
+
+
+<div class="post-box"><!-- post hh/785 -->
+<div class="post-summary" id="post-summary-hh-785">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Names of test classes and test functions</span>
+<span class="tags">[convention]</span>
+<span class="index"><a href="../hh/thread_785.html#post-summary-hh-785">&lt;hh/785&gt;</a></span>
+<span class="date">(2009-10-24)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_785.html#post-summary-hh-786">hh/786</a>, <a href="../hh/thread_785.html#post-summary-hh-986">hh/986</a></span>
+<pre class="post-body-content">I'm not sure whether I described my naming scheme regarding test
+classes and functions.
+
+It goes like this:
+
+<span class="raw-block">    classes: Test[_&lt;class under test&gt;][__&lt;other&gt;]
+    functions: test[_&lt;function under test&gt;][__&lt;other&gt;]
+</span>
+Example classes:
+
+<span class="raw-block">    Test_MyClass: tests MyClass
+    Test_MyClass__Misc: tests miscellaneous parts of MyClass
+    Test__Misc: tests miscellaneous classes/functions of the module
+    Test__1: first set of tests for the module under test
+</span>
+Example functions:
+
+<span class="raw-block">    test_add: tests the "add" function
+    test_add__1: first set of tests for the add function
+    test__adder: tests the adder functions
+</span>
+I haven't followed this convention from the start.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/786 -->
+<div class="post-summary" id="post-summary-hh-786">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_785.html#post-summary-hh-786">&lt;hh/786&gt;</a></span>
+<span class="date">(2009-10-24)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_785.html#post-summary-hh-785">hh/785</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; It goes like this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    classes: Test[_&lt;class under test&gt;][__&lt;other&gt;]
+&gt;    functions: test[_&lt;function under test&gt;][__&lt;other&gt;]
+</span></span></span>
+Correction:
+
+<span class="raw-block">    classes: Test[_&lt;thing under test&gt;][__&lt;other&gt;]
+    functions: test[_&lt;thing under test&gt;][__&lt;other&gt;]
+</span>
+We may have a test class that tests a function, or the other way
+around.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/786 -->
+
+<div class="post-box"><!-- post hh/986 -->
+<div class="post-summary" id="post-summary-hh-986">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_785.html#post-summary-hh-986">&lt;hh/986&gt;</a></span>
+<span class="date">(2009-12-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_785.html#post-summary-hh-785">hh/785</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_785.html#post-summary-hh-988">hh/988</a></span>
+<pre class="post-body-content">You mentioned that you want to refactor hklib and that this would
+affect the tests. Will this convention remain in effect?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/988 -->
+<div class="post-summary" id="post-summary-hh-988">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_785.html#post-summary-hh-988">&lt;hh/988&gt;</a></span>
+<span class="date">(2009-12-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_785.html#post-summary-hh-986">hh/986</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Yes.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/988 -->
+</div><!-- postbox for post hh/986 -->
+</div><!-- postbox for post hh/785 -->
+
+  </body>
+</html>

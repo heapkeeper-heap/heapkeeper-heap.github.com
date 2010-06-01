@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Tracking missing tests, documentation and other todos</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Tracking missing tests, documentation and other todos</h1>
+
+
+<div class="post-box"><!-- post hh/343 -->
+<div class="post-summary" id="post-summary-hh-343">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Tracking missing tests, documentation and other todos</span>
+<span class="tags">[prop, reviewed]</span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-343">&lt;hh/343&gt;</a></span>
+<span class="date">(2009-05-29)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-370">hh/370</a></span>
+<pre class="post-body-content">Previously I argued that all todos should be in our todo file.
+I changed my mind: I think we need to document each function
+separately and locally whether they have tests and documentation. This
+would be especially important for new developers: when they create a
+new function, they don't necessarily know their way around the test
+suite and documentation.
+
+I propose writing TODO-comments in the code:
+
+<span class="raw-block">    # TODO test, document
+    def myfun():
+        pass
+
+    # TODO document
+    class MyClass:
+
+        # TODO test, document
+        def yourfun():
+            pass
+</span>
+If you agree, I will write a small tool that extracts these todos:
+
+<span class="raw-block">    $ scripts/list_todos
+    hkrc.py:
+        myfun: test, document
+        MyClass: test
+        MyClass.yourfun: test, document
+</span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/370 -->
+<div class="post-summary" id="post-summary-hh-370">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-370">&lt;hh/370&gt;</a></span>
+<span class="date">(2009-06-03)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-343">hh/343</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-371">hh/371</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I think we need to document each function separately and locally
+&gt; whether they have tests and documentation. This would be especially
+&gt; important for new developers: when they create a new function, they
+&gt; don't necessarily know their way around the test suite and
+&gt; documentation.
+&gt;
+&gt; I propose writing TODO-comments in the code:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     # TODO test, document
+&gt;     def myfun():
+&gt;         pass
+&gt;
+&gt;     # TODO document
+&gt;     class MyClass:
+&gt;
+&gt;         # TODO test, document
+&gt;         def yourfun():
+&gt;             pass
+</span></span></span>
+OK. I like the idea.
+
+How about marking missing stuff only locally, and reserving the TODO
+file to emphasize missing and important pieces of test and docs?
+
+<span class="quote"><span class="quote-1">&gt; If you agree, I will write a small tool that extracts these todos:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     $ scripts/list_todos
+&gt;     hkrc.py:
+&gt;         myfun: test, document
+&gt;         MyClass: test
+&gt;         MyClass.yourfun: test, document
+</span></span></span>
+Also seems nice.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/371 -->
+<div class="post-summary" id="post-summary-hh-371">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-371">&lt;hh/371&gt;</a></span>
+<span class="date">(2009-06-03)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-370">hh/370</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-372">hh/372</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; How about marking missing stuff only locally, and reserving the TODO
+&gt; file to emphasize missing and important pieces of test and docs?
+</span></span>
+My proposal was this:
+- marking missing documentation and tests locally
+- everything else goes into the issue tracker (now todo file, later
+  probably a heap)
+
+How is your suggestion different from this? Do you suggest placing
+notes about other minor missing things in the source code?
+
+I'm not sure how I feel about that. My problem with that is the
+following: in an issue tracking system, these issues can be discussed
+easily and it is easy to follow how many issues we have, and to
+categorize (tag) them. It is also harder to collect the todos from the
+source code if we allow their broader usage. On the other hand, the
+context of a note would be easier to grasp if it was placed in the
+source code. I also realize that the issue tracking system is more
+heavy-weigth than just writing a TODO-comment and developers don't
+feel like writing an email about a minor thing they should just do.
+
+We should think about pros and contras of the alternatives.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/372 -->
+<div class="post-summary" id="post-summary-hh-372">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-372">&lt;hh/372&gt;</a></span>
+<span class="date">(2009-06-04)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-371">hh/371</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-373">hh/373</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; How about marking missing stuff only locally, and reserving the TODO
+&gt;&gt; file to emphasize missing and important pieces of test and docs?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; My proposal was this:[-]
+&gt; - marking missing documentation and tests locally
+&gt; - everything else goes into the issue tracker (now todo file, later
+&gt; probably a heap)
+&gt;
+&gt; How is your suggestion different from this? Do you suggest placing
+&gt; notes about other minor missing things in the source code?
+</span></span>
+No, I misunderstood you, then you misunderstood me. I say cluttering
+up the source code with all kinds of notes is no good, but one line
+per function stating what is missing would be a nice thing. We should
+save all else for the TODO file.
+
+On the other hand, it'd be quite senseless to list each and every
+missing function documentation and test in the TODO file, since these
+are already there in the source code, and anyone can find them, even
+automatically. So, for the missing docs and tests, we should only list
+the most important ones in the TODO. All other notes and missing
+things would, of course, belong there.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/373 -->
+<div class="post-summary" id="post-summary-hh-373">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-373">&lt;hh/373&gt;</a></span>
+<span class="date">(2009-06-04)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-372">hh/372</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_343.html#post-summary-hh-374">hh/374</a></span>
+<pre class="post-body-content">OK then. We agree (if I didn't misunderstand you :) ) that all todo
+should be at exactly one place. If the todo is about missing docs or
+test cases, this place is the source code, otherwise it is the todo
+file (or later the issue tracker).
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/374 -->
+<div class="post-summary" id="post-summary-hh-374">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_343.html#post-summary-hh-374">&lt;hh/374&gt;</a></span>
+<span class="date">(2009-06-04)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_343.html#post-summary-hh-373">hh/373</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">OK.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/374 -->
+</div><!-- postbox for post hh/373 -->
+</div><!-- postbox for post hh/372 -->
+</div><!-- postbox for post hh/371 -->
+</div><!-- postbox for post hh/370 -->
+</div><!-- postbox for post hh/343 -->
+
+  </body>
+</html>

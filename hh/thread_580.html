@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>EDITOR variable</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">EDITOR variable</h1>
+
+
+<div class="post-box"><!-- post hh/580 -->
+<div class="post-summary" id="post-summary-hh-580">
+<span class="author">Csaba Hoch</span>
+<span class="subject">EDITOR variable</span>
+<span class="tags">[git, issue, reviewed]</span>
+<span class="index"><a href="../hh/thread_580.html#post-summary-hh-580">&lt;hh/580&gt;</a></span>
+<span class="date">(2009-09-07)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_580.html#post-summary-hh-612">hh/612</a>, <a href="../hh/thread_580.html#post-summary-hh-712">hh/712</a></span>
+<pre class="post-body-content">I have a problem with the EDITOR environment variable.
+
+In the _e branch I have a commit, which is not the perfect solution.
+
+== Before ==
+
+Before the commit, we just do this:
+
+<span class="raw-block">    subprocess.call(editor.split() + files)
+</span>
+This has a problem for example with this EDITOR variable:
+
+<span class="raw-block">    $ export EDITOR="gvim -c 'setf mail'"
+</span>
+Because `editor.split()` is this:
+
+<span class="raw-block">    ["gvim", "-c", "'setf", "mail'"]
+</span>
+So this is what we called if we had 2 files:
+
+<span class="raw-block">    subprocess.call(["gvim", "-c", "'setf", "mail'", file1, file2])
+</span>
+Btw, "git commit" has the same problem, it does not work with
+EDITOR="gvim -c 'setf mail'". But I want Hk to handle this better,
+git's incapability should not be an excuse.
+
+== After ==
+
+Now (after applying the commits of the _e branch) we do this instead:
+
+<span class="raw-block">    quoted_files = [ ("'%s'" % file) for file in files ]
+    subprocess.call(editor + ' ' + ' '.join(files), shell=True)
+</span>
+Which handles the previous case correctly:
+
+<span class="raw-block">    subprocess.call("gvim -c 'setf mail' '" + file1 + "' '" + file2 + "'")
+</span>
+But it fails if a file contains a quote character. For example if
+we have one file which is called "a'b", this will be the function
+call:
+
+<span class="raw-block">    subprocess.call("gvim -c 'setf mail' 'a'b')
+</span>
+== Another solution ==
+
+I came up with another solution:
+
+<span class="raw-block">    quoted_files = [ ("'%s'" % re.sub("'", "'\"'\"'", file))
+                     for file in files ]
+    subprocess.call(editor + ' ' + ' '.join(quoted_files), shell=True)
+</span>
+The trick it does is the easier to see using the a'b example. It
+replaces every ' with '"'"', so for example it replaces a'b with
+a'"'"'b. The list comprehension will put the file name between quotes,
+so the whole file name of a'b will be expressed like this:
+
+<span class="raw-block">    'a'"'"'b'
+</span>
+Which expands nicely to "a'b".
+
+I have two problems:
+- Is it a proper solution? Can we expect this to work everywhere?
+(Especially where not sh is the default shell.)
+- Don't we have a better way to do this? Using double quote instead of
+single quote and escaping a bunch of characters with backslash (i.e.
+writing "a\'b") is not a better one, IMO.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/612 -->
+<div class="post-summary" id="post-summary-hh-612">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_580.html#post-summary-hh-612">&lt;hh/612&gt;</a></span>
+<span class="date">(2009-09-30)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_580.html#post-summary-hh-580">hh/580</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_580.html#post-summary-hh-630">hh/630</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I have a problem with the EDITOR environment variable.
+&gt;
+&gt; In the _e branch I have a commit, which is not the perfect solution.
+&gt;
+&gt; == Before ==
+&gt;
+&gt; Before the commit, we just do this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;  subprocess.call(editor.split() + files)
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; This has a problem for example with this EDITOR variable:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;  $ export EDITOR="gvim -c 'setf mail'"
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Because `editor.split()` is this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;  ["gvim", "-c", "'setf", "mail'"]
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; So this is what we called if we had 2 files:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;  subprocess.call(["gvim", "-c", "'setf", "mail'", file1, file2])
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Btw, "git commit" has the same problem, it does not work with
+&gt; EDITOR="gvim -c 'setf mail'". But I want Hk to handle this better,
+&gt; git's incapability should not be an excuse.
+</span></span>
+Maybe we should go with a modified version of this solution. We should
+try to parse the content of the EDITOR variable. This way we will be
+platform independent, and we can describe in the documentation how the
+parsing is done. The parsing should be of course very similar to that
+of bash.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/630 -->
+<div class="post-summary" id="post-summary-hh-630">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="tags">[-git]</span>
+<span class="index"><a href="../hh/thread_580.html#post-summary-hh-630">&lt;hh/630&gt;</a></span>
+<span class="date">(2009-10-04)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_580.html#post-summary-hh-612">hh/612</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_580.html#post-summary-hh-644">hh/644</a></span>
+<pre class="post-body-content">No! We should use only backslashes to state that "this space is not a
+delimiter between arguments":
+
+<span class="raw-block">    $ export EDITOR='gvim -c "setf\ mail"'
+</span>
+or
+
+<span class="raw-block">    $ export EDITOR="gvim -c 'setf\\ mail'"
+</span>
+It would be much easier then to mess with single and double quotes.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/644 -->
+<div class="post-summary" id="post-summary-hh-644">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_580.html#post-summary-hh-644">&lt;hh/644&gt;</a></span>
+<span class="date">(2009-10-11)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_580.html#post-summary-hh-630">hh/630</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[close]</span>
+
+I implemented and pushed this solution.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/644 -->
+</div><!-- postbox for post hh/630 -->
+</div><!-- postbox for post hh/612 -->
+
+<div class="post-box"><!-- post hh/712 -->
+<div class="post-summary" id="post-summary-hh-712">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="tags">[-issue]</span>
+<span class="index"><a href="../hh/thread_580.html#post-summary-hh-712">&lt;hh/712&gt;</a></span>
+<span class="date">(2009-10-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_580.html#post-summary-hh-580">hh/580</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Btw, "git commit" has the same problem, it does not work with
+&gt; EDITOR="gvim -c 'setf mail'". But I want Hk to handle this better,
+&gt; git's incapability should not be an excuse.
+</span></span>
+That's surprising! Somehow I'd have thought Git developers should have
+sorted out this issue...
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/712 -->
+</div><!-- postbox for post hh/580 -->
+
+  </body>
+</html>

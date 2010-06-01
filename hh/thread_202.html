@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>!-metas</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">!-metas</h1>
+
+
+<div class="post-box"><!-- post hh/202 -->
+<div class="post-summary" id="post-summary-hh-202">
+<span class="author">Attila Nagy</span>
+<span class="subject">!-metas</span>
+<span class="tags">[reviewed]</span>
+<span class="index"><a href="../hh/thread_202.html#post-summary-hh-202">&lt;hh/202&gt;</a></span>
+<span class="date">(2009-05-10)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_202.html#post-summary-hh-206">hh/206</a></span>
+<pre class="post-body-content">You wrote this meta:
+
+<span class="quote"><span class="quote-1">&gt; &lt;&lt;&lt;todo merge this email with its parent&gt;&gt;&gt;
+</span></span>
+This'd have to be !todo, because we'd like the body parsing to add a
+todo tag. Do you agree?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/206 -->
+<div class="post-summary" id="post-summary-hh-206">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_202.html#post-summary-hh-206">&lt;hh/206&gt;</a></span>
+<span class="date">(2009-05-10)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_202.html#post-summary-hh-202">hh/202</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">No.
+
+1. "todo" is not a command for me, but an attribute of the post.
+
+2. I don't want a "todo" tag, it would be reduntant: I want only todo meta.
+
+Instead of writing this (e.g. in your hkrc):
+
+<span class="raw-block">    ps_todo = postdb().all().collect.has_tag('todo')
+</span>
+You write something like this:
+
+<span class="raw-block">    ps_todo = postdb().all().collect.has_meta('todo')
+</span>
+If you want "todo" emails to stand out from normal emails, I don't
+think tagging them is the right method. This way we would have tags
+for many things. (I can't think of any other example though.)
+
+I think the solution is to have a customized post_summary; I plan this
+very strongly, as I said a few times. That would allow us to write
+TODO in huge red letters next in the post summaries of the posts that
+contain &lt;&lt;&lt;todo&gt;&gt;&gt;, insert a picture, or really anything that we want
+to do.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/206 -->
+</div><!-- postbox for post hh/202 -->
+
+  </body>
+</html>

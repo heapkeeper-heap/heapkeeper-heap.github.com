@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Code coverage</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Code coverage</h1>
+
+
+<div class="post-box"><!-- post hh/1032 -->
+<div class="post-summary" id="post-summary-hh-1032">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Code coverage</span>
+<span class="index"><a href="../hh/thread_1032.html#post-summary-hh-1032">&lt;hh/1032&gt;</a></span>
+<span class="date">(2010-01-23)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1032.html#post-summary-hh-1033">hh/1033</a>, <a href="../hh/thread_1032.html#post-summary-hh-1034">hh/1034</a></span>
+<pre class="post-body-content">I tried out coverage.py (which is wrapped by python-coverage.py).
+
+<span class="raw-block">    $ sudo apt-get install python-coverage
+
+    # deleted previous measurements if any
+    $ python-coverage -e
+
+    # execution
+    $ python-coverage -x test.py
+    ---------------------------------------------------------------------
+    Ran 112 tests in 1.294s
+
+    OK
+
+    # report
+    $ python-coverage -r hklib.py hkshell.py hkutils.py hkgen.py hkcustomlib.py
+    Name          Stmts   Exec  Cover
+    ---------------------------------
+    hkcustomlib      67     38    56%
+    hkgen           368    267    72%
+    hklib           848    690    81%
+    hkshell         454    301    66%
+    hkutils         115     93    80%
+    ---------------------------------
+    TOTAL          1852   1389    75%
+</span>
+The results are slightly better on my _several_heaps branch that I
+haven't pushed yet:
+
+<span class="raw-block">    Name          Stmts   Exec  Cover
+    ---------------------------------
+    hkcustomlib      65     36    55%
+    hkgen           377    273    72%
+    hklib           953    802    84%
+    hkshell         470    341    72%
+    hkutils         116     94    81%
+    ---------------------------------
+    TOTAL          1981   1546    78%
+</span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1033 -->
+<div class="post-summary" id="post-summary-hh-1033">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1032.html#post-summary-hh-1033">&lt;hh/1033&gt;</a></span>
+<span class="date">(2010-01-23)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1032.html#post-summary-hh-1032">hh/1032</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    $ sudo apt-get install python-coverage
+</span></span></span>
+This method installs coverage.py 2.85 on Ubuntu 9.10. Version 3.2 has
+a different command-line interface. Since 3.2 is described on the home
+page [1], I guess that would be the "official" coverage.py that we
+should use. You can installing it in the following way:
+
+    $ sudo apg-get remove python-coverage # if you already installed
+coverage.py using apt-get
+    $ sudo apt-get install python-dev python-setuptools
+    $ sudo easy_install coverage
+
+[1] <a href="http://nedbatchelder.com/code/coverage/">http://nedbatchelder.com/code/coverage/</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1033 -->
+
+<div class="post-box"><!-- post hh/1034 -->
+<div class="post-summary" id="post-summary-hh-1034">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1032.html#post-summary-hh-1034">&lt;hh/1034&gt;</a></span>
+<span class="date">(2010-01-23)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1032.html#post-summary-hh-1032">hh/1032</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1032.html#post-summary-hh-1122">hh/1122</a></span>
+<pre class="post-body-content">See the coverage of the new code here:
+<a href="http://heapkeeper.org/tmp/coverage/">http://heapkeeper.org/tmp/coverage/</a>
+
+You can click on the module names. The green lines were executed
+during the test, the red lines were not.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1122 -->
+<div class="post-summary" id="post-summary-hh-1122">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1032.html#post-summary-hh-1122">&lt;hh/1122&gt;</a></span>
+<span class="date">(2010-02-10)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1032.html#post-summary-hh-1034">hh/1034</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; See the coverage of the new code here:
+&gt; </span></span><span class="quote"><span class="quote-1"><a href="http://heapkeeper.org/tmp/coverage/">http://heapkeeper.org/tmp/coverage/</a></span></span><span class="quote"><span class="quote-1">
+&gt;
+&gt; You can click on the module names. The green lines were executed
+&gt; during the test, the red lines were not.
+</span></span>
+This is great!
+
+I scanned through the results for `hklib.py`. I was glad to see that
+untested code is almost exclusively in trivial one- or two-line
+functions and `__str__`s. The only large block of untested code is in the
+`EmailDownloader` class.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1122 -->
+</div><!-- postbox for post hh/1034 -->
+</div><!-- postbox for post hh/1032 -->
+
+  </body>
+</html>

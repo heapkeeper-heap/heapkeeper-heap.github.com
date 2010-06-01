@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>The need for trailing whitespaces in Heap posts</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">The need for trailing whitespaces in Heap posts</h1>
+
+
+<div class="post-box"><!-- post hh/1097 -->
+<div class="post-summary" id="post-summary-hh-1097">
+<span class="author">Attila Nagy</span>
+<span class="subject">The need for trailing whitespaces in Heap posts</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1097.html#post-summary-hh-1097">&lt;hh/1097&gt;</a></span>
+<span class="date">(2010-02-07)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1097.html#post-summary-hh-1101">hh/1101</a></span>
+<pre class="post-body-content">Maybe you misunderstood my original problem. In Hk posts, the trailing
+whitespace should never be valid if it matches /[^ ]\s\+$/. (That is,
+the only acceptable situation is a line that is only whitespace, and
+nothing else.) See for example this:
+
+<span class="raw-block">    #include &lt;stdio&gt;
+
+    int main() {}
+</span>
+If I write this, if we ever do any syntax highlighting, this will show
+up as two distinct code blocks.
+
+There is an alternate solution: we could declare that adjacent code
+blocks are to be interpreted as continuous including any empty lines,
+but then we'd have to include a separator element, e.g. a special "no-op"
+meta. Like this:
+
+<span class="raw-block">    Compare these two examples:&lt;cr&gt;
+    &lt;cr&gt;
+    &lt;spc&gt;print 'hello world'&lt;cr&gt;
+    [sep]&lt;cr&gt;
+    &lt;spc&gt;print('hello world')&lt;cr&gt;
+</span>
+Here, the "sep" meta generates no output, but it prevents the output
+from containing a single code block with 3 lines, the one 2nd empty,
+as it would happen otherwise.
+
+Of course this meta doesn't do anything, so it could be called "nop",
+but then its purpose wouldn't be so evident. Maybe we could say that
+"nop" and "sep" are synonyms for the same meta.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1101 -->
+<div class="post-summary" id="post-summary-hh-1101">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1097.html#post-summary-hh-1101">&lt;hh/1101&gt;</a></span>
+<span class="date">(2010-02-07)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1097.html#post-summary-hh-1097">hh/1097</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1097.html#post-summary-hh-1103">hh/1103</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Maybe you misunderstood my original problem.
+</span></span>
+Not really :)
+
+<span class="quote"><span class="quote-1">&gt; In Hk posts, the trailing
+&gt; whitespace should never be valid if it matches /[^ ]\s\+$/. (That is,
+&gt; the only acceptable situation is a line that is only whitespace, and
+&gt; nothing else.) See for example this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    #include &lt;stdio&gt;
+&gt;
+&gt;    int main() {}
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; If I write this, if we ever do any syntax highlighting, this will show
+&gt; up as two distinct code blocks.
+&gt;
+&gt; There is an alternate solution: we could declare that adjacent code
+&gt; blocks are to be interpreted as continuous including any empty lines,
+</span></span>
+That's what Sphinx does. (And that's what Pyhon does as well, if you
+think about it.)
+
+<span class="quote"><span class="quote-1">&gt; but then we'd have to include a separator element, e.g. a special "no-op"
+&gt; meta. Like this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    Compare these two examples:&lt;cr&gt;
+&gt;    &lt;cr&gt;
+&gt;    &lt;spc&gt;print 'hello world'&lt;cr&gt;
+&gt;    [sep]&lt;cr&gt;
+&gt;    &lt;spc&gt;print('hello world')&lt;cr&gt;
+</span></span></span>
+We would have to include it if we wanted to be able to express
+everything, including your example. I don't think it it important to
+be able to express that. For example, in Sphinx, you would put the two
+code examples into an itemization:
+
+<span class="raw-block">    Compare these two examples:
+
+    - ::
+
+        print 'hello world'&lt;cr&gt;
+
+    - ::
+
+        print('hello world')&lt;cr&gt;
+</span>
+But we can say that we will add a separator later if we seem to need it.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1103 -->
+<div class="post-summary" id="post-summary-hh-1103">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1097.html#post-summary-hh-1103">&lt;hh/1103&gt;</a></span>
+<span class="date">(2010-02-08)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1097.html#post-summary-hh-1101">hh/1101</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1097.html#post-summary-hh-1104">hh/1104</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; We would have to include it if we wanted to be able to express
+&gt; everything, including your example. I don't think it it important to
+&gt; be able to express that.
+</span></span>
+At first I found it very hard to accept such a thought...
+
+<span class="quote"><span class="quote-1">&gt; But we can say that we will add a separator later if we seem to need it.
+</span></span>
+...but this seemed to comfort me. After all, a Heap free of trailing
+whitespace is not an insignificant gain.
+
+So I agree.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1104 -->
+<div class="post-summary" id="post-summary-hh-1104">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1097.html#post-summary-hh-1104">&lt;hh/1104&gt;</a></span>
+<span class="date">(2010-02-08)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1097.html#post-summary-hh-1103">hh/1103</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; But we can say that we will add a separator later if we seem to need it.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; ...but this seemed to comfort me. After all, a Heap free of trailing
+&gt; whitespace is not an insignificant gain.
+</span></span>
+Especially if you consider that git warns about trailing white spaces
+when merging patches by default.
+
+<span class="quote"><span class="quote-1">&gt; So I agree.
+</span></span>
+Good :)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1104 -->
+</div><!-- postbox for post hh/1103 -->
+</div><!-- postbox for post hh/1101 -->
+</div><!-- postbox for post hh/1097 -->
+
+  </body>
+</html>

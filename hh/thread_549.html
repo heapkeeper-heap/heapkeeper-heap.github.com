@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>SHA1 as post id</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">SHA1 as post id</h1>
+
+
+<div class="post-box"><!-- post hh/549 -->
+<div class="post-summary" id="post-summary-hh-549">
+<span class="author">Csaba Hoch</span>
+<span class="subject">SHA1 as post id</span>
+<span class="tags">[discussion]</span>
+<span class="index"><a href="../hh/thread_549.html#post-summary-hh-549">&lt;hh/549&gt;</a></span>
+<span class="date">(2009-08-30)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_549.html#post-summary-hh-572">hh/572</a></span>
+<pre class="post-body-content">We shall discuss the possibilities, advantages and disadvantages of
+having SHA1 id as post id. The topic was brought up in another thread
+[1].
+
+The problem is that git deals with unmodifiable (immutable) objects.
+Blobs, trees and commits are all immutable, that's why they can have
+SHA1 ids.
+
+Posts are not immutable, so they cannot have SHA1 ids. We could make
+our model similar to git and have immutable posts. It would mean that
+every tiny modification in a post would result in a different post.
+
+Although it sound nice in theory, it would be harder to use Hk in
+practice if we used that approach. Would not you be happier if you
+could change commits of the past in git without creating new branches?
+Of course git has very good reasons for not allowing that. But we
+don't. It is sooo good that I can just edit a post file with an editor
+(either from inside Hk with the e() command or from outside Hk), not
+having to worry about changing its id. If we used SHA1 as post id, we
+could not change the post from outside Hk, because then the SHA1 id of
+the post would change, and the references to this post in other files
+would have to be changed, as well. (Later in this email I will show a
+possible (but not very nice) solution for this problem.) The e()
+command could do that automatically, but users would not do it
+manually. Now the only thing that is hard to do from outside hkshell
+for the same reason is to change the id of a post. Moving posts
+between heaps will require changing the post id, that's why it will be
+able to be done conveniently only from within Hk. On the other hand,
+ironically, if we use SHA1 ids, that only one operation that will be
+easier is to move a post between heaps... But everything else (e.g.
+modifying its content by adding tags, changing the subject etc.) will
+require creating a new file and removing the old one. So for example
+it would be much harder to track our post database with git, because
+it would contain moved and slightly changed files all the time. (Let's
+say we delete all signature from all posts. Imagine a diff in the
+current system, and in the SHA1-system, where _all_ post will be in a
+totally differently named file, with a slightly different content.) Or
+what about referencing posts in emails that are not yet downloaded? In
+my email I would reference post bc34a5f, which is on the heap, but two
+days later, due to a modification, it would become 591bf61...
+
+I have an idea that would mitigate some problems. The problem of
+referencing posts in not yet downloaded emails and the problem of
+editing post files from outside hkshell could be solved by storing all
+post ids for a post that it once had. In other words, every post would
+contain a list of SHA1 ids it used to have at some point in the past.
+These could be wiped out periodically.
+
+It is also practical in our current system that posts have
+easy-to-remember ids. It is neat to write:
+
+<span class="raw-block">    &gt;&gt;&gt; e(1234)
+</span>
+Although our current system has the "prefix problem" of several
+contributors: we will have "csabi_x" and "attis_x" posts, which is a
+bit ugly. Using SHA1 ids would solve this problem.
+
+== Conclusion ==
+
+It seems to me that using SHA1 post ids would be a considerable amount
+of work, and we would not gain too much in Hk's usability. It would
+solve a few things (moving posts, prefix problem), but we would have
+new challenges (modifying post content, storing old SHA1 ids, tracking
+the post database with git).
+
+Do you know other merits of the idea of using SHA1 ids?
+
+[1] post://2567
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/572 -->
+<div class="post-summary" id="post-summary-hh-572">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_549.html#post-summary-hh-572">&lt;hh/572&gt;</a></span>
+<span class="date">(2009-09-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_549.html#post-summary-hh-549">hh/549</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_549.html#post-summary-hh-581">hh/581</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Posts are not immutable, so they cannot have SHA1 ids. We could make
+&gt; our model similar to git and have immutable posts. It would mean that
+&gt; every tiny modification in a post would result in a different post.
+</span></span>
+That pretty much explains it.
+
+But all we need is uniqueness. How about UUIDs as post ids? [1]
+
+[1] <a href="http://en.wikipedia.org/wiki/UUID#Python">http://en.wikipedia.org/wiki/UUID#Python</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/581 -->
+<div class="post-summary" id="post-summary-hh-581">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_549.html#post-summary-hh-581">&lt;hh/581&gt;</a></span>
+<span class="date">(2009-09-07)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_549.html#post-summary-hh-572">hh/572</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_549.html#post-summary-hh-613">hh/613</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; But all we need is uniqueness. How about UUIDs as post ids? [1]
+&gt;
+&gt; [1] </span></span><span class="quote"><span class="quote-1"><a href="http://en.wikipedia.org/wiki/UUID#Python">http://en.wikipedia.org/wiki/UUID#Python</a></span></span><span class="quote"><span class="quote-1">
+</span></span>
+I like it, but I have to think about all the implications.
+
+Do we want to allow shortening UUIDs, as far as they are unique?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/613 -->
+<div class="post-summary" id="post-summary-hh-613">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_549.html#post-summary-hh-613">&lt;hh/613&gt;</a></span>
+<span class="date">(2009-10-01)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_549.html#post-summary-hh-581">hh/581</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_549.html#post-summary-hh-615">hh/615</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; But all we need is uniqueness. How about UUIDs as post ids? [1]
+&gt;&gt; [1] </span></span><span class="quote"><span class="quote-2"><a href="http://en.wikipedia.org/wiki/UUID#Python">http://en.wikipedia.org/wiki/UUID#Python</a></span></span><span class="quote"><span class="quote-2">
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I like it, but I have to think about all the implications.
+&gt;
+&gt; Do we want to allow shortening UUIDs, as far as they are unique?
+</span></span>
+I think we discussed this on Skype. If I remember correctly, we
+dismissed the whole idea of using any kind of hash or UUID as postids,
+on the basis that the IDs used by mailing agents are pretty random
+(and therefore very probably unique) as they are.
+
+However, I think the question of shortening these remained open. Well,
+of course, we could quite easily enable this, but would it really be
+useful? In the current post file format, we use the postids only to
+link parent and child posts together, but even here we can optionally
+use the heapid instead.
+
+So I guess things are pretty OK. Anyone for Scrabble later? [1]
+
+[1] <a href="http://xkcd.com/470/">http://xkcd.com/470/</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/615 -->
+<div class="post-summary" id="post-summary-hh-615">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_549.html#post-summary-hh-615">&lt;hh/615&gt;</a></span>
+<span class="date">(2009-10-01)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_549.html#post-summary-hh-613">hh/613</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">First terminology: currently we have heapids and message ids. A heapid
+is usually an integer, or an integer prefixed with something. Every
+post has a heapid. Message ids are a bit like email addressed, they
+have @ in them. Only posts that used to be emails have them. They are
+both supposed to be unique within a heap.
+
+Heapids are the primary ids of post in Heapkeeper -- mainly because
+all posts have them. Message ids are used only to prevent downloading
+emails that already have been downloaded.
+
+(We are discussing using different terminology in another thread, but
+I think let's stick with our current terminology in this thread.)
+
+<span class="quote"><span class="quote-2">&gt;&gt; Do we want to allow shortening UUIDs, as far as they are unique?
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I think we discussed this on Skype. If I remember correctly, we
+&gt; dismissed the whole idea of using any kind of hash or UUID as postids,
+&gt; on the basis that the IDs used by mailing agents are pretty random
+&gt; (and therefore very probably unique) as they are.
+</span></span>
+I don't know what you mean by "postid" here; you mean either heapid or
+message id. I have never wanted to use hash or UUID instead of the
+message id, because that would undermine their goal: keeping track of
+downloaded emails. On the other hand, I _was_ thinking about using
+hash or UUID instead of heapid. But on Skype, we dismissed it because
+it would be inconvenient:
+- heapids are much shorter than either a SHA-1 hashes or a UUIDs
+- UUIDs are hard to shorten
+- SHA-1 is easier to shorten, but it has philosophical problems: it is
+  not very nice to stick we the SHA-1 of the original version of the
+  post, even though it has been modified.
+
+<span class="quote"><span class="quote-1">&gt; However, I think the question of shortening these remained open. Well,
+&gt; of course, we could quite easily enable this, but would it really be
+&gt; useful?
+</span></span>
+I don't think it remained open. We cannot shorten heapids, they are
+numbers starting from one. We could shorten message ids, I guess, but
+there is no point in shortening them: for I don't think they ever
+should be used by humans. Message ids are just for the email
+downloader to track which emails have already been downloaded.
+
+<span class="quote"><span class="quote-1">&gt; In the current post file format, we use the postids only to link
+&gt; parent and child posts together, but even here we can optionally use
+&gt; the heapid instead.
+</span></span>
+We do use them optionally now. If the "Parent" attribute of a post is
+"3", Hk will find post 3 as its parent.
+
+<span class="quote"><span class="quote-1">&gt; So I guess things are pretty OK. Anyone for Scrabble later? [1]
+&gt;
+&gt; [1] </span></span><span class="quote"><span class="quote-1"><a href="http://xkcd.com/470/">http://xkcd.com/470/</a></span></span><span class="quote"><span class="quote-1">
+</span></span>
+:)))
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/615 -->
+</div><!-- postbox for post hh/613 -->
+</div><!-- postbox for post hh/581 -->
+</div><!-- postbox for post hh/572 -->
+</div><!-- postbox for post hh/549 -->
+
+  </body>
+</html>

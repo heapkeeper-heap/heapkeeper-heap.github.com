@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Development policies, pylint works OK on all Heapkeeper code</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Development policies, pylint works OK on all Heapkeeper code</h1>
+
+
+<div class="post-box"><!-- post hh/1191 -->
+<div class="post-summary" id="post-summary-hh-1191">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Development policies, pylint works OK on all Heapkeeper code</span>
+<span class="tags">[proposal]</span>
+<span class="index"><a href="../hh/thread_1191.html#post-summary-hh-1191">&lt;hh/1191&gt;</a></span>
+<span class="date">(2010-04-05)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1191.html#post-summary-hh-1245">hh/1245</a></span>
+<pre class="post-body-content">I'm happy to announce that pylint [1] can be used for all Heapkeeper
+code.
+
+Pylint proved to be useful because it is usually easier to fix an
+error that pylint spotted than an error which made a unit test to
+fail. The reason is that pylint gives the exact line which contains
+the error and why it thinks that there is a problem; the unit test
+framework on the other hand gives a stack trace and show how the
+assertion failed. Of course pylint will find problems only that can be
+found via static checking, and it doesn't seem to do type checking
+very well anyway. So pylint and unit tests complement each other well.
+
+Let me get to how pylint can be used with Heapkeeper. Since there are
+still some warnings printed by pylint which are not important warnings
+to us now, I added a file called "pylintrc" to the Heapkeeper
+repository. Pylint will use this file to determine which warnings to
+suppress. hk-dev-utils contains a very simple wrapper around pylint
+that is easy to use:
+
+<span class="raw-block">    $ hk-dev-utils/hk_pylint
+</span>
+If there are no warnings, this will print nothing. Otherwise it prints
+the warnings.
+
+I modified the development policies to be stricter and more
+well-defined; now they include for example that pylint should not give
+any warnings.
+
+Modifications in development.rst in the _docs branch:
+
+  -Using the version control system
+  -^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  -
+  -* Run the :ref:`tests &lt;testing&gt;` before you *push* your changes and
+never push
+  -  code whose test fail.
+  -* There is not a strict policy about whether the developers may *commit*
+  -  code intentionally that is not correct (e.g. in the middle of a
+refactoring).
+  -  Probably the best is not commit incorrect code. (Note: it is
+about *commit*,
+  -  the developers strictly should not *push* code intentionally that is not
+  -  correct.)
+  -* Try to do larger independent changes in independent commits. E.g.
+if you add
+  -  50 lines to the documentation and add a new class, and these have
+nothing to
+  -  do with each other, it is better to have two separate commits for them. Of
+  -  course if the documentation is about the new class, it is better
+to have them
+  -  in the same commit.
+  +Policies about commits
+  +^^^^^^^^^^^^^^^^^^^^^^
+  +
+  +The following rules apply to commits in the GitHub repositories. Anyone may
+  +have commits in their own private repositories that do not conform to these
+  +policies; but before the commits are pushed to GitHub, they should be rebased
+  +so that they conform.
+  +
+  +* All commits should be correct and should contain a version of
+Heapkeeper that
+  +  works correctly.
+  +* Every test case in every commit should pass; i.e. ``test.py``
+should execute
+  +  all test cases and it should not report any failures. See also :ref:`tests
+  +  &lt;testing&gt;`.
+  +* :ref:`pylint` should not give any warning in any commit that is
+not disabled
+  +  in the ``pylintrc`` file of the corresponding commit; i.e.
+  +  ``hk-dev-utils/hk_pylint`` should not print anything.
+  +* Do independent changes in independent commits, but closely
+related changes in
+  +  the same commit. As Karl Fogel wrote in his :ref:`book
+&lt;reading&gt;`: "have each
+  +  commit be a single logical change". You can read more here__. Examples from
+  +  Heapkeeper development:
+  +
+  +  * If you add some documentation and add a new class, and these
+have not much
+  +    to do with each other, create two separate commits for them.
+  +  * If you add a new method to a class, write documentation and
+unit tests for
+  +    the method, create one commit for all of these. It is nice to review a
+  +    commit when both the documentation and the unit tests for the
+change are in
+  +    the commit.
+  +  * If several totally independent source code lines are modified in order to
+  +    get rid of :ref:`pylint` warnings, these should be in one
+commit. The parts
+  +    of the source code that were modified may have nothing to do with each
+  +    other, but the commit is still logically a single change
+because of the one
+  +    common objective.
+
+<span class="raw-block">   See the conventions about commit messages :ref:`here
+   &lt;commit_message_conventions&gt;`.
+
+  +__ http://producingoss.com/en/releases-and-daily-development.html
+</span>
+<span class="meta-text">[timeout 1 week]</span>
+
+[1] <a href="../hh/thread_1037.html#post-summary-hh-1037">heap://hh/1037</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1245 -->
+<div class="post-summary" id="post-summary-hh-1245">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1191.html#post-summary-hh-1245">&lt;hh/1245&gt;</a></span>
+<span class="date">(2010-05-21)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1191.html#post-summary-hh-1191">hh/1191</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">OK.
+
+As a side note: I never imagined pylint would be such a CPU-intensive task!
+
+<span class="raw-block">   $ time ../hk-dev-utils/hk_pylint
+
+   real    0m8.322s
+   user    0m8.109s
+   sys     0m0.128s
+</span>
+I have a relatively fast machine, and it takes 8 secs at 100% CPU
+utilization! The test suite takes only ~280 ms.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1245 -->
+</div><!-- postbox for post hh/1191 -->
+
+  </body>
+</html>

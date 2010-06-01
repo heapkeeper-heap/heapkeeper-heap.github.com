@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Deprecation status of g(), ga() and gi()</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Deprecation status of g(), ga() and gi()</h1>
+
+
+<div class="post-box"><!-- post hh/1102 -->
+<div class="post-summary" id="post-summary-hh-1102">
+<span class="author">Attila Nagy</span>
+<span class="subject">Deprecation status of g(), ga() and gi()</span>
+<span class="index"><a href="../hh/thread_1102.html#post-summary-hh-1102">&lt;hh/1102&gt;</a></span>
+<span class="date">(2010-02-08)</span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Once, maybe a few months ago, I got a warning that said `g()` is
+deprecated, and that I should use `ga()` instead. Now, I used `gi()`,
+and I was warned that `gi()` was deprecated, and I should use `g()`
+instead.
+
+This sounded weird enough to prompt me to do some research. First, I
+grepped in the Heap for the string 'deprecated'. No relevant results.
+Now I grepped for the function names (which was a bit tricky, but I
+finally managed).
+
+One of the results is where you present the addition of an interactive
+tool for the Heapmanipulator (the old name of our project). This is
+<a href="../hh/thread_996.html#post-summary-hh-996">heap://996</a>. There, Csabi presents the original set of "g-commands":
+
+<span class="raw-block">  g()                - generate index.html
+  ga()               - generate all html
+  gs()               - generate index.html and save
+</span>
+`gi()` and `gt()` were added in the commit "hkshell: 'gt' feature
+added, g is now deprecated" (2009-06-27, 2414fb8).
+
+The new set:
+
+<span class="raw-block">  gi()               - generate index pages
+  gt()               - generate thread pages
+  gp()               - generate post pages
+  ga()               - generate all pages
+</span>
+`g()` was deprecated with this change, but at the same time, it was
+changed to mean `ga()`. (Its previous function would have made it an
+alias of `gi()` in the new system.) It is a strange decision to
+deprecate and change something at the same time, but I think it fit in
+the logic of the change nicely: at least for me, `g` is the common
+part of `gi`, `gt` and `gp`.
+
+The next change was introduced in the commit "hk{lib,shell,customlib}:
+old Generator removed" (2009-11-28, cd575fb). (This is the current
+situation.) The commit message says:
+
+"Since the new Generator has a single method for generating index pages,
+thread pages and post pages, there is only one command from hkshell
+to call generating HTML: hkshell.g(). ga() and gi() has been left as
+deprecated commands."
+
+This means that `gt` and `gp` have gone away, and are no longer
+recognized as commands, not even as deprecated ones.
+
+There's a minor glitch in that commit: if you use `ga()`, the
+deprecation warning says that `gi` is deprecated instead of `ga`.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1102 -->
+
+  </body>
+</html>

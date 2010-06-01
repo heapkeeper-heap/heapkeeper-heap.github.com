@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>hkshell: outdated posts recognized at startup (2009-05-10 0c52914207)</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">hkshell: outdated posts recognized at startup (2009-05-10 0c52914207)</h1>
+
+
+<div class="post-box"><!-- post hh/194 -->
+<div class="post-summary" id="post-summary-hh-194">
+<span class="author">Csaba Hoch</span>
+<span class="subject">hkshell: outdated posts recognized at startup (2009-05-10 0c52914207)</span>
+<span class="tags">[commit, reviewed]</span>
+<span class="index"><a href="../hh/thread_194.html#post-summary-hh-194">&lt;hh/194&gt;</a></span>
+<span class="date">(2009-05-10)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_194.html#post-summary-hh-201">hh/201</a></span>
+<pre class="post-body-content">hkshell.PostPageListener.outdated_posts_from_disk:
+
+<span class="raw-block">     def outdated_posts_from_disk(self):
+          """Returns the posts that are outdated, based on the timestamp of the
+  -       post files and the post pages.
+  -
+  -       This function is not yet implemented, it returns all posts; this way
+  -       the system will think at startup that all post pages are outdated.
+  -       """
+  -
+  -       return self._postdb.all()
+  +       post files and the post pages."""
+  +
+  +       def outdated(post):
+  +           try:
+  +               time_html = os.stat(post.htmlfilename()).st_mtime
+  +               time_post = os.stat(post.postfilename()).st_mtime
+  +               return time_html &lt; time_post
+  +           except OSError:
+  +               # a file is missing; hopefully the HTML
+  +               return True
+  +
+  +       return self._postdb.all().collect(outdated)
+</span>
+Very nice job! It would have taken some Googling and documentation
+reading for me to figure out os.stat.
+
+To quote Eric S. Raymond [1] (this quote was also acknowledged by
+Producing Open Source Software):
+
+<span class="raw-block">    Every good work of software starts by scratching a developer's
+    personal itch.
+</span>
+Here, you were very fast to implement this feature probably because it
+scratched your itch :)
+
+[1] <a href="http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/ar01s02.html">http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/ar01s02.html</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/201 -->
+<div class="post-summary" id="post-summary-hh-201">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_194.html#post-summary-hh-201">&lt;hh/201&gt;</a></span>
+<span class="date">(2009-05-10)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_194.html#post-summary-hh-194">hh/194</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Very nice job! It would have taken some Googling and documentation
+&gt; reading for me to figure out os.stat.
+</span></span>
+Of course I googled and RTFM'd too... Heck, I can't even calculate the
+average and SD of numbers read from stdin without Google &amp; docs. And I
+have to admit it makes me feel awful.
+
+<span class="quote"><span class="quote-1">&gt; Here, you were very fast to implement this feature probably because it
+&gt; scratched your itch :)
+</span></span>
+Yes, mostly. But of course you must be acknowledged for creating that
+dummy method, it made my work very simple.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/201 -->
+</div><!-- postbox for post hh/194 -->
+
+  </body>
+</html>

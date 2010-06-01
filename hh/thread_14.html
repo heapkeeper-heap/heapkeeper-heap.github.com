@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>HeapException, % and tuples, branches (2009-03-17 51209a0b51)</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">HeapException, % and tuples, branches (2009-03-17 51209a0b51)</h1>
+
+
+<div class="post-box"><!-- post hh/14 -->
+<div class="post-summary" id="post-summary-hh-14">
+<span class="author">Csaba Hoch</span>
+<span class="subject">HeapException, % and tuples, branches (2009-03-17 51209a0b51)</span>
+<span class="tags">[commit, reviewed]</span>
+<span class="index"><a href="../hh/thread_14.html#post-summary-hh-14">&lt;hh/14&gt;</a></span>
+<span class="date">(2009-03-18)</span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">This commit is definitely a nice solution:
+
+<span class="raw-block">             except:
+    -            raise HeapException, \
+    -                  'Error parsing message file "%s"' %  f.name
+    +            raise (HeapException,
+    +                  'Error parsing message file "%s"'
+    +                    % getattr(f, name, ""))
+</span>
+But I have two comments.
+
+== % and tuples ==
+
+When we use the % operator, we should always use the tuple syntax.
+The reason is described in the "Coding conventions" file (in the
+"options_refactoring" branch):
+
+<span class="raw-block">    - When you format a string with the % operator and you have only one
+      parameter to format, use the tuple syntax.
+
+    Yes:
+        "%s" % (x,)
+
+    No:
+        "%s" % x
+    No:
+        "%s" % (x)
+
+    The reason is that printing a tuple may lead to surprises. To reduce
+    the possibility of a bug, always follow this convention, even if you
+    are sure that the parameter after the % operator is not a tuple.
+
+        &gt;&gt;&gt; x = (1,2)
+        &gt;&gt;&gt; "%s" % (x,)
+        '(1, 2)'
+        &gt;&gt;&gt; "%s" % x
+        Traceback (most recent call last):
+          File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+        TypeError: not all arguments converted during string formatting
+        &gt;&gt;&gt; "%s" % (x)
+        Traceback (most recent call last):
+          File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+        TypeError: not all arguments converted during string formatting
+
+</span>
+== Branches ==
+
+Probably we should work only in the options_refactoring branch now,
+otherwise we may get funny errors, especially when we don't write a
+test case for some code.
+
+For example the HeapException class has been moved to the heaplib
+module. But when the master branch will be merged into the
+options_refactoring branch, of course git won't realize that, and the
+merged code will be the code as taken from the master branch:
+
+<span class="raw-block">    raise (HeapException,
+          'Error parsing message file "%s"'
+            % getattr(f, name, ""))
+</span>
+While this should contain heaplib.HeapException instead of just
+HeapException.
+
+I know only two solution, and neither is perfect:
+a. Let's merge the master and options_refactoring branches ASAP
+b. Let's write tests that cover all code (even exception handling code)
+
+I think (a) is more feasible in the short run.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/14 -->
+
+  </body>
+</html>

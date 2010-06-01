@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>"python -i" + "sys.exit(0) in hkshell.py" raises an exception, prints stack trace, and does not quit</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">"python -i" + "sys.exit(0) in hkshell.py" raises an exception, prints stack trace, and does not quit</h1>
+
+
+<div class="post-box"><!-- post hh/395 -->
+<div class="post-summary" id="post-summary-hh-395">
+<span class="author">Csaba Hoch</span>
+<span class="subject">"python -i" + "sys.exit(0) in hkshell.py" raises an exception, prints stack trace, and does not quit</span>
+<span class="tags">[python]</span>
+<span class="index"><a href="../hh/thread_395.html#post-summary-hh-395">&lt;hh/395&gt;</a></span>
+<span class="date">(2009-07-17)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_395.html#post-summary-hh-405">hh/405</a></span>
+<pre class="post-body-content">We have a problem with running Hk on Python 2.6. Python 2.6 which handles the
+-i option differently from 2.5. In 2.6, If you start hkshell in a way that it
+wants to quit right after performing its task, you will see an exception:
+
+<span class="raw-block">    $ ./hkshell --version
+    Heapkeeper version 0.3uc
+    Traceback (most recent call last):
+      File "hkshell.py", line 1369, in &lt;module&gt;
+        sys.exit(0)
+    SystemExit: 0
+    &gt;&gt;&gt;
+</span>
+The reason is that hkshell invokes "python -i hkshell.py", which used to quit
+silently after hkshell.py called sys.exit(), up until Python 2.5. But in Python
+2.6, the philosophy seems to be that if you type "-i", you want to inspect what
+happened in the program, so you don't want to quit from the Python interpreter.
+
+We should solve this problem at least temporarily before releasing Hk 0.3. It
+was quite difficult to make everything work even in 2.5. Now we have one option
+less. Maybe we should change direction; this is clearly not the way Python is
+supposed to be used. I will think about this.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/405 -->
+<div class="post-summary" id="post-summary-hh-405">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Interpreter problem solved; tests on other python versions</span>
+<span class="index"><a href="../hh/thread_395.html#post-summary-hh-405">&lt;hh/405&gt;</a></span>
+<span class="date">(2009-07-25)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_395.html#post-summary-hh-395">hh/395</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; We have a problem with running Hk on Python 2.6. Python 2.6 which
+&gt; handles the -i option differently from 2.5.
+</span></span>
+Problem solved in commit 0adaf99477 (2009-17-19) with using
+"code.interact" instead of "python -i".
+
+But from now on, we should do additional tests on Python 2.5, since
+normally I use 2.6. What do you use? (And we should also test on
+Windows, as you pointed out.)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/405 -->
+</div><!-- postbox for post hh/395 -->
+
+  </body>
+</html>

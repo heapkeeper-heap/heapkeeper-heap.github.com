@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Roadmap for v0.4 and v0.5</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Roadmap for v0.4 and v0.5</h1>
+
+
+<div class="post-box"><!-- post hh/890 -->
+<div class="post-summary" id="post-summary-hh-890">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Roadmap for v0.4 and v0.5</span>
+<span class="tags">[prop, reviewed, v0.4, v0.5]</span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-890">&lt;hh/890&gt;</a></span>
+<span class="date">(2009-11-08)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_890.html#post-summary-hh-984">hh/984</a></span>
+<pre class="post-body-content">I propose the following roadmap (which will not be set in stone of
+course).
+
+- New Generator:
+    - Reviewing/understanding the new Generator //Attis
+    - Discussing the new Generator //Attis &amp; Csabi
+    - Extending or modifying during and after the discussion
+      //Attis &amp; Csabi
+    - Remove the old Generator //Csabi (or Attis)
+- Releasing Hk v0.4 //Csabi
+- Implementing support for post references (required for separating
+  UMS and HH) [1] //Csabi
+- Going through the heap and correct all post references so that Hk
+  understands them
+    - Hk-related posts (with or without "hh" tag): Csabi
+    - other posts: Attis
+- Implementing support for multiple heaps [2] //Csabi
+- Separating UMS and HH with an automated process and check the result
+  carefully //Attis &amp; Csabi
+- Making HH public:
+    - setting up a public mailing list for HH //Attis or Csabi
+    - setting up a github repo for HH //Attis or Csabi
+    - setting up Shrek to make automatic commits of new posts //Attis
+- Releasing Hk v0.5 and announcing Hk to the world //Csabi
+
+We can implement smaller things on the way, of course, and during the
+cleanup we can do more then just correcting the post references. I
+want to refresh my memory and sort the Hk-related posts (we will see
+how that goes).
+
+You can work even on something bigger (hkweb for instance). Also, we
+may do things paralel and may have branches in the repository: maybe
+we will implement support for post references while still having
+discussions about the new Generator.
+
+Do you have ideas about what do you want to work on?
+
+[1] <a href="../hh/thread_889.html#post-summary-hh-889">heap://hh/889</a>
+[2] <a href="../hh/thread_536.html#post-summary-hh-536">heap://hh/536</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/984 -->
+<div class="post-summary" id="post-summary-hh-984">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="tags">[-reviewed]</span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-984">&lt;hh/984&gt;</a></span>
+<span class="date">(2009-12-05)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-890">hh/890</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_890.html#post-summary-hh-1029">hh/1029</a>, <a href="../hh/thread_890.html#post-summary-hh-1115">hh/1115</a></span>
+<pre class="post-body-content">Do you agree?
+
+I think we should make a "0.4" branch and a "0.5" branch. Stuff that
+concerns the new generator and smaller fixes should go into 0.4. Hkweb
+and support for multiple heaps should go into branch 0.5. Eventually,
+when the old generator is removed from 0.4, we should release it, and
+merge or rebase it with 0.5.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1029 -->
+<div class="post-summary" id="post-summary-hh-1029">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-1029">&lt;hh/1029&gt;</a></span>
+<span class="date">(2010-01-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-984">hh/984</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_890.html#post-summary-hh-1031">hh/1031</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Do you agree?
+&gt;
+&gt; I think we should make a "0.4" branch and a "0.5" branch. Stuff that
+&gt; concerns the new generator and smaller fixes should go into 0.4. Hkweb
+&gt; and support for multiple heaps should go into branch 0.5. Eventually,
+&gt; when the old generator is removed from 0.4, we should release it, and
+&gt; merge or rebase it with 0.5.
+</span></span>
+I think it is time now to prepare for releasing 0.4.
+
+About the branches: let's stay with master, _master and the topic
+branches for now. (master and _master are practically the
+unmodifiable/modifiable versions of the branch called "0.4" that I
+proposed.) I don't think we should create a 0.5 branch, the topic
+branches are better instead. (We don't know yet which of
+hkweb/multiple heaps/blog/etc. will we include in 0.5.)
+
+Things we have to do before the release:
+- Remove the old generator and modify hkshell to use the new one.
+  //Csabi
+- Try the new code. //Attis, Csabi
+- Modify the tutorial and other documentation (e.g. the Architecture
+  page). //Csabi
+
+I will create a new branch called "_old_gen_removed" which removes the
+new generator and write an email when I pushed it. If is works, we
+should merge it into _master/master, and we should rebase all other
+branches on it. Then we can announce "feature freeze" for ourselves :)
+We wait for one or two weeks before releasing 0.4, so we may catch
+some errors. [1] Then we do the release.
+
+What do you think?
+
+<span class="meta-text">[timeout 1 week]</span>
+
+[1] I proposed rebasing everything on _old_gen_removed because this
+    way we might catch errors in the following weeks even if we use
+    other branches like _hkweb, _blog, etc.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1031 -->
+<div class="post-summary" id="post-summary-hh-1031">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-1031">&lt;hh/1031&gt;</a></span>
+<span class="date">(2010-01-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-1029">hh/1029</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I will create a new branch called "_old_gen_removed" which removes the
+&gt; new generator and write an email when I pushed it.
+</span></span>
+I pushed it.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1031 -->
+</div><!-- postbox for post hh/1029 -->
+
+<div class="post-box"><!-- post hh/1115 -->
+<div class="post-summary" id="post-summary-hh-1115">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-1115">&lt;hh/1115&gt;</a></span>
+<span class="date">(2010-02-09)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-984">hh/984</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_890.html#post-summary-hh-1116">hh/1116</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Do you agree?
+</span></span>
+OK, we can accept this roadmap.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1116 -->
+<div class="post-summary" id="post-summary-hh-1116">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-1116">&lt;hh/1116&gt;</a></span>
+<span class="date">(2010-02-09)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-1115">hh/1115</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_890.html#post-summary-hh-1117">hh/1117</a>, <a href="../hh/thread_890.html#post-summary-hh-1180">hh/1180</a></span>
+<pre class="post-body-content">I did everything I said here, so I plan to release 0.4 this Sunday in
+the evening.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1117 -->
+<div class="post-summary" id="post-summary-hh-1117">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-1117">&lt;hh/1117&gt;</a></span>
+<span class="date">(2010-02-09)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-1116">hh/1116</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_890.html#post-summary-hh-1118">hh/1118</a></span>
+<pre class="post-body-content">So, if I understand correctly, the "only" new feature in 0.5 will be
+the multiple heap support (and of course the whole project of
+separating heaps, going public etc.)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1118 -->
+<div class="post-summary" id="post-summary-hh-1118">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-1118">&lt;hh/1118&gt;</a></span>
+<span class="date">(2010-02-09)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-1117">hh/1117</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">It will take at least a few weeks, but probably months to consolidate
+and separate hh and release hk 0.5, so if we do other major
+improvements in the meantime (blog, hkweb, whatever :) ), we may
+include those in 0.5.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1118 -->
+</div><!-- postbox for post hh/1117 -->
+
+<div class="post-box"><!-- post hh/1180 -->
+<div class="post-summary" id="post-summary-hh-1180">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_890.html#post-summary-hh-1180">&lt;hh/1180&gt;</a></span>
+<span class="date">(2010-02-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_890.html#post-summary-hh-1116">hh/1116</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I did everything I said here, so I plan to release 0.4 this Sunday in
+&gt; the evening.
+</span></span>
+I released Heapkeeper 0.4: <a href="http://heapkeeper.org/download.html">http://heapkeeper.org/download.html</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1180 -->
+</div><!-- postbox for post hh/1116 -->
+</div><!-- postbox for post hh/1115 -->
+</div><!-- postbox for post hh/984 -->
+</div><!-- postbox for post hh/890 -->
+
+  </body>
+</html>

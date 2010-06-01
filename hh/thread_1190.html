@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Removing the Reference attribute</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Removing the Reference attribute</h1>
+
+
+<div class="post-box"><!-- post hh/1190 -->
+<div class="post-summary" id="post-summary-hh-1190">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Removing the Reference attribute</span>
+<span class="tags">[prop]</span>
+<span class="index"><a href="../hh/thread_1190.html#post-summary-hh-1190">&lt;hh/1190&gt;</a></span>
+<span class="date">(2010-04-03)</span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">I propose removing the Reference attribute of the posts and writing
+the same information to the body instead. My arguments:
+
+1. In the _several_heaps branch, showing the post references (=heap
+   links) in the body is implemented. The users can write any of this
+   into their posts:
+
+<span class="raw-block">        Reference: heap://1
+
+        Original parent of this post: heap://1 (was split because of
+        diverging topic)
+
+        Related thread: heap://1, especially heap://5
+
+        Strongly related references:
+        - heap://1: long discussion about the same topic
+        - heap://5: in-depth review of a similar subject
+
+        Slightly related references:
+        - heap://10: slightly related, but funny
+
+   Showing Reference attributes is not implemented in the new
+   Generator; so handling the Reference attribute would require
+   additional work from us. This not only means spending time once
+   to do the programming and testing, but maintaining the additional
+   code (some people don't like the idea of Heapkeeper's code being
+   large without good reasons ;) )
+</span>
+2. The "Reference" attribute itself is not always enough, because some
+   additional information is needed about why do we refer to the other
+   post. Is it the old parent of the current post? Is it just a
+   similar thread? What if we want to make a note about the reference?
+   I dislike the idea of creating new attributes for these different
+   types of references, and I also don't want to have body-like stuff
+   in the value of the Reference attribute. As you can see in point 1,
+   if all post references are in the body, this is not a problem; the
+   users can do with the references whatever they want: add comments,
+   meta text, categorize and itemize them, etc.
+
+3. If all references were in the body, we would handle all of them as
+   equal, so we would need one `Post.get_refs` function that would
+   return all post references in a post. I don't see what we would
+   benefit from having two kinds of references, with possibly two or
+   three functions (e.g. Post.get_body_refs, Post.get_attr_refs and
+   Post.get_all_refs).
+
+4. The Reference attribute should go into the header somehow from the
+   body of the email if the author wants to add a reference. This is
+   not an issue with having them in the body. (Or would using the
+   Reference attribute be the privilege of the maintainers? That would
+   not very nice.)
+
+In our heap repository, I already moved References to the body,
+because I did not think this proposal to be controversial, but when I
+talked to Attis, it turned out that he was not in favor of the idea.
+
+The summary of my arguments:
+
+1. Work with the Reference attribute
+
+<span class="raw-block">    Handling the Reference attribute would be some work to do, and I
+    would be glad to get a free ride by moving the references to be
+    body.
+</span>
+2-3-4. Problems with the Reference attribute
+
+<span class="raw-block">    Having all references in the body solves several problems:
+    different types of references, notes about references, formatting
+    (e.g. itemization and categorization) of references, simple API,
+    etc.
+</span>
+<span class="meta-text">[timeout 1 week]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1190 -->
+
+  </body>
+</html>

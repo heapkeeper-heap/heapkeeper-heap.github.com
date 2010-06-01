@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Printing text without new lines</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Printing text without new lines</h1>
+
+
+<div class="post-box"><!-- post hh/734 -->
+<div class="post-summary" id="post-summary-hh-734">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Printing text without new lines</span>
+<span class="tags">[idea, issue, reviewed]</span>
+<span class="index"><a href="../hh/thread_734.html#post-summary-hh-734">&lt;hh/734&gt;</a></span>
+<span class="date">(2009-10-21)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_734.html#post-summary-hh-798">hh/798</a></span>
+<pre class="post-body-content"><span class="meta-text">[effort 2]</span>
+<span class="meta-text">[version 0.5]</span>
+
+Currently our logging facility (which is not really logging, but
+never mind) supports only printing whole lines.
+
+However, it would be nice to use this pattern (but of course we should
+use a more customizable logging function instead of this):
+
+<span class="raw-block">    def log(s):
+        sys.stdout.write(s)
+        sys.stdout.flush()  # I don't whether it is necessary in
+                            # Python. I know it is necessary in C/C++.
+
+    def do_something():
+        log('Doing something... ')
+        try:
+            ...doing something...
+        finally:
+            sys.stdout.write('[FINISHED]\n')
+</span>
+Or even better:
+
+<span class="raw-block">    def do_something():
+        log('Doing something... ')
+        try:
+            ...doing something...
+        except Exception, e:
+            sys.stdout.write('[FAILED]\n')
+            raise e
+        else: # no error happened
+            sys.stdout.write('[OK]\n')
+</span>
+But for this, we should have a logger function that does not print a
+new line automatically after the strings given to it.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/798 -->
+<div class="post-summary" id="post-summary-hh-798">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_734.html#post-summary-hh-798">&lt;hh/798&gt;</a></span>
+<span class="date">(2009-10-29)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_734.html#post-summary-hh-734">hh/734</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    def log(s):
+&gt;        sys.stdout.write(s)
+&gt;        sys.stdout.flush()  # I don't whether it is necessary in
+&gt;                            # Python. I know it is necessary in C/C++.
+</span></span></span>
+It is very probably necessary, though I haven't tested. I think it is
+not intrinsic to C/C++, but rather to libc.
+
+<span class="quote"><span class="quote-1">&gt; But for this, we should have a logger function that does not print a
+&gt; new line automatically after the strings given to it.
+</span></span>
+OK.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/798 -->
+</div><!-- postbox for post hh/734 -->
+
+  </body>
+</html>

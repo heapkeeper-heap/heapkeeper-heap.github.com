@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Docstrings</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Docstrings</h1>
+
+
+<div class="post-box"><!-- post hh/510 -->
+<div class="post-summary" id="post-summary-hh-510">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Docstrings</span>
+<span class="tags">[docs]</span>
+<span class="index"><a href="../hh/thread_510.html#post-summary-hh-510">&lt;hh/510&gt;</a></span>
+<span class="date">(2009-08-12)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_510.html#post-summary-hh-511">hh/511</a></span>
+<pre class="post-body-content">I am working on docstrings now. I spent almost 7 hours on it so far. I
+am finished with every module but hklib. (This means hkshell, hk,
+hkutils and hkcustomlib.) I've also done around half of the hklib.Post
+class.
+
+Since hklib is bigger than all the others together, that means that
+another few hours will be needed to complete the job. I want you to
+see what I have done so far, so I pushed my doc branch. (Initially
+I pushed a not-so-great version, but than I replaced it with a better
+one. That's why there are two commit emails.)
+
+If you regenerate the Sphinx doc and click on the "module" link and
+then look at the modules, you will see what format I would like to
+use. It does not have the most beautiful outfit, but that's the best I
+can do now with Sphinx.
+
+There is a very strong emphasis on types. Probably this point of view
+came from me from the Erlang world. Erlang is also a dynamically typed
+language, but docstings almost always contain the types of the
+parameters. They help a lot.
+
+There is one documentation page (one rst file) for each module. It
+used to be two, but I realized that's just too complicated. Now the
+order of the classes and functions is the same as in the source code.
+The sections of the pages are all the same as the "sections" in the
+source code [2]. I hope this will help the developers to navigate in
+the documentation page. It is probably a bit harder for users who are
+not developers to use these pages -- but we have the (mostly
+unwritten) User's Documentation for them, these pages are primarily
+for Hk developers and for those who want to use the "API".
+
+Opinions?
+
+[2] Sections in a source code are something like this:
+
+<span class="raw-block">    ##### date functions #####
+
+    def mydate...
+
+    def yourdate...
+</span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/511 -->
+<div class="post-summary" id="post-summary-hh-511">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_510.html#post-summary-hh-511">&lt;hh/511&gt;</a></span>
+<span class="date">(2009-08-15)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_510.html#post-summary-hh-510">hh/510</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">I rebased it onto master. I think I'll work on other things for a
+while, and will return to the documentation format update later.
+Anyone interested in learning about the documentation conventions may
+continue my work :)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/511 -->
+</div><!-- postbox for post hh/510 -->
+
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Renaming the "main" post item position to "inner"</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Renaming the "main" post item position to "inner"</h1>
+
+
+<div class="post-box"><!-- post hh/925 -->
+<div class="post-summary" id="post-summary-hh-925">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Renaming the "main" post item position to "inner"</span>
+<span class="tags">[issue, reviewed]</span>
+<span class="index"><a href="../hh/thread_925.html#post-summary-hh-925">&lt;hh/925&gt;</a></span>
+<span class="date">(2009-11-14)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_925.html#post-summary-hh-1048">hh/1048</a></span>
+<pre class="post-body-content"><span class="meta-text">[effort 1]</span>
+
+Currently there are 4 valid post item positions:
+- begin
+- main
+- end
+- flat
+
+I propose to rename the "main" post item position to "inner" so that
+our function names will be more sensible (e.g. print_postsummary_inner
+instead of print_postsummary_main).
+
+Example thread structure:
+
+<span class="raw-block">    0 &lt;- 1 &lt;- 2
+      &lt;- 3
+</span>
+Post items yielded now:
+
+<span class="raw-block">    &lt;begin 0&gt;
+    &lt;main 0&gt;
+      &lt;begin 1&gt;
+      &lt;main 1&gt;
+        &lt;begin 2&gt;
+        &lt;main 2&gt;
+        &lt;end 2&gt;
+      &lt;end 1&gt;
+      &lt;begin 3&gt;
+      &lt;main 3&gt;
+      &lt;end 3&gt;
+    &lt;end 0&gt;
+</span>
+Post items yielded according to this proposal:
+
+<span class="raw-block">    &lt;begin 0&gt;
+    &lt;inner 0&gt;
+      &lt;begin 1&gt;
+      &lt;inner 1&gt;
+        &lt;begin 2&gt;
+        &lt;inner 2&gt;
+        &lt;end 2&gt;
+      &lt;end 1&gt;
+      &lt;begin 3&gt;
+      &lt;inner 3&gt;
+      &lt;end 3&gt;
+    &lt;end 0&gt;
+</span>
+<span class="meta-text">[keywords refactoring, PostItem, post item]</span>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1048 -->
+<div class="post-summary" id="post-summary-hh-1048">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="tags">[-reviewed]</span>
+<span class="index"><a href="../hh/thread_925.html#post-summary-hh-1048">&lt;hh/1048&gt;</a></span>
+<span class="date">(2010-01-28)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_925.html#post-summary-hh-925">hh/925</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_925.html#post-summary-hh-1061">hh/1061</a></span>
+<pre class="post-body-content">This is a simple refactoring, and I think the new name is indeed
+clearer. So I'll do it.
+
+<span class="meta-text">[assign Attis]</span>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1061 -->
+<div class="post-summary" id="post-summary-hh-1061">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_925.html#post-summary-hh-1061">&lt;hh/1061&gt;</a></span>
+<span class="date">(2010-01-28)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_925.html#post-summary-hh-1048">hh/1048</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">OK.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1061 -->
+</div><!-- postbox for post hh/1048 -->
+</div><!-- postbox for post hh/925 -->
+
+  </body>
+</html>

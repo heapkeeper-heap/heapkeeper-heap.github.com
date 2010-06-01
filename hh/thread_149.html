@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Sphinx versions</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Sphinx versions</h1>
+
+
+<div class="post-box"><!-- post hh/149 -->
+<div class="post-summary" id="post-summary-hh-149">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Sphinx versions</span>
+<span class="tags">[prop, reviewed]</span>
+<span class="index"><a href="../hh/thread_149.html#post-summary-hh-149">&lt;hh/149&gt;</a></span>
+<span class="date">(2009-05-02)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_149.html#post-summary-hh-150">hh/150</a></span>
+<pre class="post-body-content">Have you installed Sphinx? A bug was corrected in it a few days
+ago, which is important to me, so I'd like to use the newest Sphinx
+version (got from their Mercurial repository). The current official
+release won't be able to compile the Heapkeeper documentation, if we
+agree on using the new, fixed version (which is not an official
+release yet). So if you want to use Sphinx, get a Mercurial and then
+get Sphinx.
+
+I think soon there will be Sphinx 1.0, but there may be other times
+when we want a more fresh version. On the other hand, I don't want to
+say everybody "use the latest version from the Sphinx repository",
+because that may have new bugs (as happens to Heapkeeper sometimes after a
+new commit...) Maybe I even want to improve Sphinx a but, who knows :)
+
+Sphinx is hosted by bitbucket [1], which is just like GitHub, but it
+uses Mercurial. A simple solution would be to state that "Heapkeeper
+uses the X revision of Sphinx that can be downloaded from the Sphinx
+repo". If there is a bugfix or a feature important to us in Sphinx, we
+would recommend using a newer revision.
+
+Sphinx has 11 forks there (fork means of course that the original
+project call pull from them). Another elegant solution to our problem
+is to create another fork and state that Heapkeeper always uses our
+fork of Sphinx. That would allow me to hack Sphinx :) But until I get
+serious about this, I propose to use my first solution.
+
+[1] <a href="http://bitbucket.org/birkenfeld/sphinx/">http://bitbucket.org/birkenfeld/sphinx/</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/150 -->
+<div class="post-summary" id="post-summary-hh-150">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_149.html#post-summary-hh-150">&lt;hh/150&gt;</a></span>
+<span class="date">(2009-05-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_149.html#post-summary-hh-149">hh/149</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_149.html#post-summary-hh-151">hh/151</a></span>
+<pre class="post-body-content">How exactly does this change affect us? What makes our current docs
+incompatible with the official release?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/151 -->
+<div class="post-summary" id="post-summary-hh-151">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_149.html#post-summary-hh-151">&lt;hh/151&gt;</a></span>
+<span class="date">(2009-05-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_149.html#post-summary-hh-150">hh/150</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_149.html#post-summary-hh-152">hh/152</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; How exactly does this change affect us?
+</span></span>
+The bug is described in this thread [1]. Essentially it is the
+following. There is a macro-like facility in Sphinx which allows
+defining shorthands:
+
+<span class="raw-block">    .. |Hk| rename:: Heapkeeper
+
+    |Hk| is a nice tool. I love |Hk|.
+</span>
+It will be "precompiled to":
+
+<span class="raw-block">    Heapkeeper is a nice tool. I love Heapkeeper.
+</span>
+The problem is that it did work for plain text, but did not for other
+text objects like classes. So I could not write this:
+
+<span class="raw-block">    .. |Post| rename:: :class:`Post &lt;hklib.Post&gt;`
+</span>
+Which is very useful, since we have a lot of text like this:
+
+<span class="raw-block">    A :class:`Post &lt;hklib.Post&gt;` object represents a post.
+    :class:`Post &lt;hklib.Post&gt;` is a very nice class.
+</span>
+Which could be written just like this:
+
+<span class="raw-block">    A |Post| object represents a post. |Post| is a very nice class.
+</span>
+Fortunately the newest version fixes the bug, so I started writing
+stuff like this in the documentation. (See the beginning of
+hkshell.rst and the docstrings in hkshell.py).
+
+<span class="quote"><span class="quote-1">&gt; What makes our current docs incompatible with the official release?
+</span></span>
+The bugfix is not present in the official release of Sphinx yet.
+
+But don't worry - it turned out that installing Sphinx from the
+Mercurial repository is easier than installing from an official
+version stored in a zip file.
+
+[1] <a href="http://groups.google.com/group/sphinx-dev/browse_thread/thread/fa74333222db8435">http://groups.google.com/group/sphinx-dev/browse_thread/thread/fa74333222db8435</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/152 -->
+<div class="post-summary" id="post-summary-hh-152">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_149.html#post-summary-hh-152">&lt;hh/152&gt;</a></span>
+<span class="date">(2009-05-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_149.html#post-summary-hh-151">hh/151</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_149.html#post-summary-hh-153">hh/153</a></span>
+<pre class="post-body-content">OK. Then I'll fetch it from the repository.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/153 -->
+<div class="post-summary" id="post-summary-hh-153">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_149.html#post-summary-hh-153">&lt;hh/153&gt;</a></span>
+<span class="date">(2009-05-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_149.html#post-summary-hh-152">hh/152</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[close]</span>
+
+We decided to use a repository version of Sphinx and to specify that
+version on the Hk homepage.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/153 -->
+</div><!-- postbox for post hh/152 -->
+</div><!-- postbox for post hh/151 -->
+</div><!-- postbox for post hh/150 -->
+</div><!-- postbox for post hh/149 -->
+
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Docstrings: ClassName vs. class name</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Docstrings: ClassName vs. class name</h1>
+
+
+<div class="post-box"><!-- post hh/777 -->
+<div class="post-summary" id="post-summary-hh-777">
+<span class="author">Attila Nagy</span>
+<span class="subject">Docstrings: ClassName vs. class name</span>
+<span class="index"><a href="../hh/thread_777.html#post-summary-hh-777">&lt;hh/777&gt;</a></span>
+<span class="date">(2009-10-24)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_777.html#post-summary-hh-780">hh/780</a>, <a href="../hh/thread_777.html#post-summary-hh-781">hh/781</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; 2. According to our docstring conventions (which are not written down
+&gt; anywhere...),
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    - *postitem* (:class:`PostItem`) - the PostItem being examined
+&gt;    - *param* (`str`) - the name of the parameter to examine,
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; would become
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    - `postitem` (|PostItem|) - the post item being examined
+&gt;    - `param` (str) - the name of the parameter to examine,
+</span></span></span>
+I suppose we rather name what the class represents then use the class name.
+
+These are docstrings from `PostItem`:
+
+<span class="raw-block">    def copy(self):
+        """Creates a shallow copy of the post item."""
+
+    def __str__(self):
+        """Returns the string representation of the PostItem."""
+</span>
+Why use "post item" in the first, and "PostItem" in the second?
+
+I think we should have a written guideline on good docstrings before
+setting out to improve them.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/780 -->
+<div class="post-summary" id="post-summary-hh-780">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_777.html#post-summary-hh-780">&lt;hh/780&gt;</a></span>
+<span class="date">(2009-10-24)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_777.html#post-summary-hh-777">hh/777</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_777.html#post-summary-hh-783">hh/783</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I suppose we rather name what the class represents then use the class name.
+&gt;
+&gt; These are docstrings from `PostItem`:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     def copy(self):
+&gt;         """Creates a shallow copy of the post item."""
+&gt;
+&gt;     def __str__(self):
+&gt;         """Returns the string representation of the PostItem."""
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Why use "post item" in the first, and "PostItem" in the second?
+</span></span>
+The second should be "post item", as well. I'll fix it.
+
+I use either "post item" or "PostItem object". I avoid using
+"PostItem" on its own to something else than the class.
+
+If I want to emphasize its type (because e.g. I'm writing a tutorial
+and I'm introducing the reader what a "post item" is) then I use the
+latter one, but otherwise I use the former one.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/783 -->
+<div class="post-summary" id="post-summary-hh-783">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_777.html#post-summary-hh-783">&lt;hh/783&gt;</a></span>
+<span class="date">(2009-10-24)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_777.html#post-summary-hh-780">hh/780</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If I want to emphasize its type (because e.g. I'm writing a tutorial
+&gt; and I'm introducing the reader what a "post item" is) then I use the
+&gt; latter one, but otherwise I use the former one.
+</span></span>
+OK. I like that, too, so let's call it a convention.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/783 -->
+</div><!-- postbox for post hh/780 -->
+
+<div class="post-box"><!-- post hh/781 -->
+<div class="post-summary" id="post-summary-hh-781">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Guideline about conventions</span>
+<span class="index"><a href="../hh/thread_777.html#post-summary-hh-781">&lt;hh/781&gt;</a></span>
+<span class="date">(2009-10-24)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_777.html#post-summary-hh-777">hh/777</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[!todo break the thread]</span>
+
+<span class="quote"><span class="quote-1">&gt; I think we should have a written guideline on good docstrings before
+&gt; setting out to improve them.
+</span></span>
+I'm not sure it would make any difference.
+
+People are lazy to read long documents and will forgot them. For
+example there is <a href="http://heapkeeper.org/codingconventions.html">http://heapkeeper.org/codingconventions.html</a> which
+shows that you should put function arguments in docstrings between
+backticks (`) instead of stars (*), and you still put them between
+stars. But I don't blame you: it is hard to remember things like this,
+and people are lazy to look up information in documents like this all
+the time. Probably you did what everyone else would do: you searched
+for another docstring in the Python code and copied the patterns you
+saw there. Which is all right IMO.
+
+If I see you make a mistake, I'll correct you. If you see me make a
+mistake, you will correct me. Sometimes we will have an argument about
+what is the best thing to do. I think this is the way to go. I don't
+expect anybody to know the conventions by heart.
+
+Another advantage of this procedure is that if someone does not
+correct the other person, it means they implicitly agree. So we can
+talk only about the things in which we disagree (or the mistakes we
+make), we don't waste our time by specifying obvious things.
+
+Also, if I set out and write a lengthy document, it will be according
+to _my_ taste, but if the conventions evolve on the heap and in the
+code, it will be more _ours_. Actually, if it evolves, it will be a
+very dynamic process: the more you contribute to the project, the more
+effect will you have on the conventions, because the convention is
+(almost by definition) the way most of the code does a certain thing.
+
+Another reason against specifying things like when to write "post
+item" and when to write "PostItem" is that it is very hard to specify
+this. I don't really want to think about things like this.
+
+Finally, the conventions change, and I don't want to constantly update
+the document.
+
+It is fine to have a small document about the most important and most
+concrete conventions, but now I don't feel like writing a document
+with a bunch of very specific and complicated things. Maybe as the
+project grows, my opinion on this will change.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/781 -->
+</div><!-- postbox for post hh/777 -->
+
+  </body>
+</html>

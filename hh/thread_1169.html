@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Post not marked as touched when changed via rl()</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Post not marked as touched when changed via rl()</h1>
+
+
+<div class="post-box"><!-- post hh/1169 -->
+<div class="post-summary" id="post-summary-hh-1169">
+<span class="author">Attila Nagy</span>
+<span class="subject">Post not marked as touched when changed via rl()</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1169.html#post-summary-hh-1169">&lt;hh/1169&gt;</a></span>
+<span class="date">(2010-02-14)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1169.html#post-summary-hh-1175">hh/1175</a></span>
+<pre class="post-body-content">While cleaning up the heap and fixing a topic branching off a
+conversation and gradually turning into a new one, I usually do this:
+- `enew()`,
+- in Vim, open the original post file in a new window,
+- move the new topic to the new post file,
+- complete the headers of the new post file,
+- save both and exit,
+- do a `rl()` since only the new post file is read automatically.
+
+The problem is that doing an `e()` or an `sS()` or many other kinds of
+operations marks the thread as "touched", but `rl()` does not. This
+means that its thread HTML will not be regenerated.
+
+This is how `rl()` should work:
+- load post from file into a temporary post object,
+- see if there is a post with the same heapid in the postdb,
+- if there is, compare, and if not identical, set as touched,
+- if there is no post with the same heapid, set as touched,
+- add the post to the postdb (replacing existing one, if any).
+
+I think this is an issue. Do you think this sould be a bug?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1175 -->
+<div class="post-summary" id="post-summary-hh-1175">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1169.html#post-summary-hh-1175">&lt;hh/1175&gt;</a></span>
+<span class="date">(2010-02-14)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1169.html#post-summary-hh-1169">hh/1169</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1169.html#post-summary-hh-1176">hh/1176</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The problem is that doing an `e()` or an `sS()` or many other kinds of
+&gt; operations marks the thread as "touched", but `rl()` does not. This
+&gt; means that its thread HTML will not be regenerated.
+</span></span>
+I made a fix:
+
+<a href="http://github.com/hcs42/heapkeeper/commit/667e17db93e03030d254735eea43820450492ce2">http://github.com/hcs42/heapkeeper/commit/667e17db93e03030d254735eea43820450492ce2</a>
+
+I have tried it out, but not very thoroughly. Does it work for your scenarios?
+
+<span class="quote"><span class="quote-1">&gt; This is how `rl()` should work:
+&gt; - load post from file into a temporary post object,
+&gt; - see if there is a post with the same heapid in the postdb,
+&gt; - if there is, compare, and if not identical, set as touched,
+&gt; - if there is no post with the same heapid, set as touched,
+&gt; - add the post to the postdb (replacing existing one, if any).
+</span></span>
+This is how `rl()` works now:
+- see if there is a post with the same post id (former heapid) in the postdb
+- if there is no post with the same heapid, read it into a new post
+  object and add it to the post database
+- if there is, parse it, and compare the parsed header and body to the
+  header and the body of the post, and if they are not identical,
+  update the header and the body of the post, and set it as touched
+
+The PostDB.load_heap function is a bit more complicated, but the other
+stuff does not have to much to do with the post touching.
+
+This fix is on the _0.4 branch, but you can cherry-pick it without
+problem on _several_heaps.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1176 -->
+<div class="post-summary" id="post-summary-hh-1176">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1169.html#post-summary-hh-1176">&lt;hh/1176&gt;</a></span>
+<span class="date">(2010-02-14)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1169.html#post-summary-hh-1175">hh/1175</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[todo]</span>
+
+Correct address:
+<a href="http://github.com/hcs42/heapkeeper/commit/5f1dfcab30586093ac6d0faeb401be9dc675135c">http://github.com/hcs42/heapkeeper/commit/5f1dfcab30586093ac6d0faeb401be9dc675135c</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1176 -->
+</div><!-- postbox for post hh/1175 -->
+</div><!-- postbox for post hh/1169 -->
+
+  </body>
+</html>

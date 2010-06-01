@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>CRLF issues</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">CRLF issues</h1>
+
+
+<div class="post-box"><!-- post hh/470 -->
+<div class="post-summary" id="post-summary-hh-470">
+<span class="author">Csaba Hoch</span>
+<span class="subject">CRLF issues</span>
+<span class="tags">[hk0.3, windows]</span>
+<span class="index"><a href="../hh/thread_470.html#post-summary-hh-470">&lt;hh/470&gt;</a></span>
+<span class="date">(2009-08-02)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_470.html#post-summary-hh-480">hh/480</a></span>
+<pre class="post-body-content">When the `enew` hkshell command is called, on Windows we create post
+files with only \n (=LF=0A) and not \r\n (=CRLF=0D0A) in them, which
+will be shown incorrectly by e.g. notepad. If the users copy and paste
+the example post files from the browser and insert it, it will contain
+CRLF, which is handled, so Hk will work. But it is not a good user
+experience I guess to see rectangles instead of newlines.
+
+The interesting thing is that if we modify the post in hkshell (e.g.
+with sS), and save it, it will contain CRLF -- which I certainly did
+not expect. The reason is that os.write, which is used in the initial
+post creation, writes only LF for os.write('\n'), while the function
+that writes the post to the disk calls the `write` method of the file
+object, which writes CRLF for f.write('\n') (on Windows).
+
+I'm not even 100% sure what is the right solution.
+a) If we use LF all the time, it won't work for Windows users, who
+will put CRLF-s when editing the post files anyway.
+b) If we use CRLF all the time, that will be hard to handle on Unix.
+c) We haven't even mentioned OS X which uses only CR.
+d) If we use the native EOL on all systems, the syncronization of the
+posts will be messy. Although version control systems are used to this
+situation, and can handle it; using native EOLs is even their
+preferred way of doing things. The installer of the non-cygwin Windows
+version of git [1] asks which EOL behaviour to use; using CRLF is the
+default.
+
+So I guess we should go with (d). Actually, that is also the easiest
+for us to handle; we just have to write a wrapper around os.write. Or
+we may even get away without it -- it is very probable that someone
+else already wrote it for us.
+
+[1] <a href="http://code.google.com/p/msysgit/downloads/list">http://code.google.com/p/msysgit/downloads/list</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/480 -->
+<div class="post-summary" id="post-summary-hh-480">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_470.html#post-summary-hh-480">&lt;hh/480&gt;</a></span>
+<span class="date">(2009-08-05)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_470.html#post-summary-hh-470">hh/470</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_470.html#post-summary-hh-669">hh/669</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I'm not even 100% sure what is the right solution.
+&gt; a) If we use LF all the time, it won't work for Windows users, who
+&gt; will put CRLF-s when editing the post files anyway.
+&gt; b) If we use CRLF all the time, that will be hard to handle on Unix.
+&gt; c) We haven't even mentioned OS X which uses only CR.
+&gt; d) If we use the native EOL on all systems, the syncronization of the
+&gt; posts will be messy. Although version control systems are used to this
+&gt; situation, and can handle it; using native EOLs is even their
+&gt; preferred way of doing things. The installer of the non-cygwin Windows
+&gt; version of git [1] asks which EOL behaviour to use; using CRLF is the
+&gt; default.
+&gt;
+&gt; So I guess we should go with (d). Actually, that is also the easiest
+&gt; for us to handle; we just have to write a wrapper around os.write. Or
+&gt; we may even get away without it -- it is very probable that someone
+&gt; else already wrote it for us.
+</span></span>
+I chose (d).
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/669 -->
+<div class="post-summary" id="post-summary-hh-669">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_470.html#post-summary-hh-669">&lt;hh/669&gt;</a></span>
+<span class="date">(2009-10-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_470.html#post-summary-hh-480">hh/480</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_470.html#post-summary-hh-671">hh/671</a></span>
+<pre class="post-body-content">Since Python is cross-platform, it is very probable that this problem
+has a canonical solution. Do you know what it is? If not, we should
+seek contact with other programmers and/or have a look at other
+projects. (It is very likely that Python programs respect the system's
+EOL preferences.)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/671 -->
+<div class="post-summary" id="post-summary-hh-671">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_470.html#post-summary-hh-671">&lt;hh/671&gt;</a></span>
+<span class="date">(2009-10-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_470.html#post-summary-hh-669">hh/669</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_470.html#post-summary-hh-762">hh/762</a></span>
+<pre class="post-body-content">I think the canonical solution is to use the native EOL on all systems
+and the tools (version control systems, email clients, browsers,
+whatever) should do the translation.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/762 -->
+<div class="post-summary" id="post-summary-hh-762">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_470.html#post-summary-hh-762">&lt;hh/762&gt;</a></span>
+<span class="date">(2009-10-23)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_470.html#post-summary-hh-671">hh/671</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I think the canonical solution is to use the native EOL on all
+&gt; systems and the tools (version control systems, email clients,
+&gt; browsers, whatever) should do the translation.
+</span></span>
+<span class="meta-text">[effort 4]</span>
+<span class="meta-text">[version 0.5]</span>
+<span class="meta-text">[open]</span>
+
+We should make the Post class to respect the native newlines of the
+OS.
+
+This would mean for example newline conversion when reading and
+writing post bodies. I think internally we should store only LF
+characters so that other Heapkeeper code does not have to care about
+what kind of newline to handle.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/762 -->
+</div><!-- postbox for post hh/671 -->
+</div><!-- postbox for post hh/669 -->
+</div><!-- postbox for post hh/480 -->
+</div><!-- postbox for post hh/470 -->
+
+  </body>
+</html>

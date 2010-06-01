@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Creating sections in the new generator, problems</title>
+    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Creating sections in the new generator, problems</h1>
+
+
+<div class="post-box"><!-- post hh/862 -->
+<div class="post-summary" id="post-summary-hh-862">
+<span class="author">Attila Nagy</span>
+<span class="subject">Creating sections in the new generator, problems</span>
+<span class="tags">[discussion]</span>
+<span class="index"><a href="../hh/thread_862.html#post-summary-hh-862">&lt;hh/862&gt;</a></span>
+<span class="date">(2009-11-02)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_862.html#post-summary-hh-863">hh/863</a>, <a href="../hh/thread_862.html#post-summary-hh-864">hh/864</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If I think right, the way to add sections in `hkgen.Generator` is to
+&gt; subclass and override `print_main_index_page`. Am I right?
+</span></span>
+I hope I was right. I implemented the old functionality of sections in
+a Generator subclass in my hkrc. I really think we should provide more
+support for this, as my code is quite complicated.
+
+But there are some problems:
+- why is almost all the text red? Is this intended, or error in CSS
+coding? (Only on the index is affected, the thread pages are OK, so I
+think this might be a bug.)
+- using my index, one flat index ("Cipősdoboz") is badly laid out, the
+column for tags is too wide, the column for dates is too narrow
+
+I'll look into these issues, as they seem to be closer to my expertise
+(HTML/CSS).
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/863 -->
+<div class="post-summary" id="post-summary-hh-863">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_862.html#post-summary-hh-863">&lt;hh/863&gt;</a></span>
+<span class="date">(2009-11-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_862.html#post-summary-hh-862">hh/862</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I hope I was right. I implemented the old functionality of sections in
+&gt; a Generator subclass in my hkrc. I really think we should provide more
+&gt; support for this, as my code is quite complicated.
+</span></span>
+I'm happy to discuss things like this. I could not entirely anticipate
+what we will use the new Generator for. I wanted to make the new
+Generator both simple and extensible, but there may be ways in which
+it can be improved. (I had an idea just today in the morning, but I
+don't want to write it down, it's not that big a deal.)
+
+What I don't want is to provide nice and complicated support for very
+specific things that is useless when the user wants to do something
+differently. That was the kind of support the old Section/Index system
+provided: if you wanted to have indices and sections, then great, but
+if you wanted to do a tiny thing differently (e.g. an index that has
+something before each section) -- the whole system (Section, Index and
+Generator classes included) was basically useless.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/863 -->
+
+<div class="post-box"><!-- post hh/864 -->
+<div class="post-summary" id="post-summary-hh-864">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_862.html#post-summary-hh-864">&lt;hh/864&gt;</a></span>
+<span class="date">(2009-11-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_862.html#post-summary-hh-862">hh/862</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_862.html#post-summary-hh-865">hh/865</a>, <a href="../hh/thread_862.html#post-summary-hh-869">hh/869</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I implemented the old functionality of sections in
+&gt; a Generator subclass in my hkrc. I really think we should provide more
+&gt; support for this, as my code is quite complicated.
+</span></span>
+If you show the code, I'll have a look at it in the evening (19-20
+o'clock) and see if we can make it smaller/simpler/more elegant.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/865 -->
+<div class="post-summary" id="post-summary-hh-865">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_862.html#post-summary-hh-865">&lt;hh/865&gt;</a></span>
+<span class="date">(2009-11-02)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_862.html#post-summary-hh-864">hh/864</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_862.html#post-summary-hh-871">hh/871</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If you show the code,
+</span></span>
+(Pushing is "showing", you don't have to mail it.)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/871 -->
+<div class="post-summary" id="post-summary-hh-871">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_862.html#post-summary-hh-871">&lt;hh/871&gt;</a></span>
+<span class="date">(2009-11-06)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_862.html#post-summary-hh-865">hh/865</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[!todo clean up this thread]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/871 -->
+</div><!-- postbox for post hh/865 -->
+
+<div class="post-box"><!-- post hh/869 -->
+<div class="post-summary" id="post-summary-hh-869">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_862.html#post-summary-hh-869">&lt;hh/869&gt;</a></span>
+<span class="date">(2009-11-06)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_862.html#post-summary-hh-864">hh/864</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I implemented the old functionality of sections in
+&gt;&gt; a Generator subclass in my hkrc. I really think we should provide more
+&gt;&gt; support for this, as my code is quite complicated.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; If you show the code, I'll have a look at it in the evening (19-20
+&gt; o'clock) and see if we can make it smaller/simpler/more elegant.
+</span></span>
+I did not realize that you committed the code... I had a look at it
+now, and it is not that bad :)
+
+We could provide a few small function so that this code does not have
+to be in the user's generator, see later.
+
+But first another subject. You wrote this in `sections`:
+
+<span class="raw-block">     res = [ ("Nyitott javaslatok", ps_attention, True),
+             ("Takarítani", ps_tidy, True),
+             ("Tennivalók", ps_todo, True),
+             ("Cipősdoboz", ps_singles, True),
+             ("Heap", ps_heap, False),
+             ("Programozás", ps_prog, False),
+             ("C és C++", ps_ccpp, False),
+             ("Python", ps_py, False),
+             ("Egyéb", ps_all, False)]
+</span>
+And later you processes this data structure. I think it is more
+flexible if you do not to create this data structure with all the
+necessary data but call the section method (or a similar custom
+method) on the different sections.
+
+So `sections` (which would be a method of the generator) would contain
+something like this:
+
+<span class="raw-block">    self.ps_attention = ps_attention
+    self.ps_tidy = ps_tidy
+    self.ps_todo = ps_todo
+    self.ps_singles = ps_singles
+    self.ps_heap = ps_heap
+    self.ps_prog = ps_prog
+    self.ps_ccpp = ps_ccpp
+    self.ps_py = ps_py
+    self.ps_all = ps_all
+</span>
+If you don't want it to be a method, it could return the same
+information in a dictionary.
+
+print_main_index_page would be something like this:
+
+<span class="raw-block">    return \
+        (self.section(
+            'nyitott javaslatok',
+             'Nyitott javaslatok',
+             self.ps_attention,
+             is_flat=True),
+         self.section(
+            'takaritani',
+            'Takarítani',
+            self.ps_tidy,
+            is_flat=True),
+         self.section(
+            'tennivalok',
+            'Tennivalók',
+            self.ps_todo,
+            is_flat=True),
+         self.section(
+            'ciposdoboz',
+            'Cipősdoboz',
+            self.ps_singles,
+            is_flat=True),
+         self.section(
+            'heap',
+            'Heap',
+            self.ps_heap,
+            is_flat=False),
+         self.section(
+            'programozas',
+            'Programozás',
+            self.ps_prog,
+            is_flat=False),
+         self.section(
+            'c_es_cpp',
+            'C és C++',
+            self.ps_ccpp,
+            is_flat=False),
+         self.section(
+            'python',
+            'Python',
+            self.ps_py,
+            is_flat=False),
+         self.section(
+            'egyeb',
+            'Egyéb',
+            self.ps_all,
+            is_flat=False))
+</span>
+(It could be put into a list and a list comprehension, see later.)
+
+It won't work in this form, because self.ps_* are post sets and not
+post item lists. But you can write an own `section` method and use
+that instead of `section`. I will call it `section_posts`. That could
+do what you did in print_main_index_page:
+
+<span class="raw-block">    def section_posts(self, title, posts, is_flat):
+        id = lowercase_and_escape(title) % e.g. 'nyitott_javaslatok'
+        if is_flat:
+            postitems = self.walk_flat_posts(posts)
+        else:
+            postitems = self.walk_exp_posts(posts)
+        postitems = self.walk_postitems(postitems)
+        content = self.print_postitems(postitems)
+        return self.section(id, title, content, flat=is_flat)
+
+    def walk_flat_posts(self, posts):
+        # This should be included in hklib.PostDB or hkgen.Generator
+        return [hklib.PostItem(pos='flat', post=post, level=0)
+                for post in posts]
+</span>
+Then print_main_index_page would look like this:
+
+<span class="raw-block">    def print_main_index_page(self):
+        return \
+            (self.section_posts(
+                 'Nyitott javaslatok',
+                 self.ps_attention,
+                 is_flat=True),
+             self.section_posts(
+                'Takarítani',
+                self.ps_tidy,
+                is_flat=True),
+            ...
+</span>
+Of course you can put it into a list comprehension if you think that's
+nicer and shorter (which is probably true :) ):
+
+<span class="raw-block">    def print_main_index_page(self):
+        l = [('Nyitott javaslatok', self.ps_attention, True),
+             ('Takarítani', self.ps_tidy, True),
+             ...]
+
+        return [self.section_posts(*t) for t in l]
+</span>
+(You could say that you created almost the exact same list in `res`,
+which is true, but I think it is important that I created it within
+the function that I use, so the format of the list is not the subject
+of inter-function communication. My code does not change the
+arguments/return value of a function, it is just a trick that allows
+us to keep the code size smaller.)
+
+Now section_posts looks a bit complicated, but:
+
+1. It's not :)
+
+2. If you want to do anything interesting, you have to modify that
+   function. E.g. this is how you make the newer threads to be on the
+   top of the page:
+
+<span class="raw-block">       def section_posts(self, title, posts, is_flat):
+           id = lowercase_and_escape(title) % e.g. 'nyitott_javaslatok'
+
+           if is_flat:
+               postitems = self.walk_flat_posts(posts)
+           else:
+               postitems = self.walk_exp_posts(posts)
+           postitems = self.walk_postitems(postitems)
+
+           # new line:
+           postitems = self.reverse_threads(postitems)
+
+           content = self.print_postitems(postitems)
+           return self.section(id, title, content, flat=is_flat)
+</span>
+3. You may want to use more than one. Maybe you want a
+   section_posts_reverse for some sections, but you don't
+   want to reverse the threads in others. The kind of code that sits
+   inside this function is the primary point of customization (not
+   counting customizing the sections and indices), so I want to be
+   careful about including methods like section_posts to
+   hkgen.Generator.
+
+4. You may want to add parameters to it.
+
+The latter two points may actually make the non-list-comprehension
+form for print_main_index_page more desirable:
+
+<span class="raw-block">    def print_main_index_page(self):
+        return \
+            (self.section_posts(
+                 'Nyitott javaslatok',
+                 self.ps_attention,
+                 is_flat=True,
+                 super_important=self.ps_super_important),
+             self.section_posts(
+                'Takarítani',
+                self.ps_tidy,
+                is_flat=True,
+                clean_limit=10),
+             self.section_posts_supernice(
+                'Takarítani',
+                self.ps_tidy),
+            ...
+</span></pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/869 -->
+</div><!-- postbox for post hh/864 -->
+</div><!-- postbox for post hh/862 -->
+
+  </body>
+</html>
