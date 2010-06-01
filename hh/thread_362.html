@@ -1,11 +1,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title>Ellipsis</title>
+    <title>Thread hh/362</title>
     <link rel=stylesheet href="../heapindex.css" type="text/css">
   </head>
   <body>
-    <h1 id="header">Ellipsis</h1>
+    <h1 id="header">Thread hh/362</h1>
 
 
 <div class="postbox"><!-- post hh/362 -->
@@ -56,10 +56,10 @@ new behaviour.)
 
 </span></span>I also use this notation, so it's a good idea.
 
-<span class="quote"><span class="quote-1">&gt; Afterwards (with a slightly backward incompatible
-&gt; solution) we may introduce another behaviour, e.g. it could link to
-&gt; the original paragraph. (We could have a setting about turning off the
-&gt; new behaviour.)
+<span class="quote"><span class="quote-1">&gt; Afterwards (with a slightly backward incompatible solution) we may
+&gt; introduce another behaviour, e.g. it could link to the original
+&gt; paragraph. (We could have a setting about turning off the new
+&gt; behaviour.)
 
 </span></span>OK, but how would you find the original paragraph?
 </pre></div>
@@ -73,15 +73,7 @@ new behaviour.)
 <span class="parent"><a href="../hh/thread_362.html#post_hh/363">&lt;&uarr;hh/363&gt;</a></span>
 <span class="date">(2009-05-31)</span>
 <div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; I often use `[...]` in quotes:
-&gt;&gt;
-&gt;&gt;     &gt; People I like:
-&gt;&gt;     &gt; [...]
-&gt;&gt;     &gt; - Asimov
-&gt;&gt;
-&gt;&gt;     Yes, I like Asimov, too.
-&gt;&gt;
-&gt;&gt; Afterwards (with a slightly backward incompatible solution) we may
+<pre class="postbody"><span class="quote"><span class="quote-2">&gt;&gt; Afterwards (with a slightly backward incompatible solution) we may
 &gt;&gt; introduce another behaviour, e.g. it could link to the original
 &gt;&gt; paragraph. (We could have a setting about turning off the new
 &gt;&gt; behaviour.)
@@ -102,19 +94,7 @@ text inside. This will often work.
 <span class="parent"><a href="../hh/thread_362.html#post_hh/364">&lt;&uarr;hh/364&gt;</a></span>
 <span class="date">(2009-05-31)</span>
 <div class="body">
-<pre class="postbody"><span class="quote"><span class="quote-3">&gt;&gt;&gt; I often use `[...]` in quotes:
-&gt;&gt;&gt; [...]
-&gt;&gt;&gt; Afterwards (with a slightly backward incompatible solution) we may
-&gt;&gt;&gt; introduce another behaviour, e.g. it could link to the original
-&gt;&gt;&gt; paragraph. (We could have a setting about turning off the new
-&gt;&gt;&gt; behaviour.)
-</span></span><span class="quote"><span class="quote-2">&gt;&gt;
-&gt;&gt; OK, but how would you find the original paragraph?
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; In the example I would find the parent post and the "People I like"
-&gt; text inside. This will often work.
-
-</span></span>I like this idea. We could even extend it to merge a stream of replies
+<pre class="postbody">I like this idea. We could even extend it to merge a stream of replies
 into a single page, to simulate "in-place replies". An example:
 
 A writes:
@@ -133,9 +113,8 @@ B replies:
 
 A replies to B's reply:
 
-    &gt; it's
-    &gt; unreasonable to lose potential users because a feature is missing
-    &gt; that'd be trivial to implement.
+    &gt; it's unreasonable to lose potential users because a feature is
+    &gt; missing that'd be trivial to implement.
 
     Very good point.
 
@@ -223,7 +202,6 @@ customization function to implement your suggestion.
 <span class="postsummary" id="post_hh/648">
 <span class="author">Attila Nagy</span>
 <span class="subject"><span class="star">&mdash;</span></span>
-<span class="tags">[-reviewed]</span>
 <span class="index"><a href="../hh/thread_362.html#post_hh/648">&lt;hh/648&gt;</a></span>
 <span class="parent"><a href="../hh/thread_362.html#post_hh/471">&lt;&uarr;hh/471&gt;</a></span>
 <span class="date">(2009-10-14)</span>
@@ -250,47 +228,11 @@ customization function to implement your suggestion.
 &gt; users have to click to the appropriate place and write their answer
 &gt; there to make this happen.)
 
-</span></span><span class="meta-text">[!todo This section has totally misled me. It would be nice to replace
+</span></span><span class="meta-text">[todo This section has totally misled me. It would be nice to replace
 all of this with an example that is totally unrelated or nonsense.
 This thread is not, repeat, not about including images in heaps, but
 this is not so evident at first.]</span>
-
-
-<span class="quote"><span class="quote-1">&gt; == Attis ==
-&gt;
-&gt; As far as I see, your suggestion just copies the posts' bodies after
-&gt; each other without quotes, and indents them. If we look at our index
-&gt; page, it is basically just having the post's body in nothing else in
-&gt; the post summary. Or if we look at the thread page, it is just having
-&gt; the posts indented. Plus removing the quotes.
-&gt;
-&gt; I think your suggestion is much easier to implement than the Wave-like
-&gt; idea, and I like it. We have two functionality out of the three that
-&gt; you suggest:
-&gt; - post bodies after each other are present in the thread page
-&gt; - indentation is present in the index page
-&gt; - quote hiding is not implemented
-&gt;
-&gt; I think we previously talked about inline posts in general. It would
-&gt; mean that the index page generator would have an additional parameter:
-&gt; the list of inline posts, i.e. the posts which should have their body
-&gt; shown in the index page. The current thread view would be a special
-&gt; case, where the posts are flat. Your current suggestion would be
-&gt; another special case, where the posts are not flat, and the quotes are
-&gt; removed from the body.
-&gt;
-&gt; A feature that I would like soon is the custom post summaries: it
-&gt; would mean that a function is a parameter of the index generation, and
-&gt; this function decides what summary to print for a post. This feature
-&gt; would automatically make the "general inline posts" feature happen,
-&gt; together with removing the comment from the body. So if we implement
-&gt; this, which should be easy, we just have to write a small
-&gt; customization function to implement your suggestion.
-&gt;
-&gt;
-</span></span><span class="quote"><span class="quote-2">&gt; &gt;
-</span></span><span class="quote"><span class="quote-1">&gt;
-</span></span></pre></div>
+</pre></div>
 </span><!-- postsummary -->
 </div><!-- postbox for post hh/648 -->
 </div><!-- postbox for post hh/471 -->
