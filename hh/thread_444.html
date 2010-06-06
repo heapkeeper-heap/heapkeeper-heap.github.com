@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Images and intro page</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
   </head>
   <body >
     <h1 id="header">Images and intro page</h1>
@@ -13,7 +13,7 @@
 <div class="post-summary" id="post-summary-hh-444">
 <span class="author">Attila Nagy</span>
 <span class="subject">Images and intro page</span>
-<span class="tags">[sphinx]</span>
+<span class="tags">[reviewed, sphinx]</span>
 <span class="index"><a href="../hh/thread_444.html#post-summary-hh-444">&lt;hh/444&gt;</a></span>
 <span class="date">(2009-08-01)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-445">hh/445</a></span>
@@ -42,9 +42,7 @@ should do with them?
 <span class="date">(2009-08-01)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-445">hh/445</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-447">hh/447</a>, <a href="../hh/thread_444.html#post-summary-hh-448">hh/448</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Commit them. (Into the "old", or rather "current" repo.)
-</span></span>
-Done.
+<pre class="post-body-content">Done.
 </pre></div><!-- post-summary -->
 
 <div class="post-box"><!-- post hh/447 -->
@@ -66,9 +64,7 @@ Done.
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-447">hh/447</a></span>
 <span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; It seems that you forgot to add the images to the repository.
-</span></span>
-Sorry. I added them now in a new commit.
+<pre class="post-body-content">Sorry. I added them now in a new commit.
 </pre></div><!-- post-summary -->
 </div><!-- postbox for post hh/450 -->
 </div><!-- postbox for post hh/447 -->
@@ -95,11 +91,7 @@ too much use.
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-448">hh/448</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-453">hh/453</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; You basically renamed index.rst to index-main.rst. Why did you leave
-&gt; part of it commented out in the new index.rst? I don't think that has
-&gt; too much use.
-</span></span>
-Definitely not (except for emphasizing that I didn't write it from scratch :))
+<pre class="post-body-content">Definitely not (except for emphasizing that I didn't write it from scratch :))
 
 I removed the comments in a new commit. Maybe when rewriting the
 repository, we could pull these three commits together (699cfa,
@@ -135,16 +127,7 @@ The dates are even more interesting:
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-453">hh/453</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-461">hh/461</a>, <a href="../hh/thread_444.html#post-summary-hh-464">hh/464</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Why does 5b60b9 have you as the author?
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; I don't know!
-&gt;
-&gt; The dates are even more interesting:
-&gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    Author: Csaba Hoch &lt;csaba.hoch@gmail.com&gt;  2009-08-01 12:29:52
-&gt;    Committer: Attila Nagy &lt;nagy.attila.1984@gmail.com&gt;  2009-08-01 22:35:19
-</span></span></span>
-I stashed this edit away, then applied the stash. This must have
+<pre class="post-body-content">I stashed this edit away, then applied the stash. This must have
 something to do with this strange phenomenon.
 
 Do we know when can the author and the committer differ?
@@ -172,20 +155,7 @@ I don't know.
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-454">hh/454</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-465">hh/465</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; Why does 5b60b9 have you as the author?
-</span></span><span class="quote"><span class="quote-2">&gt;&gt; I don't know!
-&gt;&gt;
-&gt;&gt; The dates are even more interesting:
-&gt;&gt;
-</span></span><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;    Author: Csaba Hoch &lt;csaba.hoch@gmail.com&gt;  2009-08-01 12:29:52
-&gt;&gt;    Committer: Attila Nagy &lt;nagy.attila.1984@gmail.com&gt;  2009-08-01 22:35:19
-</span></span></span><span class="quote"><span class="quote-1">&gt;
-&gt; I stashed this edit away, then applied the stash. This must have
-&gt; something to do with this strange phenomenon.
-&gt;
-&gt; Do we know when can the author and the committer differ?
-</span></span>
-It seems that if I rebase something that you commited, you will remain
+<pre class="post-body-content">It seems that if I rebase something that you commited, you will remain
 the author, but I will be the commiter. Since being the author is the
 bigger deal, and that's shown by gitk, this is all right.
 
@@ -200,8 +170,6 @@ added'). And than you rebased it or did something like that on
 information now? You may also try to use your bash_history :) But I'll
 think about it, too.
 
-<span class="meta-text">[!deltext I won't be doing anything on hh until late afternoon, or maybe evening.]</span>
-
 [1] <a href="http://github.com/hcs42/heapkeeper/commit/5b60b95a32b09675998a2e7ad5eab4b9359c5c9f">http://github.com/hcs42/heapkeeper/commit/5b60b95a32b09675998a2e7ad5eab4b9359c5c9f</a>
 </pre></div><!-- post-summary -->
 
@@ -213,8 +181,8 @@ think about it, too.
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-464">hh/464</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-466">hh/466</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Can you figure out what happened from this
-&gt; information now? You may also try to use your bash_history :) But I'll
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Can you figure out what happened from this information now? You may
+&gt; also try to use your bash_history :) But I'll
 &gt; think about it, too.
 </span></span>
 The bash_history does not contain dates, but the repository alone
@@ -231,14 +199,12 @@ seem to find where this is properly documented.
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-465">hh/465</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-467">hh/467</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; You can see how refs stood at
-&gt; various points in the past using the @{}-style specifiers,
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; You can see how refs stood at various points in the past using the
+&gt; @{}-style specifiers,
 </span></span>
 I don't know about these specifiers. Could you write a few words, or
 give a link?
-
-<span class="quote"><span class="quote-1">&gt; but I can't seem to find where this is properly documented.
-</span></span></pre></div><!-- post-summary -->
+</pre></div><!-- post-summary -->
 
 <div class="post-box"><!-- post hh/467 -->
 <div class="post-summary" id="post-summary-hh-467">
@@ -247,14 +213,8 @@ give a link?
 <span class="index"><a href="../hh/thread_444.html#post-summary-hh-467">&lt;hh/467&gt;</a></span>
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-466">hh/466</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_444.html#post-summary-hh-468">hh/468</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; You can see how refs stood at
-&gt;&gt; various points in the past using the @{}-style specifiers,
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; I don't know about these specifiers. Could you write a few words, or
-&gt; give a link?
-</span></span>
-I think I figured out.
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">I think I figured out.
 
 The classic example is master@{yesterday}. This works, but I couldn't
 use time specifiers such as "2 days ago". These work when written in
@@ -273,26 +233,11 @@ on the Hk repo, do:
 
 <span class="raw-block">    git show ":/first commit"
 </span>
-Using this, I'll try to check out how and when the rebase (or whatever) occured.
+Using this, I'll try to check out how and when the rebase (or
+whatever) occured.
 
 Git is addictive. (But it helped me come off my gaming addiction...)
 </pre></div><!-- post-summary -->
-
-<div class="post-box"><!-- post hh/468 -->
-<div class="post-summary" id="post-summary-hh-468">
-<span class="author">Csaba Hoch</span>
-<span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_444.html#post-summary-hh-468">&lt;hh/468&gt;</a></span>
-<span class="date">(2009-08-02)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_444.html#post-summary-hh-467">hh/467</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Git is addictive. (But it helped me come off my gaming addiction...)
-</span></span>
-:))))
-
-<span class="meta-text">[!delpost]</span>
-</pre></div><!-- post-summary -->
-</div><!-- postbox for post hh/468 -->
 </div><!-- postbox for post hh/467 -->
 </div><!-- postbox for post hh/466 -->
 </div><!-- postbox for post hh/465 -->

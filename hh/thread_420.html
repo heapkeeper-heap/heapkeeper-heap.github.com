@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Ownership of history is a delicate matter</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
   </head>
   <body >
     <h1 id="header">Ownership of history is a delicate matter</h1>
@@ -13,7 +13,7 @@
 <div class="post-summary" id="post-summary-hh-420">
 <span class="author">Attila Nagy</span>
 <span class="subject">Ownership of history is a delicate matter</span>
-<span class="tags">[git]</span>
+<span class="tags">[git, reviewed]</span>
 <span class="index"><a href="../hh/thread_420.html#post-summary-hh-420">&lt;hh/420&gt;</a></span>
 <span class="date">(2009-07-30)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-424">hh/424</a></span>
@@ -21,32 +21,32 @@
 
 <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/ch05.html">http://www-cs-students.stanford.edu/~blynn/gitmagic/ch05.html</a>
 
-It seems a nice document. It starts explaining Git history manipulation like
-this:
+It seems a nice document. It starts explaining Git history
+manipulation like this:
 
-<span class="raw-block">    A consequence of Git’s distributed nature is that history can be edited
-    easily.  But if you tamper with the past, take care: only rewrite that part
-    of history which you alone possess. Just as nations forever argue over who
-    committed what atrocity, if someone else has a clone whose version of
-    history differs to yours, you will have trouble reconciling when your trees
-    interact.
+<span class="raw-block">    A consequence of Git’s distributed nature is that history can be
+    edited easily.  But if you tamper with the past, take care: only
+    rewrite that part of history which you alone possess. Just as
+    nations forever argue over who committed what atrocity, if someone
+    else has a clone whose version of history differs to yours, you
+    will have trouble reconciling when your trees interact.
 
-    Of course, if you control all the other trees too, then there is no problem
-    since you can overwrite them.
+    Of course, if you control all the other trees too, then there is
+    no problem since you can overwrite them.
 
-    Some developers strongly feel history should be immutable, warts and all.
-    Others feel trees should be made presentable before they are unleashed in
-    public. Git accommodates both viewpoints. Like cloning, branching and
-    merging, rewriting history is simply another power Git gives you. It is up
-    to you to use it wisely.
+    Some developers strongly feel history should be immutable, warts
+    and all. Others feel trees should be made presentable before they
+    are unleashed in public. Git accommodates both viewpoints. Like
+    cloning, branching and merging, rewriting history is simply
+    another power Git gives you. It is up to you to use it wisely.
 </span>
 My thoughts on this:
 - a nice simile
 - all your tree are belong to us [1]
 - if one has bad thoughts about altering the purity of the past (not
   out of considering adverse effects, but simply out of knowing it to
-  be a Bad Thing to Do (TM)), interest in using or developing Heapkeeper
-  is to be reconsidered
+  be a Bad Thing to Do (TM)), interest in using or developing
+  Heapkeeper is to be reconsidered
 
 However, if we choose to alter history now to sort out multiple
 personality issues may have a compelling effect for the future. If we
@@ -59,8 +59,8 @@ better 'make our time' (um, sorry; what I want to say is we should do
 all our history-changing now while we control all copies of the source
 tree).
 
-`git rebase -i`, that is, interactive rebase, seems very powerful. Have you
-ever used it?
+`git rebase -i`, that is, interactive rebase, seems very powerful.
+Have you ever used it?
 
 [1] <a href="http://en.wikipedia.org/wiki/All_your_base_are_belong_to_us">http://en.wikipedia.org/wiki/All_your_base_are_belong_to_us</a>
 </pre></div><!-- post-summary -->
@@ -76,9 +76,9 @@ ever used it?
 <pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; My thoughts on this:
 &gt; [...]
 &gt; - if one has bad thoughts about altering the purity of the past (not
-&gt;  out of considering adverse effects, but simply out of knowing it to
-&gt;  be a Bad Thing to Do (TM)), interest in using or developing Heapkeeper
-&gt;  is to be reconsidered
+&gt;   out of considering adverse effects, but simply out of knowing it
+&gt;   to be a Bad Thing to Do (TM)), interest in using or developing
+&gt;   Heapkeeper is to be reconsidered
 </span></span>
 :)))))))))))
 
@@ -88,34 +88,35 @@ ever used it?
 By "personality issues", do you mean having 4 committer on the impact graph
 instead of 2?
 
-<span class="quote"><span class="quote-1">&gt; If we get caught in a craving for a tidy repository, we'll sooner or later be
-&gt; inclined to clean up the "motorway sections" by rebasing them. Now we could
+<span class="quote"><span class="quote-1">&gt; If we get caught in a craving for a tidy repository, we'll sooner or
+&gt; later be inclined to clean up the "motorway sections" by rebasing
+&gt; them. Now we could
 &gt; do it.
 </span></span>
-It is not worth rebasing the past. Our efforts are much better spent on the
-program and its documentation. The "personality issue" is a bit different,
-because it will always make us look funny and a bit lame if we don't sort that
-out. But I don't think that about the motorway. Watch out from now on, and
-everything will be fine.
+It is not worth rebasing the past. Our efforts are much better spent
+on the program and its documentation. The "personality issue" is a bit
+different, because it will always make us look funny and a bit lame if
+we don't sort that out. But I don't think that about the motorway.
+Watch out from now on, and everything will be fine.
 
-<span class="quote"><span class="quote-1">&gt; Once we have "followers" (either in the quoted or the
-&gt; literal sense), we can't.
+<span class="quote"><span class="quote-1">&gt; Once we have "followers" (either in the quoted or the literal
+&gt; sense), we can't.
 </span></span>
 We don't know for sure we don't have them now ;)
 
-<span class="quote"><span class="quote-1">&gt; By (hopefully) gaining attention with the launch of the homepage, we, so to
-&gt; say, 'set up us the bomb', so we had better 'make our time' (um, sorry; what
-&gt; I want to say is we should do all our history-changing now while we control
-&gt; all copies of the source tree).
+<span class="quote"><span class="quote-1">&gt; By (hopefully) gaining attention with the launch of the homepage,
+&gt; we, so to say, 'set up us the bomb', so we had better 'make our
+&gt; time' (um, sorry; what I want to say is we should do all our
+&gt; history-changing now while we control all copies of the source
+&gt; tree).
 </span></span>
-I'm not sure that we control in 100% what is on github. But it we do, than
-changing the past before 0.3 is OK. I want to put the news about 0.3 on
-freshmeat, send it to the Sphinx mailing list, tell about this to my
-colleagues, etc.
+I'm not sure that we control in 100% what is on github. But it we do,
+than changing the past before 0.3 is OK. I want to put the news about
+0.3 on freshmeat, send it to the Sphinx mailing list, tell about this
+to my colleagues, etc.
 
-<span class="quote"><span class="quote-1">&gt;
-&gt; `git rebase -i`, that is, interactive rebase, seems very powerful. Have you
-&gt; ever used it?
+<span class="quote"><span class="quote-1">&gt; `git rebase -i`, that is, interactive rebase, seems very powerful.
+&gt; Have you ever used it?
 </span></span>
 This is awesome! (For people who don't know what this is about: [1])
 
@@ -133,44 +134,45 @@ This is awesome! (For people who don't know what this is about: [1])
 <pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; However, if we choose to alter history now to sort out multiple
 &gt;&gt; personality issues may have a compelling effect for the future.
 </span></span><span class="quote"><span class="quote-1">&gt;
-&gt; By "personality issues", do you mean having 4 committer on the impact graph
-&gt; instead of 2?
+&gt; By "personality issues", do you mean having 4 committer on the
+&gt; impact graph instead of 2?
 </span></span>
 Exactly.
 
-<span class="quote"><span class="quote-2">&gt;&gt; If we get caught in a craving for a tidy repository, we'll sooner or later be
-&gt;&gt; inclined to clean up the "motorway sections" by rebasing them. Now we could
-&gt;&gt; do it.
+<span class="quote"><span class="quote-2">&gt;&gt; If we get caught in a craving for a tidy repository, we'll sooner
+&gt;&gt; or later be inclined to clean up the "motorway sections" by
+&gt;&gt; rebasing them. Now we could do it.
 </span></span><span class="quote"><span class="quote-1">&gt;
-&gt; It is not worth rebasing the past. Our efforts are much better spent on the
-&gt; program and its documentation. The "personality issue" is a bit different,
-&gt; because it will always make us look funny and a bit lame if we don't sort that
-&gt; out. But I don't think that about the motorway. Watch out from now on, and
-&gt; everything will be fine.
+&gt; It is not worth rebasing the past. Our efforts are much better spent
+&gt; on the program and its documentation. The "personality issue" is a
+&gt; bit different, because it will always make us look funny and a bit
+&gt; lame if we don't sort that out. But I don't think that about the
+&gt; motorway. Watch out from now on, and everything will be fine.
 </span></span>
 OK. Correct authors, leave motorways. I agree.
 
-<span class="quote"><span class="quote-2">&gt;&gt; Once we have "followers" (either in the quoted or the
-&gt;&gt; literal sense), we can't.
+<span class="quote"><span class="quote-2">&gt;&gt; Once we have "followers" (either in the quoted or the literal
+&gt;&gt; sense), we can't.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; We don't know for sure we don't have them now ;)
 </span></span>
 Was this you? [1]
 
-<span class="quote"><span class="quote-2">&gt;&gt; By (hopefully) gaining attention with the launch of the homepage, we, so to
-&gt;&gt; say, 'set up us the bomb', so we had better 'make our time' (um, sorry; what
-&gt;&gt; I want to say is we should do all our history-changing now while we control
-&gt;&gt; all copies of the source tree).
+<span class="quote"><span class="quote-2">&gt;&gt; By (hopefully) gaining attention with the launch of the homepage,
+&gt;&gt; we, so to say, 'set up us the bomb', so we had better 'make our
+&gt;&gt; time' (um, sorry; what I want to say is we should do all our
+&gt;&gt; history-changing now while we control all copies of the source
+&gt;&gt; tree).
 </span></span><span class="quote"><span class="quote-1">&gt;
-&gt; I'm not sure that we control in 100% what is on github. But it we do, than
-&gt; changing the past before 0.3 is OK. I want to put the news about 0.3 on
-&gt; freshmeat, send it to the Sphinx mailing list, tell about this to my
-&gt; colleagues, etc.
+&gt; I'm not sure that we control in 100% what is on github. But it we
+&gt; do, than changing the past before 0.3 is OK. I want to put the news
+&gt; about 0.3 on freshmeat, send it to the Sphinx mailing list, tell
+&gt; about this to my colleagues, etc.
 </span></span>
 Do you think we'll be ready for all that with 0.3?
 
-I remember some official github guide on history editing. I'll go and check
-that one out.
+I remember some official github guide on history editing. I'll go and
+check that one out.
 
 [1] <a href="http://github.com/hcs42/heapkeeper/graphs/clones">http://github.com/hcs42/heapkeeper/graphs/clones</a>
 </pre></div><!-- post-summary -->
@@ -183,8 +185,8 @@ that one out.
 <span class="date">(2009-07-31)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-426">hh/426</a></span>
 <span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I remember some official github guide on history editing. I'll go and check
-&gt; that one out.
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I remember some official github guide on history editing. I'll go
+&gt; and check that one out.
 </span></span>
 This is very probably what we need:
 
@@ -204,18 +206,18 @@ This is very probably what we need:
 </span></span>
 Yes.
 
-<span class="quote"><span class="quote-2">&gt;&gt; I'm not sure that we control in 100% what is on github. But it we do, than
-&gt;&gt; changing the past before 0.3 is OK. I want to put the news about 0.3 on
-&gt;&gt; freshmeat, send it to the Sphinx mailing list, tell about this to my
-&gt;&gt; colleagues, etc.
+<span class="quote"><span class="quote-2">&gt;&gt; I'm not sure that we control in 100% what is on github. But it we
+&gt;&gt; do, than changing the past before 0.3 is OK. I want to put the news
+&gt;&gt; about 0.3 on freshmeat, send it to the Sphinx mailing list, tell
+&gt;&gt; about this to my colleagues, etc.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Do you think we'll be ready for all that with 0.3?
 </span></span>
 I don't want to do things like this after 0.3 is released. For me
 that's like going to public.
 
-<span class="quote"><span class="quote-1">&gt; I remember some official github guide on history editing. I'll go and check
-&gt; that one out.
+<span class="quote"><span class="quote-1">&gt; I remember some official github guide on history editing. I'll go
+&gt; and check that one out.
 </span></span>
 Do that. I haven't found anything, except for this: [2]
 
@@ -330,10 +332,10 @@ with the "whitespace error"):
 <span class="date">(2009-08-01)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-430">hh/430</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-435">hh/435</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; I'm not sure that we control in 100% what is on github. But it we do, than
-&gt;&gt;&gt; changing the past before 0.3 is OK. I want to put the news about 0.3 on
-&gt;&gt;&gt; freshmeat, send it to the Sphinx mailing list, tell about this to my
-&gt;&gt;&gt; colleagues, etc.
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; I'm not sure that we control in 100% what is on github. But it we
+&gt;&gt;&gt; do, than changing the past before 0.3 is OK. I want to put the
+&gt;&gt;&gt; news about 0.3 on freshmeat, send it to the Sphinx mailing list,
+&gt;&gt;&gt; tell about this to my colleagues, etc.
 </span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; Do you think we'll be ready for all that with 0.3?
 </span></span><span class="quote"><span class="quote-1">&gt;
@@ -351,24 +353,24 @@ Yes, it seems so. Not that bad solution, though. But do you think it
 is a limitation of github or git? I mean, that we can't just push a
 totally rewritten repository.
 
-<span class="quote"><span class="quote-1">&gt; == Heapkeeper-tidy ==
-&gt;
-&gt; I did exactly that with another sandbox. I pushed the repository you
-&gt; sent into my second sandbox repo on github [4]. Pushing all commits of
-&gt; the last 10 months was so fast that I thought something must be wrong.
-&gt; But as it turns out, it worked. The impact graph contains only two
-&gt; people, and everything else seems to work fine. The non-master
-&gt; branches are lost, but they could have been pushed just as easily if
-&gt; the tidied up repository contained them. We can also use patches to
-&gt; introduce them, see in the next section.
+== Heapkeeper-tidy ==
+
+<span class="quote"><span class="quote-1">&gt; I did exactly that with another sandbox. I pushed the repository you
+&gt; sent into my second sandbox repo on github [4]. Pushing all commits
+&gt; of the last 10 months was so fast that I thought something must be
+&gt; wrong. But as it turns out, it worked. The impact graph contains
+&gt; only two people, and everything else seems to work fine. The
+&gt; non-master branches are lost, but they could have been pushed just
+&gt; as easily if the tidied up repository contained them. We can also
+&gt; use patches to introduce them, see in the next section.
 </span></span>
 Git rules :)
 
 <span class="quote"><span class="quote-1">&gt; The tags are also lost, which made me think that we should not just
-&gt; put them to the same place, because that would cause the descriptions
-&gt; on the download page look as ugly as they are now [5]. We could place
-&gt; new commits which would only change the README and whose commit
-&gt; message would say something like this:
+&gt; put them to the same place, because that would cause the
+&gt; descriptions on the download page look as ugly as they are now [5].
+&gt; We could place new commits which would only change the README and
+&gt; whose commit message would say something like this:
 &gt;
 </span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    Heapkeeper version 0.1
 &gt;
@@ -385,14 +387,14 @@ Git rules :)
 OK. So, we'd hard-reset, edit README, commit, tag and rebase for both
 0.1 and 0.2, if I understand correctly.
 
-<span class="quote"><span class="quote-1">&gt; == Creating and applying patches ==
-&gt;
-&gt; Then I wanted to solve my problem of having worked on files yesterday,
-&gt; which were not of course in your repository tidied up. I had 5 commits
-&gt; in my own repo that I wanted to introduce into the new repository. It
-&gt; was surprisingly easy: I just had to create a bunch of patches in my
-&gt; old repository and apply them in the new one. The patches even contain
-&gt; log message and author information.
+== Creating and applying patches ==
+
+<span class="quote"><span class="quote-1">&gt; Then I wanted to solve my problem of having worked on files
+&gt; yesterday, which were not of course in your repository tidied up. I
+&gt; had 5 commits in my own repo that I wanted to introduce into the new
+&gt; repository. It was surprisingly easy: I just had to create a bunch
+&gt; of patches in my old repository and apply them in the new one. The
+&gt; patches even contain log message and author information.
 </span></span>
 I guess then that these are not your average diff-patches, but
 something Git-specific.
@@ -413,12 +415,12 @@ example? :) )
 &gt;
 &gt; - Adding tags in the way I described.
 &gt; - Do you want to do something with your 'bodyparsing' and 'minimal'
-&gt;  branches? Or let's just leave them for now and you can use the
-&gt;  patch-technique to introduce them at any time?
+&gt;   branches? Or let's just leave them for now and you can use the
+&gt;   patch-technique to introduce them at any time?
 </span></span>
 Do you consider them mature enough for inclusion into the "public"
-repo? I think minimal is mature, and also useful. Bodyparsing is
-in early stages, and very probably it'll work quite differently, so if
+repo? I think minimal is mature, and also useful. Bodyparsing is in
+early stages, and very probably it'll work quite differently, so if
 you say so, I'll be happy to exclude it until we take on the task more
 seriously.
 </pre></div><!-- post-summary -->
@@ -431,13 +433,13 @@ seriously.
 <span class="date">(2009-08-01)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-433">hh/433</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-436">hh/436</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; My question is: once you show all those people what we have, will they
-&gt; see what it is good for?
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; My question is: once you show all those people what we have, will
+&gt; they see what it is good for?
 </span></span>
 That's a question for another thread I think.
 
-<span class="quote"><span class="quote-2">&gt;&gt; The conclusion is: it seems to me that we have no way of doing what we
-&gt;&gt; want to do except for deleting and re-creating the heapkeeper
+<span class="quote"><span class="quote-2">&gt;&gt; The conclusion is: it seems to me that we have no way of doing what
+&gt;&gt; we want to do except for deleting and re-creating the heapkeeper
 &gt;&gt; repository.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Yes, it seems so. Not that bad solution, though. But do you think it
@@ -447,10 +449,10 @@ That's a question for another thread I think.
 I think it's git.
 
 <span class="quote"><span class="quote-2">&gt;&gt; The tags are also lost, which made me think that we should not just
-&gt;&gt; put them to the same place, because that would cause the descriptions
-&gt;&gt; on the download page look as ugly as they are now [5]. We could place
-&gt;&gt; new commits which would only change the README and whose commit
-&gt;&gt; message would say something like this:
+&gt;&gt; put them to the same place, because that would cause the
+&gt;&gt; descriptions on the download page look as ugly as they are now [5].
+&gt;&gt; We could place new commits which would only change the README and
+&gt;&gt; whose commit message would say something like this:
 &gt;&gt;
 </span></span><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;    Heapkeeper version 0.1
 &gt;&gt;
@@ -464,15 +466,15 @@ I think it's git.
 </span></span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; What do you say?
 </span></span><span class="quote"><span class="quote-1">&gt;
-&gt; OK. So, we'd hard-reset, edit README, commit, tag and rebase for both
-&gt; 0.1 and 0.2, if I understand correctly.
+&gt; OK. So, we'd hard-reset, edit README, commit, tag and rebase for
+&gt; both 0.1 and 0.2, if I understand correctly.
 </span></span>
 Yes, that is what I thought, but it does not seem to work because of
 the motorway.
 
-<span class="quote"><span class="quote-2">&gt;&gt; == Creating and applying patches ==
-&gt;&gt;
-&gt;&gt; Then I wanted to solve my problem of having worked on files yesterday,
+== Creating and applying patches ==
+
+<span class="quote"><span class="quote-2">&gt;&gt; Then I wanted to solve my problem of having worked on files yesterday,
 &gt;&gt; which were not of course in your repository tidied up. I had 5 commits
 &gt;&gt; in my own repo that I wanted to introduce into the new repository. It
 &gt;&gt; was surprisingly easy: I just had to create a bunch of patches in my
@@ -484,12 +486,12 @@ the motorway.
 </span></span>
 Your guess is correct.
 
-<span class="quote"><span class="quote-2">&gt;&gt; == Further changes ==
-&gt;&gt;
-&gt;&gt; - Adding tags in the way I described.
+== Further changes ==
+
+<span class="quote"><span class="quote-2">&gt;&gt; - Adding tags in the way I described.
 &gt;&gt; - Do you want to do something with your 'bodyparsing' and 'minimal'
-&gt;&gt;  branches? Or let's just leave them for now and you can use the
-&gt;&gt;  patch-technique to introduce them at any time?
+&gt;&gt;   branches? Or let's just leave them for now and you can use the
+&gt;&gt;   patch-technique to introduce them at any time?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Do you consider them mature enough for inclusion into the "public"
 &gt; repo? I think minimal is mature, and also useful.
@@ -511,18 +513,17 @@ OK.
 <span class="date">(2009-08-01)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-435">hh/435</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-437">hh/437</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; My question is: once you show all those people what we have, will they
-&gt;&gt; see what it is good for?
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; My question is: once you show all those people what we have, will
+&gt;&gt; they see what it is good for?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; That's a question for another thread I think.
 </span></span>
 I'm never afraid to start a thread in another one... though it is
-laborous to separate them later, especially if the two have been
+laborious to separate them later, especially if the two have been
 running in parallel in several posts. But in another thread, then.
 
-<span class="quote"><span class="quote-2">&gt;&gt; But do you think it
-&gt;&gt; is a limitation of github or git? I mean, that we can't just push a
-&gt;&gt; totally rewritten repository.
+<span class="quote"><span class="quote-2">&gt;&gt; But do you think it is a limitation of github or git? I mean, that
+&gt;&gt; we can't just push a totally rewritten repository.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I think it's git.
 </span></span>
@@ -538,8 +539,8 @@ Umm... both the 0.1 and 0.2 tags are on "single sections". Will that
 still cause a problem with motorways coming after the tag? I think
 I'll go and experiment with it.
 
-<span class="quote"><span class="quote-3">&gt;&gt;&gt; == Further changes ==
-</span></span>
+== Further changes ==
+
 <span class="quote"><span class="quote-1">&gt; Why isn't minimal merged into master?
 </span></span>
 That is the middle of the Chaos of May 2009. Minimal is now at a merge
@@ -560,8 +561,9 @@ to form a new minimal, then throw the old one away.
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_420.html#post-summary-hh-438">hh/438</a></span>
 <pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; So, we'd hard-reset, edit README, commit, tag and rebase for both
 &gt;&gt;&gt; 0.1 and 0.2, if I understand correctly.
-</span></span><span class="quote"><span class="quote-2">&gt;&gt; Yes, that is what I thought, but it does not seem to work because of
-&gt;&gt; the motorway.
+</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt; Yes, that is what I thought, but it does not seem to work because
+&gt;&gt; of the motorway.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Umm... both the 0.1 and 0.2 tags are on "single sections". Will that
 &gt; still cause a problem with motorways coming after the tag? I think
@@ -593,8 +595,8 @@ We have three options:
 <pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; We have three options:
 &gt; 1. Do the linearization.
 &gt; 2. Try another mechanism, e.g. git filter.
-&gt; 3. Put back v0.1 and v0.2 tags as they were and do work that actually
-&gt;   matters :)
+&gt; 3. Put back v0.1 and v0.2 tags as they were and do work that
+&gt;    actually matters :)
 </span></span>
 Option 3 is of course attractive, but learning Git is fun _and_
 matters, so I think I'll try and read about rebasing with preserving
@@ -622,11 +624,7 @@ id-s would be changed.
 <span class="date">(2009-08-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_420.html#post-summary-hh-449">hh/449</a></span>
 <span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I have just realized something. If we rewrite the git history, all our
-&gt; posts in which we discuss a commit should be rewritten, since all SHA
-&gt; id-s would be changed.
-</span></span>
-Yes, it can be a problem.
+<pre class="post-body-content">Yes, it can be a problem.
 
 This search:
 

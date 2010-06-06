@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Code formatting (2009-05-07 3b4f6d36 179f5cf18e)</title>
-    <link rel="stylesheet" href="../heapindex.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
   </head>
   <body >
     <h1 id="header">Code formatting (2009-05-07 3b4f6d36 179f5cf18e)</h1>
@@ -13,7 +13,7 @@
 <div class="post-summary" id="post-summary-hh-386">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Code formatting (2009-05-07 3b4f6d36 179f5cf18e)</span>
-<span class="tags">[commit]</span>
+<span class="tags">[commit, reviewed]</span>
 <span class="index"><a href="../hh/thread_386.html#post-summary-hh-386">&lt;hh/386&gt;</a></span>
 <span class="date">(2009-07-07)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_386.html#post-summary-hh-624">hh/624</a></span>
@@ -64,29 +64,7 @@ If you agree, would you change the code?
 <span class="date">(2009-10-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_386.html#post-summary-hh-386">hh/386</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_386.html#post-summary-hh-626">hh/626</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; What do you think about using this formatting instead:
-&gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;   for curr_post in thread._postdb.iter_thread(thread):
-&gt;       l.append(
-&gt;           Html.thread_post_header(
-&gt;               curr_post.htmlfilebasename(),
-&gt;               Html.escape(curr_post.author()),
-&gt;               Html.escape(curr_post.subject()),
-&gt;               curr_post.tags(),
-&gt;               curr_post.heapid(),
-&gt;               options.date_fun(curr_post, options)))
-&gt;
-&gt;       l.append(
-&gt;         Html.enclose(
-&gt;             'postbody',
-&gt;             Html.escape(curr_post.body()), tag='pre'))
-</span></span></span><span class="quote"><span class="quote-1">&gt;
-&gt; I think it is more readable and more robust. By roboust I mean that
-&gt; if you have to indent a paragraph that you made using the first
-&gt; formatting method, you have a much higher change of having to insert
-&gt; newlines, as you did in 179f5cf18e (2009-05-17).
-&gt;
-&gt; If you agree, would you change the code?
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If you agree, would you change the code?
 </span></span>
 It loooks better... but I think the Python coding conventions dictate
 that if a function's argument list is broken, the continuation lines
@@ -102,10 +80,7 @@ disregard this rule?
 <span class="date">(2009-10-02)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_386.html#post-summary-hh-624">hh/624</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_386.html#post-summary-hh-679">hh/679</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; It loooks better... but I think the Python coding conventions dictate
-&gt; that if a function's argument list is broken, the continuation lines
-&gt; should be indented to where the first argument starts. Can we
-&gt; disregard this rule?
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Can we disregard this rule?
 </span></span>
 I don't like that rule.
 </pre></div><!-- post-summary -->
@@ -117,18 +92,22 @@ I don't like that rule.
 <span class="index"><a href="../hh/thread_386.html#post-summary-hh-679">&lt;hh/679&gt;</a></span>
 <span class="date">(2009-10-17)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_386.html#post-summary-hh-626">hh/626</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_386.html#post-summary-hh-680">hh/680</a>, <a href="../hh/thread_386.html#post-summary-hh-685">hh/685</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; It loooks better... but I think the Python coding conventions dictate
-&gt;&gt; that if a function's argument list is broken, the continuation lines
-&gt;&gt; should be indented to where the first argument starts. Can we
-&gt;&gt; disregard this rule?
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; I don't like that rule.
-</span></span>
-Well, I didn't either on first look. Then I noticed how most of the
-time it produces good-looking and comprehensible code, but there are
-many exceptions, and they are strong ones, especially when the produced
-code would look like this:
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_386.html#post-summary-hh-685">hh/685</a></span>
+<pre class="post-body-content">Well, I didn't either on first look. Then I noticed how most of the
+time it produces good-looking and comprehensible code. As an example,
+this:
+
+<span class="raw-block">    actions = [ action for action in actions
+                if action.between(options.since, options.until) ]
+</span>
+looks much better than this:
+
+<span class="raw-block">    actions = [ action for action in actions
+        if action.between(options.since, options.until) ]
+
+</span>
+But there are many exceptions, and they are strong ones, especially
+when the produced code would look like this:
 
 <span class="raw-block">    val = function(another_function_with_a_very_very_long_name(first,
                                                                second,
@@ -140,33 +119,6 @@ So let's just say you can use either this or the single-indent
 continuation, whichever looks better.
 </pre></div><!-- post-summary -->
 
-<div class="post-box"><!-- post hh/680 -->
-<div class="post-summary" id="post-summary-hh-680">
-<span class="author">Attila Nagy</span>
-<span class="subject"><span class="star">&mdash;</span></span>
-<span class="index"><a href="../hh/thread_386.html#post-summary-hh-680">&lt;hh/680&gt;</a></span>
-<span class="date">(2009-10-17)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_386.html#post-summary-hh-679">hh/679</a></span>
-<span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I don't like that rule.
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; Well, I didn't either on first look. Then I noticed how most of the
-&gt; time it produces good-looking and comprehensible code,
-</span></span>
-As an example, this:
-
-<span class="raw-block">    actions = [ action for action in actions
-                if action.between(options.since, options.until) ]
-</span>
-looks much better than this:
-
-<span class="raw-block">    actions = [ action for action in actions
-        if action.between(options.since, options.until) ]
-</span>
-<span class="meta-text">[!todo Merge this into the parent post.]</span>
-</pre></div><!-- post-summary -->
-</div><!-- postbox for post hh/680 -->
-
 <div class="post-box"><!-- post hh/685 -->
 <div class="post-summary" id="post-summary-hh-685">
 <span class="author">Csaba Hoch</span>
@@ -175,12 +127,7 @@ looks much better than this:
 <span class="date">(2009-10-17)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_386.html#post-summary-hh-679">hh/679</a></span>
 <span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; It loooks better... but I think the Python coding conventions
-&gt;&gt;&gt; dictate that if a function's argument list is broken, the
-&gt;&gt;&gt; continuation lines should be indented to where the first argument
-&gt;&gt;&gt; starts. Can we disregard this rule?
-</span></span>
-<span class="quote"><span class="quote-2">&gt;&gt; I don't like that rule.
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I don't like that rule.
 </span></span>
 I don't know why I said this. I think I had something else in mind,
 but I can't recall what. Sometimes I use that form, too.
