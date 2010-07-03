@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>features() function does not return status of event_printer_listener</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">features() function does not return status of event_printer_listener</h1>
+
+
+<div class="post-box"><!-- post hh/1278 -->
+<div class="post-summary" id="post-summary-hh-1278">
+<span class="author">Attila Nagy</span>
+<span class="subject">features() function does not return status of event_printer_listener</span>
+<span class="tags">[hkshell, idea]</span>
+<span class="index"><a href="../hh/thread_1278.html#post-summary-hh-1278">&lt;hh/1278&gt;</a></span>
+<span class="date">(2010-06-30)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1278.html#post-summary-hh-1279">hh/1279</a>, <a href="../hh/thread_1278.html#post-summary-hh-1280">hh/1280</a></span>
+<pre class="post-body-content">The list of features and the names of the matching listeners can be
+found both in `hkshell.set_feature()` and `hkshell.features()`. I
+think it would be cleaner to store these in a dict instead of
+hard-coding them (especially hard-coding them in two functions).
+
+Also, the hkshell.features() function does not return status of the
+"event_printer" listener. Is this intended?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1279 -->
+<div class="post-summary" id="post-summary-hh-1279">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1278.html#post-summary-hh-1279">&lt;hh/1279&gt;</a></span>
+<span class="date">(2010-06-30)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1278.html#post-summary-hh-1278">hh/1278</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="meta-text">[todo add "Store features and listeners in a dict" to the subject and
+delete this]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1279 -->
+
+<div class="post-box"><!-- post hh/1280 -->
+<div class="post-summary" id="post-summary-hh-1280">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1278.html#post-summary-hh-1280">&lt;hh/1280&gt;</a></span>
+<span class="date">(2010-06-30)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1278.html#post-summary-hh-1278">hh/1278</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The list of features and the names of the matching listeners can be
+&gt; found both in `hkshell.set_feature()` and `hkshell.features()`. I
+&gt; think it would be cleaner to store these in a dict instead of
+&gt; hard-coding them (especially hard-coding them in two functions).
+</span></span>
+You are right, this system could be better; that's why we decided to
+implement a new system instead of the current system of features [1].
+I think that would solve the problem you raised.
+
+<span class="quote"><span class="quote-1">&gt; Also, the hkshell.features() function does not return status of the
+&gt; "event_printer" listener. Is this intended?
+</span></span>
+No, it must be a mistake.
+
+[1] <a href="../hh/thread_235.html#post-summary-hh-235">heap://hh/235</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1280 -->
+</div><!-- postbox for post hh/1278 -->
+
+  </body>
+</html>

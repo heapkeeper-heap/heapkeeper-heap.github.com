@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Purpose of callbacks, abolising callbacks</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Purpose of callbacks, abolising callbacks</h1>
+
+
+<div class="post-box"><!-- post hh/1271 -->
+<div class="post-summary" id="post-summary-hh-1271">
+<span class="author">Attila Nagy</span>
+<span class="subject">Purpose of callbacks, abolising callbacks</span>
+<span class="tags">[idea]</span>
+<span class="index"><a href="../hh/thread_1271.html#post-summary-hh-1271">&lt;hh/1271&gt;</a></span>
+<span class="date">(2010-06-25)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1271.html#post-summary-hh-1273">hh/1273</a></span>
+<pre class="post-body-content">I've been studying the code of `hkshell`, and I've noticed several
+customization frameworks, namely:
+- options/features,
+- events and listeners,
+- callbacks.
+
+I understand that the options-features system and the events-listeners
+systems represent a higher and a lower level of customizability,
+respectively, where features are actually implemented as event
+listeners. That much I understand, and I also very much like the idea.
+
+What I don't understand is how callbacks fit into this picture. After
+some studying, it seems to me that callbacks serve as hook points that
+enable `hkrc` code to more easily tell `hkshell` what to do.
+
+While this may be the only usable way in a more rigid language,
+Python is much more flexible than that. Say, that we, the developers
+recognize that many users need to personalize the generation of
+indices. Fine, let's help them by making it a callback, which means
+that `hkshell` provides a space where `hkrc` code can freely express
+its opinion on how this operation needs to be performed.
+
+First of all, I would like to ask for confirmation if this really is
+what Csabi had in mind when designing the callbacks feature.
+
+If I got it right so far, here is my concern: I feel that it is
+somewhat pointless to provide hook points for `hkrc` to customize
+`hkshell`. Due to the fact that `hkrc`s are Python modules that are
+imported after `hkshell`, they are free to do whatever they please
+with the `hkshell` module.  As an example, my `hkrc` wraps a `hkshell`
+global variable to enhance its functionality. It would be just as easy
+and efficient to specify one's own `gen_indices()` function like this:
+
+<span class="raw-block">    import hkshell
+
+    def my_gen_indices():
+        # do really wild stuff
+        ...
+
+    hkshell.gen_indices = my_gen_indices
+</span>
+One might argue that this is not very nice to other modules. We may
+load more than one "hkrc" module, and if each works like this, only
+the last will have its way. But the way callbacks are implemented
+right now also doesn't solve this -- but it could with not much
+additional effort, all we'd have to do is store callback functions in
+a list and call them sequentially.
+
+But then, this system becomes enormously similar to events. The
+`gen_indices` callback would become a `gen_indices` event, and any
+number of listeners may subscribe to this event, and do their job one
+after another.
+
+Another problem with callbacks is that they require providence from
+the core developers to allow for customization. Using the "overloading"
+technique I presented before, it is possible to perform customizations
+the need for which the core developers never would have imagined.
+
+Therefore, I am arguing for the abolishment of callbacks in favor of
+event handlers or direct manipulation of the `hkshell` module object
+by `hkrc` code. Csabi, what do you think?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1273 -->
+<div class="post-summary" id="post-summary-hh-1273">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1271.html#post-summary-hh-1273">&lt;hh/1273&gt;</a></span>
+<span class="date">(2010-06-26)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1271.html#post-summary-hh-1271">hh/1271</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">== Options, features, events, listeners, callbacks ==
+
+<span class="quote"><span class="quote-1">&gt; I've been studying the code of `hkshell`, and I've noticed several
+&gt; customization frameworks, namely:
+&gt; - options/features,
+&gt; - events and listeners,
+&gt; - callbacks.
+</span></span>
+A better itemization would be, according to the logic of the code:
+- options and callbacks
+- events and listeners
+- features
+
+The options-callbacks system is totally separate from events-listeners
+features. Options-callbacks is for simpler customization
+(configuration variables and callbacks functions, see later), while
+events-listeners-features are more complicated, and they implement the
+two-level architecture that you noticed.
+
+The options-callbacks are inherently simple. The only difference
+between an option and a callback is that when a configuration can be
+easily described with data, that is an option; when in can be
+described only in code, that is a callback.
+
+The events-listeners are inherently complex, so the "features" were
+created to hide this complexity.
+
+A few concrete questions of yours, which can be answered considering
+the few paragraphs above:
+
+<span class="quote"><span class="quote-1">&gt; I understand that the options-features system and the
+&gt; events-listeners systems represent a higher and a lower level of
+&gt; customizability, respectively, where features are actually
+&gt; implemented as event listeners. That much I understand, and I also
+&gt; very much like the idea.
+</span></span>
+Change the expression "options-features system" to "features system"
+and your sentence will be correct.
+
+<span class="quote"><span class="quote-1">&gt; What I don't understand is how callbacks fit into this picture.
+&gt; After some studying, it seems to me that callbacks serve as hook
+&gt; points that enable `hkrc` code to more easily tell `hkshell` what to
+&gt; do.
+</span></span>
+You do understand it then :)
+
+<span class="quote"><span class="quote-1">&gt; First of all, I would like to ask for confirmation if this really is
+&gt; what Csabi had in mind when designing the callbacks feature.
+</span></span>
+Yes, that's what I had in mind: configuring hkshell how to do certain
+things. But there is an important point here: it is only about
+hkshell, not about hklib.
+
+== The new design for customizing Heapkeeper ==
+
+<span class="quote"><span class="quote-1">&gt; If I got it right so far, here is my concern: I feel that it is
+&gt; somewhat pointless to provide hook points for `hkrc` to customize
+&gt; `hkshell`.
+</span></span>
+You have a point there. Let me give you a bit of background.
+
+Traditional programs usually use configuration variables and callback
+functions to allow customization. (Configuration variables are used
+when the customization can be described with a data structure,
+callback functions are used when a data structure is not enough and a
+function is needed.)
+
+I used this approach when I started developing Heapkeeper, that's why
+we have the Options class and the Callback class. (Options stores the
+configuration variables, while Callback stored the callback
+functions.) These is also what I initially used for the Generator
+class.
+
+When I implemented the new Generator in v0.4, I created a new way of
+customization for it. The new way is that there are no explicit points
+of the program to be customized (like a configuration variable or a
+callback function), but the user can redefine any method to achieve
+any kind of customizations. (In Generator's case, this can be done by
+either subclassing the Generator or monkey-patching it.)
+
+The drawback of the old design is exactly what you say:
+
+<span class="quote"><span class="quote-1">&gt; Another problem with callbacks is that they require providence from
+&gt; the core developers to allow for customization. Using the
+&gt; "overloading" technique I presented before, it is possible to
+&gt; perform customizations the need for which the core developers never
+&gt; would have imagined.
+</span></span>
+The drawback of the new design is that it is much easier to break
+someone's customization, because we don't have an explicitly defined
+interface which we (the core developers) could be careful not to
+change. In the new design, we can of course say that we won't just
+delete any method between two versions but make it so that everything
+that worked in version x without a warning will also work in version
+x+1, but may give a warning (and therefore may not work in version
+x+2). This way all method removals have to be done in two releases
+instead of one. This could prevent our users being in a situation
+where something just stopped working and they have no idea why.
+(Providing that they will not skip any version but upgrade always only
+one version.)
+
+I think that in our stage, the advantages of the new design (more
+customization with less work) are more important than its
+disadvantages (not having a clear and explicit interface for
+customization).
+
+<span class="quote"><span class="quote-1">&gt; Therefore, I am arguing for the abolishment of callbacks in favor of
+&gt; event handlers or direct manipulation of the `hkshell` module object
+&gt; by `hkrc` code. Csabi, what do you think?
+</span></span>
+I would be in favor of introducing this new design to be introduced to
+hkshell in case of callbacks. This means I choose your second option:
+the direct manipulation of hkshell. This will also make the code more
+readable.
+
+Currently:
+- we have a hkcustomlib.gen_indices function
+- hkshell.Callbacks.gen_indices points to this function by default
+- we have a hkshell.options.callbacks which is a hkshell.Callbacks
+  instance
+- we invoke hkshell.options.callbacks.gen_indices in hkshell when we
+  want to execute it
+
+With the new design, it would be a simple hkshell function, and that's
+it. Customizing hkshell with the new design would be a bit more
+unconventional than customizing the Generator with the new design:
+methods are overridden more often than global functions. But anyway, I
+support your idea here.
+
+== The similarity of callbacks and events ==
+
+<span class="quote"><span class="quote-1">&gt; But then, this system becomes enormously similar to events. The
+&gt; `gen_indices` callback would become a `gen_indices` event, and any
+&gt; number of listeners may subscribe to this event, and do their job
+&gt; one after another.
+</span></span>
+I don't understand this. Every function call is similar to an event.
+I don't get why would gen_indices be more similar than any other
+function call. If you propose that hkshell.g() should just trigger a
+'gen_indices' event and do nothing else, I dislike that idea. Events
+are for code parts where we have no idea what the subscribers want to
+do. We should use events only when really necessary, because code that
+uses events and listeners is much harder to read and understand that
+code that uses function calls.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1273 -->
+</div><!-- postbox for post hh/1271 -->
+
+  </body>
+</html>

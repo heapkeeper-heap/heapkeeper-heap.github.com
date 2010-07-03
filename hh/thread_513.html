@@ -13,6 +13,7 @@
 <div class="post-summary" id="post-summary-hh-513">
 <span class="author">Attila Nagy</span>
 <span class="subject">Optimized IMAP downloading</span>
+<span class="tags">[reviewed]</span>
 <span class="index"><a href="../hh/thread_513.html#post-summary-hh-513">&lt;hh/513&gt;</a></span>
 <span class="date">(2009-08-17)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_513.html#post-summary-hh-514">hh/514</a>, <a href="../hh/thread_513.html#post-summary-hh-515">hh/515</a>, <a href="../hh/thread_513.html#post-summary-hh-539">hh/539</a></span>
@@ -73,18 +74,18 @@ I have some comments though.
 
 The old code contained the following code (hklib.py:1753):
 
-<span class="quote"><span class="quote-1">&gt; -        emails = self._server.search(None, '(ALL)')[1][0].strip()
-&gt; -        if emails != '':
-&gt; -            for email_index in emails.split(' '):
-&gt; -                ...
-</span></span>
+<span class="raw-block">    -   emails = self._server.search(None, '(ALL)')[1][0].strip()
+    -   if emails != '':
+    -       for email_index in emails.split(' '):
+    -           ...
+</span>
 Which was replaced by this (hklib.py:1757):
 
-<span class="quote"><span class="quote-1">&gt; +        all_emails = self._server.search(None, '(ALL)')[1][0].strip().split(' ')
-&gt; +        if len(all_emails) == 0:
-&gt; +            log('Message box is empty.')
-&gt; +            return
-</span></span>
+<span class="raw-block">    +   all_emails = self._server.search(None, '(ALL)')[1][0].strip().split(' ')
+    +   if len(all_emails) == 0:
+    +       log('Message box is empty.')
+    +       return
+</span>
 This is buggy I think and will result in an exception when the mailbox
 is empty. ''.split(' '), returns [''] and not []:
 
@@ -106,8 +107,8 @@ compare the result of `split` to [''].
 
 == Other ==
 
-<span class="quote"><span class="quote-1">&gt; +        emails = [mail for mail in all_emails if int(mail) &gt;= lower_value]
-</span></span>
+<span class="raw-block">    +   emails = [mail for mail in all_emails if int(mail) &gt;= lower_value]
+</span>
 Could you put spaces around brackets that mark list generators? Like
 this:
 
@@ -115,22 +116,22 @@ this:
 </span>
 Also, I would call the `mail` variable `email`.
 
-<span class="quote"><span class="quote-1">&gt; +        emails_imap = ','.join(emails)
-&gt; +
-&gt; +        log('Checking...')
-&gt; +
-&gt; +        result = self._server.fetch(emails_imap,
-&gt; +                                    '(BODY[HEADER.FIELDS (MESSAGE-ID)])')[1]
-&gt; +        raw_messids = [result[2*x][1] for x in range(len(emails))]
-</span></span>
+<span class="raw-block">    +   emails_imap = ','.join(emails)
+    +
+    +   log('Checking...')
+    +
+    +   result = self._server.fetch(emails_imap,
+    +                               '(BODY[HEADER.FIELDS (MESSAGE-ID)])')[1]
+    +   raw_messids = [result[2*x][1] for x in range(len(emails))]
+</span>
 Same here with the spaces. Also, the convention in Python (and in many
 other languages) is to write "2 * x" and not "2*x".
 
 Also, the convention is to call "unnamed" integer loop variables `i`.
 
-<span class="quote"><span class="quote-1">&gt; +        messids = [email.message_from_string(s)['Message-Id']
-&gt; +                   for s in raw_messids]
-</span></span>
+<span class="raw-block">    +   messids = [email.message_from_string(s)['Message-Id']
+    +              for s in raw_messids]
+</span>
 Same here with the spaces.
 
 BTW, if you had to break it into lines, do it the way you just did :)
@@ -142,12 +143,12 @@ Or another acceptable way is this:
 </span>
 But the first one (yours) is usually more readable IMO.
 
-<span class="quote"><span class="quote-1">&gt; +        emails_messids = [(emails[x], messids[x]) for x in range(len(emails))]
-&gt; +
-&gt; +        # assembling a list of new messages
-&gt; +        download_list = []
-&gt; +        for index, messid in emails_messids:
-</span></span>
+<span class="raw-block">    +   emails_messids = [(emails[x], messids[x]) for x in range(len(emails))]
+    +
+    +   # assembling a list of new messages
+    +   download_list = []
+    +   for index, messid in emails_messids:
+</span>
 You can use the zip function so that you don't need the
 `emails_messids` variable:
 
@@ -158,24 +159,24 @@ zip creates a tuple-list from two lists that have the same length:
 <span class="raw-block">    &gt;&gt;&gt; zip([1,2,3], ['a','b','c'])
     [(1, 'a'), (2, 'b'), (3, 'c')]
 
-</span><span class="quote"><span class="quote-1">&gt; +            post = self._postdb.post_by_messid(messid)
-&gt; +            if post == None:
-&gt; +                download_list.append(index)
-&gt; +#            else:
-&gt; +#                log('Post #%s (#%s in INBOX) found.' %
-&gt; +#                    (post.heapid(), int(index) + lower_value))
-</span></span>
+    +       post = self._postdb.post_by_messid(messid)
+    +       if post == None:
+    +           download_list.append(index)
+    +   #    else:
+    +   #        log('Post #%s (#%s in INBOX) found.' %
+    +   #            (post.heapid(), int(index) + lower_value))
+</span>
 You can delete the `else` branch.
 
-<span class="quote"><span class="quote-1">&gt; +        download_imap = ','.join(download_list)
-&gt; +        num_new = len(download_list)
-&gt; +
-&gt; +        if num_new == 0:
-&gt; +            log('No new messages.')
-&gt; +            return
-&gt; +        else:
-&gt; +            log('%d new messages found.' % num_new)
-</span></span>
+<span class="raw-block">    +   download_imap = ','.join(download_list)
+    +   num_new = len(download_list)
+    +
+    +   if num_new == 0:
+    +       log('No new messages.')
+    +       return
+    +   else:
+    +       log('%d new messages found.' % num_new)
+</span>
 Maybe we need a hkutils.plural function so that you can write this:
 
 <span class="raw-block">    log('%d new message%s found.' %
@@ -194,30 +195,29 @@ you should also modify doc/hkutils.rst; you will see how. Another
 note: hkutils.plural's implementation should be a different commit
 from this one.
 
-<span class="quote"><span class="quote-1">&gt; +
-&gt; +        log('Downloading...')
-&gt; +
-&gt; +        result = self._server.fetch(download_imap,
-&gt; +                                    '(BODY[TEXT] BODY[HEADER])')[1]
-&gt; +        for n in range(num_new):
-</span></span>
+<span class="raw-block">    +   log('Downloading...')
+    +
+    +   result = self._server.fetch(download_imap,
+    +                               '(BODY[TEXT] BODY[HEADER])')[1]
+    +   for n in range(num_new):
+</span>
 Again, please use `i`.
 
-<span class="quote"><span class="quote-1">&gt; +            text = result[n*3][1]
-&gt; +            header = result[n*3 + 1][1]
-</span></span>
+<span class="raw-block">    +   text = result[n*3][1]
+    +   header = result[n*3 + 1][1]
+</span>
 Again, "n * 3" (or rather "i * 3" :) )
 
-<span class="quote"><span class="quote-1">&gt; +            post = self.parse_email(header, text)
-&gt; +            self._postdb.add_new_post(post)
-&gt; +#            log('Post #%s (#%s in INBOX) downloaded.' %
-&gt; +#                (post.heapid(), download_list[n]))
-</span></span>
+<span class="raw-block">    +       post = self.parse_email(header, text)
+    +       self._postdb.add_new_post(post)
+    +   #    log('Post #%s (#%s in INBOX) downloaded.' %
+    +   #        (post.heapid(), download_list[n]))
+</span>
 You can delete the comment.
 
-<span class="quote"><span class="quote-1">&gt; +        log('%d new message%s downloaded.' %
-&gt; +            (num_new, 's' if num_new &gt; 1 else ''))
-</span></span>
+<span class="raw-block">    +   log('%d new message%s downloaded.' %
+    +       (num_new, 's' if num_new &gt; 1 else ''))
+</span>
 == parse_email ==
 
 What do you say to creating a static Post.from_email method, which
@@ -284,8 +284,8 @@ correct it to "True".
 <span class="date">(2009-08-18)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_513.html#post-summary-hh-514">hh/514</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_513.html#post-summary-hh-522">hh/522</a>, <a href="../hh/thread_513.html#post-summary-hh-528">hh/528</a>, <a href="../hh/thread_513.html#post-summary-hh-571">hh/571</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; == If `emails` is "", don't do anything ==
-</span></span>
+<pre class="post-body-content">== If `emails` is "", don't do anything ==
+
 <span class="quote"><span class="quote-1">&gt; Please, fix the bug. (Or prove that the code is not buggy :) ) I leave
 &gt; it to you to decide whether you examine the result of `strip` or you
 &gt; compare the result of `split` to [''].
@@ -293,8 +293,8 @@ correct it to "True".
 It is buggy, and I fixed the bug. I simulated the empty mailbox with
 replacing "(ALL)" with "(FROM nobody)", and it works OK now.
 
-<span class="quote"><span class="quote-1">&gt; == Other ==
-</span></span>
+== Other ==
+
 <span class="quote"><span class="quote-1">&gt; Could you put spaces around brackets that mark list generators?
 </span></span>
 Corrected.
@@ -328,13 +328,13 @@ Corrected.
 Yes, I was looking for this (and I found filter() instead, which
 distracted me). Thanks!
 
-<span class="quote"><span class="quote-2">&gt;&gt; +            post = self._postdb.post_by_messid(messid)
-&gt;&gt; +            if post == None:
-&gt;&gt; +                download_list.append(index)
-&gt;&gt; +#            else:
-&gt;&gt; +#                log('Post #%s (#%s in INBOX) found.' %
-&gt;&gt; +#                    (post.heapid(), int(index) + lower_value))
-</span></span><span class="quote"><span class="quote-1">&gt;
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;     +       post = self._postdb.post_by_messid(messid)
+&gt;     +       if post == None:
+&gt;     +           download_list.append(index)
+&gt;     +   #    else:
+&gt;     +   #        log('Post #%s (#%s in INBOX) found.' %
+&gt;     +   #            (post.heapid(), int(index) + lower_value))
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; You can delete the `else` branch.
 </span></span>
 I want to introduce a new option called `download_details`, which,
@@ -363,9 +363,9 @@ At least we can be sure that zero is plural (which is kind of
 nonsense). Plurality of fractions is even more insane. (Just think
 about it: 0.999... is singular ;))
 
-<span class="quote"><span class="quote-1">&gt; == parse_email ==
-&gt;
-&gt; What do you say to creating a static Post.from_email method, which
+== parse_email ==
+
+<span class="quote"><span class="quote-1">&gt; What do you say to creating a static Post.from_email method, which
 &gt; would contain much of the code of EmailDownloader.parse_email?
 </span></span>
 I'm not sure. This is a question of distribution of responsibilities.
@@ -380,9 +380,9 @@ responsibilites.
 &gt; current commit, I will pull from you, and later you may do this
 &gt; refactoring.
 </span></span>
-<span class="quote"><span class="quote-1">&gt; == return value of dl() ==
-&gt;
-&gt; What do you say to having dl() return the set of downloaded posts?
+== return value of dl() ==
+
+<span class="quote"><span class="quote-1">&gt; What do you say to having dl() return the set of downloaded posts?
 &gt; It would be nice for example from the tutorial reader's point of view
 &gt; to see what are the messages downloaded.
 </span></span>
@@ -408,10 +408,10 @@ Useful indeed! I like this idea, and maybe I'll implement it today or tomorrow.
 <span class="date">(2009-08-18)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_513.html#post-summary-hh-520">hh/520</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_513.html#post-summary-hh-523">hh/523</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; +#            else:
-&gt;&gt;&gt; +#                log('Post #%s (#%s in INBOX) found.' %
-&gt;&gt;&gt; +#                    (post.heapid(), int(index) + lower_value))
-</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+<pre class="post-body-content"><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;     +   #   else:
+&gt;&gt;     +   #       log('Post #%s (#%s in INBOX) found.' %
+&gt;&gt;     +   #           (post.heapid(), int(index) + lower_value))
+</span></span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; You can delete the `else` branch.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; I want to introduce a new option called `download_details`, which,
@@ -444,11 +444,7 @@ think?
 <span class="date">(2009-08-18)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_513.html#post-summary-hh-523">hh/523</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_513.html#post-summary-hh-530">hh/530</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I would rather call it log or print_log. It is a bit misleading what
-&gt; "dl(details=True)" does (downloads all the details?) What do you
-&gt; think?
-</span></span>
-OK. Or maybe detailed_log? Anyhow, I trust you with it :) Will you
+<pre class="post-body-content">OK. Or maybe detailed_log? Anyhow, I trust you with it :) Will you
 change it when you integrate my commit into your repo?
 </pre></div><!-- post-summary -->
 
@@ -460,11 +456,7 @@ change it when you integrate my commit into your repo?
 <span class="date">(2009-08-19)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_513.html#post-summary-hh-524">hh/524</a></span>
 <span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I would rather call it log or print_log. It is a bit misleading wht
-&gt;&gt; "dl(details=True)" does (downloads all the details?) What do you
-&gt;&gt; think?
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; OK. Or maybe detailed_log?
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; OK. Or maybe detailed_log?
 </span></span>
 Be my guest :)
 
@@ -517,9 +509,7 @@ view .)
 <span class="date">(2009-08-19)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_513.html#post-summary-hh-528">hh/528</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_513.html#post-summary-hh-532">hh/532</a></span>
-<pre class="post-body-content">On Wed, Aug 19, 2009 at 8:01 PM, Csaba Hoch&lt;csaba.hoch@gmail.com&gt; wrote:
-<span class="quote"><span class="quote-1">&gt;
-</span></span><span class="quote"><span class="quote-3">&gt;&gt;&gt; Also, I would call the `mail` variable `email`.
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; Also, I would call the `mail` variable `email`.
 </span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; No good, as it would hide the `email` module! So, instead I corrected
 &gt;&gt; all "email"s to "mail", so that the naming will be consistent.
@@ -563,9 +553,11 @@ post, that lives in the mail directory and Hk's memory.
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_513.html#post-summary-hh-531">hh/531</a></span>
 <span class="container-button post-summary-button">Children: -</span>
 <pre class="post-body-content"><span class="quote"><span class="quote-4">&gt;&gt;&gt;&gt; Also, I would call the `mail` variable `email`.
-</span></span><span class="quote"><span class="quote-3">&gt;&gt;&gt; No good, as it would hide the `email` module! So, instead I corrected
+</span></span><span class="quote"><span class="quote-3">&gt;&gt;&gt;
+&gt;&gt;&gt; No good, as it would hide the `email` module! So, instead I corrected
 &gt;&gt;&gt; all "email"s to "mail", so that the naming will be consistent.
-</span></span><span class="quote"><span class="quote-2">&gt;&gt; I think the word "mail" does not have a plural form. (At least in the
+</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+&gt;&gt; I think the word "mail" does not have a plural form. (At least in the
 &gt;&gt; sense that "these are two mails"). You could call it "em" or "email_"
 &gt;&gt; in the list comprehension, and you could use the emails_* variables in
 &gt;&gt; all other places.
@@ -612,8 +604,8 @@ Yes, that's another advantage.
 <span class="date">(2009-09-01)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_513.html#post-summary-hh-520">hh/520</a></span>
 <span class="container-button post-summary-button">Children: -</span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; +        emails = [mail for mail in all_emails if int(mail) &gt;= lower_value]
-</span></span><span class="quote"><span class="quote-2">&gt;&gt;
+<pre class="post-body-content"><span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;    +   emails = [mail for mail in all_emails if int(mail) &gt;= lower_value]
+</span></span></span><span class="quote"><span class="quote-2">&gt;&gt;
 &gt;&gt; Also, I would call the `mail` variable `email`.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; No good, as it would hide the `email` module! So, instead I corrected
@@ -661,15 +653,17 @@ download mechanism.
 </span></span>
 I wrote about it, indeed:
 
-<span class="quote"><span class="quote-1">&gt; I cloned our git repository into a fresh directory, added our config file, but nothing
-&gt; else, and started hkshell. No problems so far. Then, I did a 'dl()'. OK, some
-&gt; messages were downloaded.
-&gt;[...]
-&gt; The cautious reader might have wondered why the cautious wording in the above:
-&gt; "some messages were downloaded". This is the bigger problem. Right now, we
-&gt; occasionally log into the heap's GMail account, and archive old messages so
-&gt; that they are no longer checked for when downloading (as only Inbox is
-&gt; checked).
+<span class="quote"><span class="quote-1">&gt; I cloned our git repository into a fresh directory, added our config
+&gt; file, but nothing else, and started hkshell. No problems so far.
+&gt; Then, I did a 'dl()'. OK, some messages were downloaded.
+&gt;
+&gt; [...]
+&gt;
+&gt; The cautious reader might have wondered why the cautious wording in
+&gt; the above: "some messages were downloaded". This is the bigger
+&gt; problem. Right now, we occasionally log into the heap's GMail
+&gt; account, and archive old messages so that they are no longer checked
+&gt; for when downloading (as only Inbox is checked).
 </span></span>
 But a hard limit? Why? I always thought it was done just to save time.
 

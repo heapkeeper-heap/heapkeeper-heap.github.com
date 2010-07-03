@@ -13,6 +13,7 @@
 <div class="post-summary" id="post-summary-hh-529">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Workflow: should we change the others' new changes?</span>
+<span class="tags">[reviewed]</span>
 <span class="index"><a href="../hh/thread_529.html#post-summary-hh-529">&lt;hh/529&gt;</a></span>
 <span class="date">(2009-08-19)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_529.html#post-summary-hh-533">hh/533</a></span>
@@ -30,12 +31,7 @@ OK for me to do either of these things?
 <span class="date">(2009-08-20)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_529.html#post-summary-hh-529">hh/529</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_529.html#post-summary-hh-538">hh/538</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Should I temper with your commits, and you will ask if you don't
-&gt; understand the reason of a change, or should I write you all the time
-&gt; in email if I think something should be done in a better way? Or is it
-&gt; OK for me to do either of these things?
-</span></span>
-I think if it's important (e.g. you warn me about bad style), write an
+<pre class="post-body-content">I think if it's important (e.g. you warn me about bad style), write an
 e-mail, if not, I'll ask why you changed it.
 </pre></div><!-- post-summary -->
 
@@ -47,15 +43,7 @@ e-mail, if not, I'll ask why you changed it.
 <span class="date">(2009-08-23)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_529.html#post-summary-hh-533">hh/533</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_529.html#post-summary-hh-540">hh/540</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Should I temper with your commits, and you will ask if you don't
-&gt;&gt; understand the reason of a change, or should I write you all the time
-&gt;&gt; in email if I think something should be done in a better way? Or is it
-&gt;&gt; OK for me to do either of these things?
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; I think if it's important (e.g. you warn me about bad style), write an
-&gt; e-mail, if not, I'll ask why you changed it.
-</span></span>
-I think I will restrict myself from modifying other's commits, unless
+<pre class="post-body-content">I think I will restrict myself from modifying other's commits, unless
 necessary. I have a few reasons:
 
 - It may happen very often that I think that other committers made a
@@ -75,18 +63,7 @@ necessary. I have a few reasons:
 <span class="date">(2009-08-24)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_529.html#post-summary-hh-538">hh/538</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_529.html#post-summary-hh-541">hh/541</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I think I will restrict myself from modifying other's commits, unless
-&gt; necessary. I have a few reasons:
-&gt;
-&gt; - It may happen very often that I think that other committers made a
-&gt;  mistake, when they don't, I just don't understand their reasons.
-&gt; - They may have other things that they want to change after I tell
-&gt;  them to change something.
-&gt; - They tested their modifications, so they can retest it easily. I
-&gt;  don't want to test all commits made by other people. (For example I
-&gt;  don't want to test the new download feature manually.)
-</span></span>
-These are all about code. You can alter commits though: for example
+<pre class="post-body-content">These are all about code. You can alter commits though: for example
 you can join separate commits that belong together (eg. adf3980 and
 e23aa8b (both IMAP), baf5227 and 9c73e08 (both plural)) . You could
 use interactive rebase, and mark such commits for "squish". Since the
@@ -108,7 +85,8 @@ code itself doesn't change, you can do this without redoing the tests.
 </span></span>
 I have been using this all the time for a few weeks for my own commits :)
 
-<span class="quote"><span class="quote-1">&gt; Since the code itself doesn't change, you can do this without redoing the tests.
+<span class="quote"><span class="quote-1">&gt; Since the code itself doesn't change, you can do this without
+&gt; redoing the tests.
 </span></span>
 In this very special case when I squish two commits next to each other
 into one, probably it is OK. (Not counting the problem that I have to
@@ -119,9 +97,11 @@ Even worse, sometimes there is no conflict, but some intermediate
 commits does not work properly. So when I rebased my own commits
 (interactively), I executed the tests for all commits:
 
-$ git checkout &lt;head of my working branch&gt;
-$ for i in `seq 1 10`; do ./test.py; rm *.pyc; git checkout HEAD^; done
-
+<span class="raw-block">    $ git checkout &lt;head of my working branch&gt;
+    $ for i in `seq 1 10`; do \
+          ./test.py; rm *.pyc; git checkout HEAD^; \
+      done
+</span>
 (You have to do either "rm *.pyc" or "sleep 1" after the test, because
 otherwise the pyc may not be recompiled, since the timestamp (using
 seconds) may be the same. I experienced this problem: the tests failed

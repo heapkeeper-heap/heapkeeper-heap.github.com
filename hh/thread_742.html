@@ -13,6 +13,7 @@
 <div class="post-summary" id="post-summary-hh-742">
 <span class="author">Attila Nagy</span>
 <span class="subject">Tidying up my hkrc</span>
+<span class="tags">[reviewed]</span>
 <span class="index"><a href="../hh/thread_742.html#post-summary-hh-742">&lt;hh/742&gt;</a></span>
 <span class="date">(2009-10-22)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_742.html#post-summary-hh-746">hh/746</a>, <a href="../hh/thread_742.html#post-summary-hh-hcs42_4">hh/hcs42_4</a></span>
@@ -64,14 +65,14 @@ In `index0()`, where you collect posts based on tags, you wrote this:
 </span>
 which uses:
 
-def has_tag(tags):
-    def has_tag_fun(post):
-        for tag in tags:
-            if post.has_tag(tag):
-                return True
-        return False
-    return has_tag_fun
-
+<span class="raw-block">    def has_tag(tags):
+        def has_tag_fun(post):
+            for tag in tags:
+                if post.has_tag(tag):
+                    return True
+            return False
+        return has_tag_fun
+</span>
 In my hkrc, this reads:
 
 <span class="raw-block">    ps_py = ps_all.collect.has_tag_from(('python', 'Python'))
@@ -133,9 +134,9 @@ For the same thing hkcustomlib.edit_files uses the `old_content`
 variable. If a file did not change (its old content is the same as its
 new content), it is unnecessary to call its `touch` method.
 
-<span class="quote"><span class="quote-1">&gt; == Generating indices ==
-&gt;
-&gt; It seems like you generate the indices twice (three times, actually,
+== Generating indices ==
+
+<span class="quote"><span class="quote-1">&gt; It seems like you generate the indices twice (three times, actually,
 &gt; but the third is for the generator). You have this:
 &gt;
 &gt; def gen_indices(postdb):
@@ -181,14 +182,14 @@ Thanks.
 </span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; which uses:
 &gt;
-&gt; def has_tag(tags):
-&gt;     def has_tag_fun(post):
-&gt;         for tag in tags:
-&gt;             if post.has_tag(tag):
-&gt;                 return True
-&gt;         return False
-&gt;     return has_tag_fun
-&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     def has_tag(tags):
+&gt;         def has_tag_fun(post):
+&gt;             for tag in tags:
+&gt;                 if post.has_tag(tag):
+&gt;                     return True
+&gt;             return False
+&gt;         return has_tag_fun
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; In my hkrc, this reads:
 &gt;
 </span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     ps_py = ps_all.collect.has_tag_from(('python', 'Python'))
@@ -225,9 +226,9 @@ Note: Later I want to make self._header['Tag'] a set instead of a list
 for efficiency reasons. But that can wait. I'll file an issue about
 it.
 
-<span class="quote"><span class="quote-1">&gt; == Dead code ==
-&gt;
-&gt; Your `sections1()` seems to be dead code. (Also, why 1204?)
+== Dead code ==
+
+<span class="quote"><span class="quote-1">&gt; Your `sections1()` seems to be dead code. (Also, why 1204?)
 </span></span>
 I think I made `sections1` for a very specific purpose; probably
 something was wrong with the thread of 1204 and I wanted to see only

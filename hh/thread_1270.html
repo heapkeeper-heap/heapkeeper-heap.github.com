@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Hack to avoid quotes around post IDs</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Hack to avoid quotes around post IDs</h1>
+
+
+<div class="post-box"><!-- post hh/1270 -->
+<div class="post-summary" id="post-summary-hh-1270">
+<span class="author">Attila Nagy</span>
+<span class="subject">Hack to avoid quotes around post IDs</span>
+<span class="index"><a href="../hh/thread_1270.html#post-summary-hh-1270">&lt;hh/1270&gt;</a></span>
+<span class="date">(2010-06-25)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1270.html#post-summary-hh-1272">hh/1272</a></span>
+<pre class="post-body-content">If a post's postid is an integer, we can spare two quotes when
+referring to the post, but when the id is a string that cannot be
+expressed as an integer, we have to use the quotes. E.g.:
+
+<span class="raw-block">    &gt;&gt;&gt; e(123)        # this is OK
+    &gt;&gt;&gt; e(attis123)   # not OK, NameError (no such variable)
+    &gt;&gt;&gt; e('attis123') # this is OK
+</span>
+A while ago, I had an idea to make posts with non-integer IDs
+addressable without quotes. I wasn't able to do it back then, but
+Csabi said he didn't like the idea anyway.
+
+Now, almost accidentally, I managed to do it. The idea is simple: the
+interpreter is opened into the context defined by the `hkshell_commands` dict.
+If we patch this dict to return the index as a string when there is no matching
+item, we get what we want.
+
+Just replace this line:
+
+<span class="raw-block">    hkshell_commands = {}
+</span>
+with this code:
+
+<span class="raw-block">    class DefaultingDict(dict):
+        def __missing__(self, index):
+            return index
+
+    hkshell_commands = DefaultingDict()
+</span>
+Neat, isn't it? But I took it one step further:
+
+<span class="raw-block">    class DefaultingDict(dict):
+        def __missing__(self, index):
+            return DivisableString(index)
+
+    class DivisableString(str):
+        def __div__(self, other):
+            return "%s/%s" % (self, str(other))
+
+    hkshell_commands = DefaultingDict()
+</span>
+This means that we can do this:
+
+<span class="raw-block">    &gt;&gt;&gt; e(ums/123)  # this is OK, too
+</span>
+This can also be done in the hkrc with just a little extra effort:
+
+<span class="raw-block">    class DivisableString(str):
+        def __div__(self, other):
+            return "%s/%s" % (self, str(other))
+
+    class DefaultingWrapper(dict):
+        def __getitem__(self, index):
+            return self._inner_dict.get(index, DivisableString(str(index)))
+
+        def __init__(self, inner_dict):
+            self._inner_dict = inner_dict
+
+    hkshell.hkshell_commands = DefaultingWrapper(hkshell.hkshell_commands)
+</span>
+I think I'll use this, to see if it has any serious side-effects, and, more
+generally, whether it really is a good idea after all, or not.
+
+There is one issue: we can only spare the quote if the ID is a valid
+identifier. For example, this won't work:
+
+<span class="raw-block">    &gt;&gt;&gt; e(123post)  # will not work
+</span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1272 -->
+<div class="post-summary" id="post-summary-hh-1272">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1270.html#post-summary-hh-1272">&lt;hh/1272&gt;</a></span>
+<span class="date">(2010-06-26)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1270.html#post-summary-hh-1270">hh/1270</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Nice tricks :)
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1272 -->
+</div><!-- postbox for post hh/1270 -->
+
+  </body>
+</html>
