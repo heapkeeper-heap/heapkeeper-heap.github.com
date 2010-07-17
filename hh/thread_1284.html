@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Missing mail directory causes both warning and exception</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Missing mail directory causes both warning and exception</h1>
+
+
+<div class="post-box"><!-- post hh/1284 -->
+<div class="post-summary" id="post-summary-hh-1284">
+<span class="author">Attila Nagy</span>
+<span class="subject">Missing mail directory causes both warning and exception</span>
+<span class="tags">[bug]</span>
+<span class="index"><a href="../hh/thread_1284.html#post-summary-hh-1284">&lt;hh/1284&gt;</a></span>
+<span class="date">(2010-07-16)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1284.html#post-summary-hh-1285">hh/1285</a></span>
+<pre class="post-body-content">Steps to reproduce:
+- clone a repository at the current _master
+  (d8012d74c6c9973a4f600009df4bc17f44c8b224)
+- add a hk.cfg
+- start Hk
+
+<span class="raw-block">    $ src/hk.py
+    Warning: post directory does not exists: "hh-mail/posts"
+    Traceback (most recent call last):
+      File "src/hk.py", line 39, in &lt;module&gt;
+        hkshell.main(cmdl_options, args)
+      File "/data/lab/hk/hk-dirbug/src/hkshell.py", line 1818, in main
+        options.config, options.postdb = read_postdb(cmdl_options.configfile)
+      File "/data/lab/hk/hk-dirbug/src/hkshell.py", line 1706, in read_postdb
+        postdb.read_config(configdict)
+      File "/data/lab/hk/hk-dirbug/src/hklib.py", line 1699, in read_config
+        self.add_heap(heap_id, heap_dir)
+      File "/data/lab/hk/hk-dirbug/src/hklib.py", line 1648, in add_heap
+        os.mkdir(heap_dir)
+    OSError: [Errno 2] No such file or directory: 'hh-mail/posts'
+    $
+</span>
+The lack of the first post directory gets reported first as a warning, then as
+an exception. After this, the program exits.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1285 -->
+<div class="post-summary" id="post-summary-hh-1285">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1284.html#post-summary-hh-1285">&lt;hh/1285&gt;</a></span>
+<span class="date">(2010-07-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1284.html#post-summary-hh-1284">hh/1284</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1284.html#post-summary-hh-1286">hh/1286</a></span>
+<pre class="post-body-content">To add some weirdness to this bug, if you create the missing directory:
+
+<span class="raw-block">    $ mkdir -p hh-mail/posts
+    $ src/hk.py
+    Warning: post directory does not exists: "xyz-mail"
+    Post directory has been created.
+    Warning: HTML directory does not exists: "html"
+    HTML directory has been created.
+
+    &gt;&gt;&gt;
+</span>
+the post directory for the other heap specified in the hk.cfg file gets created
+and the program starts.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1286 -->
+<div class="post-summary" id="post-summary-hh-1286">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1284.html#post-summary-hh-1286">&lt;hh/1286&gt;</a></span>
+<span class="date">(2010-07-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1284.html#post-summary-hh-1285">hh/1285</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1284.html#post-summary-hh-1287">hh/1287</a></span>
+<pre class="post-body-content">Heapkeeper thinks that the post directory and HTML directory you
+specified in the config file should be there, but if it is not there,
+it will only issue a warning and then create it. The rationale behind
+this is that this is probably what you want, but maybe you made a typo
+in the config file and wanted to use an existing directory, so the
+warning will warn you.
+
+The exception you show can be considered a bug though. I think it is
+because Heapkeeper just does an "mkdir" instead of "mkdir -p" when it
+tries to create the post directory and the HTML directory, so if the
+parent directories of those don't exist, the exception will be thrown.
+
+What do you think would be the best behaviour? Don't ever create the
+directory on the user's behalf and issue always an error message, or
+create it with "-p", or try to create without "-p" and issue an error
+only when that fails?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1287 -->
+<div class="post-summary" id="post-summary-hh-1287">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1284.html#post-summary-hh-1287">&lt;hh/1287&gt;</a></span>
+<span class="date">(2010-07-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1284.html#post-summary-hh-1286">hh/1286</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1284.html#post-summary-hh-1289">hh/1289</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Heapkeeper thinks that the post directory and HTML directory you
+&gt; specified in the config file should be there, but if it is not there,
+&gt; it will only issue a warning and then create it. The rationale behind
+&gt; this is that this is probably what you want, but maybe you made a typo
+&gt; in the config file and wanted to use an existing directory, so the
+&gt; warning will warn you.
+</span></span>
+I see.
+
+<span class="quote"><span class="quote-1">&gt; The exception you show can be considered a bug though. I think it is
+&gt; because Heapkeeper just does an "mkdir" instead of "mkdir -p" when it
+&gt; tries to create the post directory and the HTML directory, so if the
+&gt; parent directories of those don't exist, the exception will be thrown.
+</span></span>
+That's a likely explanation.
+
+<span class="quote"><span class="quote-1">&gt; What do you think would be the best behaviour? Don't ever create the
+&gt; directory on the user's behalf and issue always an error message, or
+&gt; create it with "-p", or try to create without "-p" and issue an error
+&gt; only when that fails?
+</span></span>
+Let's see the gains and losses in the two cases. User A wants to use a
+directory that is not yet there, e.g. after doing a clean install and creating
+a hk.cfg without creating the necessary directories by hand. This may be the
+case of someone who follows the tutorial improperly and skips the step where
+the directory is created. User B, on the other hand wants to use a directory
+which is already there, but made a typo.
+
+With auto-creation on:
+- User A: feels happy when finds out the directory has been created; thinks
+  it's a mature product to handle unexpected situations so gracefully; starts
+  using the program as if nothing happened,
+- User B: finds out that she made a mistake, and notices that the program tried
+  to act intelligently, though this will cost her extra effort; she does a
+  'q()', removes the directory, corrects the hk.cfg, and launches Hk again.
+
+With auto-creation off:
+- User A: finds out that the directory is missing; though admits she made a
+  mistake, she secretly wished the program would take the initiative and create
+  the directory anyway; since the program exited anyway, the only thing she has
+  to to is to create the directory, and launch again,
+- User B: notices the mistake and corrects it, then launches Hk again; may even
+  cross her mind that the program saved her a bit of effort by not creating the
+  directory (though not very likely).
+
+So, by enabling auto-creation, User A gets spared a small effort (an "mkdir"),
+while User B does to do an extra "rm -r"; this is about the same effort.
+However, User A might be a newcomer, someone who just gives the tutorial a try.
+I think we should pay attention to favoring her particular group, since if they
+give up early, we will never have any users.
+
+So considering this I would be in favor of creating the directory...
+
+The problem with "mkdir -p" is that Python doesn't support it out of the box!
+Though it wouldn't be that difficult to implement it -- thinking something like
+splitting at slashes, then for each part, add current to path_so_far then
+create path_so_far. This is a single loop, but it can fail on systems where
+there's a limit on maximum directory depth.
+
+And there's always the 3rd option: ask the user. Do we want to do it?
+
+<span class="raw-block">    $ mkdir heap-pots
+    $ src/hk.py
+    Post directory "heap-pots" does not exist. Create it [y/n]?
+</span>
+We do this at only one place, when the user does a &lt;C-d&gt; at the prompt. This
+could indeed be a slippery slope, at the bottom of which we end up asking the
+user about everything. The real threat, however, is that such questions may
+make scripts break. This is why tools include a "silent mode", which, in our
+case, could be invoked by the "--noshell" switch. However, this could lead to
+more code, more opportunity for things to break etc.
+
+...but most Unix tools would just fail with an error message and do nothing.
+
+Maybe I'll take the lazy approach here (which is very often the same as the
+KISS principle), and vote against auto-creating directories.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1289 -->
+<div class="post-summary" id="post-summary-hh-1289">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1284.html#post-summary-hh-1289">&lt;hh/1289&gt;</a></span>
+<span class="date">(2010-07-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1284.html#post-summary-hh-1287">hh/1287</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1284.html#post-summary-hh-1291">hh/1291</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; The problem with "mkdir -p" is that Python doesn't support it out of the box!
+</span></span>
+Not true [1]:
+
+<span class="raw-block">    os.makedirs(path[, mode]):
+
+        Recursive directory creation function. Like mkdir(), but makes
+        all intermediate-level directories needed to contain the leaf
+        directory.
+
+</span><span class="quote"><span class="quote-1">&gt; And there's always the 3rd option: ask the user.
+</span></span>
+Good point, I haven't thought about this possibility.
+
+<span class="quote"><span class="quote-1">&gt; We do this at only one place, when the user does a &lt;C-d&gt; at the prompt. This
+&gt; could indeed be a slippery slope, at the bottom of which we end up asking the
+&gt; user about everything. The real threat, however, is that such questions may
+&gt; make scripts break. This is why tools include a "silent mode", which, in our
+&gt; case, could be invoked by the "--noshell" switch. However, this could lead to
+&gt; more code, more opportunity for things to break etc.
+</span></span>
+Also a good point.
+
+<span class="quote"><span class="quote-1">&gt; ...but most Unix tools would just fail with an error message and do nothing.
+&gt;
+&gt; Maybe I'll take the lazy approach here (which is very often the same as the
+&gt; KISS principle), and vote against auto-creating directories.
+</span></span>
+I will think about this.
+
+[1] <a href="http://docs.python.org/library/os.html">http://docs.python.org/library/os.html</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1291 -->
+<div class="post-summary" id="post-summary-hh-1291">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1284.html#post-summary-hh-1291">&lt;hh/1291&gt;</a></span>
+<span class="date">(2010-07-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1284.html#post-summary-hh-1289">hh/1289</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1284.html#post-summary-hh-1293">hh/1293</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; Maybe I'll take the lazy approach here (which is very often the same as the
+&gt;&gt; KISS principle), and vote against auto-creating directories.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I will think about this.
+</span></span>
+OK, let's do this.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1293 -->
+<div class="post-summary" id="post-summary-hh-1293">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1284.html#post-summary-hh-1293">&lt;hh/1293&gt;</a></span>
+<span class="date">(2010-07-16)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1284.html#post-summary-hh-1291">hh/1291</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; Maybe I'll take the lazy approach here (which is very often the same as the
+&gt;&gt;&gt; KISS principle), and vote against auto-creating directories.
+</span></span><span class="quote"><span class="quote-2">&gt;&gt; I will think about this.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; OK, let's do this.
+</span></span>
+<span class="meta-text">[assign Attis]</span>
+<span class="meta-text">[effort 1]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1293 -->
+</div><!-- postbox for post hh/1291 -->
+</div><!-- postbox for post hh/1289 -->
+</div><!-- postbox for post hh/1287 -->
+</div><!-- postbox for post hh/1286 -->
+</div><!-- postbox for post hh/1285 -->
+</div><!-- postbox for post hh/1284 -->
+
+  </body>
+</html>

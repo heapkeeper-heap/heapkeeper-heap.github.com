@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Skype+VNC meeting of 2010-07-10</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Skype+VNC meeting of 2010-07-10</h1>
+
+
+<div class="post-box"><!-- post hh/1282 -->
+<div class="post-summary" id="post-summary-hh-1282">
+<span class="author">Attila Nagy</span>
+<span class="subject">Skype+VNC meeting of 2010-07-10</span>
+<span class="index"><a href="../hh/thread_1282.html#post-summary-hh-1282">&lt;hh/1282&gt;</a></span>
+<span class="date">(2010-07-13)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1282.html#post-summary-hh-1294">hh/1294</a></span>
+<pre class="post-body-content">On 2010-07-10, we had a Skype+VNC discussion session. The goal of the
+meeting was to share thoughts on the state of the code and the
+original ideas behind the code in question. After discussing some
+general questions, we started a detailed analysis of a module that we
+deemed very much in need of attention, hkcustomlib. At the end of the
+session, we briefly touched hkgen, and this is where we will continue
+our detailed analysis.
+
+This is an edited (i.e. aesthetically improved) log of the session. An
+unedited log is available upon request.
+
+== Moving all .py files to a new 'src' directory ==
+
+Recent refactoring has placed all Python code in a new "src"
+directory; this means that from now on, we can't launch Hk simply
+using "./hk.py" in the main directory, the user has to type
+"src/hk.py".  I find this ugly, but it is conceptually cleaner to have
+all py files in one place. I also raised concerns that these are not
+exactly those source files that one has e.g. in C.
+
+We came to the agreement that this will follow the general Python
+convention, and hk.py will stay where it is now, provided that we will
+go on to using easy_install, and make it possible to launch Hk with a
+simple "hk" from anywhere (the audio player and library application
+Quod Libet may be a useful example in this).
+
+== UTF-8 vs. Unicode ==
+
+We now use UTF-8 strings everywhere, even in hkweb, even though the
+web input (query parameters) come in Unicode objects.
+
+We will probably keep it this way until we go to Python 3.0, because
+that handles Unicode differently so the Unicode handing of Hk has to
+be revisited when we change to Python 3.0 anyway.
+
+== IMAP improvements ==
+
+AP: Attis will finish the patches concerning IMAP improvements, then
+we will merge it into the code. Afterwards we can extract the email
+downloader class into a separate module.
+
+== Simplification of architecture ==
+
+The original aim of hkcustomlib is largely superfluous. The individual
+parts of this module are reconsidered for removal or refactoring into
+other modules.  gen_indices is superfluous, its body could be the new
+body of hkshell.g() default_editor() could go to hkshell entirely.
+exception IncorrectEditorException goes to hkshell.  All other editor
+handling mechanism goes to hkshell as well.
+
+Note: if you remove everything from hkcustomlib and remove it, delete
+it from doc/architectures.rst too.
+
+== Analysis of file editing mechanism ==
+
+We have a quite complex mechanism that finds the ideal editor command.
+It takes into account the EDITOR variable, the system, available
+programs etc. More info on this: <a href="../hh/thread_580.html#post-summary-hh-580">heap://hh/580</a>
+
+A major issue was the parsing of the EDITOR variable w.r.t. spaces.
+hkcustomlib.edit_files if the entry point of this mechanism; now it is
+a callback. old_content dict is used to detect which files were really
+changed. This may cause problems with extremely huge files, but it is
+unlikely.  The alternate approach would be watching the files' FS
+timestamps.
+
+AP Attis: In edit_files(), two env variables and a function's return
+value are examined in turn for the editor. This could be done using
+the "or" operator's special behavior like this:
+
+<span class="raw-block">    editor = os.getenv('HK_EDITOR') or os.getenv('EDITOR') ...
+</span>
+AP Attis: rename editor_to_editor_list() to parse_editor_variable().
+
+Note: don't forget to do the same in the test module and run the test
+afterwards.
+
+Sometimes, editors need complicated arguments, e.g. Vim commands,
+which may contain spaces without making it two separate arguments,
+like these:
+
+<span class="raw-block">    gvim -c 'setf mail'
+
+    gvim -c setf\ mail
+</span>
+In these cases, we escape such spaces with a backslash, so Hk is
+launched like this:
+
+<span class="raw-block">    EDITOR="gvim -c setf\ mail" src/hk.py
+</span>
+The remaining part of this mechanism decides a safe default editor to
+use without an env variable.
+
+This is the end of hkcustomlib's analysis.
+
+== Analyzing hkgen ==
+
+GeneratorOptions should be in hkgen (now it is in hklib as this is
+where the old Generator lived).
+
+Currently, the Generator class generates static HTML output in itself,
+and hkweb's generator builds on it. It would be nicer to have a
+smaller Generator base class that knows only what is common in static
+and hkweb output, and the static and hkweb generator would subclass
+this base class.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1294 -->
+<div class="post-summary" id="post-summary-hh-1294">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1282.html#post-summary-hh-1294">&lt;hh/1294&gt;</a></span>
+<span class="date">(2010-07-17)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1282.html#post-summary-hh-1282">hh/1282</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">I propose adding a "minutes" tag to the thread [1].
+
+<span class="quote"><span class="quote-1">&gt; I find this ugly, but it is conceptually cleaner to have all py
+&gt; files in one place. I also raised concerns that these are not
+&gt; exactly those source files that one has e.g. in C.
+</span></span>
+I think that when we write meeting minutes [1], we should not use
+first person singular. You should say "Attis finds this ugly", even if
+you are Attis.
+
+== UTF-8 vs. Unicode ==
+
+<span class="quote"><span class="quote-1">&gt; We now use UTF-8 strings everywhere, even in hkweb, even though the
+&gt; web input (query parameters) come in Unicode objects.
+&gt;
+&gt; We will probably keep it this way until we go to Python 3.0, because
+&gt; that handles Unicode differently so the Unicode handing of Hk has to
+&gt; be revisited when we change to Python 3.0 anyway.
+</span></span>
+We forgot to mention here what is the real problem with UTF-8. I
+propose appending the following sentences to the first paragraph:
+
+<span class="raw-block">    A more serious problem with UTF-8 strings is that they are indexed
+    differently than unicode objects. For example the regular
+    experssion "sof.r" will match the "sof?r" unicode object, but will
+    not match the "sof?r" UTF-8 encoded string, since the latter one
+    handles "?" as two characters instead of one.
+</span>
+== Simplification of architecture ==
+
+<span class="quote"><span class="quote-1">&gt; [...] of hkshell.g() default_editor() could go to hkshell entirely.
+&gt; exception IncorrectEditorException goes to hkshell.
+</span></span>
+"exception" should begin with capital "E".
+
+== Analysis of file editing mechanism ==
+
+<span class="quote"><span class="quote-1">&gt; hkcustomlib.edit_files if the entry point of this mechanism;
+</span></span>
+"if" -&gt; "is"
+
+<span class="quote"><span class="quote-1">&gt; In these cases, we escape such spaces with a backslash, so Hk is
+&gt; launched like this:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    EDITOR="gvim -c setf\ mail" src/hk.py
+</span></span></span>
+I think one of these would be better:
+
+<span class="raw-block">    EDITOR='gvim -c setf\ mail' src/hk.py
+    EDITOR="gvim -c setf\\ mail" src/hk.py
+</span>
+The one you wrote will probably work, too, but it is conceptually not
+very nice to give "\ " to the shell, since the backslash character in
+Unix shells should be followed by a character to be escaped. (And in
+"normal" programming languages, it "must be followed" instead of
+"should be followed".) Here nothing will be escaped on the shell
+level, the shell will just give a backslash and a space to Heapkeeper.
+
+[1] <a href="http://en.wikipedia.org/wiki/Minutes">http://en.wikipedia.org/wiki/Minutes</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1294 -->
+</div><!-- postbox for post hh/1282 -->
+
+  </body>
+</html>
