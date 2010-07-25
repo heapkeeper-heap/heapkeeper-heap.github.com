@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>"Stars" not updated when first subject changes via hkweb</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">"Stars" not updated when first subject changes via hkweb</h1>
+
+
+<div class="post-box"><!-- post hh/1303 -->
+<div class="post-summary" id="post-summary-hh-1303">
+<span class="author">Attila Nagy</span>
+<span class="subject">"Stars" not updated when first subject changes via hkweb</span>
+<span class="tags">[bug]</span>
+<span class="index"><a href="../hh/thread_1303.html#post-summary-hh-1303">&lt;hh/1303&gt;</a></span>
+<span class="date">(2010-07-19)</span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Suppose we have this thread in hkweb:
+
+<span class="raw-block">    Attis   Lorem ipsum  &lt;test/1&gt;
+        Attis   -           &lt;test/2&gt;
+            Attis   -           &lt;test/3&gt;
+</span>
+The "-" stands for that em dash character that substitutes for the
+subject iff it is the same as that of the parent. (This is called
+"star" in the source, as it used to be an asterisk in the output.)
+
+Now if we edit &lt;test/1&gt; via Hkweb's "Edit raw post" feature, and
+change the subject to something else, then save it, the "-" characters
+remain there, suggesting that those posts' subjects also changed, but
+this is not true, which is clear once the page is reloaded.
+
+A possible solution: stars could be removed, and a new element could
+be introduced, which contains an invisible em dash and a visible
+subject. Then, Javascript would be used to hide the subject and show
+the dash when the subject is identical to that of the parent. This
+would be re-checked for every child after every editing a post.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1303 -->
+
+  </body>
+</html>

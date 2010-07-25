@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Savings posts with loaded with warnings in a list or dict</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Savings posts with loaded with warnings in a list or dict</h1>
+
+
+<div class="post-box"><!-- post hh/1301 -->
+<div class="post-summary" id="post-summary-hh-1301">
+<span class="author">Attila Nagy</span>
+<span class="subject">Savings posts with loaded with warnings in a list or dict</span>
+<span class="tags">[feature, idea]</span>
+<span class="index"><a href="../hh/thread_1301.html#post-summary-hh-1301">&lt;hh/1301&gt;</a></span>
+<span class="date">(2010-07-19)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1301.html#post-summary-hh-1302">hh/1302</a></span>
+<pre class="post-body-content">I rebased an earlier set of tidying modifications on our current head
+of the repository. This contains posts with the obsolete "References:"
+header. When the post database is loaded, this generates a series of
+warnings.
+
+However, when I want to tidy these posts up, I have to scroll back to
+these warnings and type the IDs of the posts manually in order to edit
+them, which is a boring and error-prone task.
+
+It would be much nicer if the list of posts causing loading errors
+would be retained in a list, so tidying up all the offensive posts
+would be as simple as
+
+<span class="raw-block">    &gt;&gt;&gt; e(import_error)
+</span>
+or something similar.
+
+A possible improvement: instead of a list, we could have a dict that
+would assign the offending posts to the names of the errors they
+contain, so "import_error" would look like this:
+
+<span class="raw-block">    {
+        'unknown_header': [&lt;hh/123&gt;, &lt;hh/456&gt;],
+        'encoding_error': [&lt;hh/789&gt;]
+    }
+</span>
+Do you think this would be helpful? If yes, which form do you prefer?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1302 -->
+<div class="post-summary" id="post-summary-hh-1302">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1301.html#post-summary-hh-1302">&lt;hh/1302&gt;</a></span>
+<span class="date">(2010-07-19)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1301.html#post-summary-hh-1301">hh/1301</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Do you think this would be helpful?
+</span></span>
+Probably yes.
+
+Although there is an easy workaround: copy-paste all warnings on the
+terminal into an advanced editor, and with a few keystrokes you will
+be able to make something like this:
+
+<span class="raw-block">    e = ps([
+        'hh/123',
+        'hh/456',
+        'hh/567',
+    ])
+</span>
+which you can just paste into the terminal and got the list.
+
+If you have so many error messages that copy-paste is not convenient,
+you can of course do something like
+
+<span class="raw-block">    python src/hk.py 'q()' 2&gt;&amp;1 1&gt;errors.txt
+</span>
+and edit errors.txt.
+
+<span class="quote"><span class="quote-1">&gt; If yes, which form do you prefer?
+</span></span>
+The latter form. If we implement the former, I think we will soon want
+to distinguish between the error types. Also, the above workaround
+does not really work if we want to make this distinction; so the
+desire to have this distinction is a good reason for implementing this
+feature within Heapkeeper.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1302 -->
+</div><!-- postbox for post hh/1301 -->
+
+  </body>
+</html>

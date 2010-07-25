@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Refactorings after v0.7</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Refactorings after v0.7</h1>
+
+
+<div class="post-box"><!-- post hh/1295 -->
+<div class="post-summary" id="post-summary-hh-1295">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Refactorings after v0.7</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1295.html#post-summary-hh-1295">&lt;hh/1295&gt;</a></span>
+<span class="date">(2010-07-17)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1295.html#post-summary-hh-1296">hh/1296</a></span>
+<pre class="post-body-content">As we agreed in <a href="../hh/thread_1222.html#post-summary-hh-1222">heap://hh/1222</a>, we shall perform perform larger
+refactorings very soon after releasing a new Heapkeeper version.
+
+The current plans for refactoring after releasing v0.7 are the
+following:
+
+1. Creating a hkemail module and moving hklib.EmailDownloader there.
+   (See also: <a href="../hh/thread_1027.html#post-summary-hh-1027">heap://hh/1027</a>; left over from <a href="../hh/thread_1223.html#post-summary-hh-1223">heap://hh/1223</a>.)
+2. Moving all code from hkcustomlib to hkshell and removing
+   hkcustomlib. (See also: <a href="../hh/thread_1282.html#post-summary-hh-1282">heap://hh/1282</a>)
+3. Moving hklib.GeneratorOptions into hkgen. (See also: <a href="../hh/thread_1282.html#post-summary-hh-1282">heap://hh/1282</a>)
+4. Splitting hkgen.Generator into a superclass and a subclass. The
+   superclass would know "only what is common in static and hkweb
+   output"; the rest would go into the subclass. (See also:
+   <a href="../hh/thread_1282.html#post-summary-hh-1282">heap://hh/1282</a>)
+5. Creating a hkconfig module and moving the functions that handle the
+   configuration dictionary from hklib here.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1296 -->
+<div class="post-summary" id="post-summary-hh-1296">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1295.html#post-summary-hh-1296">&lt;hh/1296&gt;</a></span>
+<span class="date">(2010-07-17)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1295.html#post-summary-hh-1295">hh/1295</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">OK. Point 5 is a bit broad though, maybe we should discuss the specifics.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1296 -->
+</div><!-- postbox for post hh/1295 -->
+
+  </body>
+</html>

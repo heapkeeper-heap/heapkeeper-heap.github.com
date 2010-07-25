@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Empty tags are supported</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Empty tags are supported</h1>
+
+
+<div class="post-box"><!-- post hh/1304 -->
+<div class="post-summary" id="post-summary-hh-1304">
+<span class="author">Attila Nagy</span>
+<span class="subject">Empty tags are supported</span>
+<span class="tags">[bug, idea]</span>
+<span class="index"><a href="../hh/thread_1304.html#post-summary-hh-1304">&lt;hh/1304&gt;</a></span>
+<span class="date">(2010-07-19)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1304.html#post-summary-hh-1305">hh/1305</a></span>
+<pre class="post-body-content">Empty tags are supported. The only problem with this is that a post
+with a single empty tag is indistinguishable from one with no tags in
+the HTML output.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1305 -->
+<div class="post-summary" id="post-summary-hh-1305">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1304.html#post-summary-hh-1305">&lt;hh/1305&gt;</a></span>
+<span class="date">(2010-07-20)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1304.html#post-summary-hh-1304">hh/1304</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1304.html#post-summary-hh-1306">hh/1306</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Empty tags are supported.
+</span></span>
+Do you mean that we support the empty string being used as a tag?
+
+<span class="quote"><span class="quote-1">&gt; The only problem with this is that a post with a single empty tag is
+&gt; indistinguishable from one with no tags in the HTML output.
+</span></span>
+I don't think people should use the empty tag. Although you may have
+the concern that a post file may get an empty tag by accident, which
+will not be apparent for the maintainer who uses the hkweb. (The
+problem reminds me to the situation when for example "Makefile"
+becomes "MAKEFILE" when worked on by a Windows user, but the problem
+will be apparent only when a Unix user gets a copy of the source
+code and tries to work on it.)
+
+I see the following options:
+1. Show the empty tag specially in the HTML output.
+2. Don't allow the empty tag. This means throwing an exception or a
+   warning when parsing a post file with an empty tag, and/or
+   modifying Post.set_tags to check for this.
+3. Do nothing.
+
+I don't really like either of these.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1306 -->
+<div class="post-summary" id="post-summary-hh-1306">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1304.html#post-summary-hh-1306">&lt;hh/1306&gt;</a></span>
+<span class="date">(2010-07-20)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1304.html#post-summary-hh-1305">hh/1305</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1304.html#post-summary-hh-1307">hh/1307</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I see the following options:
+&gt; 1. Show the empty tag specially in the HTML output.
+&gt; 2. Don't allow the empty tag. This means throwing an exception or a
+&gt;   warning when parsing a post file with an empty tag, and/or
+&gt;   modifying Post.set_tags to check for this.
+&gt; 3. Do nothing.
+&gt;
+&gt; I don't really like either of these.
+</span></span>
+But with point 3 included, I don't think there's another option.
+
+The really nasty thing about this is that this situation was caused by
+an `rTr()` command! Unfortunately I couldn't reproduce it. It may be
+useful to analyse the situation backwards: find the conditions under
+which `rTr
+()` leads to the addition of an empty tag. (I have some bad feelings
+about this approach, though -- either that it won't work, or that it'd
+be insanely difficult.)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1307 -->
+<div class="post-summary" id="post-summary-hh-1307">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1304.html#post-summary-hh-1307">&lt;hh/1307&gt;</a></span>
+<span class="date">(2010-07-20)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1304.html#post-summary-hh-1306">hh/1306</a></span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1304.html#post-summary-hh-1308">hh/1308</a></span>
+<pre class="post-body-content">Do you say that the rTr command added an empty tag to a post without
+the root having the empty tag?
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1308 -->
+<div class="post-summary" id="post-summary-hh-1308">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1304.html#post-summary-hh-1308">&lt;hh/1308&gt;</a></span>
+<span class="date">(2010-07-20)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1304.html#post-summary-hh-1307">hh/1307</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Do you say that the rTr command added an empty tag to a post without
+&gt; the root having the empty tag?
+</span></span>
+All I know is that the empty tag was added after an rTr command, but
+now that you mention it, the root probably didn't receive the empty
+tag, but all the children did.
+
+I really should have preserved the state of the heap after the
+operation, maybe it could have been helpful.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1308 -->
+</div><!-- postbox for post hh/1307 -->
+</div><!-- postbox for post hh/1306 -->
+</div><!-- postbox for post hh/1305 -->
+</div><!-- postbox for post hh/1304 -->
+
+  </body>
+</html>

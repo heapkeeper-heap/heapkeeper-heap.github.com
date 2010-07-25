@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>"on the heap" or "in the heap"</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">"on the heap" or "in the heap"</h1>
+
+
+<div class="post-box"><!-- post hh/1316 -->
+<div class="post-summary" id="post-summary-hh-1316">
+<span class="author">Csaba Hoch</span>
+<span class="subject">"on the heap" or "in the heap"</span>
+<span class="index"><a href="../hh/thread_1316.html#post-summary-hh-1316">&lt;hh/1316&gt;</a></span>
+<span class="date">(2010-07-23)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1316.html#post-summary-hh-1317">hh/1317</a></span>
+<pre class="post-body-content">Which one do you think is correct:
+- There are two posts on the heap.
+- There are two posts in the heap.
+
+I use both of these, but it would be better to choose one of them and
+stick to that.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1317 -->
+<div class="post-summary" id="post-summary-hh-1317">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1316.html#post-summary-hh-1317">&lt;hh/1317&gt;</a></span>
+<span class="date">(2010-07-23)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1316.html#post-summary-hh-1316">hh/1316</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Which one do you think is correct:
+&gt; - There are two posts on the heap.
+&gt; - There are two posts in the heap.
+</span></span>
+I think this is a conflict between the original meaning of the word
+and the new one that we created.
+
+And it's not even that simple. A real-world heap behaves a bit like a
+stack. You can only put things "on" it, but things might be "on" it
+(if it's not yet covered by other items), or "in" it (if it is).
+
+Talking about stacks, the data structures, we can also say that
+something is "on the stack", which, at least to me, seems to suggest
+that it's been recently pushed, or we can say that something is
+"stored in the stack", which suggests that it may be anywhere, not
+necessarily near the top.
+
+I don't think we need to make this distinction with heaps. Heaps are
+mailing list archives. Things are *in* an archive, not *on* them. But
+I think we should say that both forms are correct, with "in the heap"
+being the preferred form.
+
+What do you think?
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1317 -->
+</div><!-- postbox for post hh/1316 -->
+
+  </body>
+</html>

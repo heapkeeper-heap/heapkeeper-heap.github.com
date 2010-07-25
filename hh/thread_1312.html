@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Using hkweb and hkshell in parallel: reasons to switch back to terminal</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Using hkweb and hkshell in parallel: reasons to switch back to terminal</h1>
+
+
+<div class="post-box"><!-- post hh/1312 -->
+<div class="post-summary" id="post-summary-hh-1312">
+<span class="author">Attila Nagy</span>
+<span class="subject">Using hkweb and hkshell in parallel: reasons to switch back to terminal</span>
+<span class="index"><a href="../hh/thread_1312.html#post-summary-hh-1312">&lt;hh/1312&gt;</a></span>
+<span class="date">(2010-07-23)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1312.html#post-summary-hh-1318">hh/1318</a></span>
+<pre class="post-body-content">I have been using hkweb to maintain our private heap for a while now,
+and it is a great help - it makes the task much more "visual".
+However, until we can do everything from within hkweb, it remains a
+nuisance to have to switch between the terminal and the web browser.
+
+Your reasons for having switching to the terminal vary with your
+editing style; for me, these are the most common causes, roughly in
+this order:
+- splitting posts,
+- adding tags recursively,
+- propagating subjects,
+- deleting posts.
+
+It may be worthy to implement a way of accessing these functions
+right in hkweb, so that the time lost changing to hkshell and back
+could be minimal.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1318 -->
+<div class="post-summary" id="post-summary-hh-1318">
+<span class="author">Attila Nagy</span>
+<span class="subject">Implementing post splitting</span>
+<span class="tags">[+feature, +idea]</span>
+<span class="index"><a href="../hh/thread_1312.html#post-summary-hh-1318">&lt;hh/1318&gt;</a></span>
+<span class="date">(2010-07-24)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1312.html#post-summary-hh-1312">hh/1312</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Splitting posts in hkweb is the feature that would save the most time
+in hkweb, but it seems to be a somewhat demanding task to implement.
+
+Splitting posts means adding a new post, then editing the old and new
+post at the same time, then saving both. Of these steps, only the
+first one is missing at the moment.
+
+A naive "add post" feature might be implemented as a button, labeled
+"add child". Clicking this button would add a new child to the post in
+question, which would start in editing mode at once. Clicking "save"on
+this box would result in the creation of a post, while clicking
+"cancel" would dismiss the box while leave the post database intact.
+
+With this working, we could do all our post splitting in hkweb, but
+there is at least one disadvantage: the created new box might be very
+far from the post to split!
+
+Suppose this is our thread structure:
+
+<span class="raw-block">    &lt;1&gt; Root post
+        &lt;2&gt; Main topic; side topic
+            &lt;3&gt; Main topic continued
+                &lt;4&gt; Main topic continued
+                    &lt;5&gt; Main topic continued
+                        &lt;6&gt; Main topic continued
+</span>
+We want to split the side topic in "2" into a new subthread. So, we want
+to add a new child to "1" (that is, a sibling to "2"). If this gets added
+as the "newest child" to "1", then post "3", "4" and "5" will separate "2" and
+its new siblings, which is bad, since we want to transfer text between
+them. Posts "3", "4" and "5" can be folded to minimize the separation, and
+this could even be done automatically. I think this is a valid way to
+handle splitting, and it is definitely the easiest to implement,
+though probably not the most elegant one.
+
+A side note: we should add an "add sibling" function beside an "add
+child". If "1" has another child, or more of them, which all come after
+"2" in the thread view, after using "add new child" on post "1", the new
+post will be placed after all of them, adding to the visual separation. If
+we use "add sibling" on post "2", the program can be smart enough to
+put the new post after the children of "2", and before any other child
+of "1", with a probably much smaller visual separation between the old
+and new post. (This function does not even need its own button: it
+could be added to the button of "add child", but accessed while
+pressing Shift; the availability of this function could be indicated
+in mouseover text.)
+
+Cutting the Gordian Knot of separation between the to-be-split post and
+its new sibling could be solved by placing the new post before the old
+one. This would guarantee that however long and convoluted the tree of
+descendants of the original post may be, the new post will always be
+next to the old one, and transfering text between them will be readily
+possible without scrolling on the page. However, at least to me,
+moving text upwards to a new post seems counter-intuitive; I expect
+newer things to be downwards.
+
+The Holy Grail solution to this would be representing the splitting of
+the post as a vertical split on the screen. What makes this approach
+ultimately different is that it requires a page layout that is not
+yet supported: (at least) two posts displayed side-by side. An
+impression of how this look like while the split is being made (with
+only the relevant part displayed in detail):
+
+<span class="raw-block">    &lt;1&gt; Root post
+        &lt;2&gt; Main topic             | &lt;7&gt; Side topic
+          |Save| |Cancel|          |   |Save| |Cancel|
+        +------------------------+ | +----------------------+
+        | Main topic being       | | | Side topic has been  |
+        | edited here...         | | | copied here...       |
+        +------------------------+ | +----------------------+
+            &lt;3&gt; Main topic continued
+                &lt;4&gt; Main topic continued
+                    &lt;5&gt; Main topic continued
+                        &lt;6&gt; Main topic continued
+</span>
+There are two ways to accomplish this: one is to have a document tree
+identical to the ones we generated so far, and have CSS narrow down
+one post's box, and place the other one next to it. I am not a CSS
+expert, so even if there is be a safe, easy and browser-independent
+way of accomplishing this, unfortunately, I don't know it. In my
+experience, such solutions are the sources of misery.
+
+The other solution is probably much more robust: it involves creating
+a table with only one row and two columns, and putting the old post's
+box into the left cell, and the right one's box into the right cell.
+Right now, I don't know enough JS (or jQuery) to do this, but this
+should be possible.
+
+From then on, we edit these two posts just as we normally would. This
+means that no new code is needed on the server side, only in the
+client.
+
+One small problem remains: when we split a post, the new post file
+needs a file name. `enew()` has a mechanism that can find the next
+numbered filename with a given prefix. In the first version of the
+implementation, I plan adding a setting that selects the prefix to
+use. This setting could then conveniently be set in one's hkrc.
+
+I think it would be best to implement this feature as a plugin. This
+would allow for more flexibility as possibly not every user needs this
+feature.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1318 -->
+</div><!-- postbox for post hh/1312 -->
+
+  </body>
+</html>

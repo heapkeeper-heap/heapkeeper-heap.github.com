@@ -13,15 +13,15 @@
 <div class="post-summary" id="post-summary-hh-939">
 <span class="author">Attila Nagy</span>
 <span class="subject">Test case for sorted_list may be insufficient</span>
-<span class="tags">[issue, test]</span>
+<span class="tags">[issue, reviewed, test]</span>
 <span class="index"><a href="../hh/thread_939.html#post-summary-hh-939">&lt;hh/939&gt;</a></span>
 <span class="date">(2009-11-15)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_939.html#post-summary-hh-940">hh/940</a></span>
-<pre class="post-body-content"><span class="meta-text">[!todo break thread]</span>
-
-I think the test case `Test_PostSet__threads.test_sorted_list` is a no-op.
+<pre class="post-body-content">I think the test case `Test_PostSet__threads.test_sorted_list` is a no-op.
 
 <span class="meta-text">[open]</span>
+
+<span class="meta-text">[note Original parent: </span><span class="meta-text"><a href="../hh/thread_733.html#post-summary-hh-938">heap://hh/938</a></span><span class="meta-text">]</span>
 </pre></div><!-- post-summary -->
 
 <div class="post-box"><!-- post hh/940 -->
@@ -32,14 +32,7 @@ I think the test case `Test_PostSet__threads.test_sorted_list` is a no-op.
 <span class="date">(2009-11-15)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_939.html#post-summary-hh-939">hh/939</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_939.html#post-summary-hh-941">hh/941</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; [!todo break thread]
-</span></span>
-It is broken for me... But since we want a reference for the former
-parent, could you write it down?
-
-<span class="quote"><span class="quote-1">&gt; I think the test case `Test_PostSet__threads.test_sorted_list` is a no-op.
-</span></span>
-What do you mean by no-op?
+<pre class="post-body-content">What do you mean by no-op?
 </pre></div><!-- post-summary -->
 
 <div class="post-box"><!-- post hh/941 -->
@@ -50,22 +43,7 @@ What do you mean by no-op?
 <span class="date">(2009-11-15)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_939.html#post-summary-hh-940">hh/940</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_939.html#post-summary-hh-942">hh/942</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; [!todo break thread]
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; It is broken for me...
-</span></span>
-GMail again...
-
-<span class="quote"><span class="quote-1">&gt; But since we want a reference for the former
-&gt; parent, could you write it down?
-</span></span>
-It is the post where I said I implemented post sorting.
-
-<span class="quote"><span class="quote-2">&gt;&gt; I think the test case `Test_PostSet__threads.test_sorted_list` is a no-op.
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; What do you mean by no-op?
-</span></span>
-It doesn't depend on the sorting that it claims to be testing. If the
+<pre class="post-body-content">It doesn't depend on the sorting that it claims to be testing. If the
 sorting does nothing, it still passes, at least that's what I think.
 </pre></div><!-- post-summary -->
 
@@ -77,13 +55,7 @@ sorting does nothing, it still passes, at least that's what I think.
 <span class="date">(2009-11-15)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_939.html#post-summary-hh-941">hh/941</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_939.html#post-summary-hh-1028">hh/1028</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; I think the test case `Test_PostSet__threads.test_sorted_list` is a no-op.
-</span></span><span class="quote"><span class="quote-2">&gt;&gt; What do you mean by no-op?
-</span></span><span class="quote"><span class="quote-1">&gt;
-&gt; It doesn't depend on the sorting that it claims to be testing. If the
-&gt; sorting does nothing, it still passes, at least that's what I think.
-</span></span>
-It tests that if you sort an already sorted list (self._posts), the
+<pre class="post-body-content">It tests that if you sort an already sorted list (self._posts), the
 resulted list will be the same as the original list.
 
 The code:
@@ -119,10 +91,7 @@ a decent test. I will close this issue when I committed this.
 <span class="date">(2010-02-08)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_939.html#post-summary-hh-1028">hh/1028</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_939.html#post-summary-hh-1107">hh/1107</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; During the implementation of the "multiple heaps" feature, I wrote
-&gt; a decent test. I will close this issue when I committed this.
-</span></span>
-Since you've committed and pushed it, I think you can close this.
+<pre class="post-body-content">Since you've committed and pushed it, I think you can close this.
 </pre></div><!-- post-summary -->
 
 <div class="post-box"><!-- post hh/1107 -->

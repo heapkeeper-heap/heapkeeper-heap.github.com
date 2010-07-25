@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Creating a hkconfig module</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Creating a hkconfig module</h1>
+
+
+<div class="post-box"><!-- post hh/1300 -->
+<div class="post-summary" id="post-summary-hh-1300">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Creating a hkconfig module</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1300.html#post-summary-hh-1300">&lt;hh/1300&gt;</a></span>
+<span class="date">(2010-07-18)</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1300.html#post-summary-hh-1311">hh/1311</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; 5. Creating a hkconfig module and moving the functions that handle the
+&gt;&gt;    configuration dictionary from hklib here.
+</span></span>
+<span class="quote"><span class="quote-1">&gt; OK. Point 5 is a bit broad though, maybe we should discuss the specifics.
+</span></span>
+I meant moving the functions that convert the config dictionary
+created from the config files by ConfigParser into our unified config
+dictionary format:
+
+- unify_config
+- unify_format_1
+- convert_nicknames_f12_to_f3
+- convert_heaps_f2_to_f3
+- unify_format_2
+- unify_nicknames
+- unify_server
+- unify_format_3
+
+The methods that read values from the configuration dictionary would
+stay as they are now.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1311 -->
+<div class="post-summary" id="post-summary-hh-1311">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1300.html#post-summary-hh-1311">&lt;hh/1311&gt;</a></span>
+<span class="date">(2010-07-23)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1300.html#post-summary-hh-1300">hh/1300</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-3">&gt;&gt;&gt; 5. Creating a hkconfig module and moving the functions that handle the
+&gt;&gt;&gt;    configuration dictionary from hklib here.
+</span></span><span class="quote"><span class="quote-2">&gt;&gt; OK. Point 5 is a bit broad though, maybe we should discuss the specifics.
+</span></span>
+Sorry, I misunderstood you. I didn't realize what you meant by "the
+configuration dictionary". I thought you mean the options of hkshell.
+Of course they aren't defined or handled in hklib, so I should have
+paid more attention when reading your post.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1311 -->
+</div><!-- postbox for post hh/1300 -->
+
+  </body>
+</html>

@@ -13,11 +13,11 @@
 <div class="post-summary" id="post-summary-hh-881">
 <span class="author">Attila Nagy</span>
 <span class="subject">The openness algorithm of the issue tracker</span>
-<span class="tags">[discussion]</span>
+<span class="tags">[discussion, reviewed]</span>
 <span class="index"><a href="../hh/thread_881.html#post-summary-hh-881">&lt;hh/881&gt;</a></span>
 <span class="date">(2009-11-07)</span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_881.html#post-summary-hh-908">hh/908</a></span>
-<pre class="post-body-content"><span class="meta-text">[!note I think we've already had a discussion on this, but I don't
+<pre class="post-body-content"><span class="meta-text">[note I think we've already had a discussion on this, but I don't
 remember any details.]</span>
 
 <span class="raw-block">    def is_open(root):
@@ -185,7 +185,7 @@ This is not handled as expected.
 <span class="date">(2009-11-11)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_881.html#post-summary-hh-881">hh/881</a></span>
 <span class="container-button post-summary-button">Children: <a href="../hh/thread_881.html#post-summary-hh-913">hh/913</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; [!note I think we've already had a discussion on this, but I don't
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; [note I think we've already had a discussion on this, but I don't
 &gt; remember any details.]
 </span></span>
 See <a href="../hh/thread_222.html#post-summary-hh-222">heap://hh/222</a>
@@ -215,10 +215,10 @@ This is the current code (_hcs branch, issue_tracker.py:363):
             elif 'close' in post.meta_dict():
                 openness -= 1
         return openness &gt; 0
+</span>
+== #4: One issue split and one part resolved ==
 
-</span><span class="quote"><span class="quote-1">&gt; == #4: One issue split and one part resolved ==
-&gt;
-</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;     &lt;1&gt; Attis Bug found \[bug\]
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;     &lt;1&gt; Attis Bug found \[bug\]
 &gt;     Doing X causes errors during index generation.
 &gt;     \[open\]
 &gt;
@@ -264,15 +264,15 @@ If the author of post &lt;7&gt; wanted to reopen the ticket (or make it more
 open if he composed it before receiving &lt;6&gt;), then he should have
 write an "open" tag into it.
 
-<span class="raw-block">         &lt;7&gt; Attis Bug B \[bug\]
+<span class="raw-block">    &lt;7&gt; Attis Bug B \[bug\]
 
-         [open]
+    [open]
 
-         Bug A _also_ affects module N.
+    Bug A _also_ affects module N.
+</span>
+== #4: Proposal with "open" tag ==
 
-</span><span class="quote"><span class="quote-1">&gt; == #4: Proposal with "open" tag ==
-&gt;
-&gt; A user who is not familiar with this algorithm may add an "open" tag
+<span class="quote"><span class="quote-1">&gt; A user who is not familiar with this algorithm may add an "open" tag
 &gt; to a proposal, resulting in a double-open state that has to be closed
 &gt; twice, like this:
 &gt;
@@ -296,18 +296,18 @@ guess that's what you propose.
 
 It's not difficult to do if we want it:
 
-<span class="raw-block">    def is_thread_open(self, root):
-        openness = 0
-        if (root.has_tag('prop') or root.has_tag('issue') or
-            root.has_tag('bug') or root.has_tag('feature')):
-            openness += 1
-        for post in self._postdb.postset(root).expf():
- -          if 'open' in post.meta_dict():
- +          if 'open' in post.meta_dict() and post != root:
+<span class="raw-block">        def is_thread_open(self, root):
+            openness = 0
+            if (root.has_tag('prop') or root.has_tag('issue') or
+                root.has_tag('bug') or root.has_tag('feature')):
                 openness += 1
-            elif 'close' in post.meta_dict():
-                openness -= 1
-        return openness &gt; 0
+            for post in self._postdb.postset(root).expf():
+    -           if 'open' in post.meta_dict():
+    +           if 'open' in post.meta_dict() and post != root:
+                    openness += 1
+                elif 'close' in post.meta_dict():
+                    openness -= 1
+            return openness &gt; 0
 </span>
 If that's your proposal, I support it because maybe some threads have
 for example a 'problem' tag that's not handled as an issue, but later
