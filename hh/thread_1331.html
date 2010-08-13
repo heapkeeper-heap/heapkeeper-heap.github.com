@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>IM meeting 2010-07-25</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">IM meeting 2010-07-25</h1>
+
+
+<div class="post-box"><!-- post hh/1331 -->
+<div class="post-summary" id="post-summary-hh-1331">
+<span class="author">Csaba Hoch</span>
+<span class="subject">IM meeting 2010-07-25</span>
+<span class="tags">[minutes]</span>
+<span class="index"><a href="../hh/thread_1331.html#post-summary-hh-1331">&lt;hh/1331&gt;</a></span>
+<span class="date">(2010-07-25)</span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">Present:
+- Attila Nagy
+- Csaba Hoch
+
+== Link on the index page to the search page ==
+
+Heapkeeper has a Google-like search page that contains almost only a
+search bar (localhost:8080/search). Csabi will place the search bar on
+the top of the hkweb index page, which Attis likes too. Csabi also
+wanted to put a link to the search page onto the index page so that
+the search page will not be a hidden feature. He saw two alternatives:
+
+a) Putting the link next to the search bar:
+
+<span class="raw-block">    [input form] [Search button] [Link to search page]
+</span>
+b) Creating a new section after the search bar for links like the
+   search page, Heapkeeper homepage, later a help page etc. Specific
+   heaps could extend this list, e.g. HH could link to its issue
+   tracker page (that does not exist yet).
+
+Attis's opinion on option "b" was that a customizable section would be
+useful where one can put e.g. useful links, but he did not really
+understand the purpose of the separate search page. Csabi said that
+the separate page would be useful because it would load much faster
+then the index page. Attis said that the solution to this would be to
+have the index page show only the n newest threads. Csabi accepted
+this solution.
+
+We agreed that in the short term, we would add a link section to the
+current page, which would not include the search page. Later we would
+show only the newest threads on the index page, and would have a link
+for the whole post database (which is the current index page).
+
+Csabi mentioned that the "n newest threads" is not as trivial as it
+sounds, because the "newest thread" in Heapkeeper means "the one with
+the newest root", and the index page should not display the n newest
+threads in this sense; but it should display n threads that contain
+the newest posts.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1331 -->
+
+  </body>
+</html>

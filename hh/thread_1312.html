@@ -42,7 +42,7 @@ could be minimal.
 <span class="index"><a href="../hh/thread_1312.html#post-summary-hh-1318">&lt;hh/1318&gt;</a></span>
 <span class="date">(2010-07-24)</span>
 <span class="container-button post-summary-button">Parent: <a href="../hh/thread_1312.html#post-summary-hh-1312">hh/1312</a></span>
-<span class="container-button post-summary-button">Children: -</span>
+<span class="container-button post-summary-button">Children: <a href="../hh/thread_1312.html#post-summary-hh-1329">hh/1329</a></span>
 <pre class="post-body-content">Splitting posts in hkweb is the feature that would save the most time
 in hkweb, but it seems to be a somewhat demanding task to implement.
 
@@ -145,6 +145,73 @@ I think it would be best to implement this feature as a plugin. This
 would allow for more flexibility as possibly not every user needs this
 feature.
 </pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1329 -->
+<div class="post-summary" id="post-summary-hh-1329">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1312.html#post-summary-hh-1329">&lt;hh/1329&gt;</a></span>
+<span class="date">(2010-07-25)</span>
+<span class="container-button post-summary-button">Parent: <a href="../hh/thread_1312.html#post-summary-hh-1318">hh/1318</a></span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">== "Add sibling" button ==
+
+<span class="quote"><span class="quote-1">&gt; A side note: we should add an "add sibling" function beside an "add
+&gt; child". If "1" has another child, or more of them, which all come after
+&gt; "2" in the thread view, after using "add new child" on post "1", the new
+&gt; post will be placed after all of them, adding to the visual separation. If
+&gt; we use "add sibling" on post "2", the program can be smart enough to
+&gt; put the new post after the children of "2", and before any other child
+&gt; of "1", with a probably much smaller visual separation between the old
+&gt; and new post. (This function does not even need its own button: it
+&gt; could be added to the button of "add child", but accessed while
+&gt; pressing Shift; the availability of this function could be indicated
+&gt; in mouseover text.)
+</span></span>
+I moved this discussion to another thread [1].
+
+== Splitting a post ==
+
+<span class="quote"><span class="quote-1">&gt; The Holy Grail solution to this would be representing the splitting of
+&gt; the post as a vertical split on the screen.
+</span></span>
+OK.
+
+<span class="quote"><span class="quote-1">&gt; This means that no new code is needed on the server side, only in
+&gt; the client.
+</span></span>
+Provided that we have already implemented the "add post" functionality [1]
+in the client and in the server.
+
+<span class="quote"><span class="quote-1">&gt; One small problem remains: when we split a post, the new post file
+&gt; needs a file name. `enew()` has a mechanism that can find the next
+&gt; numbered filename with a given prefix.
+</span></span>
+This is not the problem of the "splitting post" functionality but that
+of the "adding post" functionality. Since the second one is more
+basic, it should be implemented first and it should be implemented in
+the core, this problem should be discussed in a thread dedicated to
+the "adding post" feature [1].
+
+<span class="quote"><span class="quote-1">&gt; In the first version of the implementation, I plan adding a setting
+&gt; that selects the prefix to use. This setting could then conveniently
+&gt; be set in one's hkrc.
+</span></span>
+I think it is a good idea. But this is yet another separate topic in
+my opinion. You can begin a new thread if you feel the need to discuss
+it, but if you just mentioned it to let me know, that's fine.
+
+<span class="quote"><span class="quote-1">&gt; I think it would be best to implement this feature as a plugin. This
+&gt; would allow for more flexibility as possibly not every user needs this
+&gt; feature.
+</span></span>
+I agree.
+
+<span class="meta-text">[todo
+[1] Reference to the root of the "[feature] Implementing adding posts
+    in hkweb" thread.]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1329 -->
 </div><!-- postbox for post hh/1318 -->
 </div><!-- postbox for post hh/1312 -->
 

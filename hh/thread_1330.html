@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Implementing adding posts in hkweb</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Implementing adding posts in hkweb</h1>
+
+
+<div class="post-box"><!-- post hh/1330 -->
+<div class="post-summary" id="post-summary-hh-1330">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Implementing adding posts in hkweb</span>
+<span class="tags">[feature]</span>
+<span class="index"><a href="../hh/thread_1330.html#post-summary-hh-1330">&lt;hh/1330&gt;</a></span>
+<span class="date">(2010-07-25)</span>
+<span class="container-button post-summary-button">Children: -</span>
+<pre class="post-body-content">We should have an "add child" button next to each post in hkweb that
+creates a child post.
+
+== Implementation remarks ==
+
+The `hkshell.enew` function does the same in hkshell, so most of its
+code should be used here. Of course the best thing would be to
+refactor the general part into e.g. a hklib function, and use that in
+both hkshell.enew and hkweb.
+
+== Add siblings ==
+
+Attis mentioned in [1] that we could also have an "add sibling"
+button:
+
+<span class="quote"><span class="quote-1">&gt; A side note: we should add an "add sibling" function beside an "add
+&gt; child". If "1" has another child, or more of them, which all come after
+&gt; "2" in the thread view, after using "add new child" on post "1", the new
+&gt; post will be placed after all of them, adding to the visual separation. If
+&gt; we use "add sibling" on post "2", the program can be smart enough to
+&gt; put the new post after the children of "2", and before any other child
+&gt; of "1", with a probably much smaller visual separation between the old
+&gt; and new post. (This function does not even need its own button: it
+&gt; could be added to the button of "add child", but accessed while
+&gt; pressing Shift; the availability of this function could be indicated
+&gt; in mouseover text.)
+</span></span>
+Currently the siblings are sorted in a well-defined way: if both posts
+have dates which are not equal, then the earlier post will be the
+first to show; otherwise the one with the alphabetically smaller post
+id will be the first to show. I think we should keep this ordering
+when creating new posts in hkweb, which means that "add sibling"
+functionality would always be equivalent to the "add child"
+functionality of the parent. The new post would get the current
+date&amp;time, which means that (unless there are posts from the future)
+it would always be the last one among its siblings.
+
+Although I have two notes to add:
+
+=== Reordering ===
+
+When the date of a post is modified, the posts are currently not
+reordered so the order may become incorrect. It would be a fun
+challenge to solve this by resorting the posts dynamically, but now we
+just print an alert saying the following:
+
+<span class="raw-block">    A major change was made on the post that may have affected the
+    thread structure. To see the most current thread structure,
+    please reload the page.
+</span>
+I think this behavior is fine for now.
+
+=== Benefits and costs of the "add sibling" button ===
+
+The "add sibling" button would be still useful in a way because the
+user will not have to scroll to find the parent and its "add child"
+button. But the cost of this button (occupied space next to each post)
+outweighs the previously mentioned benefits. Although later we should
+have a drop-down menu button next to each post that would contain the
+less frequently used features, and that could include an "add sibling"
+button.
+
+<span class="meta-text">[todo
+[1] Reference to the original parent of this post, which is root of
+    the "[feature][idea] Implementing post splitting" thread.]</span>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1330 -->
+
+  </body>
+</html>
