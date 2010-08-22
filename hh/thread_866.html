@@ -16,7 +16,7 @@
 <span class="tags">[discussion, issue, reviewed]</span>
 <span class="index"><a href="../hh/thread_866.html#post-summary-hh-866">&lt;hh/866&gt;</a></span>
 <span class="date">(2009-11-02)</span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-867">hh/867</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-867">hh/867</a></span>
 <pre class="post-body-content">I noticed that the post items get "augmented" before they can be
 printed. This means adding a default `print_fun` member to a copy of
 the `PostItem` object, if the object doesn't have one.
@@ -33,8 +33,8 @@ Two questions:
 <span class="subject"><span class="star">&mdash;</span></span>
 <span class="index"><a href="../hh/thread_866.html#post-summary-hh-867">&lt;hh/867&gt;</a></span>
 <span class="date">(2009-11-02)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-866">hh/866</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-879">hh/879</a></span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-866">hh/866</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-879">hh/879</a></span>
 <pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Two questions:
 &gt; - why copy the `PostItem` object?
 </span></span>
@@ -66,8 +66,8 @@ because they are one of the main tools to customize generators.
 <span class="subject"><span class="star">&mdash;</span></span>
 <span class="index"><a href="../hh/thread_866.html#post-summary-hh-879">&lt;hh/879&gt;</a></span>
 <span class="date">(2009-11-07)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-867">hh/867</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-895">hh/895</a></span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-867">hh/867</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-895">hh/895</a></span>
 <pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; - why copy the `PostItem` object?
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; The reason is ugly, I have to admit.
@@ -109,8 +109,8 @@ I can still see alternatives to the current method:
 <span class="subject"><span class="star">&mdash;</span></span>
 <span class="index"><a href="../hh/thread_866.html#post-summary-hh-895">&lt;hh/895&gt;</a></span>
 <span class="date">(2009-11-08)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-879">hh/879</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-902">hh/902</a></span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-879">hh/879</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-902">hh/902</a></span>
 <pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Augmentation wouldn't really change it in any way relevant to
 &gt; `PostDB.walk_thread`.
 </span></span>
@@ -211,8 +211,8 @@ the current behaviour is the desirable one.
 <span class="subject">Augmentation in hkgen.Generator: measurement</span>
 <span class="index"><a href="../hh/thread_866.html#post-summary-hh-902">&lt;hh/902&gt;</a></span>
 <span class="date">(2009-11-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-895">hh/895</a></span>
-<span class="container-button post-summary-button">Children: <a href="../hh/thread_866.html#post-summary-hh-904">hh/904</a></span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-895">hh/895</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-904">hh/904</a></span>
 <pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I can still see alternatives to the current method:
 &gt;&gt; - adding a getter function to Generator that defaults to
 &gt;&gt;   `Generator.print_postitem`; then any "post item modifier functions"
@@ -349,8 +349,8 @@ the best solution also with respect to efficiency.
 <span class="tags">[-discussion]</span>
 <span class="index"><a href="../hh/thread_866.html#post-summary-hh-904">&lt;hh/904&gt;</a></span>
 <span class="date">(2009-11-10)</span>
-<span class="container-button post-summary-button">Parent: <a href="../hh/thread_866.html#post-summary-hh-902">hh/902</a></span>
-<span class="container-button post-summary-button">Children: -</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_866.html#post-summary-hh-902">hh/902</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
 <pre class="post-body-content">The way Generator currently modifies post items to add a printing
 function is ugly and inefficient. We have decided to use a getter
 method.

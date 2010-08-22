@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Meeting 2010-08-14</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Meeting 2010-08-14</h1>
+
+
+<div class="post-box"><!-- post hh/1337 -->
+<div class="post-summary" id="post-summary-hh-1337">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Meeting 2010-08-14</span>
+<span class="tags">[issue, minutes]</span>
+<span class="index"><a href="../hh/thread_1337.html#post-summary-hh-1337">&lt;hh/1337&gt;</a></span>
+<span class="date">(2010-08-15)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">Attis and I had a meeting today.
+
+We agreed on the following actions:
+
+1. Solve the problem of paths: most importantly, the program should
+   work independently of the current working directory. Beyond that,
+   we aim to support two modes of operation: an installed mode, where
+   the program and its belongings (e.g. CSS, JS files) reside in a
+   central location, while config files reside under users' home
+   directories, and a non-installed mode, which means the user just
+   extracts Heapkeeper somewhere, and uses it from there, without
+   separating the code from the user's data files. A possible
+   solution: during initialization, we should check for a
+   user-specific config directory (e.g. ~/.heapkeeper), and if it
+   exists, look for config files there, otherwise look for them where
+   the program resides.
+
+2. Some function names, variable names and other identifiers in
+   hkgen.py contain the word "link", but they actually mean "URL".
+   These identifiers should be modify to contain the word "url".
+
+3. Vim's gitcommit syntax highlight should be modified to use error
+   colors when the commit message does not contain a commit topic.
+   (Commit topic is an expression in the third line written between
+   brackets that states the topic of the commit.)
+
+4. Some buttons of hkweb ("Show", "Hide", maybe also "Back to index")
+   should be moved to the hkgen, so that these buttons will be present
+   in both the static HTML pages created by hkgen and the dynamic HTML
+   pages created by hkweb.
+
+5. We should create a @deprecated decorator for functions. It shall be
+   placed in hkutils. It would make the decorated function print a
+   warning when it is used the first time.
+
+6. We should create a "Wikipage" plugin. The idea behind it is
+   described in <a href="../hh/thread_4.html#post-summary-hh-4">heap://hh/4</a>.
+
+7. The server that we use to store the git repository of the UMS Heap
+   should perform the following actions in every 5 or 10 minutes:
+   `dl()`, `s()`, `git commit`. If it works, we could do that even for
+   the Heapkeeper Heap, which would also do a `g()` and a `git push`
+   for both the Heapkeeper Heap post repository and the Heapkeeper
+   Heap HTML repository (both of which are on GitHub).
+
+8. hkweb could serve every request (except for the first one) without
+   reloading the whole page. E.g. when the user clicks to another
+   post, the new post could be loaded and the URL could be changed
+   without loading the whole web page again. This would work like the
+   normal GMail web interface.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1337 -->
+
+  </body>
+</html>
