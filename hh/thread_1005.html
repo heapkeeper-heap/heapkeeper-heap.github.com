@@ -2,27 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>Using super; "blog: added module for building a blog with Hk" (c24058f 2009-11-28)</title>
+    <title>Using super; "blog: added module for building a blog with Hk" (2009-11-28 c24058f)</title>
     <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
   </head>
   <body >
-    <h1 id="header">Using super; "blog: added module for building a blog with Hk" (c24058f 2009-11-28)</h1>
+    <h1 id="header">Using super; "blog: added module for building a blog with Hk" (2009-11-28 c24058f)</h1>
 
 
 <div class="post-box"><!-- post hh/1005 -->
 <div class="post-summary" id="post-summary-hh-1005">
 <span class="author">Csaba Hoch</span>
-<span class="subject">Using super; "blog: added module for building a blog with Hk" (c24058f 2009-11-28)</span>
-<span class="tags">[commit]</span>
+<span class="subject">Using super; "blog: added module for building a blog with Hk" (2009-11-28 c24058f)</span>
+<span class="tags">[commit, reviewed]</span>
 <span class="index"><a href="../hh/thread_1005.html#post-summary-hh-1005">&lt;hh/1005&gt;</a></span>
 <span class="date">(2009-12-29)</span>
 <span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1005.html#post-summary-hh-1079">hh/1079</a></span>
-<pre class="post-body-content">+ def print_postitem(self, postitem):
+<pre class="post-body-content"><span class="raw-block">    + def print_postitem(self, postitem):
     +     if postitem.pos == 'flat':
     +         return self.print_postitem_flat_blog(postitem)
     +     else:
     +         return super(Generator, self).print_postitem(postitem)
-
+</span>
 I don't think you are using `super` right.
 
 super(`type`, object-or-type) returns "a proxy object that delegates

@@ -13,7 +13,7 @@
 <div class="post-summary" id="post-summary-hh-997">
 <span class="author">Csaba Hoch</span>
 <span class="subject">Free-text search</span>
-<span class="tags">[feature]</span>
+<span class="tags">[feature, reviewed]</span>
 <span class="index"><a href="../hh/thread_997.html#post-summary-hh-997">&lt;hh/997&gt;</a></span>
 <span class="date">(2009-12-23)</span>
 <span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_997.html#post-summary-hh-1009">hh/1009</a>,&nbsp;<a href="../hh/thread_997.html#post-summary-hh-1082">hh/1082</a></span>
@@ -49,7 +49,7 @@ program:
 </span>
 (This is not the implementation, this is only the specification :) )
 
-The would could be regular expressions, if the user wants to use them.
+The could be regular expressions, if the user wants to use them.
 
 == Advanced features ==
 
@@ -114,8 +114,8 @@ I wrote in this thread, but I needed it and it is good enough for now.
 <span class="date">(2010-02-06)</span>
 <span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_997.html#post-summary-hh-997">hh/997</a></span>
 <span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_997.html#post-summary-hh-1087">hh/1087</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; == More specific specification ==
-</span></span>
+<pre class="post-body-content">== More specific specification ==
+
 <span class="meta-text">[note :))))]</span>
 
 <span class="quote"><span class="quote-1">&gt; I propose to use regular expressions. So if a user searches for the
@@ -146,18 +146,14 @@ I like this, but it doesn't work like this yet, so I'll do it.
 
 <span class="meta-text">[assign Attis]</span>
 
-<span class="quote"><span class="quote-1">&gt; The would could be regular expressions, if the user wants to use them.
-</span></span>
-<span class="meta-text">[!todo correct: They could]</span>
+== Advanced features ==
 
-<span class="quote"><span class="quote-1">&gt; == Advanced features ==
-&gt;
-&gt; The following features are only ideas, I don't propose to implement
+<span class="quote"><span class="quote-1">&gt; The following features are only ideas, I don't propose to implement
 &gt; them in the first go.
-&gt;
-&gt; === Ranking ===
-&gt;
-&gt; We could implement ranking so that a post will be higher in the
+</span></span>
+=== Ranking ===
+
+<span class="quote"><span class="quote-1">&gt; We could implement ranking so that a post will be higher in the
 &gt; search results if the word is present as a tag/keyword/subject. Or a
 &gt; post will be lower in the results if the expression is present only in
 &gt; a quote.
@@ -165,9 +161,9 @@ I like this, but it doesn't work like this yet, so I'll do it.
 Looks useful! Would you give the tag, keyword and subject matches an
 equal weight?
 
-<span class="quote"><span class="quote-1">&gt; === Thread search ===
-&gt;
-&gt; We could also implement "thread search", which would return only one
+=== Thread search ===
+
+<span class="quote"><span class="quote-1">&gt; We could also implement "thread search", which would return only one
 &gt; post per thread.
 </span></span>
 This one seems useful, too.
@@ -184,35 +180,35 @@ Then we could have this feature like this:
 or
 
 <span class="raw-block">    grep('dead trees').root()
+</span>
+=== Generation output ===
 
-</span><span class="quote"><span class="quote-1">&gt; === Generation output ===
-&gt;
-&gt; We should make a generator that would generate HTML pages with the
+<span class="quote"><span class="quote-1">&gt; We should make a generator that would generate HTML pages with the
 &gt; search results, inlining the relevant posts, highlighting the found
 &gt; expressions, etc.
 </span></span>
 Nice -- but sounds like an awful lot of work. It sounds like this
 would be needed for your next idea, however.
 
-<span class="quote"><span class="quote-1">&gt; === Hkweb integration ===
-&gt;
-&gt; And of course we should have a textbox and a "Search" button on hkweb.
+=== Hkweb integration ===
+
+<span class="quote"><span class="quote-1">&gt; And of course we should have a textbox and a "Search" button on hkweb.
 </span></span>
 Definitely. Together with all the highlighting you mentioned in the
 previous idea.
 
-<span class="quote"><span class="quote-1">&gt; === Vim integration ===
-&gt;
-&gt; We could feed the results into Vim so that Vim could jump between the
+=== Vim integration ===
+
+<span class="quote"><span class="quote-1">&gt; We could feed the results into Vim so that Vim could jump between the
 &gt; hits in its usual way (:cnext, :cprev, :clist).
 </span></span>
 Wow. That'd be awesome!
 
 I have to admit I've never used this functions, though.
 
-<span class="quote"><span class="quote-1">&gt; == Effort estimation ==
-&gt;
-&gt; This only concerns the basic features. We could spent an arbitrary
+== Effort estimation ==
+
+<span class="quote"><span class="quote-1">&gt; This only concerns the basic features. We could spent an arbitrary
 &gt; amount of time with the advanced ones :)
 </span></span>
 But ranking and thread search would come quite cheap. And the multi-word
@@ -229,9 +225,9 @@ solution instead.
 <span class="date">(2010-02-06)</span>
 <span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_997.html#post-summary-hh-1082">hh/1082</a></span>
 <span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_997.html#post-summary-hh-1146">hh/1146</a></span>
-<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; === Ranking ===
-&gt;&gt;
-&gt;&gt; We could implement ranking so that a post will be higher in the
+<pre class="post-body-content">=== Ranking ===
+
+<span class="quote"><span class="quote-2">&gt;&gt; We could implement ranking so that a post will be higher in the
 &gt;&gt; search results if the word is present as a tag/keyword/subject. Or a
 &gt;&gt; post will be lower in the results if the expression is present only in
 &gt;&gt; a quote.
@@ -241,9 +237,9 @@ solution instead.
 </span></span>
 I guess.
 
-<span class="quote"><span class="quote-2">&gt;&gt; === Thread search ===
-&gt;&gt;
-&gt;&gt; We could also implement "thread search", which would return only one
+=== Thread search ===
+
+<span class="quote"><span class="quote-2">&gt;&gt; We could also implement "thread search", which would return only one
 &gt;&gt; post per thread.
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; This one seems useful, too.
@@ -261,13 +257,13 @@ I guess.
 &gt;
 </span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    grep('dead trees').root()
 </span></span></span>
-grep('dead trees').expf().collect.is_root()
-
+<span class="raw-block">    grep('dead trees').expf().collect.is_root()
+</span>
 We can introcude a function it gets used very often.
 
-<span class="quote"><span class="quote-2">&gt;&gt; === Generation output ===
-&gt;&gt;
-&gt;&gt; We should make a generator that would generate HTML pages with the
+=== Generation output ===
+
+<span class="quote"><span class="quote-2">&gt;&gt; We should make a generator that would generate HTML pages with the
 &gt;&gt; search results, inlining the relevant posts, highlighting the found
 &gt;&gt; expressions, etc.
 </span></span><span class="quote"><span class="quote-1">&gt;
@@ -276,9 +272,9 @@ We can introcude a function it gets used very often.
 </span></span>
 It is work, but I don't think it's awful lot.
 
-<span class="quote"><span class="quote-2">&gt;&gt; === Vim integration ===
-&gt;&gt;
-&gt;&gt; We could feed the results into Vim so that Vim could jump between the
+=== Vim integration ===
+
+<span class="quote"><span class="quote-2">&gt;&gt; We could feed the results into Vim so that Vim could jump between the
 &gt;&gt; hits in its usual way (:cnext, :cprev, :clist).
 </span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Wow. That'd be awesome!

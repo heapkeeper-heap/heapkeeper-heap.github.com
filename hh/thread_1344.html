@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>HTTPS in web.py</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">HTTPS in web.py</h1>
+
+
+<div class="post-box"><!-- post hh/1344 -->
+<div class="post-summary" id="post-summary-hh-1344">
+<span class="author">Attila Nagy</span>
+<span class="subject">HTTPS in web.py</span>
+<span class="index"><a href="../hh/thread_1344.html#post-summary-hh-1344">&lt;hh/1344&gt;</a></span>
+<span class="date">(2010-08-27)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">Using HTTPS in web.py is easy (provided you have your certificates).
+Just import the WSGI server class from web.py at the beginning of
+src/hkweb.py:
+
+<span class="raw-block">    from web.wsgiserver import CherryPyWSGIServer
+</span>
+Then, add this code to the beginning of hkweb.start():
+
+<span class="raw-block">    CherryPyWSGIServer.ssl_certificate = "/path/to/your.crt"
+    CherryPyWSGIServer.ssl_private_key = "/path/to/your.key"
+</span>
+And that's all. From now on, you can access hkweb via https://localhost:8080.
+
+If you need a certificate, use this:
+
+    openssl genrsa -des3 -out server.key 1024
+    openssl req -new -key server.key -out server.csr
+    openssl x509 -req -days 365 -in server.csr -signkey server.key -out
+server.crt
+    mv server.key myserver.key
+    mv server.crt myserver.crt
+
+Your browser will warn you about the certificate being invalid, but it
+will work nonetheless.
+
+The relevant Google Groups thread:
+
+<a href="http://groups.google.com/group/webpy/browse_thread/thread/53a7cdc07af6fcc5">http://groups.google.com/group/webpy/browse_thread/thread/53a7cdc07af6fcc5</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1344 -->
+
+  </body>
+</html>

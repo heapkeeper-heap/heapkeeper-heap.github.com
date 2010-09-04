@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Tutorial rewrite: more hkweb</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Tutorial rewrite: more hkweb</h1>
+
+
+<div class="post-box"><!-- post hh/1345 -->
+<div class="post-summary" id="post-summary-hh-1345">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Tutorial rewrite: more hkweb</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1345.html#post-summary-hh-1345">&lt;hh/1345&gt;</a></span>
+<span class="date">(2010-08-28)</span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1345.html#post-summary-hh-1350">hh/1350</a></span>
+<pre class="post-body-content">I propose to modify the tutorial to propagate the usage of hkweb, and
+contrast it with other forms of Heapkeeper usage (hkshell and direct
+file system manipulation).
+
+Have a look at the following table of contents. The words after the
+colons are just explanations, not part of the TOC. I denoted the new
+parts that are not present in our current tutorial with the word
+"NEW".
+
+- Downloading Heapkeeper
+- Adding a new post to the heap: in this section, the user would
+  create an empty heap and add a new post to it in several ways.
+    - Creating an empty heap
+    - From hkweb (Heapkeeper web interface) [NEW]
+    - From hkshell (Heapkeeper console interface)
+    - From the file system
+- Editing the heap: in this section, the user would use an example
+  heap provided by us, and would edit it in several ways.
+    - Setting up Heapkeeper to use an existing heap [NEW]: We
+      should create a tutorial directory that contains example
+      heaps. The example heap used in this tutorial would be the
+      same that it is used now; the difference is that now it is
+      created as a part of the tutorial, and in the future the
+      heap directory would just be copied.
+    - From hkweb (Heapkeeper web interface) [NEW]
+    - From hkshell (Heapkeeper console interface): This subsection
+      would be basically the current "Modifying the heap with
+      hkshell" section.
+    - From the file system [NEW]: This subsection could contain a
+      simple example that uses sed to do some substitutions, and
+      then would show how the rl() command (that reload modified
+      post files) should be used.
+- Creating a heap for a mailing list
+- Opening a real world heap: the Heapkeeper Heap
+
+Work to be done:
+- Writing new tutorial subsections and reorganize the tutorial.
+- Creating an example heap. I think we could have an "examples"
+  subdirectory in the Heapkeeper git repository that would contain
+  the example heap. The strongest reason for including it in the
+  repository is that is should be kept synchronized with the tutorial.
+  The example heaps should contain dates. (The example heap in the
+  tutorial does not contain dates.)
+- Features that make it possible to add new posts to hkweb. This
+  includes the "add child" feature [1], and we also need an "add root"
+  feature.
+
+[1] <a href="../hh/thread_1330.html#post-summary-hh-1330">heap://hh/1330</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1350 -->
+<div class="post-summary" id="post-summary-hh-1350">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1345.html#post-summary-hh-1350">&lt;hh/1350&gt;</a></span>
+<span class="date">(2010-08-30)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1345.html#post-summary-hh-1345">hh/1345</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1345.html#post-summary-hh-1351">hh/1351</a></span>
+<pre class="post-body-content"><span class="meta-text">[todo break thread]</span>
+<span class="meta-text">[todo subject: Creating a new thread via hkweb is not supported]</span>
+
+<span class="quote"><span class="quote-1">&gt; - Adding a new post to the heap: in this section, the user would
+&gt;  create an empty heap and add a new post to it in several ways.
+</span></span>
+Good thing you mentioned that. This obvious operation, adding a new
+post, is not supported directly. You can add a new post as a child of
+an existing post, then edit the raw post to remove the "Parent:"
+header, but there should be a way to start a new thread from the index
+page, too.
+
+Without this feature, a user who has no shell access, only hkweb, has
+absolutely no way of creating any posts.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1351 -->
+<div class="post-summary" id="post-summary-hh-1351">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1345.html#post-summary-hh-1351">&lt;hh/1351&gt;</a></span>
+<span class="date">(2010-08-30)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1345.html#post-summary-hh-1350">hh/1350</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1345.html#post-summary-hh-1353">hh/1353</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; - Adding a new post to the heap: in this section, the user would
+&gt;&gt;  create an empty heap and add a new post to it in several ways.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; Good thing you mentioned that. This obvious operation, adding a new
+&gt; post, is not supported directly.
+</span></span>
+Sorry, I should have read the whole post first, since you say exactly this:
+
+<span class="quote"><span class="quote-1">&gt; - Features that make it possible to add new posts to hkweb. This
+&gt; includes the "add child" feature [1], and we also need an "add root"
+&gt; feature.
+</span></span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1353 -->
+<div class="post-summary" id="post-summary-hh-1353">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="tags">[+meta]</span>
+<span class="index"><a href="../hh/thread_1345.html#post-summary-hh-1353">&lt;hh/1353&gt;</a></span>
+<span class="date">(2010-09-04)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1345.html#post-summary-hh-1351">hh/1351</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Sorry, I should have read the whole post first, since you say exactly this:
+</span></span>
+May I remove the last two messages from this thread?
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1353 -->
+</div><!-- postbox for post hh/1351 -->
+</div><!-- postbox for post hh/1350 -->
+</div><!-- postbox for post hh/1345 -->
+
+  </body>
+</html>

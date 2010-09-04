@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>JavaScript/JQuery efficiency</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">JavaScript/JQuery efficiency</h1>
+
+
+<div class="post-box"><!-- post hh/1349 -->
+<div class="post-summary" id="post-summary-hh-1349">
+<span class="author">Csaba Hoch</span>
+<span class="subject">JavaScript/JQuery efficiency</span>
+<span class="index"><a href="../hh/thread_1349.html#post-summary-hh-1349">&lt;hh/1349&gt;</a></span>
+<span class="date">(2010-08-29)</span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1349.html#post-summary-hh-1352">hh/1352</a></span>
+<pre class="post-body-content">Today I set down to make the folding mechanism of hkweb more
+efficient, because the "Hide all posts" and "Show all posts" were
+quite slow on large number of messages.
+
+The results were surprising for me. I thought that the reason of the
+slowness was that I queried for `'post-body-container-' + postId`
+(which I thought took O(n) time) for each post; so this way I thought
+that it was O(n^2). Well, it turned out that building a dictionary to
+make the query O(log(n)) did not help at all. Probably it is already
+O(n), which means that the browser has its own dictionary or tag ids,
+which is quite conceivable.
+
+I worked on the search page of all hh messages [1] as the base for my
+benchmarks. This page shows 1378 messages. It takes around 6 or 7
+seconds to load it in both Chrome and Firefox. It takes 48 seconds to
+hide all posts in Chrome (it takes 98 seconds in Firefox).
+
+== Turning off JQuery animation ==
+
+As I already said, building a dictionary did not help.
+
+Then I removed the JQuery animations for the body hiding and for the
+"Show body" button appearance:
+
+<span class="raw-block">    -   button.animate({opacity: visibility}, 'fast');
+    +   button.show();
+
+    -   $('#post-body-container-' + postId).hide('fast');
+    +   $('#post-body-container-' + postId).hide();
+</span>
+This took down the 48 seconds to 8 seconds in Chrome, and the 98
+seconds to 2 seconds in Firefox!
+
+== First versus rest ==
+
+Then I made more experiments, and it turned out that the first
+"Hide all" takes longer than the others. In Chrome, the first one is
+8 seconds; the others are less then 1 second. In Firefox, the first one is
+1.50 seconds; the others are 1.25 seconds.
+
+The more interesting case is of course Chrome, where the difference is
+much bigger. This 7 seconds do not appear at all if we use one JQuery
+object to hide the boxes. For example the following loop will take 8
+seconds the first time:
+
+<span class="raw-block">    getPostIds().each(function(index) {
+        $('#post-body-container-' + this).hide();
+    });
+</span>
+On the other hand, the following look will take less then 1 second
+even the first time, which is very strange, since it includes the
+first one:
+
+<span class="raw-block">    $('[id|=post-body-container]').hide();
+    $('[id|=post-body-container]').show();
+    getPostIds().each(function(index) {
+        $('#post-body-container-' + this).hide();
+    });
+</span>
+What is even more funny is that this takes 9 seconds:
+
+<span class="raw-block">    $('[id|=post-body-show-button]').show();
+</span>
+while this takes less than 1 second:
+
+<span class="raw-block">    $('[id|=post-body-show-button]').hide();
+    $('[id|=post-body-show-button]').show();
+</span>
+but the most funny is that this takes 6 seconds:
+
+<span class="raw-block">    $('[id|=post-body-container]').hide();
+    $('[id|=post-body-show-button]').show();
+</span>
+I think some funny initialization is going on somewhere inside Chrome.
+
+== Changes ==
+
+I don't understand this data, but I acted upon it [3].
+
+I changed the code to use one JQuery object to hide and show the
+bodies, and to invoke a hide() on the "Show body" buttons on starting
+up (because as the previous example shows, a hide() before the show()
+will make the show() much faster...)
+
+This way hiding and showing all posts is always less than 1 second in
+Chrome.
+
+[1] <a href="http://localhost:8080/search?term=heap:hh">http://localhost:8080/search?term=heap:hh</a>
+[2] Actually, the load time seems to have changed from 7 seconds to
+    6 seconds... but I guess that is just measurement error or some
+    other funny effect.
+[3] 66ec700 2010-08-29 (hkweb: better performance for folding post bodies)
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1352 -->
+<div class="post-summary" id="post-summary-hh-1352">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1349.html#post-summary-hh-1352">&lt;hh/1352&gt;</a></span>
+<span class="date">(2010-08-30)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1349.html#post-summary-hh-1349">hh/1349</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">My favorite part:
+
+<span class="quote"><span class="quote-1">&gt; What is even more funny is that this takes 9 seconds:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    $('[id|=post-body-show-button]').show();
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt; while this takes less than 1 second:
+&gt;
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    $('[id|=post-body-show-button]').hide();
+&gt;    $('[id|=post-body-show-button]').show();
+</span></span></span>
+We have 3 players: Chrome, jQuery and hkweb, and clearly hkweb is the
+"good guy": it doesn't do any nondeterministic nastiness. Chrome's V8
+engine does its nasty optimizations, and jQuery is made of 100% black
+magic. So I think we can only do what you did: act on the absolutely
+unintelligible and counterintuitive observations.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1352 -->
+</div><!-- postbox for post hh/1349 -->
+
+  </body>
+</html>

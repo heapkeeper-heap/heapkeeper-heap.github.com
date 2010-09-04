@@ -19,13 +19,13 @@
 <span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_788.html#post-summary-hh-790">hh/790</a></span>
 <pre class="post-body-content">You did a docstring update here:
 
-     @staticmethod
-     def create_header(d):
--        """Transforms the dict(str, [str]) returned by the parse_header
--        function to a str-&gt;(str | [str]) dictionary.
-+        """Transforms the {str: [str])} returned by the parse_header
-+        function to a {str: (str | [str])} dictionary.
-
+<span class="raw-block">      @staticmethod
+      def create_header(d):
+ -        """Transforms the dict(str, [str]) returned by the parse_header
+ -        function to a str-&gt;(str | [str]) dictionary.
+ +        """Transforms the {str: [str])} returned by the parse_header
+ +        function to a {str: (str | [str])} dictionary.
+</span>
 I think neither the old, nor the new ones are the best. I had to read
 the source to understand what it does.
 
@@ -38,28 +38,28 @@ thoroughly tested, breaking it makes 70 tests fail.
 I would rewrite its docstring like this (of course later complete with
 proper arguments and returns sections):
 
-"""Creates a dictionary of headers from the dictionary returned by the
-`parse_header` function. This dictionary contains only keys of
-existing header names, and if the source dictionary contains any other
-keys, an exception will be raised. Some headers can have an
-alternative name, which allows for parsing legacy post files.
+<span class="raw-block"> """Creates a dictionary of headers from the dictionary returned by the
+ `parse_header` function. This dictionary contains only keys of
+ existing header names, and if the source dictionary contains any other
+ keys, an exception will be raised. Some headers can have an
+ alternative name, which allows for parsing legacy post files.
 
-Two kinds of headers exist, one is which can have multiple values.
-The values for these keys are lists of string values both in the
-received and the returned dictionaries. Such are 'Tag' and 'Flag'
-headers.
+ Two kinds of headers exist, one is which can have multiple values.
+ The values for these keys are lists of string values both in the
+ received and the returned dictionaries. Such are 'Tag' and 'Flag'
+ headers.
 
-For the other headers, only a single value is accepted. It is received
-as a list with one string element in the source dictionary. If it has
-more than one element, an exception is raised.
+ For the other headers, only a single value is accepted. It is received
+ as a list with one string element in the source dictionary. If it has
+ more than one element, an exception is raised.
 
-** Example: ** ::
+ ** Example: ** ::
 
-    &gt;&gt;&gt; Post.create_header({'Author':['Someone'],'Subject':['topic'],'Tag':['one','two']})
-    {'Parent': '', 'Author': 'Someone', 'Flag': [], 'Tag': ['one',
-'two'], 'Date': '', 'Message-Id': '', 'Subject': 'topic'}
-"""
-
+     &gt;&gt;&gt; Post.create_header({'Author':['Someone'],'Subject':['topic'],'Tag':['one','two']})
+     {'Parent': '', 'Author': 'Someone', 'Flag': [], 'Tag': ['one',
+ 'two'], 'Date': '', 'Message-Id': '', 'Subject': 'topic'}
+ """
+</span>
 Do you think this would be more helpful than the original?
 </pre></div><!-- post-summary -->
 
@@ -73,13 +73,13 @@ Do you think this would be more helpful than the original?
 <span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_788.html#post-summary-hh-992">hh/992</a></span>
 <pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; You did a docstring update here:
 &gt;
-&gt;      @staticmethod
-&gt;      def create_header(d):
-&gt; -        """Transforms the dict(str, [str]) returned by the parse_header
-&gt; -        function to a str-&gt;(str | [str]) dictionary.
-&gt; +        """Transforms the {str: [str])} returned by the parse_header
-&gt; +        function to a {str: (str | [str])} dictionary.
-</span></span>
+</span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;       @staticmethod
+&gt;       def create_header(d):
+&gt;  -        """Transforms the dict(str, [str]) returned by the parse_header
+&gt;  -        function to a str-&gt;(str | [str]) dictionary.
+&gt;  +        """Transforms the {str: [str])} returned by the parse_header
+&gt;  +        function to a {str: (str | [str])} dictionary.
+</span></span></span>
 The first modified line should not have that extra ')' in '{str: [str])}'.
 
 <span class="quote"><span class="quote-1">&gt; I think neither the old, nor the new ones are the best. I had to read
@@ -112,14 +112,14 @@ If you have a better name for `d`, I'm listening...
 I hope you don't have a problem with the {key: value} and [items]
 notation. I stole that from the Erlang documentation conventions.
 
-<span class="quote"><span class="quote-1">&gt; """Creates a dictionary of headers from the dictionary returned by the
-&gt; `parse_header` function. This dictionary contains only keys of
-</span></span>
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;  """Creates a dictionary of headers from the dictionary returned by the
+&gt;  `parse_header` function. This dictionary contains only keys of
+</span></span></span>
 The word "This" is ambiguous here.
 
-<span class="quote"><span class="quote-1">&gt; existing header names, and if the source dictionary contains any other
-&gt; keys, an exception will be raised.
-</span></span>
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;  existing header names, and if the source dictionary contains any other
+&gt;  keys, an exception will be raised.
+</span></span></span>
 Not true. A warning is printed in this case:
 
 hklib.py, line 782:
@@ -133,25 +133,25 @@ hklib.py, line 782:
 See commit 1932903 (Post: "forward compatible" post file parsing,
 2009-08-27) for why we should not raise an exception in this case.
 
-<span class="quote"><span class="quote-1">&gt; Some headers can have an
-&gt; alternative name, which allows for parsing legacy post files.
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;  Some headers can have an alternative name, which allows for parsing
+&gt;  legacy post files.
 &gt;
-&gt; Two kinds of headers exist, one is which can have multiple values.
-</span></span>
+&gt;  Two kinds of headers exist, one is which can have multiple values.
+</span></span></span>
 "one of which"?
 
-<span class="quote"><span class="quote-1">&gt; The values for these keys are lists of string values both in the
-&gt; received and the returned dictionaries. Such are 'Tag' and 'Flag'
-&gt; headers.
+<span class="quote"><span class="quote-1"><span class="raw-block">&gt;  The values for these keys are lists of string values both in the
+&gt;  received and the returned dictionaries. Such are 'Tag' and 'Flag'
+&gt;  headers.
 &gt;
-&gt; For the other headers, only a single value is accepted. It is received
-&gt; as a list with one string element in the source dictionary. If it has
-&gt; more than one element, an exception is raised.
+&gt;  For the other headers, only a single value is accepted. It is received
+&gt;  as a list with one string element in the source dictionary. If it has
+&gt;  more than one element, an exception is raised.
 &gt;
-&gt; ** Example: ** ::
-&gt;
-&gt;     &gt;&gt;&gt; Post.create_header({'Author':['Someone'],'Subject':['topic'],'Tag':['one','two']})
-&gt;     {'Parent': '', 'Author': 'Someone', 'Flag': [], 'Tag': ['one',
+&gt;  ** Example: ** ::
+</span></span></span><span class="quote"><span class="quote-1">&gt;
+&gt;      &gt;&gt;&gt; Post.create_header({'Author':['Someone'],'Subject':['topic'],'Tag':['one','two']})
+&gt;      {'Parent': '', 'Author': 'Someone', 'Flag': [], 'Tag': ['one',
 &gt; 'two'], 'Date': '', 'Message-Id': '', 'Subject': 'topic'}
 &gt; """
 </span></span>
@@ -228,22 +228,22 @@ cryptic, so let's stay with `d` for now.
 </span></span>
 It's perfectly OK with me.
 
-<span class="quote"><span class="quote-2">&gt;&gt; """Creates a dictionary of headers from the dictionary returned by the
-&gt;&gt; `parse_header` function. This dictionary contains only keys of
-</span></span><span class="quote"><span class="quote-1">&gt;
+<span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;  """Creates a dictionary of headers from the dictionary returned by the
+&gt;&gt;  `parse_header` function. This dictionary contains only keys of
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; The word "This" is ambiguous here.
 </span></span>
 Yes it is, thanks.
 
-<span class="quote"><span class="quote-2">&gt;&gt; existing header names, and if the source dictionary contains any other
-&gt;&gt; keys, an exception will be raised.
-</span></span><span class="quote"><span class="quote-1">&gt;
+<span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;  existing header names, and if the source dictionary contains any other
+&gt;&gt;  keys, an exception will be raised.
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; Not true. A warning is printed in this case:
 </span></span>
 Yes, but it was true at the point when this docstring was added :)
 
-<span class="quote"><span class="quote-2">&gt;&gt; Two kinds of headers exist, one is which can have multiple values.
-</span></span><span class="quote"><span class="quote-1">&gt;
+<span class="quote"><span class="quote-2"><span class="raw-block">&gt;&gt;  Two kinds of headers exist, one is which can have multiple values.
+</span></span></span><span class="quote"><span class="quote-1">&gt;
 &gt; "one of which"?
 </span></span>
 Umm, a grammatical question. Let's simplify:
