@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Adding new posts, splitting posts</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Adding new posts, splitting posts</h1>
+
+
+<div class="post-box"><!-- post hh/1355 -->
+<div class="post-summary" id="post-summary-hh-1355">
+<span class="author">Attila Nagy</span>
+<span class="subject">Adding new posts, splitting posts</span>
+<span class="tags">[feature]</span>
+<span class="index"><a href="../hh/thread_1355.html#post-summary-hh-1355">&lt;hh/1355&gt;</a></span>
+<span class="date">(2010-09-06)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">Splitting posts in hkweb is the feature that would save the most time
+in hkweb, but it seems to be a somewhat demanding task to implement.
+
+Splitting posts means adding a new post, then editing the old and new
+post at the same time, then saving both. Of these steps, only the
+first one is missing at the moment.
+
+The "add post" feature is now implemented as a button, labeled
+"add child". Clicking this button adds a new child to the post in
+question, which would start in editing mode at once. Clicking "save" on
+this box would result in the creation of a post, while clicking
+"cancel" dismisses the box while leave the post database intact.
+
+With this working (6c7cc72, hkweb{,.js}: adding new posts
+implemented), we can do all our post splitting in hkweb, but there is
+at least one disadvantage: the created new box might be very far from
+the post to split!
+
+Suppose this is our thread structure:
+
+<span class="raw-block">    &lt;1&gt; Root post
+        &lt;2&gt; Main topic; side topic
+            &lt;3&gt; Main topic continued
+                &lt;4&gt; Main topic continued
+                    &lt;5&gt; Main topic continued
+                        &lt;6&gt; Main topic continued
+</span>
+We want to split the side topic in "2" into a new subthread. So, we
+want to add a new child to "1" (that is, a sibling to "2"). If this
+gets added as the "newest child" to "1", then post "3", "4" and "5"
+will separate "2" and its new siblings, which is bad, since we want to
+transfer text between them. A possible solution: posts "3", "4" and
+"5" can be folded to minimize the separation, and this could even be
+done automatically. I think this is a valid way to handle splitting,
+and it is definitely the easiest to implement, though probably not the
+most elegant one. (Note: such automatic folding is not yet
+implemented.)
+
+The Holy Grail solution to this would be representing the splitting of
+the post as a vertical split on the screen. What makes this approach
+ultimately different is that it requires a page layout that is not
+yet supported: (at least) two posts displayed side-by side. An
+impression of how this look like while the split is being made (with
+only the relevant part displayed in detail):
+
+<span class="raw-block">    &lt;1&gt; Root post
+        &lt;2&gt; Main topic             | &lt;7&gt; Side topic
+          |Save| |Cancel|          |   |Save| |Cancel|
+        +------------------------+ | +----------------------+
+        | Main topic being       | | | Side topic has been  |
+        | edited here...         | | | copied here...       |
+        +------------------------+ | +----------------------+
+            &lt;3&gt; Main topic continued
+                &lt;4&gt; Main topic continued
+                    &lt;5&gt; Main topic continued
+                        &lt;6&gt; Main topic continued
+</span>
+The implementation involves creating a table with only one row and two
+columns, and putting the old post's box into the left cell, and the
+right one's box into the right cell.
+
+From then on, we edit these two posts just as we normally would. This
+means that no new code is needed on the server side, only in the
+client.
+
+This is halfway implemented in the current `_hkweb-add` branch
+(bfedcf6, hkweb: splitting posts added). However, widths of the cells
+are not right (only if your screen is 1280 pixels wide), and the
+"Cancel" button does not work as it should (removes the post, but
+does not clean up the table).
+
+When we split a post, the new post file needs a file name. `enew()`
+has a mechanism that can find the next numbered filename with a given
+prefix. The current implementation always uses the prefix `hkweb_`;
+this should be customizable.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1355 -->
+
+  </body>
+</html>

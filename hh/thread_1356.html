@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Conflicting commit in _auth (2010-09-03 2ebd16f)</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Conflicting commit in _auth (2010-09-03 2ebd16f)</h1>
+
+
+<div class="post-box"><!-- post hh/1356 -->
+<div class="post-summary" id="post-summary-hh-1356">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Conflicting commit in _auth (2010-09-03 2ebd16f)</span>
+<span class="tags">[commit]</span>
+<span class="index"><a href="../hh/thread_1356.html#post-summary-hh-1356">&lt;hh/1356&gt;</a></span>
+<span class="date">(2010-09-11)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">Note: commit a42793b seems to be removed from the newest version of
+the _auth branch, but I'm still sending this email (I'm curious what
+happened).
+
+Commit 2ebd16f [1] makes commit a42793b [2] unnecessary. 2ebd16f
+solves the problem in a more generic way: it extracts the
+functionality missing from IndexGenerator into WebGenerator (which is
+the superclass of IndexGenerator) in order to avoid code duplication.
+
+A bigger problem is that merging the attish/_auth and hcs42/_hkweb
+branches have a conflict because of these commits. Modification of the
+hkweb.IndexGenerator.__init___ function will not even show up as a
+conflict, although it should be modified as part of the merge commit.
+
+I see a few possible solutions if you need this commit (we may say
+"bugfix") in your auth branch:
+
+1. Cherry-picking 2ebd16f into _auth.
+2. Merging 2ebd16f (and the prefix of _hkweb) into _auth.
+3. Rebasing _auth to the 2ebd16f.
+
+Fortunately it seems that (1) is feasible now, because 2ebd16f is not
+dependent on any previous commit in the _hkweb branch, so I recommend
+that. (2) is more general, and it avoids the redundancy of commits;
+but it leads to less readable git history. If (1) was unfeasible, I
+would choose (2). (3) is between the first two regarding the
+readability of the git history, but I don't want our workflow to force
+rebasing a whole branch in situations like this.
+
+[1] "hkweb: extracting js_files to WebGenerator", 2010-08-28, Csaba Hoch
+[2] "hkweb: added an empty list of JS files to index", 2010-09-03, Attila Istvan Nagy
+     <a href="http://github.com/attish/heapkeeper/commit/a42793b4e9fd10b257a43d0ff6a35d1617b55089">http://github.com/attish/heapkeeper/commit/a42793b4e9fd10b257a43d0ff6a35d1617b55089</a>
+[3] <a href="../hh/thread_1343.html#post-summary-hh-1343">heap://hh/1343</a> -- Thread about the _auth branch.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1356 -->
+
+  </body>
+</html>
