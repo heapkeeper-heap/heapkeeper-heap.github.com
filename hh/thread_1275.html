@@ -13,19 +13,19 @@
 <div class="post-summary" id="post-summary-hh-1275">
 <span class="author">Attila Nagy</span>
 <span class="subject">Complain about unsupported Python version</span>
-<span class="tags">[idea, issue]</span>
+<span class="tags">[idea, issue, reviewed]</span>
 <span class="index"><a href="../hh/thread_1275.html#post-summary-hh-1275">&lt;hh/1275&gt;</a></span>
 <span class="date">(2010-06-30)</span>
 <span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1275.html#post-summary-hh-1277">hh/1277</a></span>
 <pre class="post-body-content">Currently, if one attempts to launch Hk on a system with Python 2.4
 installed, xe gets this message:
 
-<span class="raw-block">	$ ./hk.py
-	Traceback (most recent call last):
-	  File "./hk.py", line 29, in ?
-		import hklib
-	  File "/home/attish/heapkeeper/hklib.py", line 451
-		with open(filename, 'r') as f:
+<span class="raw-block">    $ ./hk.py
+    Traceback (most recent call last):
+      File "./hk.py", line 29, in ?
+        import hklib
+      File "/home/attish/heapkeeper/hklib.py", line 451
+        with open(filename, 'r') as f:
 </span>
 This happens due to the missing ``with`` keyword on this platform.
 However, seeing this message, the user might (and is likely to) think

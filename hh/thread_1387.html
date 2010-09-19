@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Using deprecated feature: "hkweb{,.js}: adding new posts implemented" (2010-08-11 6c7cc72)</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Using deprecated feature: "hkweb{,.js}: adding new posts implemented" (2010-08-11 6c7cc72)</h1>
+
+
+<div class="post-box"><!-- post hh/1387 -->
+<div class="post-summary" id="post-summary-hh-1387">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Using deprecated feature: "hkweb{,.js}: adding new posts implemented" (2010-08-11 6c7cc72)</span>
+<span class="tags">[bug, commit]</span>
+<span class="index"><a href="../hh/thread_1387.html#post-summary-hh-1387">&lt;hh/1387&gt;</a></span>
+<span class="date">(2010-09-19)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">In commit 6c7cc72 [1], you use the hkgen.Generator.augment_postitem
+method that was deprecated in commit deb3af2 [2]:
+
+    +   generator = PostPageGenerator(self._postdb)
+    +   generator.set_post_id(post.post_id())
+    +   postitem = generator.augment_postitem(hklib.PostItem('inner', post))
+    +   postitem.print_post_body = True
+    +   postitem.print_parent_post_id = True
+
+Since the post item augmenting mechanism is already deprecated in
+v0.7, it will be completely removed from v0.8. Therefore if commit
+6c7cc72 will be merged into v0.8, it will not work.
+
+Could you fix this? You can either rewrite 6c7cc72 or make a new
+commit on the top of _hkweb-add. I would probably do the former one.
+
+[1] "hkweb{,.js}: adding new posts implemented", 2010-08-11,
+    Attila Nagy, attish/_hkweb-add branch
+[2] "hkgen: removed PostItem augmenting mechanism", 2010-08-13,
+    Attila Nagy
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1387 -->
+
+  </body>
+</html>

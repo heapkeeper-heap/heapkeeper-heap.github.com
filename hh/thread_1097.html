@@ -61,26 +61,27 @@ but then its purpose wouldn't be so evident. Maybe we could say that
 </span></span>
 Not really :)
 
-<span class="quote"><span class="quote-1">&gt; In Hk posts, the trailing
-&gt; whitespace should never be valid if it matches /[^ ]\s\+$/. (That is,
-&gt; the only acceptable situation is a line that is only whitespace, and
-&gt; nothing else.) See for example this:
+<span class="quote"><span class="quote-1">&gt; In Hk posts, the trailing whitespace should never be valid if it
+&gt; matches /[^ ]\s\+$/. (That is, the only acceptable situation is a
+&gt; line that is only whitespace, and nothing else.) See for example
+&gt; this:
 &gt;
 </span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    #include &lt;stdio&gt;
 &gt;
 &gt;    int main() {}
 </span></span></span><span class="quote"><span class="quote-1">&gt;
-&gt; If I write this, if we ever do any syntax highlighting, this will show
-&gt; up as two distinct code blocks.
+&gt; If I write this, if we ever do any syntax highlighting, this will
+&gt; show up as two distinct code blocks.
 &gt;
 &gt; There is an alternate solution: we could declare that adjacent code
-&gt; blocks are to be interpreted as continuous including any empty lines,
+&gt; blocks are to be interpreted as continuous including any empty
+&gt; lines,
 </span></span>
 That's what Sphinx does. (And that's what Pyhon does as well, if you
 think about it.)
 
-<span class="quote"><span class="quote-1">&gt; but then we'd have to include a separator element, e.g. a special "no-op"
-&gt; meta. Like this:
+<span class="quote"><span class="quote-1">&gt; but then we'd have to include a separator element, e.g. a special
+&gt; "no-op" meta. Like this:
 &gt;
 </span></span><span class="quote"><span class="quote-1"><span class="raw-block">&gt;    Compare these two examples:&lt;cr&gt;
 &gt;    &lt;cr&gt;
@@ -89,7 +90,7 @@ think about it.)
 &gt;    &lt;spc&gt;print('hello world')&lt;cr&gt;
 </span></span></span>
 We would have to include it if we wanted to be able to express
-everything, including your example. I don't think it it important to
+everything, including your example. I don't think it is important to
 be able to express that. For example, in Sphinx, you would put the two
 code examples into an itemization:
 
