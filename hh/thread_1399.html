@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Trailing whitespace problems</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Trailing whitespace problems</h1>
+
+
+<div class="post-box"><!-- post hh/1399 -->
+<div class="post-summary" id="post-summary-hh-1399">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Trailing whitespace problems</span>
+<span class="tags">[commit]</span>
+<span class="index"><a href="../hh/thread_1399.html#post-summary-hh-1399">&lt;hh/1399&gt;</a></span>
+<span class="date">(2010-09-24)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">== General problem ==
+
+Attis, some of your commits have trailing whitespace and line length
+problems. Could you fix these?
+
+I consider this to be my fault because the pre-commit hook that was
+supposed to check this has been buggy:
+
+<span class="raw-block">    grep -n " $" doc/*.{rst,py,hrst} &gt; "$tmp"
+</span>
+This did not check any Python files (they are not in the doc
+directory), and did not check of course any JavaScript, CSS, etc.
+file.
+
+In the future, the new hk-dev-utils will solve this problem, because:
+- It will provide a commit hook that will help every developer to deal
+  effortless with this issue.
+- It will provide an easy way for me to check all commits, even the
+  ones written by others. It also provides an easy way to check all
+  commits that go into a release (e.g. testing each commit that went
+  into 0.7: "hkdu-testcommit v0.6..v0.7") and an easy way to examine
+  the results (no output=no error, output=error).
+
+Nevertheless, I recommend putting an "automatic trailing space
+remover" [1] into your vimrc:
+
+<span class="raw-block">    :au BufWritePre * :silent! %s/ \+$//
+</span>
+You can change the * to *.{py,rst,hrst} or something like this if you
+don't want it to effect your other files.
+
+== Concrete cases ==
+
+deb3af2c8a (master branch): trailing whitespace
+
+<span class="raw-block">    src/hkgen.py:960:
+    src/hkgen.py:983:
+    src/hkgen.py:986:
+
+    Unfortunately this commit is part of v0.7, so we should just leave
+    it. Luckily this is inside deprecated functions that will be
+    removed in v0.8 anyway (in the _hkweb branch, specifically).
+</span>
+5806b7578e (_auth branch): trailing whitespace
+
+<span class="raw-block">    src/hkweb.py:113:auth = make_auth(verify = minimal_verify)
+</span>
+5673440e74 (_auth branch): trailing whitespace
+
+<span class="raw-block">    plugins/users/src/hkp_users.py:50:
+    plugins/users/static/css/users.css:1:#userlist
+</span>
+6c7cc72ba5 (_hkweb-add branch): too long line
+
+<span class="raw-block">    src/hkweb.py:679: postitem = generator.augment_postitem([...]
+</span>
+6c7cc72ba5 (_hkweb-add branch): trailing whitespace
+
+<span class="raw-block">    static/js/hkweb.js:216:
+    static/js/hkweb.js:237:
+    static/js/hkweb.js:487:    //
+    static/js/hkweb.js:499:    // `postId` and `count` will iden[...]
+    static/js/hkweb.js:513:    // Change IDs in the clone for su[...]
+    static/js/hkweb.js:626:
+</span>
+bfedcf6511 (_hkweb-add branch): trailing whitespace
+
+<span class="raw-block">    static/js/hkweb.js:512:        parentPostSummary.before(table);
+</span>
+[1] <a href="../hh/thread_1016.html#post-summary-hh-1019">heap://hh/1019</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1399 -->
+
+  </body>
+</html>
