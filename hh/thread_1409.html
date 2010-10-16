@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Organizing the Heap: adding main page, more Wiki-like Heap</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Organizing the Heap: adding main page, more Wiki-like Heap</h1>
+
+
+<div class="post-box"><!-- post hh/1409 -->
+<div class="post-summary" id="post-summary-hh-1409">
+<span class="author">Attila Nagy</span>
+<span class="subject">Organizing the Heap: adding main page, more Wiki-like Heap</span>
+<span class="tags">[idea]</span>
+<span class="index"><a href="../hh/thread_1409.html#post-summary-hh-1409">&lt;hh/1409&gt;</a></span>
+<span class="date">(2010-10-05)</span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1409.html#post-summary-hh-1410">hh/1410</a></span>
+<pre class="post-body-content">Heapkeeper has come a long way. The one feature we've been missing for
+very long, and which I saw as the final milestone towards having a
+real product, namely the dynamic Web interface, is essentially
+complete.
+
+We have many more ideas. We call the most ambitious ones "utopias".
+This is not to say that they are impossible to achieve; it is rather
+a play on the fact that we've wanted to have these features for a very
+long time. Implementing most of these utopias would take a
+considerable effort, of course.
+
+I think it is time to slow down a bit, because we may have missed
+something along the way. Heapkeeper is an application that is meant to
+help those organizations who keep their much or all of their knowledge
+in mailing lists. This is especially typical of open source projects.
+When a newcomer asks a question on IRC, xe often gets the answer:
+"This has already been asked on the mailing list, go search for it.
+And if you do find the answer, would you please add it to our wiki?
+Thanks."
+
+We set out to blur the line between a mailing list and a wiki. We
+wanted to make it possible to "clean up" information on the mailing
+list so that it becomes usable as a reference. Mailing lists are ugly
+mainly because threads are ugly. Topics arise and die, or gradually
+transform into other topics. Heapkeeper provides a way to tidy up
+these threads.
+
+But it is only one thing to tidy up the threads. If someone comes to
+our website to find proof that we can give what we promised, the order
+of a wiki out of the chaos of a mailing list, what will xe find?
+Chaos.
+
+Heapkeeper has the tools we need to resolve that chaos. After all, we
+can do everything that a mailing list does. And we can do everything
+that a wiki does. It is the very "blurring of the line" that has been
+slow to happen.
+
+I think the index page has a major role in that. If a user arrives at
+the main page of a wiki, in an ideal case xe sees a carefully managed
+navigational entry point. The OpenTTD wiki would be a nice example
+[1]. It is built to direct people with different interests to
+different key pages, themselves being similar navigational aids, but
+with more details in the given topic, and it's often these "second
+level index pages" that point to the real content pages of the wiki.
+
+Our index page couldn't be more different. It is a flat list of all
+the posts in the heap. This is a regression. We used to have sections;
+they helped reduce the problem, to a limited degree -- the user was
+offered a flat list of several hundred posts instead of several
+thousands, at least in the case of the UMS Heap.
+
+What could we do? Watch the wording: heaps have an index page, wikis
+have a main page. In books, the part called 'index' is a long list of
+topics found in the book. A bit similar to our index [2]; but this is
+almost always found at the end of books, suggesting that it should be
+used when you check back after you've acquainted yourself with the
+book. The first time you open the book, you find the table of
+contents, which in composition is closer to the wiki notion of a main
+page. I think this is what we need. Let's keep the index, but make it
+accessible under a different name, e.g. <a href="http://myheap.org/index">http://myheap.org/index</a>, and
+add a human-edited main page accessible at <a href="http://myheap.org/">http://myheap.org/</a>.
+
+The main page could be a synthetic [3] post linking to other synthetic
+posts, these would be the "second level TOC" pages, and they could be
+children of the 'main' post. We could add a feature so that if there
+is a thread where the root post's ID is 'main', it will be presented
+as the landing page instead of the index.
+
+This is how I image the main page and the second level pages of Hh.
+The text is not meant to be complete, it is much rather just an
+illustration of my idea:
+
+<span class="raw-block">    Main page &lt;hh/main&gt;
+
+    Welcome to Heapkeeper Heap!
+
+    This heap is the primary discussion medium for the development of
+    Heapkeeper. As Heapkeeper is an open project, the Heap is open to
+    everyone. At the same time, it serves as an example of how
+    we imagine using Heapkeeper (but you are more than welcome to use
+    it any way you like!).
+
+    == Introduction ==
+
+    [What is a "heap"?] -- an introduction to the ideas behind
+    Heapkeeper
+
+    [History of Heapkeeper] -- how did we get from our humble
+    beginnings to our (still pretty humble) present state
+
+    [Status and roadmap] -- what we already have, and what we want to
+    have later
+
+    == For users ==
+
+    An administrator at your organization has set up a Heap for you.
+    You want to know more about using it efficiently. Or maybe you are
+    the person who is responsible for keeping the Heap in a good
+    shape.
+
+    [The console inteface: hkshell] -- "the engine room", so to say;
+    if you have access, you can perform maintenance tasks quickly and
+    efficiently (programming skills come handy)
+
+    [The Web interface: hkweb] -- this is the main entrance where most
+    of the work is done; "ordinary" users have access to this
+    interface
+
+    [Post Syntax] -- you don't have to follow this syntax in your
+    posts, but if you do, the program can help you in various ways
+
+    [Heap conventions] -- these conventions apply strictly to this
+    heap only, but you may wish to check it out for "good practices"
+    that you can use on your own heap!
+
+    == For administrators ==
+
+    You are a sysadmin who has been charged by a task that would best
+    be handled by a mailing list, a wiki, or something in-between.
+    Say, for example, that the users of your mailing list are
+    brilliant people, but using a mailing program is not exactly their
+    area of expertise, so what they post may occasionally need
+    correction.
+
+    [Setting up Heapkeeper] -- what you need to get started, and
+    getting it done
+
+    [Securing a Heapkeeper installation] -- not all mailing lists are
+    world-readable, and so are not all heaps
+
+    [Customizing Heapkeeper] -- this is where the fun starts:
+    Heapkeeper is customizable on several levels, and it's hard to
+    find an application you can't conveniently emulate!
+
+    [Mass-manipulating Posts] -- the Boss asks something that seems
+    impossible? Use the shell!
+
+    == For developers ==
+
+    You want to help us? Good. Here's the deal.
+
+    [Development Workflow] -- what we do when developing Heapkeeper
+
+    [Coding Conventions] -- to make sure your code fits in nicely
+
+    [Testing] -- testing makes sure we get to keep what we have
+    achieved
+
+    [Community] -- that's us! :)
+
+    [Tools of the trade: hk-dev-utils] -- a competent blacksmith can
+    forge his own anvil
+</span>
+This contains the list of second-level pages. I imagine these pages
+should be structured like this:
+- an introduction, about 2-3 paragraphs
+- links to synthetic posts about the topic
+- links to natural posts about the topic
+
+This way, the Heapkeeper Heap could be equally useful to outsiders and
+insiders (us). We could not anymore be rightfully accused by not
+fulfilling our promise of building order out of chaos.
+
+I think this idea goes well with Csabi's earlier ideas of having
+Wiki-like posts. What is new in this proposal is to have a Wiki-like
+post that functions as a "main page".
+
+I know this sounds like an insane amount of work, but I think that
+it needs to be done if we hope to attract users and contributors. And
+the software is here; the only feature that needs to be added is the
+ability to add Wiki-like internal links to posts, but this is a
+nontrivial task since it seems to break one of our key principles: the
+one that dictates that the output copied and pasted yields the
+original text.
+
+Opinions?
+
+[1] <a href="http://wiki.openttd.org/Main_Page">http://wiki.openttd.org/Main_Page</a>
+[2] But the exact equivalent to the books' index would be a list of
+    keywords in Hk.
+[3] I sometimes call a post that has been generated from an e-mail a
+    "natural" post, and one that has been created on the Heap a
+    "synthetic" post.
+[4] <a href="../hh/thread_4.html#post-summary-hh-4">heap://hh/4</a>
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1410 -->
+<div class="post-summary" id="post-summary-hh-1410">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1409.html#post-summary-hh-1410">&lt;hh/1410&gt;</a></span>
+<span class="date">(2010-10-09)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1409.html#post-summary-hh-1409">hh/1409</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Our index page couldn't be more different. It is a flat list of all
+&gt; the posts in the heap. This is a regression. We used to have sections;
+&gt; they helped reduce the problem, to a limited degree -- the user was
+&gt; offered a flat list of several hundred posts instead of several
+&gt; thousands, at least in the case of the UMS Heap.
+</span></span>
+We can still use sections if we modify the hkrc. We just don't do
+that any more. I personally don't do it because using the search bar
+is easier if I want to see only a certain category of posts.
+
+<span class="quote"><span class="quote-1">&gt; The main page could be a synthetic [3] post linking to other synthetic
+&gt; posts, these would be the "second level TOC" pages, and they could be
+&gt; children of the 'main' post. We could add a feature so that if there
+&gt; is a thread where the root post's ID is 'main', it will be presented
+&gt; as the landing page instead of the index.
+</span></span>
+I like this idea!
+
+<span class="quote"><span class="quote-1">&gt; I know this sounds like an insane amount of work, but I think that
+&gt; it needs to be done if we hope to attract users and contributors. And
+&gt; the software is here; the only feature that needs to be added is the
+&gt; ability to add Wiki-like internal links to posts, but this is a
+&gt; nontrivial task since it seems to break one of our key principles: the
+&gt; one that dictates that the output copied and pasted yields the
+&gt; original text.
+</span></span>
+This is not even necessary, we could write links this way:
+
+<span class="raw-block">    - Setting up Heapkeeper (heap://setting_up_hk) -- what you need to
+      get started, and getting it done
+    - Securing a Heapkeeper installation (heap://securing_hk_install) --
+      not all mailing lists are world-readable, and so are not all
+      heaps
+</span>
+But all posts would look better if we made it possible to display a
+link with a custom text instead of the heap url.
+
+An additional idea: it would be good to have search result pages as
+links. This is an example with a hypothetical search url syntax:
+
+<span class="raw-block">    Some interesting set of threads on HH:
+    - Post syntax (heap://search/tag:post-syntax) -- Discussions about
+      what syntax to use for post bodies
+    - Releases (heap://search/tag:release) -- Posts about Heapkeeper
+      releases
+</span></pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1410 -->
+</div><!-- postbox for post hh/1409 -->
+
+  </body>
+</html>
