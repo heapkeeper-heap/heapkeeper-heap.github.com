@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Heapkeeper v0.8 released</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Heapkeeper v0.8 released</h1>
+
+
+<div class="post-box"><!-- post hh/1412 -->
+<div class="post-summary" id="post-summary-hh-1412">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Heapkeeper v0.8 released</span>
+<span class="tags">[release, v0.8]</span>
+<span class="index"><a href="../hh/thread_1412.html#post-summary-hh-1412">&lt;hh/1412&gt;</a></span>
+<span class="date">(2010-10-17)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">I'm happy to announce that Heapkeeper v0.8 has been released.
+
+The main improvements of this release are hkweb features: better search,
+faster post body folding, possibility to use authentication and add new
+child posts.
+
+Major new features:
+- New child posts can be added in hkweb.
+- hkweb supports authenticating users.
+- The search bar in hkweb can contain new target types: the user can
+  search for posts with certain tags, posts after/before a certain date,
+  posts on a certain heap, etc; and all these can be negated and
+  combined. The "Issue Tracker" plugin even adds an "issue" target type.
+- The search page shows the number of hits and has better unicode
+  handling.
+- The "Chat" plugin implements real-time chat (instant messaging) in
+  hkweb.
+- The "Users" plugin displays users' recent activity on hkweb pages.
+- The "Custom Heap Server" plugin can be started for all heaps.
+
+Major refactorings:
+- Folding of post bodies is hkweb is 50 times faster.
+
+Other major improvements:
+- hk-dev-utils can perform automatic tests on Heapkeeper in a more
+  convenient way than before.
+- test.py collects test modules dynamically (they used to be hardcoded).
+
+Major deprecation:
+- Post item augmentation is no longer supported. It became unnecessary
+  due to refactoring: if a post item is created, it does not need to be
+  augmented any more.
+- Post pages are deprecated. (Use thread pages instead.)
+- Old configuration formats are deprecated. (Use the new format
+  instead.)
+
+The new release can be downloaded from <a href="http://heapkeeper.org/download.html">http://heapkeeper.org/download.html</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1412 -->
+
+  </body>
+</html>
