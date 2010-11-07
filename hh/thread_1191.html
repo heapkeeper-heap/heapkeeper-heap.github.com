@@ -135,13 +135,37 @@ utilization! The test suite takes only ~280 ms.
 <span class="index"><a href="../hh/thread_1191.html#post-summary-hh-1359">&lt;hh/1359&gt;</a></span>
 <span class="date">(2010-09-12)</span>
 <span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1191.html#post-summary-hh-1191">hh/1191</a></span>
-<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1191.html#post-summary-hh-1427">hh/1427</a></span>
 <pre class="post-body-content">Unfortunately now pylint does not say OK for all Heapkeeper code. This
 is my fault, I forgot to execute pylint's.
 
 It would be hard to correct this now with several branches, so let's
 wait after releasing v0.8, and fix is quickly then.
 </pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1427 -->
+<div class="post-summary" id="post-summary-hh-1427">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="tags">[-reviewed]</span>
+<span class="index"><a href="../hh/thread_1191.html#post-summary-hh-1427">&lt;hh/1427&gt;</a></span>
+<span class="date">(2010-11-07)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1191.html#post-summary-hh-1359">hh/1359</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content"><span class="meta-text">[close]</span>
+
+The pylint problems were fixed in commit 8164e08 [1]. I had to migrate
+to pylint 0.21 because the older versions did not work with the
+Ubuntu, so probably the older versions will not work with Heapkeeper
+any more.
+
+The pylint execution is included in the post-commit hook if you
+install hk-dev-utils, so we hope that we will not forget about pylint
+again.
+
+[1] "*: going to pylint 0.21", 2010-10-30, Csaba Hoch
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1427 -->
 </div><!-- postbox for post hh/1359 -->
 </div><!-- postbox for post hh/1191 -->
 
