@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Import statements and threads</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Import statements and threads</h1>
+
+
+<div class="post-box"><!-- post hh/1437 -->
+<div class="post-summary" id="post-summary-hh-1437">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Import statements and threads</span>
+<span class="tags">[prop]</span>
+<span class="index"><a href="../hh/thread_1437.html#post-summary-hh-1437">&lt;hh/1437&gt;</a></span>
+<span class="date">(2010-11-19)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">I faced an interesting problem today. My finding is the following:
+
+<span class="raw-block">    In Python, you can't execute "import" statements in two different
+    threads at once.
+</span>
+This means that if you use `import x` in a thread, then you cannot do
+any import in any other thread until the import of x module is
+complete. I learnt this by debugging a deadlock for an hour.
+
+== My story ==
+
+The story is the following: my hkrc calls `hkweb.start()`, which
+creates another thread for the webserver. I modified hkweb.start and
+the webserver to be synchronous when the former calls the latter,
+which means that hkweb.start would finish only when the webserver has
+been started. (Without this, the automatic test sometimes failed; it
+failed when the main thread (which executes the tests) made the http
+request before the server thread got to actually starting the server.)
+I used a simple lock for the implementation. (Simple means it does not
+know anything about threads; any thread can acquire or release it.
+"Acquire" and "release" are not the best words for what I use them,
+but never mind. The main thing is that a lock can be acquired only if
+it is in a "released" state, and the "acquire" method puts it into an
+"acquired" state.) This is how it is supposed to work: hkweb.start
+acquires the lock, starts the webserver thread, and tries to acquire
+it again. That second acquisition will succeed only when the webserver
+has been started, because the webserver is the one who releases the
+lock so that it can be acquired again. After hkweb.start acquires the
+lock, it releases it and returns; but at this point, we are sure that
+the web server is started and the main thread can send a request to
+it.
+
+The problem was that hkshell imported my hkrc, who (during the
+execution of this import statement) called `hkweb.start`, who started
+the webserver thread, and waited for the lock to be released by the
+webserver. The webserver thread started to initialize the webserver,
+invoked an import statement to import some module... and hanged,
+because the main thread was in the middle of importing a module (my
+hkrc), so it had to wait for that to finish. This way the system got
+into a deadlock.
+
+== Proposal ==
+
+I propose that hkrc modules should have a start() function which will
+be called automatically by hkshell, and everything other than
+function/class/variable definitions and trivial calls should be done
+there.
+
+== An example to reproduce the problem ==
+
+If someone wants to reproduce this problem, here is a way to do so.
+
+o.py: (this models hkshell)
+
+<span class="raw-block">    print 'Importing p...'
+    import p
+    print 'Importing p... [done]'
+</span>
+p.py: (this models my hkrc)
+
+<span class="raw-block">    print 'Importing r...'
+    import r
+    print 'Importing r... [done]'
+
+    print 'p: calling r.start()...'
+    r.start()
+    print 'p: calling r.start()... [done]'
+</span>
+r.py: (this models hkweb)
+
+<span class="raw-block">    import threading
+
+    class MyThread(threading.Thread):
+
+        def __init__(self):
+            super(MyThread, self).__init__()
+
+        def run(self):
+
+            print 'Importing parser...'
+            import parser
+            print 'Importing parser... [done]'
+            lock.release()
+
+    def start():
+        lock = threading.Lock()
+        lock.acquire()
+        mythread = MyThread()
+        mythread.start()
+        lock.acquire()
+        lock.release()
+</span>
+If you start o.py, this is the output before it reaches the deadlock:
+
+<span class="raw-block">    $ python o.py
+    Importing p...
+    Importing r...
+    Importing r... [done]
+    p: calling r.start()...
+    Importing parser...
+</span></pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1437 -->
+
+  </body>
+</html>

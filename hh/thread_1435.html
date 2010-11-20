@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Static HTML pages: let's always regenerate all HTML pages</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">Static HTML pages: let's always regenerate all HTML pages</h1>
+
+
+<div class="post-box"><!-- post hh/1435 -->
+<div class="post-summary" id="post-summary-hh-1435">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Static HTML pages: let's always regenerate all HTML pages</span>
+<span class="tags">[issue]</span>
+<span class="index"><a href="../hh/thread_1435.html#post-summary-hh-1435">&lt;hh/1435&gt;</a></span>
+<span class="date">(2010-11-17)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">Currently, when the user issues the g() command in hkshell, we try to
+decide which HTML files should be regenerated based on the timestamps
+of the HTML files, the post files, and whether or not the post object
+is in "modified" state. Although the code is smart that deals with
+this, but it is not smart enough: <a href="../hh/thread_926.html#post-summary-hh-926">heap://hh/926</a> and <a href="../hh/thread_926.html#post-summary-hh-1056">heap://hh/1056</a>
+describe two problems. I think that there are other problems as well
+that we are not aware of, and it may make it harder to create new
+plugins, because this question has to be considered.
+
+One possibility is to rethink the model of how this part of the code
+works and rewrite it. I don't think this code is so useful that it is
+worth the effort. Improving hkweb, the documentation, etc. are far
+more important things to work on than this.
+
+Another possibility is to leave the code buggy. The problem with this
+is that even I don't use this feature when generating static HH pages
+because these problems are quite bad; I just delete all HTML files
+before invoking g(). We can't expect anyone to use this feature with
+these problems.
+
+So I propose to remove this code and always regenerating all HTML
+pages. When you say that Heapkeeper code is bloated, and you want it
+to be clean and simple, which is the most easy step in that direction?
+Removing features and code that are not used. I don't think it is an
+inherently bad thing: we implement a feature because we think we need
+it, then we remove it if it turns out that it is not as useful.
+
+I don't think this will be a problem for anyone. With the introduction
+of hkweb, few people will use static HTML page generation, and much
+fewer will use it in an interactive way. And this feature would be
+useful only for them.
+
+In the future, we may have other databases than post files (SQL
+database that you proposed once, a single file for each heap that I'm
+thinking about now, etc.), and this current question slows down the
+development of those possible new features.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1435 -->
+
+  </body>
+</html>

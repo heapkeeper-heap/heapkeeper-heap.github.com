@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>hkweb -> hkweb, hkwebgen, hkwebserver</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">hkweb -> hkweb, hkwebgen, hkwebserver</h1>
+
+
+<div class="post-box"><!-- post hh/1439 -->
+<div class="post-summary" id="post-summary-hh-1439">
+<span class="author">Csaba Hoch</span>
+<span class="subject">hkweb -> hkweb, hkwebgen, hkwebserver</span>
+<span class="tags">[issue, refactoring]</span>
+<span class="index"><a href="../hh/thread_1439.html#post-summary-hh-1439">&lt;hh/1439&gt;</a></span>
+<span class="date">(2010-11-19)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">I propose splitting the hkweb module into three parts:
+- hkwebgen: generator classes (477 lines)
+- hkwebserver: server classes (540 lines)
+- hkweb: the rest (authentication, server thread, start()) (309 lines)
+
+Also, classes like hkweb.Index and hkweb.Post (or hkwebserver.Index
+and hkwebserver.Post) could be renamed to IndexServer and PostServer
+to be less ambiguous.
+
+I calculated the lines on the _hkweb branch.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1439 -->
+
+  </body>
+</html>

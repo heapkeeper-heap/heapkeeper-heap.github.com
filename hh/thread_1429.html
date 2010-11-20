@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>post ids on server side and client side</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+  </head>
+  <body >
+    <h1 id="header">post ids on server side and client side</h1>
+
+
+<div class="post-box"><!-- post hh/1429 -->
+<div class="post-summary" id="post-summary-hh-1429">
+<span class="author">Csaba Hoch</span>
+<span class="subject">post ids on server side and client side</span>
+<span class="tags">[hk design]</span>
+<span class="index"><a href="../hh/thread_1429.html#post-summary-hh-1429">&lt;hh/1429&gt;</a></span>
+<span class="date">(2010-11-10)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">== Post id types ==
+
+In the server side (Python), the identifiers of posts are either
+represented as tuples (e.g. `('hh', '1')`) or strings (e.g. `'hh/1'`).
+When they are tuples, their pseudo type is called PostId; when they
+are strings, it is called PostIdStr.
+
+In the client side (JavaScript), the identifiers of posts are always
+represented as strings. Unfortunately, we have to have two
+representations here as well, because we cannot use the '/' character
+is HTML ids. So in the client, one representation uses the '-'
+character as a separator between the heap id and the post index (e.g.
+`'hh-1'`). This pseudo type is called PostId, but it is different from
+the server side PostId. I chose this name because this is the natural type
+to use in JavaScript when identifying posts. The other representation
+is called PostIdStr, and it is same as in the server side.
+
+Since only the PostIdStr is used in both parties, it shall be used in
+the client-server communication.
+
+== Conversion ==
+
+There are functions for each desired conversion.
+
+In the server side (Python), the conversion is usually done through a
+post object. Usually we have to get the post object anyway. The
+conversion can be done in the following way:
+
+- postdb.post(('hh', '1')).post_id_str() -&gt; 'hh/1'
+- postdb.post('hh/1').post_id() -&gt; ('hh', '1')
+
+This works only if the post exists, but we usually don't want to
+convert post ids that does not exist in the post database to different
+format.
+
+In the client side (JavaScript), there are two functions in hkweb.js
+to be used:
+
+- postIdToPostIdStr('hh-1') -&gt; 'hh/1'
+- postIdStrToPostId('hh/1') -&gt; 'hh-1'
+
+== Notes ==
+
+1. This unfortunately does not mean that no Python code has to use the
+   'hh-1' format, because the server generates client side code, i.e.
+   the Python code generates HTML and sometimes JavaScript. BTW,
+   writing JavaScript code (e.g. event handling) in *.js files is
+   preferred over generating it by Python code. We can start a new
+   thread about this, if it is not obvious...
+
+2. I pointed out this design detail because Attis converted the post
+   id in the server (in hkweb.py) to the 'hh-1' format [1]. It is
+   better to send 'hh/1' and let JavaScript call the postIdStrToPostId
+   function. I fixed this (but haven't pushed it).
+
+[1] 6c7cc72, "hkweb{,.js}: adding new posts implemented", 2010-08-11,
+    Attila Nagy
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1429 -->
+
+  </body>
+</html>
