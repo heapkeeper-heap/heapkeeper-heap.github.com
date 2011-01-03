@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Import statements and threads</title>
     <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+    <link rel="shortcut icon" href="../static/images/heap.png">
   </head>
   <body >
     <h1 id="header">Import statements and threads</h1>
@@ -16,7 +17,7 @@
 <span class="tags">[prop]</span>
 <span class="index"><a href="../hh/thread_1437.html#post-summary-hh-1437">&lt;hh/1437&gt;</a></span>
 <span class="date">(2010-11-19)</span>
-<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1437.html#post-summary-hh-1441">hh/1441</a></span>
 <pre class="post-body-content">I faced an interesting problem today. My finding is the following:
 
 <span class="raw-block">    In Python, you can't execute "import" statements in two different
@@ -118,6 +119,77 @@ If you start o.py, this is the output before it reaches the deadlock:
     p: calling r.start()...
     Importing parser...
 </span></pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1441 -->
+<div class="post-summary" id="post-summary-hh-1441">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1437.html#post-summary-hh-1441">&lt;hh/1441&gt;</a></span>
+<span class="date">(2010-11-20)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1437.html#post-summary-hh-1437">hh/1437</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1437.html#post-summary-hh-1445">hh/1445</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; == Proposal ==
+&gt;
+&gt; I propose that hkrc modules should have a start() function which will
+&gt; be called automatically by hkshell, and everything other than
+&gt; function/class/variable definitions and trivial calls should be done
+&gt; there.
+</span></span>
+How I hate this pattern. One finds an issue that is relevant only to a
+quite special use case (here, the testing), but ruins that case
+completely. The workaround, however, makes everyone's life a bit more
+complicated.
+
+If I understand correctly, this is only necessary for those hkrcs that
+are used for testing. In other cases, we usually don't have to wait
+for hkweb's import to finish.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1445 -->
+<div class="post-summary" id="post-summary-hh-1445">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1437.html#post-summary-hh-1445">&lt;hh/1445&gt;</a></span>
+<span class="date">(2010-11-20)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1437.html#post-summary-hh-1441">hh/1441</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1437.html#post-summary-hh-1447">hh/1447</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; If I understand correctly, this is only necessary for those hkrcs
+&gt; that are used for testing. In other cases, we usually don't have to
+&gt; wait for hkweb's import to finish.
+</span></span>
+Not exactly. It can be a problem for any hkrc used for any automatic
+task, because automatic tasks are much easier to perform if the
+webserver is started synchronously.
+
+I would like to modify web.py to always start the webserver
+synchronously (it is more logical I think than do it asynchronously),
+and in that case it would affect each hkrc. In that case, for example,
+the message about the web server being started would not occur at a
+random line when hkshell is started, but always at the same place,
+where it was actually started.
+
+Another reason of my proposal is that this example suggests to me
+that executing "real code" while doing the import is not a very good
+idea.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1447 -->
+<div class="post-summary" id="post-summary-hh-1447">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1437.html#post-summary-hh-1447">&lt;hh/1447&gt;</a></span>
+<span class="date">(2010-11-21)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1437.html#post-summary-hh-1445">hh/1445</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; Another reason of my proposal is that this example suggests to me
+&gt; that executing "real code" while doing the import is not a very good
+&gt; idea.
+</span></span>
+That's a good point.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1447 -->
+</div><!-- postbox for post hh/1445 -->
+</div><!-- postbox for post hh/1441 -->
 </div><!-- postbox for post hh/1437 -->
 
   </body>

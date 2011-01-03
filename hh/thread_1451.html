@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Heapkeeper v0.9 released</title>
+    <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+    <link rel="shortcut icon" href="../static/images/heap.png">
+  </head>
+  <body >
+    <h1 id="header">Heapkeeper v0.9 released</h1>
+
+
+<div class="post-box"><!-- post hh/1451 -->
+<div class="post-summary" id="post-summary-hh-1451">
+<span class="author">Csaba Hoch</span>
+<span class="subject">Heapkeeper v0.9 released</span>
+<span class="tags">[release, v0.9]</span>
+<span class="index"><a href="../hh/thread_1451.html#post-summary-hh-1451">&lt;hh/1451&gt;</a></span>
+<span class="date">(2010-12-31)</span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content">I'm happy to announce that Heapkeeper v0.9 has been released.
+
+This release is mainly about refactorings and using the JsTestDriver unit
+testing tool.
+
+Major new features:
+
+- The "postid" target was added to the search.
+- hkweb can find a free port to listen on.
+- hkweb is more secure by not always accepting GET requests.
+
+Major refactorings:
+
+- New modules hkconfig and hkemail have been extracted from hklib.
+- All code of the issue tracker has been moved into the "Issue Tracker" plugin
+  from the Heapkeeper core.
+- hkgen.Generator was split into two classes: the part which deals with static
+  HTML has been extracted into the hkgen.StaticGenerator class.
+- Classes in hkweb were rearranged.
+- The CSS, JavaScript and favicon files are handled uniformly throughout hkgen,
+  hkweb, and the plugins.
+
+Other major improvements:
+
+- Documenting the hkweb module with docstrings.
+- The client-server communication of hkweb has been documented.
+- The JsTestDriver JavaScript unit testing tool is used for JavaScript unit tests.
+
+Major deprecation:
+
+- The old configuration formats are no longer supported.
+- The gi() and ga() hkshell commands are no longer supported.
+- The hkcustomlib module is deprecated.
+- Post page generation is deprecated.
+
+The new release can be downloaded from <a href="http://heapkeeper.org/download.html">http://heapkeeper.org/download.html</a>
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1451 -->
+
+  </body>
+</html>

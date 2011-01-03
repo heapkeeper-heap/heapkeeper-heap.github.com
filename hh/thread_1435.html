@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Static HTML pages: let's always regenerate all HTML pages</title>
     <link rel="stylesheet" href="../static/css/heapindex.css" type="text/css" />
+    <link rel="shortcut icon" href="../static/images/heap.png">
   </head>
   <body >
     <h1 id="header">Static HTML pages: let's always regenerate all HTML pages</h1>
@@ -16,7 +17,7 @@
 <span class="tags">[issue]</span>
 <span class="index"><a href="../hh/thread_1435.html#post-summary-hh-1435">&lt;hh/1435&gt;</a></span>
 <span class="date">(2010-11-17)</span>
-<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1435.html#post-summary-hh-1440">hh/1440</a></span>
 <pre class="post-body-content">Currently, when the user issues the g() command in hkshell, we try to
 decide which HTML files should be regenerated based on the timestamps
 of the HTML files, the post files, and whether or not the post object
@@ -54,6 +55,79 @@ database that you proposed once, a single file for each heap that I'm
 thinking about now, etc.), and this current question slows down the
 development of those possible new features.
 </pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1440 -->
+<div class="post-summary" id="post-summary-hh-1440">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1435.html#post-summary-hh-1440">&lt;hh/1440&gt;</a></span>
+<span class="date">(2010-11-20)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1435.html#post-summary-hh-1435">hh/1435</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1435.html#post-summary-hh-1446">hh/1446</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; I don't think this will be a problem for anyone. With the introduction
+&gt; of hkweb, few people will use static HTML page generation, and much
+&gt; fewer will use it in an interactive way. And this feature would be
+&gt; useful only for them.
+</span></span>
+I have a very strong objection to this: if we ever get any users, I
+expect them to come from the user base of ordinary mailing lists.
+These programs work exactly like this: they generate incrementally. Of
+course this is much easier for them, since their posts are immutable.
+
+Besides, if one were to use Hk to host a mailing list with a really
+huge archive, i.e. millions of posts, it would be unacceptable to have
+to rebuild the whole static output every time.
+
+So I suggest we repair this feature.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1446 -->
+<div class="post-summary" id="post-summary-hh-1446">
+<span class="author">Csaba Hoch</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1435.html#post-summary-hh-1446">&lt;hh/1446&gt;</a></span>
+<span class="date">(2010-11-20)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1435.html#post-summary-hh-1440">hh/1440</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;<a href="../hh/thread_1435.html#post-summary-hh-1448">hh/1448</a></span>
+<pre class="post-body-content"><span class="quote"><span class="quote-2">&gt;&gt; I don't think this will be a problem for anyone. With the introduction
+&gt;&gt; of hkweb, few people will use static HTML page generation, and much
+&gt;&gt; fewer will use it in an interactive way. And this feature would be
+&gt;&gt; useful only for them.
+</span></span><span class="quote"><span class="quote-1">&gt;
+&gt; I have a very strong objection to this: if we ever get any users, I
+&gt; expect them to come from the user base of ordinary mailing lists.
+&gt; These programs work exactly like this: they generate incrementally. Of
+&gt; course this is much easier for them, since their posts are immutable.
+</span></span>
+That does not mean that we expect our users to use static HTML
+generation instead of using hkweb. They lose so much with that; for
+example searching.
+
+<span class="quote"><span class="quote-1">&gt; So I suggest we repair this feature.
+</span></span>
+OK, but if it will not get repaired in a few months, we will have to
+revisit this discussion.
+</pre></div><!-- post-summary -->
+
+<div class="post-box"><!-- post hh/1448 -->
+<div class="post-summary" id="post-summary-hh-1448">
+<span class="author">Attila Nagy</span>
+<span class="subject"><span class="star">&mdash;</span></span>
+<span class="index"><a href="../hh/thread_1435.html#post-summary-hh-1448">&lt;hh/1448&gt;</a></span>
+<span class="date">(2010-11-24)</span>
+<span class="container-button post-summary-button">Parent:&nbsp;<a href="../hh/thread_1435.html#post-summary-hh-1446">hh/1446</a></span>
+<span class="container-button post-summary-button">Children:&nbsp;-</span>
+<pre class="post-body-content"><span class="quote"><span class="quote-1">&gt; OK, but if it will not get repaired in a few months, we will have to
+&gt; revisit this discussion.
+</span></span>
+I am OK with that -- if it doesn't get sorted out in a few months, it
+may mean that it is not as important as I thought, after all. And if
+it becomes necessary later, we can re-implement it, maybe using
+presently existing code from git as a basis.
+</pre></div><!-- post-summary -->
+</div><!-- postbox for post hh/1448 -->
+</div><!-- postbox for post hh/1446 -->
+</div><!-- postbox for post hh/1440 -->
 </div><!-- postbox for post hh/1435 -->
 
   </body>
