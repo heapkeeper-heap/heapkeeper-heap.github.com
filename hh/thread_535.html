@@ -26,10 +26,10 @@ The problem is that it cannot handle iterations. If you have a look at
 how nicknames are stored, you will see that it is very ugly:
 
 <span class="raw-block">    [nicknames]
-    1=Attis nagy.attila.1984@gmail.com
-    2=Josh illesjosh@gmail.com
-    3=Csabi csaba.hoch@gmail.com
-    4=Csabi hoch@inf.elte.hu
+    1=Susan susan.calvin@usrobots.com
+    2=Peter peter.bogert@usrobots.com
+    3=Alfred alfred.lanning@usrobots.com
+    4=Alfred alfred@mit.edu
 </span>
 We should either find a better ini representation, or use another
 format.
@@ -37,40 +37,40 @@ format.
 The following is an alternative ini format, conceived after looking at
 .git/config:
 
-<span class="raw-block">    [nickname "Attis"]
-    email=nagy.attila.1984@gmail.com
+<span class="raw-block">    [nickname "Susan"]
+    email=susan.calvin@usrobots.com
 
-    [nickname "Josh"]
-    email=illesjosh@gmail.com
+    [nickname "Peter"]
+    email=peter.bogert@usrobots.com
 
-    [nickname "Csabi 1"]
-    email=csaba.hoch@gmail.com
-    nick=Csabi
+    [nickname "Alfred 1"]
+    email=alfred.lanning@usrobots.com
+    nick=Alfred
 
-    [nickname "Csabi 2"]
-    email=hoch@inf.elte.hu
-    nick=Csabi
+    [nickname "Alfred 2"]
+    email=alfred@mit.edu
+    nick=Alfred
 </span>
 This format allows us to write things like this:
 
-<span class="raw-block">    [nickname "Csabi"]
-    email_regexp=hoch@inf.elte.hu
-    nick=Csabi
+<span class="raw-block">    [nickname "Alfred"]
+    email_regexp=alfred@mit.edu
+    nick=Alfred
 </span>
 == Multiple heaps ==
 
 Do you think that the following representation is good enough for the
 multiple heaps?
 
-<span class="raw-block">    [heap "UMS"]
-    host=imap.gmail.com
+<span class="raw-block">    [heap "US Robots"]
+    host=imap.usrobots.com
     port=993
     username=...
     password=...
     postdb_dir=...
 
-    [heap "hh"]
-    host=imap.gmail.com
+    [heap "US Robots misc"]
+    host=imap.usrobots.com
     port=993
     username=...
     password=...
